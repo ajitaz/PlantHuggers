@@ -6,7 +6,7 @@ import { Banner } from '../Banner/banner.component';
 export const Header = () => {
     return(
         <div className="nav-container" style ={{backgroundImage: "url(/images/cactus-grp.jpg)"}} >
-            <NavBar/>
+            <NavBar isLoggedIn = {false} />
             <Banner/>
         </div>
     )

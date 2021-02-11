@@ -32,17 +32,18 @@ a{
     color: #030303;
 }
 
-.row{
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.login-btn{
+    padding: 5px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
 }
-.col-2{
-    flex-basis: 50%;
-    min-width: 300px;
-    margin-top: 150px;
+.login-btn:hover{
+    background: #4CAF50;
+    color: #fff;
+    border: none;
 }
+
+
 .btn{
     display: inline-block;
     background: #4CAF50;
