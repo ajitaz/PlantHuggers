@@ -2,11 +2,20 @@
 .navbar{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 20px;
+    background: #ffffff;
+}
+.navbar.sticky {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-top: 0;
+    z-index: 100;
 }
 nav{
-    flex: 1;
-    text-align: right;
+    text-align: right; 
 }
 nav ul{
     display: inline-block;
@@ -18,18 +27,20 @@ nav ul li{
 nav ul li:last-child{
     margin-right: 80px;
 }
+nav ul a:hover{
+    background: #4CAF50;
+    color: #fff;
+    padding: 5%;
+    border-radius: 5px;
+}
 
 .nav-details ul li{
     display: inline-block;
     margin-right: 20px;
 }
-nav a{
-    font-weight: 700;
-    color: #4CAF50;
-}
-
 a{
-    color: #030303;
+    padding: 5%;
+    color: #000;
 }
 
 .login-btn{

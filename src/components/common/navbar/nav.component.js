@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './nav.component.css'
 
+window.addEventListener("scroll",()=>{
+    var navBar = document.querySelector(".navbar");
+    navBar.classList.toggle("sticky",window.scrollY > 0);
+  })
 
 export const NavBar = (props) => {
     let userLogged = props.isLoggedIn
@@ -10,7 +14,7 @@ export const NavBar = (props) => {
             <li><Link to=""><i className="fas fa-user"></i></Link></li>
         </ul>
         : <ul>
-            <li><Link to="" className="login-btn show-btn" id="show">Login</Link></li>
+            <li><Link to="" className="login-btn">Login</Link></li>
         </ul>
 
         
@@ -21,10 +25,10 @@ export const NavBar = (props) => {
             </div>
             <nav>
                 <ul>
-                    <li><Link to="">Home</Link></li>
-                    <li><Link to="">Shop</Link></li>
-                    <li><Link to="">Nursery</Link></li>
-                    <li><Link to="">Articles</Link></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/shop">Shop</Link></li>
+                    <li><Link to="/nursery">Nursery</Link></li>
+                    <li><Link to="/articles">Articles</Link></li>
                 </ul>
             </nav>
             <div className="nav-details">

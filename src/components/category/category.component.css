@@ -26,6 +26,8 @@
     display: inline-block;
     margin-bottom: 10px;
     overflow: hidden;
+    position: relative;
+    opacity: 1;
 }
 .image img{
     width: 100%;
@@ -42,3 +44,27 @@
     z-index: 1;
 
 }
+.overlay-content{
+    display: none;
+   
+ }
+ .overlay-content button{
+     display: inline-block;
+     background: #fff;
+     color: #000;
+     padding: 8px 30px;
+     margin: 30px 0;
+     border: none;
+     border-radius: 30px;
+ }
+ 
+ .image:hover  .overlay-content{
+     padding: 20px;
+     opacity: 1;
+     width: 100%;
+     color: #fff;
+     background: #4CAF50;
+     display: block;
+     position: absolute;
+     top: 60%;
+ }
