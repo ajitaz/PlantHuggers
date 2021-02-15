@@ -9,7 +9,7 @@ export const Shop = () => {
         <>
             <NavBar />
             <div className="small-container">
-                <h2 className="title">All Products</h2>
+            <h2 className="title">All Products</h2>
                 <div className="product-list">
                     <h2>Indoor Plants</h2>
                     <div className="grid">

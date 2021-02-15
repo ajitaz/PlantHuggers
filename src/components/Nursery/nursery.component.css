@@ -1,0 +1,49 @@
+.title{
+    text-align: center;
+    margin:0 auto 80px;
+    position: relative;
+    line-height: 60px;
+}
+.title::after{
+    content: '';
+    background:#239c27;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nurserycard {
+   margin-left: 5%;
+   padding-top: 2%;
+  }
+  .nurseryimage h1{
+      margin-bottom: 3%;
+  }
+  .nurserycard {
+    line-height: 30px;
+    text-align: left;
+  }
+  .nurseryimage {
+    background-image: linear-gradient(140deg, #ffffffe6 50%, transparent 50%);
+    margin-bottom: 4%; 
+    height: 50vh;
+    width: 80%;
+    margin:4% 10% 4% 10%;
+    background-size: 100% 100%;
+    border-radius: 20px;
+  }
+  .nurseryimage:hover{
+    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2);
+  }
+  button {
+    margin-top: 2%;
+    background-color: #4CAF50;
+    color: #ffffff;
+    border: none;
+    padding:5px 20px;
+    border-radius: 10px;
+  }

@@ -3,17 +3,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 2px;
     background: #ffffff;
-}
-.navbar.sticky {
-    position: fixed;
+    position: sticky;
     width: 100%;
     left: 0;
     top: 0;
     border-top: 0;
     z-index: 100;
+    overflow:hidden;
 }
+
 nav{
     text-align: right; 
 }
