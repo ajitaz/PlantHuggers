@@ -1,6 +1,6 @@
 import React from 'react';
 import './header.component.css';
-import { Banner } from '../../Banner/banner.component';
+import { Banner } from '../Banner/banner.component';
 
 export const Header = () => {
     return(

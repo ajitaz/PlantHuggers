@@ -17,11 +17,10 @@ export const Footer = () => {
                 <div className="footer-links box">
                     <h2>Quick links</h2>
                     <ul>
-                        <li><Link to="">Home</Link></li>
-                        <li><Link to="">Shop</Link></li>
-                        <li><Link to="">Nursery</Link></li>
-                        <li><Link to="">Shop</Link></li>
-                        <li><Link to="">Nursery</Link></li>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/shop">Shop</Link></li>
+                        <li><Link to="/nursery">Nursery</Link></li>
+                        <li><Link to="/articles">Articles</Link></li>
                     </ul>
                 </div>
                 <div className="footer-contact box">

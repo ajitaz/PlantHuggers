@@ -1,6 +1,6 @@
 import React from 'react';
-import { Footer } from '../footer/footer.component';
-import { NavBar } from '../navbar/nav.component';
+import { Footer } from '../../common/footer/footer.component';
+import { NavBar } from '../../common/navbar/nav.component';
 import './products.component.css';
 
 export const Products = () => {

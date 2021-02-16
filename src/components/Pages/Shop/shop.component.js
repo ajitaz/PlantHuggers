@@ -1,6 +1,6 @@
 import React from 'react';
-import { Footer } from '../common/footer/footer.component';
-import { NavBar } from '../common/navbar/nav.component';
+import { Footer } from '../../common/footer/footer.component';
+import { NavBar } from '../../common/navbar/nav.component';
 import {Link} from 'react-router-dom';
 import './shop.component.css';
 

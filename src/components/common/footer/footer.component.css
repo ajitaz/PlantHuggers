@@ -24,6 +24,10 @@ footer{
  .box .content{
      margin: 20px 0 0 0;
  }
+ .box ul li a{
+     padding: 1%;
+     color:#000;
+ }
  
  input,textarea {
      width: 100%;

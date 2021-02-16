@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 2px;
-    background: #ffffff;
+    background: #ecebeb;
     position: sticky;
     width: 100%;
     left: 0;
@@ -12,6 +12,7 @@
     border-top: 0;
     z-index: 100;
     overflow:hidden;
+    
 }
 
 nav{
@@ -38,7 +39,8 @@ nav ul a:hover{
     display: inline-block;
     margin-right: 20px;
 }
-a{
+
+nav ul a,i{
     padding: 5%;
     color: #000;
 }
@@ -47,19 +49,11 @@ a{
     padding: 5px 20px;
     border: 1px solid black;
     border-radius: 5px;
+    color:#000;
 }
 .login-btn:hover{
     background: #4CAF50;
     color: #fff;
-    border: none;
+    
 }
 
-
-.btn{
-    display: inline-block;
-    background: #4CAF50;
-    color: #fff;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border-radius: 30px;
-}

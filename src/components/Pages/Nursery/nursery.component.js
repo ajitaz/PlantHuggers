@@ -1,16 +1,16 @@
 import React from 'react';
-import { Footer } from '../common/footer/footer.component';
-import { NavBar } from '../common/navbar/nav.component';
+import { Footer } from '../../common/footer/footer.component';
+import { NavBar } from '../../common/navbar/nav.component';
 import './nursery.component.css';
 
 
 export const Nursery = () => {
     return (
         <>
-        <NavBar isLoggedIn = {false}/>
+            <NavBar isLoggedIn={false} />
             <h2 className="title">Partner Nursery</h2>
-            <div className="nurseryimage" style ={{
-                backgroundImage:'linear-gradient(140deg, #ffffffe6 50%, transparent 50%),url(../images/nursery.jpg)'
+            <div className="nurseryimage" style={{
+                backgroundImage: 'linear-gradient(140deg, #ffffffe6 50%, transparent 50%),url(../images/nursery.jpg)'
             }}>
                 <div className="nurserycard">
                     <h1>Kathmandu Gardening and Plants</h1>
@@ -25,8 +25,8 @@ export const Nursery = () => {
                     <a href="#"><button>view Details</button></a>
                 </div>
             </div>
-            <div className="nurseryimage" style ={{
-                backgroundImage:'linear-gradient(140deg, #ffffffe6 50%, transparent 50%),url(../images/nursery.jpg)'
+            <div className="nurseryimage" style={{
+                backgroundImage: 'linear-gradient(140deg, #ffffffe6 50%, transparent 50%),url(../images/nursery.jpg)'
             }}>
                 <div className="nurserycard">
                     <h1>Buddha plants surf</h1>
@@ -40,8 +40,8 @@ export const Nursery = () => {
                     <a href="#"><button>view Details</button></a>
                 </div>
             </div>
-            <div className="nurseryimage" style ={{
-                backgroundImage:'linear-gradient(140deg, #ffffffe6 50%, transparent 50%),url(../images/nursery.jpg)'
+            <div className="nurseryimage" style={{
+                backgroundImage: 'linear-gradient(140deg, #ffffffe6 50%, transparent 50%),url(../images/nursery.jpg)'
             }}>
                 <div className="nurserycard">
                     <h1>surya Gardening</h1>
