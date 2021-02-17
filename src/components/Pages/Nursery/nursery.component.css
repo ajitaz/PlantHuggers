@@ -23,11 +23,18 @@
   .nurseryimage h1{
       margin-bottom: 3%;
   }
+  .nurseryimage p {
+    margin-bottom: 1%;
+  }
+  .nurseryimage p i{
+  padding: 0;
+  }
   .nurserycard {
     line-height: 30px;
     text-align: left;
   }
   .nurseryimage {
+    overflow: hidden;
     margin-bottom: 4%; 
     height: 50vh;
     width: 80%;
@@ -39,7 +46,7 @@
     box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2);
   }
   button {
-    margin-top: 2%;
+    margin-top: 20px;
     background-color: #4CAF50;
     color: #ffffff;
     border: none;

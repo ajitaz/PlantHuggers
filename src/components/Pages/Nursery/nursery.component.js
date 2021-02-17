@@ -20,8 +20,9 @@ export const Nursery = () => {
                         architecto nihil perferendis, esse facere similique animi voluptate <br />
                         nesciunt repellat eum dolor nostrum!
                     </p>
-                    <br />
-                    <p><i className="fas fa-map-marker-alt"></i> Kathmandu,Nepal<br /><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
+
+                    <p>
+                    <i className="fas fa-map-marker-alt"></i> Kathmandu,Nepal<br/><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
                     <a href="#"><button>view Details</button></a>
                 </div>
             </div>
@@ -35,8 +36,8 @@ export const Nursery = () => {
                         Exercitationem blanditiis doloremque quo obcaecati voluptatem <br />
                         architecto nihil perferendis, esse facere similique animi voluptate <br />nesciunt repellat eum dolor nostrum!
                     </p>
-                    <br />
-                    <p><i className="fas fa-map-marker-alt"></i> Nepalgunj,Nepal<br /><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
+                    <p>
+                    <i className="fas fa-map-marker-alt"></i> Nepalgunj,Nepal<br /><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
                     <a href="#"><button>view Details</button></a>
                 </div>
             </div>
@@ -51,7 +52,6 @@ export const Nursery = () => {
                         architecto nihil perferendis, esse facere similique animi voluptate <br />
                         nesciunt repellat eum dolor nostrum!
                     </p>
-                    <br />
                     <p><i className="fas fa-map-marker-alt"></i> Biratnagar,Nepal<br /><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
                     <a href="#"><button>view Details</button></a>
                 </div>
