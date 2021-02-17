@@ -9,12 +9,14 @@
 /* Single product css */
 .head {
     display: flex;
+    height : 800px;
   }
 
 
 .single-product .col-2 img{
     padding: 0;
     border-radius: 20px;
+    height: 600px;
 }
 .single-product .col-2{
     padding: 20px;
@@ -36,12 +38,14 @@
     margin: 20px 0;
 }
 .details button {
+    text-align: center;
     background: #4CAF50;
     border: none;
-    width: 100px;
+    width: 150px;
     height: 25px;
     margin: 30px 0;
     border-radius: 10px;
+    white-space: nowrap;
 }
 .details button a{
     color: #fff;
