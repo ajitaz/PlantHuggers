@@ -11,7 +11,7 @@ import { Nursery } from '../../Section/Partner_Nursery/partnerNursery.component'
 export const Home = () => {
     return (
         <div>
-            <NavBar isLoggedIn={true} />
+            <NavBar isLoggedIn={false} />
             <Header />
             <NewArrival />
             <Category />
