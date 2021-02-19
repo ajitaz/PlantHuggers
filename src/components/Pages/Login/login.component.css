@@ -109,7 +109,7 @@ body{
 .input-form{
 	border: none;
 	background-color: transparent;
-	color: #fff;
+	color: rgb(8, 8, 8);
 	border-bottom: 1px solid #4CAF50;
 	width: 350px;
 	padding: 15px 0px;

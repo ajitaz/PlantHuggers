@@ -6,6 +6,7 @@ import { Nursery } from '../components/Pages/Nursery/nursery.component';
 import { Shop } from '../components/Pages/Shop/shop.component';
 import { Articles } from './Pages/Articles/articles.component'
 import { Login } from './Pages/Login/login.component';
+import { Dashboard } from './Dashboard/Board/board.component';
 const NotFound = () => {
     return(
         <div>
@@ -24,6 +25,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/nursery" component={Nursery}></Route>
                 <Route exact path="/articles" component={Articles}></Route>
                 <Route exact path="/login" component={Login}></Route>
+                <Route exact path="/dashboard" component={Dashboard}></Route>
                 <Route component={NotFound}></Route>
             </Switch>
 

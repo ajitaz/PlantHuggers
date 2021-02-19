@@ -14,7 +14,7 @@ export const NavBar = (props) => {
             <li><Link to=""><i className="fas fa-user"></i></Link></li>
         </ul>
         : <ul>
-            <li><Link to="" className="login-btn">Login</Link></li>
+            <li><Link to="/login" className="login-btn">Login</Link></li>
         </ul>
 
         
