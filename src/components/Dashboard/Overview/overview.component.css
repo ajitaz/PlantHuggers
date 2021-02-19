@@ -1,0 +1,43 @@
+main{
+    margin-top: 60px;
+    min-height: 100vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-width: 82.2vw;
+}
+.dash-cards{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column-gap: 3rem;
+}
+.Dcard-single{
+    background:#fff;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+
+}
+.Dcard-body{
+    padding:1.3rem 1rem;
+    display: flex;
+    align-items: center;
+}
+.Dcard-body i{
+    font-size: 1.5rem;
+    color: #777;
+    padding-right: 1.4rem;
+}
+.Dcard-body h5{
+    font-size: 1rem;
+    color: #b3b3b3;
+}
+.Dcard-body h4{
+    font-size: 1.1rem;
+    margin-top: .5rem;
+}
+.Dcard-footer{
+    padding:0.2rem 1rem ;
+    background: #f9fafc;
+}
+.Dcard-footer a{
+    color:#027581;
+}
