@@ -21,7 +21,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                             </p>
-                            <button className="btn">view more</button>
+                            <button>view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -38,7 +38,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                            <button className="btn">view more</button>
+                            <button>view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -55,7 +55,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                            <button className="btn">view more</button>
+                            <button>view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -71,7 +71,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                            <button className="btn">view more</button>
+                            <button>view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>
