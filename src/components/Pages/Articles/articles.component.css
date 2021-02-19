@@ -31,7 +31,7 @@ height: 100%;
 float: left;
 text-align: center;
 }
-.events ul li .details .btn{
+.events ul li .details button{
     text-align: center;
     border: none;
     background: #4CAF50;

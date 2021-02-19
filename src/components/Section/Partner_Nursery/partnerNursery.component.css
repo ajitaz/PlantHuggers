@@ -63,8 +63,8 @@
      opacity: 1;
      width: 100%;
      color: #fff;
-     background: #4CAF50;
+     background: rgba(76, 174, 79,0.7);
      display: block;
      position: absolute;
-     top: 60%;
+     bottom: 0;
  }

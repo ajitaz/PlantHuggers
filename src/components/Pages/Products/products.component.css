@@ -11,8 +11,6 @@
     display: flex;
     height : 800px;
   }
-
-
 .single-product .col-2 img{
     padding: 0;
     border-radius: 20px;
@@ -37,10 +35,11 @@
 .details h3{
     margin: 20px 0;
 }
-.details button {
+.Pdetails button {
     text-align: center;
     background: #4CAF50;
     border: none;
+    color: #fff;
     width: 150px;
     height: 25px;
     margin: 30px 0;
@@ -70,17 +69,17 @@
     line-height: 60px;
 }
 
-.small-container{
+.Psmall-container{
     max-width: 1080px;
     margin: auto;
     padding-left: 25px;
     padding-right: 25px;
 }
-.small-container h2{
+.Psmall-container h2{
     text-transform: uppercase;
 }
 
-.shop_page .small-container .row {
+.shop_page .Psmall-container .row {
     justify-content: space-between;
   }
   input,select:focus {
