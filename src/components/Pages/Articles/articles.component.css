@@ -3,8 +3,7 @@
     left: 10%;
     right: 10%;
     width: 80%;
-    height: 100%;
-   
+    height: 100%;  
 }
 .events .details .card-category{
     font-size: 1rem;
@@ -32,20 +31,18 @@ height: 100%;
 float: left;
 text-align: center;
 }
-
-.events ul li .details .btn{
+.events ul li .details button{
     text-align: center;
     border: none;
     background: #4CAF50;
     color: #fff;
     white-space: nowrap;
-    margin: 30px 0;
+    height: 30px;
     border-radius: 30px;
 }
 .events ul li .details{
     padding: 20px;
 }
-
 .clear{
     clear: both;
 }
