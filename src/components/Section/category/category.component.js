@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './category.component.css';
 
 export const Category = () => {
@@ -14,7 +15,7 @@ export const Category = () => {
                             <div className="Coverlay-content">
                                 <h2>Indoor plants <i className="fas fa-info-circle"></i></h2>
                                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
-                                <a href="#"> <button>view more</button></a>
+                                <Link to="/category"> <button>view more</button></Link>
                             </div>
                         </div>
                     </div>

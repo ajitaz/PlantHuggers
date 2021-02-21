@@ -7,6 +7,7 @@ import './nav.component.css'
 //     navBar.classList.toggle("sticky",window.scrollY > 0);
 //   })
 
+console.log('public url:', process.env.PUBLIC_URL);
 export const NavBar = (props) => {
     let userLogged = props.isLoggedIn
         ? <ul>
@@ -21,7 +22,7 @@ export const NavBar = (props) => {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src="images/planthuggers.png" alt="Logo" width="80"></img>
+                <img src={process.env.PUBLIC_URL +"images/planthuggers.png"} alt="Logo" width="80"></img>
             </div>
             <nav>
                 <ul>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Dashboard } from '../Board/board.component';
 import './sidebar.component.css';
 
@@ -15,24 +16,24 @@ export class Sidebar extends Component {
                     <div className="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="admin.html"><i className="fas fa-home"></i><span>Dashboard</span>
-                            </a>
-                            </li>
-                            <li>   
-                            <a href="user.html"><i className="fas fa-user"></i><span>User</span>
-                            </a>
+                                <Link to="/dashboard"><i className="fas fa-home"></i><span>Dashboard</span>
+                                </Link>
                             </li>
                             <li>
-                                <a href="product.html"><i className="fas fa-shopping-cart"></i><span>Product</span>
-                                </a>
+                                <Link to="/dashboard/user"><i className="fas fa-user"></i><span>User</span>
+                                </Link>
                             </li>
                             <li>
-                                <a href=""><i className="fas fa-hand-holding-seedling"></i><span>Nursery</span>
-                                </a>
+                                <Link to="/dashboard/product"><i className="fas fa-shopping-cart"></i><span>Product</span>
+                                </Link>
                             </li>
                             <li>
-                                <a href=""><i className="fas fa-cog"></i><span>Setting</span>
-                                </a>
+                                <Link to="/dashboard/nursery"><i className="fas fa-hand-holding-seedling"></i><span>Nursery</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/dashboard/setting"><i className="fas fa-cog"></i><span>Setting</span>
+                                </Link>
                             </li>
                         </ul>
                     </div>

@@ -35,7 +35,7 @@ export const Shop = () => {
                         </div>
 
                     </div>
-                    <button><a href="#">view more</a></button>
+                    <button><Link to="/category">view more</Link></button>
                     <div className="clear"></div>
                 </div>
 

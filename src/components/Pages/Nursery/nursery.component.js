@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Footer } from '../../common/footer/footer.component';
 import { NavBar } from '../../common/navbar/nav.component';
 import './nursery.component.css';
@@ -23,7 +24,7 @@ export const Nursery = () => {
 
                     <p>
                     <i className="fas fa-map-marker-alt"></i> Kathmandu,Nepal<br/><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
-                    <a href="#"><button>view Details</button></a>
+                    <Link to="/indnursery"><button>view Details</button></Link>
                 </div>
             </div>
             <div className="nurseryimage" style={{
