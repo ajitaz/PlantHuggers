@@ -69,11 +69,9 @@ export class Login extends Component {
                                     <input className="submit-form" type="submit" value="Login" />
                                 </form>
                                 <Register />
+                                <Link to="/"><button className="loginbtn"> &#8592; Back to Home</button></Link>
                             </div>
                         </div>
-                    </div>
-                    <div className="para">
-                        <Link to="/"><button> &#8592; Back to Home</button></Link>
                     </div>
                 </div>
 
