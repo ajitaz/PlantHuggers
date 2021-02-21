@@ -24,7 +24,7 @@
 .sidebar li{
     margin-bottom: 1.2rem;
 }
-.sidebar a{
+.sidebar a,i{
     color: #fff;
     font-size: 0.9rem;
 }
