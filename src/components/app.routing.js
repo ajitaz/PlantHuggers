@@ -28,9 +28,9 @@ export const AppRouting = (props) => {
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/category" component={IndCategory}></Route>
                 <Route exact path="/shop" component={Shop}></Route>
-                <Route exact path="/products" component={Products}></Route>
+                <Route exact path="/products/:name" component={Products}></Route>
                 <Route exact path="/nursery" component={Nursery}></Route>
-                <Route exact path="/nursery/nursery1" component={IndNursery}></Route>
+                <Route exact path="/nursery/:name" component={IndNursery}></Route>
                 <Route exact path="/articles" component={Articles}></Route>
                 <Route exact path="/login" component={Login}></Route>
                 <Route exact path="/dashboard" component={Dashboard}></Route>

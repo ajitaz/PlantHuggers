@@ -14,7 +14,7 @@ export const Shop = () => {
                     <h2>Indoor Plants</h2>
                     <div className="grid">
                         <div className="col-4">
-                            <Link to="/products"><img src="../images/plant2.jpg" alt="" /></Link>
+                            <Link to="/products/product1"><img src="../images/plant2.jpg" alt="" /></Link>
                             <h4>Plant Indoor</h4>
                             <p>Rs.1800</p>
                         </div>
