@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './addUser.component.css';
+import axios from 'axios';
 
 
 const defaultForm = {
-    userName: '',
+    username: '',
     password: '',
     email: '',
-    designation: ''
+    flag: ''
 }
 
 export class AddUser extends Component {
@@ -21,11 +22,29 @@ export class AddUser extends Component {
     }
 
     hadnleChange = (e) => {
-        
+        const { name, value } = e.target;
+        this.setState((preState) => ({
+            data: {
+                ...preState.data,
+                [name]: value
+            }
+        }), () => {
+            //form valid
+            console.log('check state', this.state);
+        })
+
     }
 
+
     handleSubmit = (e) => {
-        //http request
+        e.preventDefault();
+        let formData = new FormData();
+        formData.append("data", this.state.data);
+        const url = "http//localhost:80/plant_hugger_php/addUser.php";
+        axios.post(url, formData)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err));
+
     }
 
     render() {
@@ -46,16 +65,16 @@ export class AddUser extends Component {
 
                         <div className="form">
                             <form onSubmit={this.handleSubmit} method="POST">
-                                <label for="uname">UserName</label>
-                                <input type="text" id="uname" name="username" placeholder="Username.." />
+                                <label htmlFor="uname">UserName</label>
+                                <input type="text" id="uname" name="username" placeholder="Username.." onChange={this.hadnleChange} />
 
-                                <label for="psw">password</label>
-                                <input type="password" id="psw" name="password" />
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Email Id.." />
+                                <label htmlFor="psw">password</label>
+                                <input type="password" id="psw" name="password" onChange={this.hadnleChange} />
+                                <label htmlFor="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="Email Id.." onChange={this.hadnleChange} />
 
-                                <label for="designation">Designation</label>
-                                <select id="designation" name="designation">
+                                <label htmlFor="designation">Designation</label>
+                                <select id="designation" name="flag" onChange={this.hadnleChange} >
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>
                                     <option value="Nursery Admin">Nursery Admin</option>

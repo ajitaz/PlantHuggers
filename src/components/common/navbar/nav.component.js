@@ -1,13 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './nav.component.css'
+import './nav.component.css';
 
-// window.addEventListener("scroll",()=>{
-//     var navBar = document.querySelector(".navbar");
-//     navBar.classList.toggle("sticky",window.scrollY > 0);
-//   })
-
-console.log('public url:', process.env.PUBLIC_URL);
 export const NavBar = (props) => {
     let userLogged = props.isLoggedIn
         ? <ul>
