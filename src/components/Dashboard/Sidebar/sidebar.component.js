@@ -11,7 +11,6 @@ export class Sidebar extends Component {
                 <div className="sidebar">
                     <div className="sidebar-header">
                         <h3 className="brand"><span>Plant Huggers</span></h3>
-                        <i className="far fa-bars"></i>
                     </div>
                     <div className="sidebar-menu">
                         <ul>

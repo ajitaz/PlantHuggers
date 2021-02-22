@@ -10,7 +10,12 @@
     overflow-y: auto;
 
 }
-
+.brand{
+white-space: nowrap;
+margin-top: 20px;
+font-size: 18px;
+color: #fff;
+}
 .sidebar-header{
     display: flex;
     justify-content: space-between;
