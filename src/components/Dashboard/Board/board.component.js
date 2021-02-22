@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Overview } from '../Overview/overview.component';
 import { Sidebar } from '../Sidebar/sidebar.component';
-import { User } from '../User/user.component';
 import './board.component.css';
 
 export class Dashboard extends Component {

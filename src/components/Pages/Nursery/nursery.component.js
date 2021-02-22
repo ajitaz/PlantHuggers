@@ -24,7 +24,7 @@ export const Nursery = () => {
 
                     <p>
                     <i className="fas fa-map-marker-alt"></i> Kathmandu,Nepal<br/><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
-                    <Link to="/indnursery"><button>view Details</button></Link>
+                    <Link to="/nursery/nursery1"><button>view Details</button></Link>
                 </div>
             </div>
             <div className="nurseryimage" style={{

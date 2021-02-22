@@ -22,7 +22,7 @@ export const NavBar = (props) => {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src={process.env.PUBLIC_URL +"images/planthuggers.png"} alt="Logo" width="80"></img>
+                <img src="images/planthuggers.png" alt="Logo" width="80"></img>
             </div>
             <nav>
                 <ul>
