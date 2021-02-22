@@ -11,10 +11,12 @@ import { User } from './Dashboard/User/user.component';
 import { AddUser } from './Dashboard/AddUser/addUser.component';
 import { IndNursery } from './Pages/Ind_Nursery/indNursery.component';
 import { IndCategory } from './Pages/IndCategory/indCategory.component';
+
+
 const NotFound = () => {
     return(
         <div>
-            <img src="images/PageNotFound.png" alt="Not Found"></img>
+            <img src="http://localhost:3000/images/PageNotFound.png" alt="Not Found" />
         </div>
     )
 }

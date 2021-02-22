@@ -3,6 +3,7 @@ import { Sidebar } from '../Sidebar/sidebar.component';
 import './addUser.component.css';
 import axios from 'axios';
 
+const BASE_URL = 'http://localhost:80/plant_hugger_php/addUser.php';
 
 const defaultForm = {
     username: '',
@@ -38,11 +39,16 @@ export class AddUser extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let formData = new FormData();
-        formData.append("data", this.state.data);
-        const url = "http//localhost:80/plant_hugger_php/addUser.php";
-        axios.post(url, formData)
-            .then(res => console.log(res.data))
+        // let formData = new FormData();
+        // formData.append("data", this.state.data);
+        let data = this.state.data;
+        axios.post(BASE_URL, data, {
+            headers: {
+                "Content-Type": "application/json"
+            }, params: {},
+            responseType: 'json'
+        })
+            .then(res => console.log(res.config.data))
             .catch(err => console.log(err));
 
     }
