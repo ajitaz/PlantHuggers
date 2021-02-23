@@ -40,8 +40,6 @@ export class AddUser extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        // let formData = new FormData();
-        // formData.append("data", this.state.data);
         let data = this.state.data;
         axios.post(BASE_URL, data, {
             headers: {

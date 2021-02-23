@@ -1,7 +1,10 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './login.component.css';
-import {Register} from './register.component'
+import { Register } from './register.component'
+
+const BASE_URL = 'http://localhost:80/plant_hugger_php/verifyUser.php';
 
 export class Login extends Component {
 
@@ -23,9 +26,23 @@ export class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-        this.props.history.push('/dashboard');
-        
+        let formData = this.state;
+        axios.post(BASE_URL, formData, {
+            headers: {
+                "Content-Type": "application/json"
+            }, params: {},
+            responseType: 'json'
+        })
+            .then(res => {
+                    if(res.data === 'VALID'){
+                        this.props.history.push('/dashboard');
+                    } else {
+                        console.log("DID NOT MATCH");
+                    }
+            })
+            .catch(err => console.log(err));
+
+
     }
 
 
@@ -51,7 +68,7 @@ export class Login extends Component {
         }
         return (
             <>
-                <div className="main" style={{ backgroundImage: 'url(../images/background.jpg)',backgroundSize:"cover" }}>
+                <div className="main" style={{ backgroundImage: 'url(../images/background.jpg)', backgroundSize: "cover" }}>
                     <div className="card">
                         <div className="card-title">
                             <h3><i className="fa fa-user-circle-o" aria-hidden="true"></i> User <span id="action_title">Login</span></h3>
@@ -69,7 +86,7 @@ export class Login extends Component {
                                     <input className="submit-form" type="submit" value="Login" />
                                 </form>
                                 <Register />
-                                
+
                             </div>
                         </div>
                         <Link to="/"><button className="loginbtn"> &#8592; Back to Home</button></Link>
