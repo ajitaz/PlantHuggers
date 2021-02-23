@@ -34,11 +34,21 @@ header{
     padding-right:20px ;
 
 }
-.social-icons i{
-    color: black;
-    background-color: #fff;
-    margin-top: 6.5%;
+.social-icons .sbtn{
+    margin: 1rem;
+    color: #fff;
+}
+.social-icons a, .lbtn{
+   background: none;
+   cursor: pointer;
+   white-space: nowrap;
+   margin: auto;
+   color: #000;
+}
+.social-icons  .lbtn:hover{
+    background: #ec3939;
+    color:#fff;
 }
 .social-icons span{
- margin-left: 1rem;
+    margin: 1rem;
 }

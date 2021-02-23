@@ -13,7 +13,8 @@ export const User = () => {
                         <p>Welcome, Ramesh</p>
                     </div>
                     <div className="social-icons">
-                        <i className="fas fa-sign-out-alt"></i><span>Logout</span>
+                    <Link to="/login"><button className="lbtn">Logout</button></Link>
+                    <Link to="/"><button className="sbtn">Home</button></Link>
                     </div>
                 </header>
                 <main className="userMain">

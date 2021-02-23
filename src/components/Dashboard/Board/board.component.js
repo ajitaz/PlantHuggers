@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Overview } from '../Overview/overview.component';
 import { Sidebar } from '../Sidebar/sidebar.component';
+import { Link } from 'react-router-dom';
 import './board.component.css';
 
 export class Dashboard extends Component {
@@ -20,7 +21,8 @@ export class Dashboard extends Component {
                             <p>Welcome, Ramesh</p>
                         </div>
                         <div className="social-icons">
-                            <i className="fas fa-sign-out-alt"></i><span>Logout</span>
+                        <Link to="/login"><button className="lbtn">Logout</button></Link>
+                        <Link to="/"><button className="sbtn">Home</button></Link>
                         </div>
                     </header>
                     <Overview />

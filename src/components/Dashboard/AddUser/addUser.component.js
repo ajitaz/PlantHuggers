@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './addUser.component.css';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 const BASE_URL = 'http://localhost:80/plant_hugger_php/addUser.php';
@@ -63,7 +64,8 @@ export class AddUser extends Component {
                             <p>Welcome, Ramesh</p>
                         </div>
                         <div className="social-icons">
-                            <i className="fas fa-sign-out-alt"></i><span>Logout</span>
+                        <Link to="/login"><button className="lbtn">Logout</button></Link>
+                        <Link to="/"><button className="sbtn">Home</button></Link>
                         </div>
                     </header>
                     <main>
