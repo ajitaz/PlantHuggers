@@ -26,7 +26,7 @@ export const AppRouting = (props) => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={Home}></Route>
-                <Route exact path="/category" component={IndCategory}></Route>
+                <Route exact path="/category/:name" component={IndCategory}></Route>
                 <Route exact path="/shop" component={Shop}></Route>
                 <Route exact path="/products/:name" component={Products}></Route>
                 <Route exact path="/nursery" component={Nursery}></Route>

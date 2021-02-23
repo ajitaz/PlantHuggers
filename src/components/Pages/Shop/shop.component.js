@@ -35,7 +35,7 @@ export const Shop = () => {
                         </div>
 
                     </div>
-                    <button><Link to="/category">view more</Link></button>
+                    <button><Link to="/category/indoor">view more</Link></button>
                     <div className="clear"></div>
                 </div>
 
