@@ -36,6 +36,8 @@
 .article-content .card-title{
     margin: 1rem 0;
     color: #4CAF50;
+    font-size: 18px;
+    letter-spacing: 1px;
 }
 .article-content .card-desc{
     font-size: 1rem;
