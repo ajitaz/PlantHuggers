@@ -40,9 +40,12 @@ nav ul a:hover{
     margin-right: 20px;
 }
 
-nav ul a,i{
+nav ul a{
     padding: 5%;
     color: #000;
+}
+ul li i{
+    color: #000;  
 }
 
 .login-btn{

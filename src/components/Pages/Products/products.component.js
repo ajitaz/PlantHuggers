@@ -19,7 +19,7 @@ export const Products = () => {
                         <h4>Rs 1200</h4>
                         {/* <input type="number" value="1" /> */}
                         <button>Add to Cart</button>
-                        <h3>product Detail <i className="fas fa-info-circle"></i></h3>
+                        <h3>product Detail</h3>
                         <p>
                             A cactus is a member of the plant family Cactaceae, a family
                             comprising about 127 genera with some 1750 known species of the

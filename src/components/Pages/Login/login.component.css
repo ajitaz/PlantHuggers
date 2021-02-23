@@ -12,22 +12,17 @@
 	width: 400px;
     border-radius: 10px;
 	position: absolute;
-	top: 50%;
+	top: 20%;
 	left: 50%;
-	transform: translate(-50%,-50%);
-	height:500px;
-	
+	text-align: center;
+	transform: translate(-50%,-20%);
+	height: 100px;
 }
-
-.card-title{
-	width: 100%;
-}
-
 .card-title h3{
 	color: #4CAF50;
 	text-align: center;
-	padding: 20px 0;
-	font-weight: 500;
+	padding: 20px;
+	font-weight: 400;
 }
 
 .card-title h3 > span{

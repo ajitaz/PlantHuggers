@@ -51,7 +51,7 @@ export class Login extends Component {
         }
         return (
             <>
-                <div className="main" style={{ backgroundImage: 'url(../images/background.jpg)' }}>
+                <div className="main" style={{ backgroundImage: 'url(../images/background.jpg)',backgroundSize:"cover" }}>
                     <div className="card">
                         <div className="card-title">
                             <h3><i className="fa fa-user-circle-o" aria-hidden="true"></i> User <span id="action_title">Login</span></h3>
