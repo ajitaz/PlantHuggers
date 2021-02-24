@@ -60,8 +60,8 @@ export class User extends Component {
                                                     <td>{result.email}</td>
                                                     <td>{result.flag}</td>
                                                     <td>
-                                                        <i className="fas fa-pencil-alt"> Edit</i>
-                                                        <i className="fas fa-trash-alt"> Delete</i>
+                                                        <button className="edit"><i className="fas fa-pencil-alt"> Edit</i></button>
+                                                        <button className="delete"> <i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )
