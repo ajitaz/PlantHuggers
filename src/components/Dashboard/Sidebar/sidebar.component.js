@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Dashboard } from '../Board/board.component';
 import './sidebar.component.css';
 
 export class Sidebar extends Component {
