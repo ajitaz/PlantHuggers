@@ -14,13 +14,37 @@ export class User extends Component {
     }
 
     componentDidMount() {
+        this.getUserlist();
+    }
+
+    getUserlist(){
         axios.get(`${BASE_URL}/viewUser.php`)
             .then(res => {
                 this.setState({
                     data: res.data
                 })
-                console.log('Data in  State :', this.state);
             })
+    }
+    
+
+
+    handleClick =(id,value) => {
+        let actionData = {
+            id : id,
+            value:value
+        } 
+       axios.post(`${BASE_URL}/action.php`,actionData, {
+        headers: {
+            "Content-Type": "application/json"
+        }, params: {},
+        responseType: 'json'
+    })
+       .then(res =>{
+           console.log(res);
+           this.getUserlist();
+           
+       })
+
     }
 
     render() {
@@ -60,8 +84,8 @@ export class User extends Component {
                                                     <td>{result.email}</td>
                                                     <td>{result.flag}</td>
                                                     <td>
-                                                        <button className="edit"><i className="fas fa-pencil-alt"> Edit</i></button>
-                                                        <button className="delete"> <i className="fas fa-trash-alt"> Delete</i></button>
+                                                        <button className="edit" onClick={()=>{this.handleClick(result.id,'edit')}}><i className="fas fa-pencil-alt"> Edit</i></button>
+                                                        <button className="delete" onClick={()=>{this.handleClick(result.id,'delete')}}> <i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )
