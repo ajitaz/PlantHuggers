@@ -23,7 +23,7 @@ export class AddUser extends Component {
         }
     }
 
-    hadnleChange = (e) => {
+    handleChange = (e) => {
         const { name, value } = e.target;
         this.setState((preState) => ({
             data: {
@@ -47,7 +47,7 @@ export class AddUser extends Component {
             }, params: {},
             responseType: 'json'
         })
-            .then(res => console.log(res.config.data))
+            .then(res => console.log(res))
             .catch(err => console.log(err));
 
     }
@@ -72,18 +72,19 @@ export class AddUser extends Component {
                         <div className="form">
                             <form onSubmit={this.handleSubmit} method="POST">
                                 <label htmlFor="uname">UserName</label>
-                                <input type="text" id="uname" name="username" placeholder="Username.." onChange={this.hadnleChange} />
+                                <input type="text" id="uname" name="username" placeholder="Username.." onChange={this.handleChange} />
 
                                 <label htmlFor="psw">password</label>
-                                <input type="password" id="psw" name="password" onChange={this.hadnleChange} />
+                                <input type="password" id="psw" name="password" onChange={this.handleChange} />
                                 <label htmlFor="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Email Id.." onChange={this.hadnleChange} />
+                                <input type="email" id="email" name="email" placeholder="Email Id.." onChange={this.handleChange} />
 
                                 <label htmlFor="designation">Designation</label>
-                                <select id="designation" name="flag" onChange={this.hadnleChange} >
+                                <select id="designation" name="flag" onChange={this.handleChange} >
+                                    <option value ="">None</option>
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>
-                                    <option value="Nursery Admin">Nursery Admin</option>
+                                    <option value="NA">Nursery Admin</option>
                                 </select>
 
                                 <input type="submit" value="Add" />
