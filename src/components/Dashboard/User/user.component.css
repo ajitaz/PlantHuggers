@@ -55,9 +55,11 @@ table .fa-trash-alt{
     color: #e72f0f;
   
 }
-th,td{
-    font-size: 1rem;
+th{
     padding: 1rem 1rem;
+}
+td{
+    font-size: 1rem;
 }
 td{
     font-size: 0.9rem;
