@@ -49,7 +49,7 @@
     height: 250px;
     display: none;
  }
- .Coverlay-content button{
+.Coverlay-content button{
      display: inline-block;
      background: #fff;
      color: #000;
@@ -67,4 +67,8 @@
      display: block;
      position: absolute;
      bottom: 0;
+ }
+
+ .Coverlay-content button:hover {
+     cursor: pointer;
  }
