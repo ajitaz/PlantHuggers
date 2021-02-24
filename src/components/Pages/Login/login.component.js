@@ -34,11 +34,19 @@ export class Login extends Component {
             responseType: 'json'
         })
             .then(res => {
-                    if(res.data === 'VALID'){
+                switch(res.data){
+                    case 'Admin':
                         this.props.history.push('/dashboard');
-                    } else {
-                        console.log("DID NOT MATCH");
-                    }
+                        break;
+                    case 'User':
+                        this.props.history.push('/');
+                        break;
+                    case 'NA':
+                        this.props.history.push('/dashboard');
+                        break;
+                    default:
+                        console.Console.log('DID NOT MATCH');            
+                }
             })
             .catch(err => console.log(err));
 
