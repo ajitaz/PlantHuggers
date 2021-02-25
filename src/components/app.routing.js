@@ -9,6 +9,7 @@ import { Login } from './Pages/Login/login.component';
 import { Dashboard } from './Dashboard/Board/board.component';
 import { User } from './Dashboard/User/user.component';
 import { AddUser } from './Dashboard/AddUser/addUser.component';
+import {AddProduct} from './Dashboard/AddProduct/addProduct.component';
 import { IndNursery } from './Pages/Ind_Nursery/indNursery.component';
 import { IndCategory } from './Pages/IndCategory/indCategory.component';
 
@@ -36,6 +37,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/dashboard" component={Dashboard}></Route>
                 <Route exact path="/dashboard/user" component={User}></Route>
                 <Route exact path="/dashboard/user/adduser" component={AddUser}></Route>
+                <Route exact path="/dashboard/product/addProduct" component={AddProduct}></Route>
                 <Route component={NotFound}></Route>
             </Switch>
 
