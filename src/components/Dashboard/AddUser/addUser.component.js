@@ -78,6 +78,8 @@ export class AddUser extends Component {
                                 <input type="password" id="psw" name="password" onChange={this.handleChange} />
                                 <label htmlFor="email">Email</label>
                                 <input type="email" id="email" name="email" placeholder="Email Id.." onChange={this.handleChange} />
+                                <label htmlFor="phone">Phone</label>
+                                <input type="Number" id="phone" name="phone" placeholder="Phone Number" onChange={this.handleChange} />
 
                                 <label htmlFor="designation">Designation</label>
                                 <select id="designation" name="flag" onChange={this.handleChange} >
