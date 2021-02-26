@@ -1,6 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import { EditUser } from '../Functions/EditUser/editUser.component';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './user.component.css';
 const BASE_URL = 'http://localhost:80/plant_hugger_php';
@@ -17,7 +20,7 @@ export class User extends Component {
         this.getUserlist();
     }
 
-    getUserlist(){
+    getUserlist() {
         axios.get(`${BASE_URL}/viewUser.php`)
             .then(res => {
                 this.setState({
@@ -25,25 +28,25 @@ export class User extends Component {
                 })
             })
     }
-    
 
 
-    handleClick =(id,value) => {
+
+    handleClick = (id, value) => {
         let actionData = {
-            id : id,
-            value:value
-        } 
-       axios.post(`${BASE_URL}/action.php`,actionData, {
-        headers: {
-            "Content-Type": "application/json"
-        }, params: {},
-        responseType: 'json'
-    })
-       .then(res =>{
-           console.log(res);
-           this.getUserlist();
-           
-       })
+            id: id,
+            value: value
+        }
+        axios.post(`${BASE_URL}/action.php`, actionData, {
+            headers: {
+                "Content-Type": "application/json"
+            }, params: {},
+            responseType: 'json'
+        })
+            .then(res => {
+                console.log(res);
+                this.getUserlist();
+
+            })
 
     }
 
@@ -77,15 +80,18 @@ export class User extends Component {
                                 </thead>
                                 <tbody>
                                     {
-                                        this.state.data.map((result ,index) => {
+                                        this.state.data.map((result, index) => {
                                             return (
                                                 <tr key={index}>
                                                     <td>{result.username}</td>
                                                     <td>{result.email}</td>
                                                     <td>{result.flag}</td>
                                                     <td>
-                                                        <button className="edit" onClick={()=>{this.handleClick(result.id,'edit')}}><i className="fas fa-pencil-alt"> Edit</i></button>
-                                                        <button className="delete" onClick={()=>{this.handleClick(result.id,'delete')}}> <i className="fas fa-trash-alt"> Delete</i></button>
+                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose= {()=>{this.getUserlist()}}>
+                                                            <EditUser editData ={result} />
+                                                        </Popup>
+
+                                                        <button className="delete" onClick={() => { this.handleClick(result.id, 'delete') }}> <i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )
