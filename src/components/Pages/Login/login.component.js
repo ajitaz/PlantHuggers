@@ -45,7 +45,7 @@ export class Login extends Component {
                         this.props.history.push('/dashboard');
                         break;
                     default:
-                        console.Console.log('DID NOT MATCH');            
+                        console.log('DID NOT MATCH');            
                 }
             })
             .catch(err => console.log(err));
