@@ -74,6 +74,7 @@ export class User extends Component {
                                     <tr>
                                         <th>Username</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
                                         <th>Designation</th>
                                         <th>Action</th>
                                     </tr>
@@ -85,6 +86,7 @@ export class User extends Component {
                                                 <tr key={index}>
                                                     <td>{result.username}</td>
                                                     <td>{result.email}</td>
+                                                    <td>{result.phone}</td>
                                                     <td>{result.flag}</td>
                                                     <td>
                                                         <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose= {()=>{this.getUserlist()}}>

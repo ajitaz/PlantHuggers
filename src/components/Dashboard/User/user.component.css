@@ -58,9 +58,8 @@ table .fa-trash-alt{
 th{
     padding: 1rem 1rem;
 }
-td{
-    font-size: 1rem;
-}
-td{
+tr td{
+    padding:0;
     font-size: 0.9rem;
+    text-align: center;
 }
