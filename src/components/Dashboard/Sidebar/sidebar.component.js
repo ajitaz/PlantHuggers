@@ -22,11 +22,11 @@ export class Sidebar extends Component {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/dashboard/product"><i className="fas fa-shopping-cart"></i><span>Product</span>
+                                <Link to="/dashboard/viewProduct"><i className="fas fa-shopping-cart"></i><span>Product</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/dashboard/nursery"><i className="fas fa-hand-holding-seedling"></i><span>Nursery</span>
+                                <Link to="/dashboard/viewNursery"><i className="fas fa-hand-holding-seedling"></i><span>Nursery</span>
                                 </Link>
                             </li>
                             <li>

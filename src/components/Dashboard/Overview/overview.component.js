@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './overview.component.css';
 
 export const Overview = () => {
@@ -16,7 +17,7 @@ export const Overview = () => {
                             </div>
                         </div>
                         <div className="Dcard-footer">
-                            <a href="user.html">View All</a>
+                         <Link to="/dashboard/user">View All</Link>
                         </div>
                     </div>
                     <div className="Dcard-single">
@@ -28,7 +29,7 @@ export const Overview = () => {
                             </div>
                         </div>
                         <div className="Dcard-footer">
-                            <a href="product.html">View All</a>
+                        <Link to="/dashboard/viewProduct">View All</Link>
                         </div>
                     </div>
                     <div className="Dcard-single">
@@ -40,7 +41,7 @@ export const Overview = () => {
                             </div>
                         </div>
                         <div className="Dcard-footer">
-                            <a href="nursery.html">View All</a>
+                        <Link to="/dashboard/ViewNursery">View All</Link>
                         </div>
                     </div>
                 </div>
