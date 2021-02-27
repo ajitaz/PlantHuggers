@@ -19,7 +19,7 @@ export const viewNursery = ()=>{
         </header>
          <main>
             <h2 className="dash-title">Nursery-List</h2>
-           <Link to ="/dashboard/nursery"><button className="primary">Add Nursery</button></Link>
+           <Link to ="/dashboard/AddNursery"><button className="primary">Add Nursery</button></Link>
             <div className="list">
                 <table>
                     <thead>

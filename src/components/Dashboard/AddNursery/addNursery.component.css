@@ -1,0 +1,88 @@
+.main-content{
+    position: absolute;
+    left: 240px;
+    
+}
+header{
+    position: fixed;
+    left: 240px;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #fff;
+    height: 60px;
+    padding: 0rem 1rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom:1px solid #ccc;
+
+}
+.welcome{
+    display: flex;
+}
+.welcome i{
+    margin-top: 6.5%;
+}
+.social-icons{
+    display: flex;
+    position: fixed;
+    right: 0;
+    padding-right:20px ;
+
+}
+.social-icons i{
+    margin-top: 6.5%;
+}
+.social-icons span{
+ margin-left: 1rem;
+}
+
+main{
+    margin-top: 60px;
+    min-height: 100vh;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-width: 82.2vw;
+}
+.dash-title{
+    color: black;
+    padding: 1rem;
+    text-align: center;
+    }
+
+input,textarea, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 0.5px solid #000;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    font-size: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+ .form {
+    position: absolute;
+    left: 25%;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 20px;
+    width: 50%;
+  }
+ 
