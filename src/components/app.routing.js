@@ -18,7 +18,7 @@ import { IndCategory } from './Pages/IndCategory/indCategory.component';
 
 
 const NotFound = () => {
-    return(
+    return (
         <div>
             <img src="http://localhost:3000/images/PageNotFound.png" alt="Not Found" />
         </div>
@@ -32,15 +32,15 @@ export const AppRouting = (props) => {
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/category/:name" component={IndCategory}></Route>
                 <Route exact path="/shop" component={Shop}></Route>
+                <Route exact path="/product/:name" component={Products}></Route>
                 <Route exact path="/dashboard/addProduct" component={AddProduct}></Route>
-                <Route exact path="/dashboard/product/:name" component={Products}></Route>
                 <Route exact path="/nursery" component={Nursery}></Route>
                 <Route exact path="/nursery/:name" component={IndNursery}></Route>
                 <Route exact path="/articles" component={Articles}></Route>
                 <Route exact path="/login" component={Login}></Route>
                 <Route exact path="/dashboard" component={Dashboard}></Route>
                 <Route exact path="/dashboard/user" component={User}></Route>
-               <Route exact path="/dashboard/viewProduct" component={viewProduct}></Route>
+                <Route exact path="/dashboard/viewProduct" component={viewProduct}></Route>
                 <Route exact path="/dashboard/user/adduser" component={AddUser}></Route>
                 <Route exact path="/dashboard/addNursery" component={addNursery}></Route>
                 <Route exact path="/dashboard/viewNursery" component={viewNursery}></Route>
