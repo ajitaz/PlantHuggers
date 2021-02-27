@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from '../../common/Button/button.component';
 import './login.component.css';
 import { Register } from './register.component'
 
@@ -91,7 +92,13 @@ export class Login extends Component {
                                 <form id="login-form" onSubmit={this.handleSubmit}>
                                     <input className="input-form" type="text" placeholder="Enter your username" name="username" onChange={this.handleChange} required /><br /><br />
                                     <input className="input-form" type="password" placeholder="Enter your password" name="password" onChange={this.handleChange} required /> <br /><br /><br /><br />
-                                    <input className="submit-form" type="submit" value="Login" />
+                                    <Button
+                                    isSubmitting = {false}
+                                    isValidForm = {true}
+                                    enabledLable = 'Login'
+                                    disabledLable = 'Logining'
+                                     />
+
                                 </form>
                                 <Register />
 
