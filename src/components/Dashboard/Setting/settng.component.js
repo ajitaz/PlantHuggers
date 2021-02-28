@@ -13,8 +13,9 @@ export const setting = () => {
             <main>
                 <h2 className="dash-title">Setting</h2>
             <div className="setting-div">
-            <Link to="/dashboard/AddArticle"><button className="primary"><i class="fa fa-plus-circle"></i> Add Article</button></Link>
-            <Link to="/dashboard/addCategory"><button className="primary"><i class="fa fa-plus-circle"></i> Add category</button></Link>
+
+            <Link to="/dashboard/addArticle"><button className="primary"><i className="fa fa-plus-circle"></i> Add Article</button></Link>
+            <Link to="/dashboard/addCategory"><button className="primary"><i className="fa fa-plus-circle"></i> Add category</button></Link>
             </div>
                 
             </main>
