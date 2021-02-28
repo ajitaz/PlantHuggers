@@ -9,6 +9,7 @@ const defaultForm = {
     username: '',
     password: '',
     email: '',
+    phone:'',
     flag: 'User'
 }
 
@@ -22,7 +23,8 @@ export class Register extends Component {
             error: {
                 username: '',
                 password: '',
-                email: ''
+                email: '',
+                phone :''
             },
             isValidForm : false,
             isSubmitting: false
@@ -64,6 +66,14 @@ export class Register extends Component {
                         : 'Invalid email!!'
                     : 'required field*'
                 break;
+                case 'phone':
+                    errMsg = this.state.data[fieldName]
+                        ? this.state.data[fieldName].length > 10 || this.state.data[fieldName].length < 9
+                            ? 'invalid Phone number'
+                            : ''
+                        : 'required field*';
+                    break;
+    
             default:
                 break;
         }
@@ -112,6 +122,8 @@ export class Register extends Component {
                 <p className = "error">{this.state.error.password}</p>
                 <input className="input-form" type="email" name="email" placeholder="Enter your email" onChange={this.handleChange} required /><br /><br />
                 <p className = "error">{this.state.error.email}</p>
+                <input className="input-form" type="Number" name="phone" placeholder="Enter your Phone Number" onChange={this.handleChange} required /><br /><br />
+                <p className = "error">{this.state.error.phone}</p>
                 <Button 
                     enabledLable = 'Register'
                     isValidForm = {this.state.isValidForm}
