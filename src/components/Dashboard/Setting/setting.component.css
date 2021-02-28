@@ -10,18 +10,3 @@ main{
     left: 240px;
     
 }
-header{
-    position: fixed;
-    left: 240px;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    background: #fff;
-    height: 60px;
-    padding: 0rem 1rem;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom:1px solid #ccc;
-
-}

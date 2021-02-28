@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './addCategory.component.css';
-import { Link } from 'react-router-dom';
+import { DashNav } from '../DashNav/dashNav.component';
 import axios from 'axios';
 
 const BASE_URL = 'http://localhost:80/plant_hugger_php/addCategory.php';
@@ -54,15 +54,7 @@ export class AddCategory extends Component {
             <>
                 <Sidebar />
                 <div className="main-content">
-                    <header>
-                        <div className="welcome">
-                            <p>Welcome, Ramesh</p>
-                        </div>
-                        <div className="social-icons">
-                            <Link to="/login"><button className="lbtn">Logout</button></Link>
-                            <Link to="/"><button className="sbtn">Home</button></Link>
-                        </div>
-                    </header>
+                   <DashNav />
                     <main>
                         <h2 className="dash-title">Add Category</h2>
 
@@ -83,6 +75,7 @@ export class AddCategory extends Component {
             </>
         )
     }
+
 
 }
 

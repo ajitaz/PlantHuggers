@@ -16,7 +16,9 @@ import { AddProduct } from './Dashboard/AddProduct/addProduct.component';
 import { IndNursery } from './Pages/Ind_Nursery/indNursery.component';
 import { IndCategory } from './Pages/IndCategory/indCategory.component';
 import { setting } from './Dashboard/Setting/settng.component';
+import { AddArticle } from './Dashboard/AddArticle/addArticle.component';
 import { AddCategory } from './Dashboard/AddCategory/addCategory.component';
+
 
 
 const NotFound = () => {
@@ -47,8 +49,8 @@ export const AppRouting = (props) => {
                 <Route exact path="/dashboard/addNursery" component={addNursery}></Route>
                 <Route exact path="/dashboard/viewNursery" component={viewNursery}></Route>
                 <Route exact path="/dashboard/setting" component ={setting}></Route>
+                <Route exact path="/dashboard/AddArticle" component ={AddArticle}></Route>
                 <Route exact path="/dashboard/AddCategory" component ={AddCategory}></Route>
-
                 <Route component={NotFound}></Route>
             </Switch>
 
