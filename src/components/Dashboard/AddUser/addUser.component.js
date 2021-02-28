@@ -4,6 +4,7 @@ import './addUser.component.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '../../common/Button/button.component';
+import { DashNav } from '../DashNav/dashNav.component';
 
 const BASE_URL = 'http://localhost:80/plant_hugger_php/addUser.php';
 
@@ -109,15 +110,7 @@ export class AddUser extends Component {
             <>
                 <Sidebar />
                 <div className="main-content">
-                    <header>
-                        <div className="welcome">
-                            <p>Welcome, Ramesh</p>
-                        </div>
-                        <div className="social-icons">
-                            <Link to="/login"><button className="lbtn">Logout</button></Link>
-                            <Link to="/"><button className="sbtn">Home</button></Link>
-                        </div>
-                    </header>
+                   <DashNav />
                     <main>
                         <h2 className="dash-title">Add User</h2>
 

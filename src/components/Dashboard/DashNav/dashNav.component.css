@@ -1,0 +1,46 @@
+
+header{
+    position: fixed;
+    left: 240px;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: #fff;
+    height: 60px;
+    padding: 0rem 1rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom:1px solid #ccc;
+}
+.welcome{
+    display: flex;
+}
+.welcome i{
+    margin-top: 6.5%;
+}
+.social-icons{
+    display: flex;
+    position: fixed;
+    right: 0;
+    padding-right:20px ;
+
+}
+.social-icons .sbtn{
+    margin: 1rem;
+    color: #fff;
+}
+.social-icons a, .lbtn{
+   background: none;
+   cursor: pointer;
+   white-space: nowrap;
+   margin: auto;
+   color: #000;
+}
+.social-icons  .lbtn:hover{
+    background: #ec3939;
+    color:#fff;
+}
+.social-icons span{
+    margin: 1rem;
+}

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { DashNav } from '../DashNav/dashNav.component';
 import { EditUser } from '../Functions/EditUser/editUser.component';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './user.component.css';
@@ -56,15 +57,7 @@ export class User extends Component {
             <>
                 <Sidebar />
                 <div className="main-content">
-                    <header>
-                        <div className="welcome">
-                            <p>Welcome, Ramesh</p>
-                        </div>
-                        <div className="social-icons">
-                            <Link to="/login"><button className="lbtn">Logout</button></Link>
-                            <Link to="/"><button className="sbtn">Home</button></Link>
-                        </div>
-                    </header>
+                  <DashNav />
                     <main className="userMain">
                         <h2 className="dash-title">Users-List</h2>
                         <Link to="/dashboard/user/adduser"><button className="primary">Add user</button></Link>
