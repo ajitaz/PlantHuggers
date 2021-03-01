@@ -1,3 +1,4 @@
 button:disabled{
-	background-color:rgb(146, 196, 126)
+	background-color:rgb(146, 196, 126);
+	cursor: default;
 }

@@ -33,7 +33,7 @@ export const Footer = () => {
                             </div>
                             <div className="msg">
                                 <div className="text">Message *</div>
-                                <textarea name="" id="" cols="25" rows="2" required></textarea>
+                                <textarea name="" id="txarea"  required></textarea>
 
                             </div>
                             <button type="submit" className="btn">Send</button>
