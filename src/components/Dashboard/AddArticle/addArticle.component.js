@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import './addArticle.component.css';
-import { DashNav } from '../DashNav/dashNav.component';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:80/plant_hugger_php/addArticle.php';
+const BASE_URL = 'http://localhost:80/plant_hugger_php/';
 
 
 
@@ -15,9 +13,11 @@ export class AddArticle extends Component {
         this.state = {
             title: '',
             description: '',
-            category: '',
+            cid: '',
             image: '',
-            author: 'Admin'//need to make this dynamic
+            author: '5',
+            data: []
+
         }
     }
 
@@ -37,13 +37,13 @@ export class AddArticle extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append(this.state.title)
-        formData.append(this.state.descripion)
-        formData.append(this.state.category)
-        formData.append(this.state.image)
-        formData.append(this.state.author)
+        formData.append('title',this.state.title)
+        formData.append('description',this.state.description)
+        formData.append('cid',this.state.cid)
+        formData.append('image',this.state.image)
+        formData.append('author',this.state.author)
 
-        axios.post(BASE_URL, formData, {
+        axios.post(`${BASE_URL}/addArticle.php`, formData, {
             headers: {
                 'Content-Type': 'application/json',
                 'Content-Type': 'multipart/form-data'
@@ -55,13 +55,20 @@ export class AddArticle extends Component {
 
     }
 
-    getCategory = () =>{
-        //get category id and name from database 
-        //return relation
+    getCategorylist() {
+        axios.get(`${BASE_URL}/viewUser.php?option=category`)
+            .then(res => {
+                this.setState({
+                    data: res.data
+                })
+            })
+    }
+
+    componentDidMount() {
+        this.getCategorylist();
     }
 
     render() {
-        // let category = this.getCategory
         return (
             <>
                 <div className="title">Add Article</div>
@@ -71,7 +78,17 @@ export class AddArticle extends Component {
                     <label htmlFor="desc">Description</label>
                     <textarea type="text" name="description" onChange={this.handleChange} />
                     <label htmlFor="category">Category</label>
-                    <input type="text" name="category" placeholder="Category.." onChange={this.handleChange} />
+                    <select  name="cid" onChange={this.handleChange}>
+                    <option value="">None</option>
+                        {
+                            this.state.data.map((result,index)=>{
+                                return(
+                                    <option key={index} value={result.cid}>{result.cname}</option>
+                                )
+                            })
+                        }
+                    </select>
+
                     <label htmlFor="image">Select image:</label>
                     <input type="file" name="image" onChange={this.handleChange} />
                     <input type="submit" value="Add" />
@@ -81,3 +98,4 @@ export class AddArticle extends Component {
     }
 
 }
+
