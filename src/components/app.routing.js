@@ -7,7 +7,7 @@ import { Shop } from '../components/Pages/Shop/shop.component';
 import { Articles } from './Pages/Articles/articles.component'
 import { Login } from './Pages/Login/login.component';
 import { Dashboard } from './Dashboard/Board/board.component';
-import { NurseryDashboard } from './NurseryAdmin/NurseryDashboard/nurseryDashboard.component';
+import { NurseryDashboard } from './Dashboard/NurseryDashboard/nurseryDashboard.component';
 import { User } from './Dashboard/User/user.component';
 import { viewProduct } from './Dashboard/ViewProduct/viewProduct.component';
 import { viewNursery } from './Dashboard/ViewNursery/viewNursery.component';
@@ -16,9 +16,8 @@ import { addNursery } from './Dashboard/AddNursery/addNursery.component';
 import { AddProduct } from './Dashboard/AddProduct/addProduct.component';
 import { IndNursery } from './Pages/Ind_Nursery/indNursery.component';
 import { IndCategory } from './Pages/IndCategory/indCategory.component';
-import { setting } from './Dashboard/Setting/settng.component';
-import { AddArticle } from './Dashboard/AddArticle/addArticle.component';
-import { AddCategory } from './Dashboard/AddCategory/addCategory.component';
+import { Setting } from './Dashboard/Setting/settng.component';
+
 
 
 
@@ -50,7 +49,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/dashboard/user/adduser" component={AddUser}></Route>
                 <Route exact path="/dashboard/addNursery" component={addNursery}></Route>
                 <Route exact path="/dashboard/viewNursery" component={viewNursery}></Route>
-                <Route exact path="/dashboard/setting" component ={setting}></Route>
+                <Route exact path="/dashboard/setting" component ={Setting}></Route>
                 <Route component={NotFound}></Route>
             </Switch>
 

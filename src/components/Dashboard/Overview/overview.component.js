@@ -35,7 +35,7 @@ export const Overview = (props) => {
                     </div>
                     <div className="Dcard-single">
                         <div className="Dcard-body">
-                        <i class="fa fa-cart-arrow-down"></i>
+                        <i className="fa fa-cart-arrow-down"></i>
                             <div>
                                 <h5>Orders</h5>
                                 <h4>25</h4>

@@ -6,7 +6,7 @@ import { DashNav } from '../DashNav/dashNav.component';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './setting.component.css';
 
-export const setting = () => {
+export const Setting = () => {
     return (
         <>
          <div className="main-content">
