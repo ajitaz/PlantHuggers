@@ -33,8 +33,8 @@ export const viewProduct = ()=>{
                         <td>cactus,indoor</td>
                         <td><span className=" badge success">Avialiable</span></td>
                         <td>
-                            <i className="fas fa-pencil-alt"> Edit</i>
-                            <i className="fas fa-trash-alt"> Delete</i>
+                        <button className="edit"><i className="fas fa-pencil-alt"> Edit</i></button>
+                        <button className="delete"><i className="fas fa-trash-alt"> Delete</i></button>
                         </td>
                     </tr>
                     </tbody>
