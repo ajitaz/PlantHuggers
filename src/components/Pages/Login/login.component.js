@@ -43,7 +43,7 @@ export class Login extends Component {
                         this.props.history.push('/');
                         break;
                     case 'NA':
-                        this.props.history.push('/dashboard');
+                        this.props.history.push('/nurseryDashboard');
                         break;
                     default:
                         console.log('DID NOT MATCH');            
