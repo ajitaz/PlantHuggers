@@ -7,6 +7,7 @@ import { Shop } from '../components/Pages/Shop/shop.component';
 import { Articles } from './Pages/Articles/articles.component'
 import { Login } from './Pages/Login/login.component';
 import { Dashboard } from './Dashboard/Board/board.component';
+import { NurseryDashboard } from './NurseryAdmin/NurseryDashboard/nurseryDashboard.component';
 import { User } from './Dashboard/User/user.component';
 import { viewProduct } from './Dashboard/ViewProduct/viewProduct.component';
 import { viewNursery } from './Dashboard/ViewNursery/viewNursery.component';
@@ -42,6 +43,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/articles" component={Articles}></Route>
                 <Route exact path="/login" component={Login}></Route>
                 <Route exact path="/dashboard" component={Dashboard}></Route>
+                <Route exact path="/NurseryDashboard" component={NurseryDashboard}></Route>
                 <Route exact path="/dashboard/user" component={User}></Route>
                 <Route exact path="/dashboard/viewProduct" component={viewProduct}></Route>
                 <Route exact path="/dashboard/user/adduser" component={AddUser}></Route>

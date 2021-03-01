@@ -33,8 +33,8 @@ export const viewNursery = ()=>{
                         <td>Kathmandu,Nepal</td>
                         <td>lorem...lorem...lorem</td>
                         <td>
-                            <i className="fas fa-pencil-alt"> Edit</i>
-                            <i className="fas fa-trash-alt"> Delete</i>
+                        <button className="edit"><i className="fas fa-pencil-alt"> Edit</i></button>
+                        <button className="delete"><i className="fas fa-trash-alt"> Delete</i></button>
                         </td>
                     </tr>
                     </tbody>
