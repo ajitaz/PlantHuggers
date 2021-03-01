@@ -49,8 +49,6 @@ export const AppRouting = (props) => {
                 <Route exact path="/dashboard/addNursery" component={addNursery}></Route>
                 <Route exact path="/dashboard/viewNursery" component={viewNursery}></Route>
                 <Route exact path="/dashboard/setting" component ={setting}></Route>
-                <Route exact path="/dashboard/AddArticle" component ={AddArticle}></Route>
-                <Route exact path="/dashboard/AddCategory" component ={AddCategory}></Route>
                 <Route component={NotFound}></Route>
             </Switch>
 

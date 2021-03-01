@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import './addCategory.component.css';
-import { DashNav } from '../DashNav/dashNav.component';
 import axios from 'axios';
 
 const BASE_URL = 'http://localhost:80/plant_hugger_php/addCategory.php';
@@ -41,7 +39,7 @@ export class AddCategory extends Component {
             headers: {
                 'Content-Type': 'application/json',
                 'Content-Type': 'multipart/form-data'
-                
+
             }, params: {},
             responseType: 'json'
         })
@@ -52,26 +50,17 @@ export class AddCategory extends Component {
     render() {
         return (
             <>
-                <Sidebar />
-                <div className="main-content">
-                   <DashNav />
-                    <main>
-                        <h2 className="dash-title">Add Category</h2>
-
-                        <div className="form">
-                            <form onSubmit={this.handleSubmit} noValidate>
-                                <label htmlFor="cname">Category Name</label>
-                                <input type="text" name="cname" placeholder="Category Name.." onChange={this.handleChange} />
-                                <label htmlFor="desc">Description</label>
-                                <textarea type="text" name="description" onChange={this.handleChange} />
-                                <label htmlFor="img">Select image:</label>
-                                <input type="file" name="image" onChange={this.handleChange} />
-                                <input type="submit" value="ADD" />
-                            </form>
-                        </div>
-                    </main>
-
-                </div>
+                <div className="title">Add Category</div>
+                <form onSubmit={this.handleSubmit} noValidate>
+                    <label htmlFor="cname">Category Name</label>
+                    <input type="text" name="cname" placeholder="Category Name.." onChange={this.handleChange} />
+                    <label htmlFor="desc">Description</label>
+                    <textarea type="text" name="description" onChange={this.handleChange} />
+                    <label htmlFor="img">Select image:</label>
+                    <input type="file" name="image" onChange={this.handleChange} />
+                    <br/> <br/> <br/>
+                    <input type="submit" value="ADD" />
+                </form>
             </>
         )
     }

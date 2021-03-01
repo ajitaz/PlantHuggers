@@ -84,7 +84,7 @@ export class EditUser extends Component {
                         <option value="User">User</option>
                         <option value="NA">Nursery Admin</option>
                     </select>
-
+                    <br/><br/><br/><br/><br/><br/>
                     <input type="submit" value="Edit" />
                 </form>
 

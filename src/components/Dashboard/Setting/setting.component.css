@@ -10,3 +10,11 @@ main{
     left: 240px;
     
 }
+
+.popup-content {
+    margin: auto;
+    background: rgb(255, 255, 255);
+    width: 50%;
+    padding: 5px;
+    height: 750px;
+  }

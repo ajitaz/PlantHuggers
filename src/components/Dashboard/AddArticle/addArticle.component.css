@@ -1,23 +1,8 @@
-
-
-.main-content{
-    position: absolute;
-    left: 240px;
-    
-}
-main{
-    margin-top: 60px;
-    min-height: 100vh;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    min-width: 82.2vw;
-}
-.dash-title{
-    color: black;
-    padding: 1rem;
-    text-align: center;
-    }
-
+.title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
 
 input, select {
     width: 100%;
@@ -45,12 +30,6 @@ input, select {
     background-color: #45a049;
   }
   
- .form {
-    position: absolute;
-    left: 25%;
-    border-radius: 5px;
-    background-color: #fff;
-    padding: 20px;
-    width: 50%;
+  textarea{
+    height: 200px;
   }
-  
