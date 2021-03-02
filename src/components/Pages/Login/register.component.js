@@ -129,6 +129,7 @@ export class Register extends Component {
                     isValidForm = {this.state.isValidForm}
                     isSubmitting = {this.state.isSubmitting}
                 ></Button>
+                <br/><br/>
             </form>
         )
     }

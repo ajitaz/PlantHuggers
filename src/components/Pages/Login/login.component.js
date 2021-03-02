@@ -60,7 +60,7 @@ export class Login extends Component {
 
         function register() {
             document.getElementById("login-form").style.left = "-450px";
-            document.getElementById("register-form").style.left = "25px";
+            document.getElementById("register-form").style.left = "-340px";
             document.getElementById("pointer-btn").style.left = "215px";
             document.getElementById("login").style.color = "#848484";
             document.getElementById("register").style.color = "#4CAF50";
@@ -68,7 +68,7 @@ export class Login extends Component {
         }
 
         function login() {
-            document.getElementById("login-form").style.left = "25px";
+            document.getElementById("login-form").style.left = "5px";
             document.getElementById("register-form").style.left = "450px";
             document.getElementById("pointer-btn").style.left = "30px";
             document.getElementById("login").style.color = "#4CAF50";
