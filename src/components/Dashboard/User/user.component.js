@@ -57,7 +57,7 @@ export class User extends Component {
             <>
                 <Sidebar />
                 <div className="main-content">
-                  <DashNav />
+                    <DashNav />
                     <main className="userMain">
                         <h2 className="dash-title">Users-List</h2>
                         <Link to="/dashboard/user/adduser"><button className="primary">Add user</button></Link>
@@ -82,8 +82,13 @@ export class User extends Component {
                                                     <td>{result.phone}</td>
                                                     <td>{result.flag}</td>
                                                     <td>
-                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose= {()=>{this.getUserlist()}}>
-                                                            <EditUser editData ={result} />
+                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getUserlist() }}>
+                                                            {close => (
+                                                                <div className="modal">
+                                                                    <button className="close" onClick={close}>&times;</button>
+                                                                    <EditUser editData={result} />
+                                                                </div>
+                                                            )}
                                                         </Popup>
 
                                                         <button className="delete" onClick={() => { this.handleClick(result.id, 'delete') }}> <i className="fas fa-trash-alt"> Delete</i></button>
