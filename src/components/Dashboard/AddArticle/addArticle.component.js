@@ -21,6 +21,19 @@ export class AddArticle extends Component {
         }
     }
 
+    getCategorylist() {
+        axios.get(`${BASE_URL}/viewContent.php?option=category`)
+            .then(res => {
+                this.setState({
+                    data: res.data
+                })
+            })
+    }
+
+    componentDidMount() {
+        this.getCategorylist();
+    }
+
     handleChange = (e) => {
         const { name, value, type } = e.target;
         if (type === 'file') {
@@ -37,11 +50,11 @@ export class AddArticle extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('title',this.state.title)
-        formData.append('description',this.state.description)
-        formData.append('cid',this.state.cid)
-        formData.append('image',this.state.image)
-        formData.append('author',this.state.author)
+        formData.append('title', this.state.title)
+        formData.append('description', this.state.description)
+        formData.append('cid', this.state.cid)
+        formData.append('image', this.state.image)
+        formData.append('author', this.state.author)
 
         axios.post(`${BASE_URL}/addArticle.php`, formData, {
             headers: {
@@ -50,23 +63,14 @@ export class AddArticle extends Component {
             }, params: {},
             responseType: 'json'
         })
-            .then(res => console.log(res))
+            .then(res => {
+                alert('Successfully Article Added...');
+                this.props.history.push('/dashboard/setting')})
             .catch(err => console.log(err))
 
     }
 
-    getCategorylist() {
-        axios.get(`${BASE_URL}/viewUser.php?option=category`)
-            .then(res => {
-                this.setState({
-                    data: res.data
-                })
-            })
-    }
 
-    componentDidMount() {
-        this.getCategorylist();
-    }
 
     render() {
         return (
@@ -78,11 +82,11 @@ export class AddArticle extends Component {
                     <label htmlFor="desc">Description</label>
                     <textarea type="text" name="description" onChange={this.handleChange} />
                     <label htmlFor="category">Category</label>
-                    <select  name="cid" onChange={this.handleChange}>
-                    <option value="">None</option>
+                    <select name="cid" onChange={this.handleChange}>
+                        <option value="">None</option>
                         {
-                            this.state.data.map((result,index)=>{
-                                return(
+                            this.state.data.map((result, index) => {
+                                return (
                                     <option key={index} value={result.cid}>{result.cname}</option>
                                 )
                             })

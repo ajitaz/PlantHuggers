@@ -22,7 +22,7 @@ export class User extends Component {
     }
 
     getUserlist() {
-        axios.get(`${BASE_URL}/viewUser.php?option=viewUser`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewUser`)
             .then(res => {
                 this.setState({
                     data: res.data

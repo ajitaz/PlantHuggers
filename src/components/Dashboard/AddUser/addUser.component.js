@@ -100,7 +100,10 @@ export class AddUser extends Component {
             }, params: {},
             responseType: 'json'
         })
-            .then(res => console.log(res))
+            .then(res => {
+                alert('Successfully User Added...');
+                this.props.history.push('/dashboard/user')
+            })
             .catch(err => console.log(err));
 
     }

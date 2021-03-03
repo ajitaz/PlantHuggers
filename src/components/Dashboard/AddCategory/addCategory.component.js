@@ -43,7 +43,9 @@ export class AddCategory extends Component {
             }, params: {},
             responseType: 'json'
         })
-            .then(res => console.log(res))
+            .then(res => {
+                alert('Successfully Category Added...');
+                this.props.history.push('/dashboard/setting')})
             .catch(err => console.log(err))
     }
 
@@ -58,7 +60,7 @@ export class AddCategory extends Component {
                     <textarea type="text" name="description" onChange={this.handleChange} />
                     <label htmlFor="img">Select image:</label>
                     <input type="file" name="image" onChange={this.handleChange} />
-                    <br/> <br/> <br/>
+                    <br /> <br /> <br />
                     <input type="submit" value="ADD" />
                 </form>
             </>

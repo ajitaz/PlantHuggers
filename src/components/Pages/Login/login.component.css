@@ -86,7 +86,7 @@
 .card-body-login > #login-form{
 	position: relative;
 	top: 100px;
-	left: 25px;
+	left: 10px;
 	text-align: center;
 	transition: 0.5s all ease;
 }

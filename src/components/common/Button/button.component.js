@@ -6,7 +6,7 @@ export const Button = (props) => {
     let disabledLable = props.disabledLable || 'submitting';
     let btn = props.isSubmitting
         ?  <button className = "submit-form" disabled>{disabledLable}</button>
-        :  <button disabled= {!props.isValidForm} type = "submit" className = "submit-form">{enabledLable}</button>
+        :  <button  disabled= {!props.isValidForm} type = "submit" className = "submit-form">{enabledLable}</button>
     return btn;
     
 }

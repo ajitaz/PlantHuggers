@@ -12,7 +12,7 @@ import { User } from './Dashboard/User/user.component';
 import { viewProduct } from './Dashboard/ViewProduct/viewProduct.component';
 import { viewNursery } from './Dashboard/ViewNursery/viewNursery.component';
 import { AddUser } from './Dashboard/AddUser/addUser.component';
-import { addNursery } from './Dashboard/AddNursery/addNursery.component';
+import { AddNursery } from './Dashboard/AddNursery/addNursery.component';
 import { AddProduct } from './Dashboard/AddProduct/addProduct.component';
 import { IndNursery } from './Pages/Ind_Nursery/indNursery.component';
 import { IndCategory } from './Pages/IndCategory/indCategory.component';
@@ -47,7 +47,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/dashboard/user" component={User}></Route>
                 <Route exact path="/dashboard/viewProduct" component={viewProduct}></Route>
                 <Route exact path="/dashboard/user/adduser" component={AddUser}></Route>
-                <Route exact path="/dashboard/addNursery" component={addNursery}></Route>
+                <Route exact path="/dashboard/addNursery" component={AddNursery}></Route>
                 <Route exact path="/dashboard/viewNursery" component={viewNursery}></Route>
                 <Route exact path="/dashboard/setting" component ={Setting}></Route>
                 <Route component={NotFound}></Route>

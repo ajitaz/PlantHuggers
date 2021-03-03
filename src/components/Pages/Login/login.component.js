@@ -68,7 +68,7 @@ export class Login extends Component {
         }
 
         function login() {
-            document.getElementById("login-form").style.left = "5px";
+            document.getElementById("login-form").style.left = "10px";
             document.getElementById("register-form").style.left = "450px";
             document.getElementById("pointer-btn").style.left = "30px";
             document.getElementById("login").style.color = "#4CAF50";
