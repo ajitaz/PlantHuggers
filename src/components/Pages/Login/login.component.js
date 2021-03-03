@@ -35,15 +35,19 @@ export class Login extends Component {
             responseType: 'json'
         })
             .then(res => {
-                switch(res.data){
+                console.log(res.data)
+                switch(res.data['flag']){
                     case 'Admin':
                         this.props.history.push('/dashboard');
+                        localStorage.setItem('uid',res.data['id']);
                         break;
                     case 'User':
                         this.props.history.push('/');
+                        localStorage.setItem('uid',res.data['id']);
                         break;
                     case 'NA':
                         this.props.history.push('/nurseryDashboard');
+                        localStorage.setItem('uid',res.data['id']);
                         break;
                     default:
                         console.log('DID NOT MATCH');            
