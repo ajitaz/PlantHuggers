@@ -35,7 +35,6 @@ export class Login extends Component {
             responseType: 'json'
         })
             .then(res => {
-                console.log(res.data)
                 switch(res.data['flag']){
                     case 'Admin':
                         this.props.history.push('/dashboard');

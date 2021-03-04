@@ -40,6 +40,11 @@ export class AddProduct extends Component {
     })
   }
 
+  setNurseryid(){
+    //post uid to action.php, set value ="getId" 
+    //res=> nid = res.data
+  }
+
 
   handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -57,7 +62,11 @@ export class AddProduct extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state)
+    const formData = new FormData();
+    formData.append('name', this.state.name)
+    axios.post(`${BASE_URL}/addProduct.php`)
+    .then(res=>res)
+    .catch(err=>err)
   }
 
 
@@ -79,7 +88,7 @@ export class AddProduct extends Component {
                 <input type="text" id="tags" name="tags" placeholder="product Tags.." /> */}
                 <label htmlFor="price">Price</label>
                 <input type="number" name="price" placeholder="product Price.." onChange={this.handleChange} />
-                <label htmlFor="discount">Quantity</label>
+                <label htmlFor="quantity">Quantity</label>
                 <input type="number" name="quantity" placeholder="product quantity.." onChange={this.handleChange} />
                 <label htmlFor="categories">Categories</label>
                 <select name="cid" onChange={this.handleChange}>
