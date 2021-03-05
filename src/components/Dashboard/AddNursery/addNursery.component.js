@@ -4,7 +4,7 @@ import { DashNav } from '../DashNav/dashNav.component';
 import './addNursery.component.css';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:80/plant_hugger_php/';
+const BASE_URL = process.env.React_APP_BASE_URL;
 
 export class AddNursery extends Component {
   constructor() {

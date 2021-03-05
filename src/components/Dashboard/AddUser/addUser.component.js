@@ -7,6 +7,7 @@ import { Button } from '../../common/Button/button.component';
 import { DashNav } from '../DashNav/dashNav.component';
 
 const BASE_URL = 'http://localhost:80/plant_hugger_php/addUser.php';
+const BASE_URL = process.env.React_APP_BASE_URL;
 
 const defaultForm = {
     username: '',
@@ -94,7 +95,7 @@ export class AddUser extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let data = this.state.data;
-        axios.post(BASE_URL, data, {
+        axios.post(`${BASE_URL}/addUser.php`, data, {
             headers: {
                 "Content-Type": "application/json"
             }, params: {},

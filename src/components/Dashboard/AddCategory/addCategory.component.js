@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './addCategory.component.css';
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:80/plant_hugger_php/addCategory.php';
+const BASE_URL = process.env.React_APP_BASE_URL;
+
 
 export class AddCategory extends Component {
     constructor() {
@@ -35,7 +36,7 @@ export class AddCategory extends Component {
         formData.append('description', this.state.description)
         formData.append('image', this.state.image)
 
-        axios.post(BASE_URL, formData, {
+        axios.post(`${BASE_URL}/addCategory.php`, formData, {
             headers: {
                 'Content-Type': 'application/json',
                 'Content-Type': 'multipart/form-data'

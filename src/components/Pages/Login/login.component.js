@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../common/Button/button.component';
 import './login.component.css';
 import { Register } from './register.component'
-
-const BASE_URL = 'http://localhost:80/plant_hugger_php/verifyUser.php';
+const BASE_URL = process.env.React_APP_BASE_URL;
 
 export class Login extends Component {
 
@@ -28,7 +27,7 @@ export class Login extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         let formData = this.state;
-        axios.post(BASE_URL, formData, {
+        axios.post(`${BASE_URL}/verifyUser.php`, formData, {
             headers: {
                 "Content-Type": "application/json"
             }, params: {},
