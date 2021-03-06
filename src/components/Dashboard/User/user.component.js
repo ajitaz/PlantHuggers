@@ -7,6 +7,7 @@ import { DashNav } from '../DashNav/dashNav.component';
 import { EditUser } from '../Functions/EditUser/editUser.component';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './user.component.css';
+
 const BASE_URL = process.env.React_APP_BASE_URL;
 
 export class User extends Component {

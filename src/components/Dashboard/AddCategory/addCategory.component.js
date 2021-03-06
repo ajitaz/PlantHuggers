@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const BASE_URL = process.env.React_APP_BASE_URL;
 
-
 export class AddCategory extends Component {
     constructor() {
         super();
