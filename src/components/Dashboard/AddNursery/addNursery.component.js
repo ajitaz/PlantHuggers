@@ -4,7 +4,7 @@ import { DashNav } from '../DashNav/dashNav.component';
 import './addNursery.component.css';
 import axios from 'axios';
 
-const BASE_URL = process.env.React_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export class AddNursery extends Component {
   constructor() {
@@ -28,7 +28,6 @@ export class AddNursery extends Component {
       this.setState(({
         [name]: value
       }), () => {
-        console.log(this.state)
       })
     }
   }
@@ -51,9 +50,9 @@ export class AddNursery extends Component {
     })
       .then(res => {
         alert('Successfully Nursery Added...');
-        this.props.history.push('/dashboard/viewNursery')})
+        this.props.history.push('/dashboard/viewNursery')
+      })
       .catch(err => console.log(err))
-    console.log('submited >>', this.state)
   }
 
   render() {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../common/Button/button.component';
 import './login.component.css';
 import { Register } from './register.component'
-const BASE_URL = process.env.React_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export class Login extends Component {
 

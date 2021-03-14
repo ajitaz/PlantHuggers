@@ -4,7 +4,7 @@ import { DashNav } from '../DashNav/dashNav.component';
 import './addProduct.component.css';
 import axios from 'axios';
 
-const BASE_URL = process.env.React_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export class AddProduct extends Component {
 
@@ -19,7 +19,7 @@ export class AddProduct extends Component {
       cid: '',
       nid: '',
       image: '',
-      data: []
+      categoryData: []
     }
   }
 
@@ -27,21 +27,33 @@ export class AddProduct extends Component {
     axios.get(`${BASE_URL}/viewContent.php?option=category`)
       .then(res => {
         this.setState({
-          data: res.data
+          categoryData: res.data
         })
       })
   }
 
   componentDidMount() {
     this.getCategory();
-    this.setState({
-      nid : localStorage.getItem('uid')
-    })
+    this.setNurseryid();
   }
 
-  setNurseryid(){
-    //post uid to action.php, set value ="getId" 
-    //res=> nid = res.data
+  setNurseryid() {
+    let data = {
+      value: 'getId',
+      uid: localStorage.getItem('uid')
+    }
+    axios.post(`${BASE_URL}/action.php`, data, {
+      headers: {
+        'Content-Type': 'application/json',
+      }, params: {},
+      responseType: 'json'
+    })
+      .then(res => {
+        this.setState({
+          nid: res.data['nid']
+        });
+      })
+      .catch(err => console.log(err))
   }
 
 
@@ -63,9 +75,24 @@ export class AddProduct extends Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append('name', this.state.name)
-    axios.post(`${BASE_URL}/addProduct.php`)
-    .then(res=>res)
-    .catch(err=>err)
+    formData.append('description', this.state.description)
+    formData.append('price', this.state.price)
+    formData.append('quantity', this.state.quantity)
+    formData.append('cid', this.state.cid)
+    formData.append('nid', this.state.nid)
+    formData.append('image', this.state.image)
+    axios.post(`${BASE_URL}/addProduct.php`, formData, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Contetn-Type': 'multipart/formdata'
+      }, params: {},
+      responseType: 'json'
+    })
+      .then(res => {
+        alert('Successfully Product Added...');
+        this.props.history.push('/dashboard/viewProduct')
+      })
+      .catch(err => console.log(err))
   }
 
 
@@ -93,7 +120,7 @@ export class AddProduct extends Component {
                 <select name="cid" onChange={this.handleChange}>
                   <option value="">None</option>
                   {
-                    this.state.data.map((result, index) => {
+                    this.state.categoryData.map((result, index) => {
                       return (
                         <option key={index} value={result.cid}>{result.cname}</option>
                       )

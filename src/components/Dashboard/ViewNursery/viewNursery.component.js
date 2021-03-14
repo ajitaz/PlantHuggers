@@ -5,7 +5,7 @@ import { DashNav } from '../DashNav/dashNav.component';
 import './viewNursery.component.css';
 import axios from 'axios';
 
-const BASE_URL = process.env.React_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export class ViewNursery extends Component {
 

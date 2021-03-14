@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './addArticle.component.css';
 import axios from 'axios';
 
-const BASE_URL = process.env.React_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 
