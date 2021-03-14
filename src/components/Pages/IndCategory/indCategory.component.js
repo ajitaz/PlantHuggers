@@ -12,7 +12,19 @@ export const IndCategory = () => {
             <div className="cont">
                 <h3>Indoor Plants</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
+                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosamLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
                 explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosam
+                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
+                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamusLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
+                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosam
+                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
+                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamusLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
+                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosam
+                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
+                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamusLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
+                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosam
+                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
+                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamus
                 itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
                 repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamus
                 ipsum asperiores ipsa unde at, officiis voluptate. Iusto delectus repudiandae qui nihil magni sint saepe

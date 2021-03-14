@@ -19,9 +19,24 @@ export const Articles = () => {
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
                             vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
+                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
+                            eius corrupti pariatur architecto illo saepe quae.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
+                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
+                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
+                            eius corrupti pariatur architecto illo saepe quae.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
+                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
+                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
+                            eius corrupti pariatur architecto illo saepe quae.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
+                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                             </p>
-                            <button>view more</button>
+                            <button className="Abtn">view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>

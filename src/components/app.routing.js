@@ -15,6 +15,7 @@ import { AddUser } from './Dashboard/AddUser/addUser.component';
 import { AddNursery } from './Dashboard/AddNursery/addNursery.component';
 import { AddProduct } from './Dashboard/AddProduct/addProduct.component';
 import { IndNursery } from './Pages/Ind_Nursery/indNursery.component';
+import { CategoryPage, categoryPage } from './Pages/Category/categoryPage.component';
 import { IndCategory } from './Pages/IndCategory/indCategory.component';
 import { Setting } from './Dashboard/Setting/settng.component';
 
@@ -38,6 +39,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/shop" component={Shop}></Route>
                 <Route exact path="/product/:name" component={Products}></Route>
                 <Route exact path="/dashboard/addProduct" component={AddProduct}></Route>
+                <Route exact path="/category" component={CategoryPage}></Route>
                 <Route exact path="/nursery" component={Nursery}></Route>
                 <Route exact path="/nursery/:name" component={IndNursery}></Route>
                 <Route exact path="/articles" component={Articles}></Route>

@@ -9,6 +9,7 @@ export const Footer = () => {
                 <div className="footer-about box">
                     <h2>About us</h2>
                     <div className="content">
+                    <img src="../images/planthuggers.png" alt="" />
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora ex sunt natus unde eligendi
                         obcaecati minus sequi molestiae molestias quod? Qui fuga rem fugit exercitationem fugiat quia.
                         Illum, error reprehenderit?</p>

@@ -31,7 +31,16 @@ footer{
      padding: 1%;
      color:#000;
  }
- 
+ .content {
+     text-align: center;
+ }
+ .content p{
+     text-align: justify;
+ }
+ .content img{
+     
+     height: 100px;
+ }
  input,textarea {
      width: 100%;
      padding: 10px 20px;
