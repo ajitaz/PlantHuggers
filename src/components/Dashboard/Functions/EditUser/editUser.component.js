@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import './editUser.component.css';
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const defaultForm = {
