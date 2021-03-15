@@ -12,7 +12,7 @@ export const DashNav = ()=>{
  return(
 <header>
 <div className="welcome">
-    <p>Welcome</p>
+    <p>{`Welcome,${localStorage.getItem('uid')}`}</p>
 </div>
 <div className="social-icons">
     <Link to="/login"><button onClick={()=>{clearLocalStorage()}} className="lbtn">Logout</button></Link>

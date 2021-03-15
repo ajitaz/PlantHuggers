@@ -46,13 +46,36 @@ export class EditProduct extends Component {
         })
     }
 
-    handleChange = () => {
+    handleChange = (e) => {
+        const { name, value } = e.target;
+        this.setState((preState) => ({
+            data: {
+                ...preState.data,
+                [name]: value
+            }
+        }), () => {
+            //form validation
+            console.log('edited state>> ', this.state.data)
+        })
 
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.props.editData)
+        let data = {
+            ...this.state.data,
+            value :'editProduct',
+            cid : this.props.editData.cid
+        }
+        axios.post(`${BASE_URL}/action.php`, data, {
+            headers: {
+                "Content-Type": "application/json"
+            }, params: {},
+            responseType: 'json'
+        })
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
     }
 
     render() {
@@ -73,11 +96,12 @@ export class EditProduct extends Component {
                         <option vlaue={this.props.editData.cid}>{this.state.data.category}</option>
                         {
                             this.state.categoryData.map((result, index) => {
-                                if(result.cid !== this.props.editData.cid)
-                                {return (
-                                    <option key={index} value={result.cid}>{result.cname}</option>
-                                )}
-                                
+                                if (result.cid !== this.props.editData.cid) {
+                                    return (
+                                        <option key={index} value={result.cid}>{result.cname}</option>
+                                    )
+                                }
+
                             })
                         }
                     </select>
