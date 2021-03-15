@@ -34,7 +34,7 @@ export class viewProduct extends Component {
 
     handleClick = (id, value) => {
         let actionData = {
-            id: id,
+            pid: id,
             value: value
         }
         axios.post(`${BASE_URL}/action.php`, actionData, {
@@ -95,7 +95,7 @@ export class viewProduct extends Component {
                                                             )}
                                                         </Popup>
 
-                                                        <button className="delete" onClick={() => { this.handleClick(result.id, 'deleteProduct') }}> <i className="fas fa-trash-alt"> Delete</i></button>
+                                                        <button className="delete" onClick={() => { this.handleClick(result.pid, 'deleteProduct') }}> <i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )
