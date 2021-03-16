@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Footer } from '../../common/footer/footer.component';
 import { NavBar } from '../../common/navbar/nav.component';
 import './articles.component.css';
@@ -36,7 +37,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                             </p>
-                            <button className="Abtn">view more</button>
+                            <Link to="/indArticle" className="Abtn">view more</Link>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -53,7 +54,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                            <button>view more</button>
+                    <Link to="/indArticle" className="Abtn">view more</Link>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -70,7 +71,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                            <button>view more</button>
+                    <Link to="/indArticle" className="Abtn">view more</Link>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -86,7 +87,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                            <button>view more</button>
+                    <Link to="/indArticle" className="Abtn">view more</Link>
                         </div>
                         <div className="clear"></div>
                     </li>

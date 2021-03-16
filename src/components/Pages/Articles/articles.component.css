@@ -6,6 +6,7 @@
     height: 100%;  
 }
 .details p{
+    margin-bottom: 20px;
     text-align: justify;
     width:700px; 
     height: 100px; 
@@ -38,15 +39,13 @@ height: 100%;
 float: left;
 text-align: center;
 }
-.details button{
+.details .Abtn{
     text-align: center;
     border: none;
     background: #4CAF50;
     color: #fff;
     white-space: nowrap;
-    height: 30px;
-    margin-top: 20px;
-    padding: 8px 30px;
+    padding: 8px 20px;
     border-radius: 30px;
 }
 .events ul li .details{
