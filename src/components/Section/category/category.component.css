@@ -49,6 +49,12 @@
     height: 250px;
     display: none;
  }
+ .Coverlay-content p{
+     text-align: justify;
+     width: 100%;
+     height: 72px; 
+     overflow: hidden; 
+ }
 .Coverlay-content button{
      display: inline-block;
      background: #fff;

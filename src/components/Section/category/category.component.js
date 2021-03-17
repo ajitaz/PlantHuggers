@@ -14,7 +14,9 @@ export const Category = () => {
                         <div className="Coverlay">
                             <div className="Coverlay-content">
                                 <h2>Indoor plants <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
+                                <p> consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.
+                                
+                                </p>
                                 <Link to="/category/indoor"> <button>view more</button></Link>
                             </div>
                         </div>
@@ -24,8 +26,9 @@ export const Category = () => {
                         <img src="../images/cactus.jpg" alt="" />
                         <div className="Coverlay">
                             <div className="Coverlay-content">
-                                <h2>Indoor plants <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
+                                <h2>Outdoor plants <i className="fas fa-info-circle"></i></h2>
+                                <p>  consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Ccccccc quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.
+                                </p>
                                 <a href="#"> <button>view more</button></a>
                             </div>
                         </div>
@@ -35,8 +38,8 @@ export const Category = () => {
                         <img src="../images/plant.jpg" alt="" />
                         <div className="Coverlay">
                             <div className="Coverlay-content">
-                                <h2>Indoor plants <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
+                                <h2>Water plants <i className="fas fa-info-circle"></i></h2>
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
                                 <a href="#"> <button>view more</button></a>
                             </div>
                         </div>
@@ -46,8 +49,8 @@ export const Category = () => {
                         <img src="../images/plant1.jpg" alt="" />
                         <div className="Coverlay">
                             <div className="Coverlay-content">
-                                <h2>Indoor plants <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
+                                <h2>Rock plants <i className="fas fa-info-circle"></i></h2>
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
                                 <a href="#"> <button>view more</button></a>
                             </div>
                         </div>
@@ -58,7 +61,7 @@ export const Category = () => {
                         <div className="Coverlay">
                             <div className="Coverlay-content">
                                 <h2>kitchen Gardening <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
                                 <a href="#"> <button>view more</button></a>
                             </div>
                         </div>
@@ -69,7 +72,7 @@ export const Category = () => {
                         <div className="Coverlay">
                             <div className="Coverlay-content">
                                 <h2>Outdoor plants <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
+                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
                                 <a href="#"> <button>view more</button></a>
                             </div>
                         </div>
