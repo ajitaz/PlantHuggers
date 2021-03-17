@@ -26,20 +26,34 @@ header{
     padding-right:20px ;
 
 }
-.social-icons .sbtn{
+.social-icons  .sbtn{
+    border-radius: 10px;
+    padding: 0 10px 0 10px;
     margin: 1rem;
     color: #fff;
+    background: #35a735;
+    border: 1.5px solid #000;
 }
-.social-icons a, .lbtn{
+.social-icons  .lbtn{
+    border-radius: 10px;
+    padding: 0 10px 0 10px;
+    margin-left: 20px;
    background: none;
    cursor: pointer;
    white-space: nowrap;
-   margin: auto;
+   margin: 1rem;
+   border: 1.5px solid #000;
    color: #000;
 }
 .social-icons  .lbtn:hover{
     background: #ec3939;
     color:#fff;
+    border: 1.5px solid #ec3939;
+}
+.social-icons  .sbtn:hover{
+    background: #69da69;
+    color:#fff;
+    border: 1.5px solid #69da69;
 }
 .social-icons span{
     margin: 1rem;
