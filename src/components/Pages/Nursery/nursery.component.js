@@ -16,10 +16,10 @@ export const Nursery = () => {
                 <div className="nurserycard">
                     <h1>Kathmandu Gardening and Plants</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, unde nemo. <br />
-                        Exercitationem blanditiis doloremque quo obcaecati voluptatem <br />
-                        architecto nihil perferendis, esse facere similique animi voluptate <br />
-                        nesciunt repellat eum dolor nostrum!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
+                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem text-align: justify; text-align: justify; text-align: justify;
+                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
+                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.
                     </p>
 
                     <p>
@@ -33,9 +33,11 @@ export const Nursery = () => {
                 <div className="nurserycard">
                     <h1>Buddha plants surf</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, unde nemo. <br />
-                        Exercitationem blanditiis doloremque quo obcaecati voluptatem <br />
-                        architecto nihil perferendis, esse facere similique animi voluptate <br />nesciunt repellat eum dolor nostrum!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, unde nemo. 
+                        Exercitationem blanditiis doloremque quo obcaecati voluptatem 
+                        architecto nihil perferendis, esse facere similique animi voluptate nesciunt repellat eum dolor nostrum!Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationemExercitationem blanditiis doloremque quo obcaecati voluptatem 
+                        architecto nihil perferendis, esse facere similique animi voluptate nesciunt repellat eum dolor nostrum!Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
+                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.
                     </p>
                     <p>
                     <i className="fas fa-map-marker-alt"></i> Nepalgunj,Nepal<br /><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
@@ -48,10 +50,12 @@ export const Nursery = () => {
                 <div className="nurserycard">
                     <h1>surya Gardening</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, unde nemo. <br />
-                        Exercitationem blanditiis doloremque quo obcaecati voluptatem <br />
-                        architecto nihil perferendis, esse facere similique animi voluptate <br />
-                        nesciunt repellat eum dolor nostrum!
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, unde nemo. 
+                        Exercitationem blanditiis doloremque quo obcaecati voluptatem 
+                        architecto nihil perferendis, esse facere similique animi voluptate 
+                        nesciunt repellat eum dolor nostrum!Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
+                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
+                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.
                     </p>
                     <p><i className="fas fa-map-marker-alt"></i> Biratnagar,Nepal<br /><i className="fas fa-mobile-alt"></i> +977-987675642134</p>
                     <a href="#"><button>view Details</button></a>
