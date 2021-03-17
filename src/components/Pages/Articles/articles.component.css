@@ -5,14 +5,6 @@
     width: 80%;
     height: 100%;  
 }
-.details p{
-    margin-bottom: 20px;
-    text-align: justify;
-    width:700px; 
-    height: 100px; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-}
 .events .details .card-category{
     font-size: 1rem;
     text-transform: uppercase;
@@ -39,13 +31,13 @@ height: 100%;
 float: left;
 text-align: center;
 }
-.details .Abtn{
+.events ul li .details button{
     text-align: center;
     border: none;
     background: #4CAF50;
     color: #fff;
     white-space: nowrap;
-    padding: 8px 20px;
+    height: 30px;
     border-radius: 30px;
 }
 .events ul li .details{

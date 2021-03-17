@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Footer } from '../../common/footer/footer.component';
 import { NavBar } from '../../common/navbar/nav.component';
 import './articles.component.css';
@@ -20,24 +19,9 @@ export const Articles = () => {
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
                             vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                             </p>
-                            <Link to="/indArticle" className="Abtn">view more</Link>
+                            <button>view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -54,7 +38,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                    <Link to="/indArticle" className="Abtn">view more</Link>
+                            <button>view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -71,7 +55,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                    <Link to="/indArticle" className="Abtn">view more</Link>
+                            <button>view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>
@@ -87,7 +71,7 @@ export const Articles = () => {
                             adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
                             illo saepe quae.
                     </p>
-                    <Link to="/indArticle" className="Abtn">view more</Link>
+                            <button>view more</button>
                         </div>
                         <div className="clear"></div>
                     </li>
