@@ -86,7 +86,7 @@ export class EditProduct extends Component {
                     <label htmlFor="pname">Product Name</label>
                     <input type="text" name="pname" onChange={this.handleChange} value={this.state.data.pname} />
                     <label htmlFor="description">Description</label>
-                    <input type="textarea" name="description" onChange={this.handleChange} value={this.state.data.description} />
+                    <textarea name="description" onChange={this.handleChange} value={this.state.data.description} />
                     <label htmlFor="price">Price</label>
                     <input type="Number" name="price" onChange={this.handleChange} value={this.state.data.price} />
                     <label htmlFor="quantity">Quantity</label>
@@ -105,7 +105,7 @@ export class EditProduct extends Component {
                             })
                         }
                     </select>
-                    <br /><br /><br /><br /><br /><br />
+                    <br /><br /><br />
                     <input type="submit" value="Edit" />
                 </form>
             </>

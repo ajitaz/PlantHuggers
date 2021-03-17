@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { DashNav } from '../DashNav/dashNav.component';
 import './viewNursery.component.css';
 import axios from 'axios';
+import Popup from 'reactjs-popup';
+import { EditNursery } from '../Functions/EditNursery/editNursery.component';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -27,6 +29,25 @@ export class ViewNursery extends Component {
 
     componentDidMount() {
         this.getNursery();
+    }
+
+    handleClick = (id, value) => {
+        let actionData = {
+            nid: id,
+            value: value
+        }
+        axios.post(`${BASE_URL}/action.php`, actionData, {
+            headers: {
+                "Content-Type": "application/json"
+            }, params: {},
+            responseType: 'json'
+        })
+            .then(res => {
+                console.log(res);
+                this.getNursery();
+
+            })
+
     }
 
     render() {
@@ -61,8 +82,15 @@ export class ViewNursery extends Component {
                                                     <td>{result.address}</td>
                                                     <td>{result.description}</td>
                                                     <td>
-                                                        <button className="edit"><i className="fas fa-pencil-alt"> Edit</i></button>
-                                                        <button className="delete"><i className="fas fa-trash-alt"> Delete</i></button>
+                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getNursery() }}>
+                                                            {close => (
+                                                                <div className="modal">
+                                                                    <button className="close" onClick={close}>&times;</button>
+                                                                    <EditNursery editData={result} />
+                                                                </div>
+                                                            )}
+                                                        </Popup>
+                                                        <button className="delete" onClick={()=>{this.handleClick(result.nid,'deleteNursery')}}><i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )
