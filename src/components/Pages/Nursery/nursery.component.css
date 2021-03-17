@@ -20,13 +20,6 @@
    margin-left: 5%;
    padding-top: 2%;
   }
-  .nurserycard p{
-    text-align: justify;
-    width: 500px; 
-    height: 150px; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-  }
   .nurseryimage h1{
       margin-bottom: 3%;
   }
@@ -53,11 +46,11 @@
   .nurseryimage:hover{
     box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2);
   }
-  .nurserycard button {
+  button {
+    margin-top: 20px;
     background-color: #4CAF50;
     color: #ffffff;
     border: none;
     padding:5px 20px;
     border-radius: 10px;
-    margin-bottom: 50px;
   }

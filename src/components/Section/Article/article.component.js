@@ -14,9 +14,8 @@ export const Article = () => {
                         <div className="article-content">
                             <a href="#" className="card-category">Indoor Plants</a>
                             <h3 className="card-title">How to grow Cactus?</h3>
-                            <p className="card-desc">How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus--008888?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.</p>
+                            <p className="card-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
+                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.</p>
                         </div>
                     </article>
                     <article className="article-card">
@@ -27,11 +26,7 @@ export const Article = () => {
                             <a href="#" className="card-category">Indoor Plants</a>
                             <h3 className="card-title">Breading plants is possible?</h3>
                             <p className="card-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! LaboreLorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore..</p>
+                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.</p>
                         </div>
                     </article>
                     <article className="article-card">
@@ -41,14 +36,7 @@ export const Article = () => {
                         <div className="article-content">
                             <a href="#" className="card-category">Indoor plants</a>
                             <h3 className="card-title">Money plant ? Benefites</h3>
-                            <p className="card-desc">Lorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore..Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
+                            <p className="card-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
                         alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.</p>
                         </div>
                     </article>

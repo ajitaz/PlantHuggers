@@ -21,7 +21,7 @@ export const IndNursery = () => {
                 Inventore aliquid quasi nisi cupiditate odit repellendus veniam.
                 Eaque voluptatibus suscipit nulla a ipsam repudiandae blanditiis cumque excepturi saepe optio.
                 Corrupti reprehenderit in soluta. Temporibus, libero commodi iste labore magni, alias suscipit expedita facere sint cumque maiores quis rem sequi quisquam non fuga maxime autem consequatur quasi velit quam recusandae pariatur.
-                tatum ad quae consectetur maxime, cumque nisi? Tempore, rerum?</p>
+           Nemo corrupti at facilis eius eligendi odit reiciendis, molestias inventore, impedit dolore voluptatum ad quae consectetur maxime, cumque nisi? Tempore, rerum?</p>
             </div>
 
             <div className="bgimg-2" style={{backgroundImage:'url("../images/surya_nursery.jpeg")'}}>
