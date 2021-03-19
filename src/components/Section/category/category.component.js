@@ -1,84 +1,63 @@
-import React from 'react';
+import axios from 'axios';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './category.component.css';
 
-export const Category = () => {
-    return (
-        <>
-            <h2 className="title">Categories</h2>
-            <div className="Categories">
-                <div className="grid-view">
-                    <div className="Cimage">
-                        <h1>Name</h1>
-                        <img src="../images/cactus.jpg" alt="" />
-                        <div className="Coverlay">
-                            <div className="Coverlay-content">
-                                <h2>Indoor plants <i className="fas fa-info-circle"></i></h2>
-                                <p> consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.
-                                
-                                </p>
-                                <Link to="/category/indoor"> <button>view more</button></Link>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="Cimage">
-                        <h1>Name</h1>
-                        <img src="../images/cactus.jpg" alt="" />
-                        <div className="Coverlay">
-                            <div className="Coverlay-content">
-                                <h2>Outdoor plants <i className="fas fa-info-circle"></i></h2>
-                                <p>  consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Ccccccc quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.
-                                </p>
-                                <a href="#"> <button>view more</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="Cimage">
-                        <h1>Name</h1>
-                        <img src="../images/plant.jpg" alt="" />
-                        <div className="Coverlay">
-                            <div className="Coverlay-content">
-                                <h2>Water plants <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
-                                <a href="#"> <button>view more</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="Cimage">
-                        <h1>Name</h1>
-                        <img src="../images/plant1.jpg" alt="" />
-                        <div className="Coverlay">
-                            <div className="Coverlay-content">
-                                <h2>Rock plants <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
-                                <a href="#"> <button>view more</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="Cimage">
-                        <h1>Name</h1>
-                        <img src="../images/plant2.jpg" alt="" />
-                        <div className="Coverlay">
-                            <div className="Coverlay-content">
-                                <h2>kitchen Gardening <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
-                                <a href="#"> <button>view more</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="Cimage">
-                        <h1>Name</h1>
-                        <img src="../images/plant.jpg" alt="" />
-                        <div className="Coverlay">
-                            <div className="Coverlay-content">
-                                <h2>Outdoor plants <i className="fas fa-info-circle"></i></h2>
-                                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, eligendi? Cupiditate eum delectus accusamus quis.</p>
-                                <a href="#"> <button>view more</button></a>
-                            </div>
-                        </div>
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+export class Category extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            data: []
+        }
+    }
+
+    getCategory() {
+        axios.get(`${BASE_URL}/viewContent.php?option=category`)
+            .then(res => {
+                this.setState({
+                    data: res.data
+                })
+            })
+    }
+
+    componentDidMount() {
+        this.getCategory();
+    }
+
+
+    render() {
+        return (
+            <>
+                <h2 className="title">Categories</h2>
+                <div className="Categories">
+                    <div className="grid-view">
+                        {
+                            this.state.data.map((result, index) => {
+                                return (
+                                    <div key={index} className="Cimage">
+                                        <h1>{result.cname}</h1>
+                                        <img src={`../images/${result.iname}` }alt="" />
+                                        <div className="Coverlay">
+                                            <div className="Coverlay-content">
+                                                <h2>{result.cname}<i className="fas fa-info-circle"></i></h2>
+                                                <p>{result.description}
+                                                </p>
+                                                <Link to="/category/indoor"> <button>view more</button></Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+
+                            })
+                        }
                     </div>
                 </div>
-            </div>
-        </>
-    );
+            </>
+        )
+
+    }
 }
+
