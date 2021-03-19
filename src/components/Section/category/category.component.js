@@ -45,7 +45,7 @@ export class Category extends Component {
                                                 <h2>{result.cname}<i className="fas fa-info-circle"></i></h2>
                                                 <p>{result.description}
                                                 </p>
-                                                <Link to="/category/indoor"> <button>view more</button></Link>
+                                                <Link to={`/category/${result.cname}`}> <button>view more</button></Link>
                                             </div>
                                         </div>
                                     </div>
