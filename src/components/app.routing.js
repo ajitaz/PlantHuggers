@@ -38,7 +38,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/category/:name" component={IndCategory}></Route>
                 <Route exact path="/shop" component={Shop}></Route>
-                <Route exact path="/product/:name" component={Products}></Route>
+                <Route exact path="/product/:pid" component={Products}></Route>
                 <Route exact path="/dashboard/addProduct" component={AddProduct}></Route>
                 <Route exact path="/category" component={CategoryPage}></Route>
                 <Route exact path="/nursery" component={Nursery}></Route>
@@ -53,7 +53,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/dashboard/user/adduser" component={AddUser}></Route>
                 <Route exact path="/dashboard/addNursery" component={AddNursery}></Route>
                 <Route exact path="/dashboard/viewNursery" component={ViewNursery}></Route>
-                <Route exact path="/dashboard/setting" component ={Setting}></Route>
+                <Route exact path="/dashboard/setting" component={Setting}></Route>
                 <Route component={NotFound}></Route>
             </Switch>
 

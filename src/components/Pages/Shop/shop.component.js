@@ -53,11 +53,11 @@ export class Shop extends Component {
                                     <h2>{result.cname}</h2>
                                     <div className="grid">
                                         {
-                                            this.state.products.map((product, indx) => {
+                                            this.state.products.map((product,indx) => {
                                                 if (product.cid == result.cid) {
                                                     return (
-                                                        <div className="col-4">
-                                                            <Link to={`/product/${product.pname}`}><img src={`../images/${product.iname}`} alt="" /></Link>
+                                                        <div key={indx} className="col-4">
+                                                            <Link to={`/product/${product.pid}`}><img src={`../images/${product.iname}`} alt="" /></Link>
                                                             <h4>{product.pname}</h4>
                                                             <p>{product.price}</p>
                                                         </div>

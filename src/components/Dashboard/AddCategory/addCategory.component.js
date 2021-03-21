@@ -44,7 +44,8 @@ export class AddCategory extends Component {
             responseType: 'json'
         })
             .then(res => {
-                alert('Successfully Category Added...');
+                
+                alert(res);
                 this.props.history.push('/dashboard/setting')
             })
             .catch(err => console.log(err))

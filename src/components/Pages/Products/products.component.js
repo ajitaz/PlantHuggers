@@ -1,68 +1,115 @@
-import React from 'react';
+import axios from 'axios';
+import React, { Component, Fragment } from 'react';
 import { Footer } from '../../common/footer/footer.component';
 import { NavBar } from '../../common/navbar/nav.component';
 import './products.component.css';
 
-export const Products = () => {
-    return (
-        <>
-            <NavBar isLoggedIn={false}></NavBar>
-            <div className="Psmall-container single-product">
-                <div className="head">
-                    <div className="col-2 image">
-                        <img src="../images/cactus.jpg" height="500" />
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+export class Products extends Component {
+    constructor() {
+        super();
+        this.state = {
+            products: [],
+            relatedCategory: ''
+
+        }
+    }
+
+    getProducts() {
+        axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`)
+            .then(res => {
+                this.setState({
+                    products: res.data
+
+                }, () => {
+                    this.setRelatedCategory();
+                })
+            })
+    }
+
+    setRelatedCategory() {
+        this.state.products.map((result, index) => {
+            if (this.props.match.params.pid == result.pid) {
+                this.setState({
+                    relatedCategory: result.cid
+                })
+
+            }
+        })
+    }
+
+
+    componentDidMount() {
+        this.getProducts();
+    }
+
+    render() {
+        return (
+            <>
+                <NavBar isLoggedIn={false}></NavBar>
+                <div className="Psmall-container single-product">
+                    <div className="head">
+                        {
+                            this.state.products.map((result, index) => {
+                                if (this.props.match.params.pid == result.pid) {
+                                    return (
+                                        <Fragment key={index}>
+                                            <div className="col-2 image">
+                                                <img src={`/images/${result.iname}`} height="500" />
+                                            </div>
+
+                                            <div className="col-2 Pdetails">
+                                                <p>{result.cname}</p>
+                                                <h1>{result.pname}</h1>
+                                                <h4>Rs {result.price}</h4>
+                                                {/* <input type="number" value="1" /> */}
+                                                <button>Add to Cart</button>
+                                                <h3>product Detail</h3>
+                                                <p>
+                                                    {result.p_description}
+                                                </p>
+                                            </div>
+
+                                        </Fragment>
+                                    )
+                                }
+                            })
+                        }
                     </div>
 
-                    <div className="col-2 Pdetails">
-                        <p>Indoor Plant</p>
-                        <h1>Cactus</h1>
-                        <h4>Rs 1200</h4>
-                        {/* <input type="number" value="1" /> */}
-                        <button>Add to Cart</button>
-                        <h3>product Detail</h3>
-                        <p>
-                            A cactus is a member of the plant family Cactaceae, a family
-                            comprising about 127 genera with some 1750 known species of the
-                            order Caryophyllales. The word "cactus" derives, through Latin, from
-                            the Ancient Greek κάκτος, kaktos, a name originally used by
-                            Theophrastus for a spiny plant whose identity is now not certain.
-                        </p>
-                    </div>
-                </div>
+                    {
+                        <div className="Psmall-container">
+                            <div className="product-list">
+                                <h2>Related Products</h2>
+                                <div className="row grid">
+                                    {
+                                        this.state.products.map((relatedP, index) => {
+                                            if (this.state.relatedCategory == relatedP.cid) {
 
+                                                return (
+                                                    <div key={index} className="col-4">
+                                                        <img src={`/images/${relatedP.iname}`} alt="" />
+                                                        <h4>{relatedP.pname}</h4>
+                                                        <p>Rs.{relatedP.price}</p>
+                                                    </div>
+                                                )
+                                            }
+                                        })
 
+                                    }
 
-                <div className="Psmall-container">
-                    <div className="product-list">
-                        <h2>Related Products</h2>
-                        <div className="row grid">
-                            <div className="col-4">
-                                <img src="/images/plant1.jpg" alt="" />
-                                <h4>Plant Indoor</h4>
-                                <p>Rs.1800</p>
-                            </div>
-                            <div className="col-4">
-                                <img src="/images/plant2.jpg" alt="" />
-                                <h4>Plant Indoor</h4>
-                                <p>Rs.1800</p>
-                            </div>
-                            <div className="col-4">
-                                <img src="/images/plant1.jpg" alt="" />
-                                <h4>Plant Indoor</h4>
-                                <p>Rs.1800</p>
-                            </div>
-                            <div className="col-4">
-                                <img src="/images/plant1.jpg" alt="" />
-                                <h4>Plant Indoor</h4>
-                                <p>Rs.1800</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
+
+
                 </div>
-            </div>
 
-            <Footer></Footer>
-        </>
+                <Footer></Footer>
+            </>
 
-    )
+        )
+    }
 }
