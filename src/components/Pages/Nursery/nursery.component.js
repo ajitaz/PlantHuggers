@@ -22,7 +22,6 @@ export class Nursery extends Component {
                 this.setState({
                     data: res.data
                 })
-                console.log(res)
             })
     }
 
