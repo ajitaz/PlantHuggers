@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component, Fragment } from 'react';
 import { Footer } from '../../common/footer/footer.component';
 import { NavBar } from '../../common/navbar/nav.component';
+import { Link } from 'react-router-dom';
 import './products.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -79,7 +80,7 @@ export class Products extends Component {
 
                                                 return (
                                                     <div key={index} className="col-4">
-                                                        <img src={`/images/${relatedP.iname}`} alt="" />
+                                                        <Link to={`/product?pid=${relatedP.pid}&cid=${relatedP.cid}`}><img src={`/images/${relatedP.iname}`} alt="" /></Link>
                                                         <h4>{relatedP.pname}</h4>
                                                         <p>Rs.{relatedP.price}</p>
                                                     </div>
