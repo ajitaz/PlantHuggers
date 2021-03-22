@@ -38,7 +38,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/" component={Home}></Route>
                 <Route exact path="/category/:name" component={IndCategory}></Route>
                 <Route exact path="/shop" component={Shop}></Route>
-                <Route exact path="/product/:pid" component={Products}></Route>
+                <Route exact path="/product" component={Products}></Route>
                 <Route exact path="/dashboard/addProduct" component={AddProduct}></Route>
                 <Route exact path="/category" component={CategoryPage}></Route>
                 <Route exact path="/nursery" component={Nursery}></Route>

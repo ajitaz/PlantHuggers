@@ -7,9 +7,9 @@ import './indNursery.component.css';
 export const IndNursery = () => {
     return (
         <>
-            <NavBar isLoggedIn = {false}/>
-            
-            <div className="bgimg-1" style={{backgroundImage:'url("../images/surya_nursery.jpeg")'}}>
+            <NavBar isLoggedIn={false} />
+
+            <div className="bgimg-1" style={{ backgroundImage: 'url("../images/surya_nursery.jpeg")' }}>
                 <div className="caption">
                     <span className="border">Surya Home Nursery</span>
                 </div>
@@ -24,7 +24,7 @@ export const IndNursery = () => {
                 tatum ad quae consectetur maxime, cumque nisi? Tempore, rerum?</p>
             </div>
 
-            <div className="bgimg-2" style={{backgroundImage:'url("../images/surya_nursery.jpeg")'}}>
+            <div className="bgimg-2" style={{ backgroundImage: 'url("../images/surya_nursery.jpeg")' }}>
             </div>
 
             <div className="contact">

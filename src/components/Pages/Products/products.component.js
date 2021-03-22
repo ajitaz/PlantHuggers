@@ -10,8 +10,7 @@ export class Products extends Component {
     constructor() {
         super();
         this.state = {
-            products: [],
-            relatedCategory: ''
+            products: []
 
         }
     }
@@ -21,22 +20,10 @@ export class Products extends Component {
             .then(res => {
                 this.setState({
                     products: res.data
-
-                }, () => {
-                    this.setRelatedCategory();
-                })
+                }
+                )
             })
-    }
 
-    setRelatedCategory() {
-        this.state.products.map((result, index) => {
-            if (this.props.match.params.pid == result.pid) {
-                this.setState({
-                    relatedCategory: result.cid
-                })
-
-            }
-        })
     }
 
 
@@ -45,6 +32,9 @@ export class Products extends Component {
     }
 
     render() {
+        const url = new URLSearchParams(this.props.location.search);
+        const activePid = url.get('pid')
+        const acitveCid = url.get('cid')
         return (
             <>
                 <NavBar isLoggedIn={false}></NavBar>
@@ -52,7 +42,7 @@ export class Products extends Component {
                     <div className="head">
                         {
                             this.state.products.map((result, index) => {
-                                if (this.props.match.params.pid == result.pid) {
+                                if (activePid == result.pid) {
                                     return (
                                         <Fragment key={index}>
                                             <div className="col-2 image">
@@ -85,7 +75,7 @@ export class Products extends Component {
                                 <div className="row grid">
                                     {
                                         this.state.products.map((relatedP, index) => {
-                                            if (this.state.relatedCategory == relatedP.cid) {
+                                            if (acitveCid == relatedP.cid) {
 
                                                 return (
                                                     <div key={index} className="col-4">
