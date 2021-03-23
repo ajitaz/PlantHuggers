@@ -44,7 +44,7 @@ export class Category extends Component {
                                             <div className="Coverlay-content">
                                                 <h2>{result.cname}<i className="fas fa-info-circle"></i></h2>
                                                 <p>{result.description}</p>
-                                                <Link to={`/category/${result.cname}`}> <button>view more</button></Link>
+                                                <Link to={`/category/${result.cid}`}> <button>view more</button></Link>
                                             </div>
                                         </div>
                                     </div>

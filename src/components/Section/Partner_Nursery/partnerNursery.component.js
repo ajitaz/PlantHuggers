@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './partnerNursery.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -35,7 +36,7 @@ export class Nursery extends Component {
                             this.state.nurseries.map((nursery, index) => {
                                 return (
                                     <div key={index} className="image">
-                                        <img src={`/images/${nursery.iname}`} alt="" />
+                                        <Link to={`/nursery/${nursery.nid}`} > <img src={`/images/${nursery.iname}`} alt="" /> </Link>
                                         <div className="overlay">
                                             <div className="overlay-content">
                                                 <h2>{nursery.name}</h2>

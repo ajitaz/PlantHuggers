@@ -42,7 +42,7 @@ export const AppRouting = (props) => {
                 <Route exact path="/dashboard/addProduct" component={AddProduct}></Route>
                 <Route exact path="/category" component={CategoryPage}></Route>
                 <Route exact path="/nursery" component={Nursery}></Route>
-                <Route exact path="/nursery/:name" component={IndNursery}></Route>
+                <Route exact path="/nursery/:nid" component={IndNursery}></Route>
                 <Route exact path="/articles" component={Articles}></Route>
                 <Route exact path="/indArticle/:aid" component={IndArticle}></Route>
                 <Route exact path="/login" component={Login}></Route>
