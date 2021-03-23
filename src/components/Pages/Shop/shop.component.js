@@ -68,7 +68,7 @@ export class Shop extends Component {
                                         }
 
                                     </div>
-                                    <button><Link to={`/category/${result.cname}`}>view more</Link></button>
+                                    <button><Link to={`/category/${result.cid}`}>view more</Link></button>
                                     <div className="clear"></div>
                                 </div>
                             )

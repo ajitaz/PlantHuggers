@@ -16,6 +16,7 @@ export class IndCategory extends Component {
         }
         this.getCategory();
         this.getProducts();
+        window.scrollTo(0, 0);
     }
 
     getCategory() {
@@ -39,6 +40,7 @@ export class IndCategory extends Component {
                 })
             })
     }
+
 
     render() {
         return (

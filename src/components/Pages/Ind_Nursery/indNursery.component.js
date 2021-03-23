@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Footer } from '../../common/footer/footer.component';
 import { NavBar } from '../../common/navbar/nav.component';
 import './indNursery.component.css';
@@ -15,6 +16,7 @@ export class IndNursery extends Component {
         }
         this.getNursery();
         this.getProducts();
+        window.scrollTo(0, 0);
 
     }
 
@@ -39,6 +41,7 @@ export class IndNursery extends Component {
                 })
             })
     }
+
 
     render() {
         return (
@@ -76,7 +79,9 @@ export class IndNursery extends Component {
                                     if (product.nid == this.props.match.params.nid) {
                                         return (
                                             <div key={index} className="col-4">
-                                                <img src={`/images/${product.iname}`} alt="" />
+                                                <Link to={`/product?pid=${product.pid}&cid=${product.cid}`}>
+                                                    <img src={`/images/${product.iname}`} alt="" />
+                                                </Link>
                                                 <h4>{product.pname}</h4>
                                                 <p>Rs.{product.price}</p>
                                             </div>

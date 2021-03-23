@@ -12,8 +12,8 @@ export class Products extends Component {
         super();
         this.state = {
             products: []
-
         }
+        this.getProducts();
     }
 
     getProducts() {
@@ -28,8 +28,8 @@ export class Products extends Component {
     }
 
 
-    componentDidMount() {
-        this.getProducts();
+    componentDidUpdate() {
+        window.scrollTo(0, 0);
     }
 
     render() {

@@ -22,6 +22,7 @@ export class Article extends Component {
                 })
             })
     }
+    
 
     render() {
         return (

@@ -15,6 +15,7 @@ export class Nursery extends Component {
             data: []
         }
         this.getNursery();
+        window.scrollTo(0,0);
     }
 
     getNursery() {
@@ -25,6 +26,7 @@ export class Nursery extends Component {
                 })
             })
     }
+
 
 
     render() {

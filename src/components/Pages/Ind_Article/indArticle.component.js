@@ -12,7 +12,8 @@ export class IndArticle extends Component {
         this.state = {
             article: []
         }
-        this.getArticle()
+        this.getArticle();
+        window.scrollTo(0, 0);
     }
 
     getArticle() {
@@ -21,13 +22,13 @@ export class IndArticle extends Component {
                 res.data.map((article, index) => {
                     if (article.aid == this.props.match.params.aid) {
                         this.setState({
-                            article:article
+                            article: article
                         })
-               
-                }
+
+                    }
+                })
             })
-    })
-}
+    }
 
     render() {
         return (
