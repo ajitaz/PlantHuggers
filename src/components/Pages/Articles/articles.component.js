@@ -1,99 +1,56 @@
-import React from 'react';
+import axios from 'axios';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../../common/footer/footer.component';
 import { NavBar } from '../../common/navbar/nav.component';
 import './articles.component.css';
 
-export const Articles = () => {
-    return (
-        <>
-            <NavBar isLoggedIn={false} />
-            <div className="events">
-                <ul>
-                    <li>
-                        <img src="../images/plant1.jpg" alt="" />
-                        <div className="details">
-                            <a href="#" className="card-category">Indoor plants</a>
-                            <h2>Grow plants in your Backyard</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.
-                            </p>
-                            <Link to="/indArticle" className="Abtn">view more</Link>
-                        </div>
-                        <div className="clear"></div>
-                    </li>
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-                    <li>
-                        <img src="../images/plant.jpg" alt="" />
-                        <div className="details">
-                            <a href="#" className="card-category">Indoor plants</a>
-                            <h2>Breading plants is possible?</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.
-                    </p>
-                    <Link to="/indArticle" className="Abtn">view more</Link>
-                        </div>
-                        <div className="clear"></div>
-                    </li>
+export class Articles extends Component {
+    constructor() {
+        super();
+        this.state = {
+            articles: []
+        }
+        this.getArticle();
+    }
 
-                    <li>
-                        <img src="../images/cactus.jpg" alt="" />
-                        <div className="details">
-                            <a href="#" className="card-category">Indoor plants</a>
-                            <h2>How to grow Cactus?</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.
-                    </p>
-                    <Link to="/indArticle" className="Abtn">view more</Link>
-                        </div>
-                        <div className="clear"></div>
-                    </li>
-                    <li>
-                        <img src="../images/plant.jpg" alt="" />
-                        <div className="details">
-                            <a href="#" className="card-category">Indoor plants</a>
-                            <h2>Title</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab, vitae
-                            eius corrupti pariatur architecto illo saepe quae.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, exercitationem quisquam. Ab,
-                            vitae eius corrupti pariatur architecto illo saepe quae.Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Illo, exercitationem quisquam. Ab, vitae eius corrupti pariatur architecto
-                            illo saepe quae.
-                    </p>
-                    <Link to="/indArticle" className="Abtn">view more</Link>
-                        </div>
-                        <div className="clear"></div>
-                    </li>
-                </ul>
-            </div>
-            <Footer />
-        </>
-    )
+    getArticle() {
+        axios.get(`${BASE_URL}/viewContent.php?option=viewArticle`)
+            .then(res => {
+                this.setState({
+                    articles: res.data
+                })
+            })
+    }
+
+    render() {
+        return (
+            <>
+                <NavBar isLoggedIn={false} />
+                <div className="events">
+                    <ul>
+                        {
+                            this.state.articles.map((article, index) => {
+                                return (
+                                    <li key={index}>
+                                        <img src={`../images/${article.iname}`} alt="" />
+                                        <div className="details">
+                                            <Link to={`/category/${article.cid}`} className="card-category">{article.cname}</Link>
+                                            <h2>{article.title}</h2>
+                                            <p>{article.a_description}</p>
+                                            <Link to={`/indArticle/${article.aid}`} className="Abtn">view more</Link>
+                                        </div>
+                                        <div className="clear"></div>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+                <Footer />
+            </>
+        )
+    }
 }
