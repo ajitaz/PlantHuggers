@@ -14,6 +14,9 @@
   .grid img {
     border-radius: 20px;
   }
+  .grid .pimage{
+    width: 200px;
+  }
   
   .grid img:hover {
     opacity: 0.6;
