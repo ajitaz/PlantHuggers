@@ -13,6 +13,9 @@
     overflow: hidden; 
     text-overflow: ellipsis; 
 }
+.details a{
+    color: #664c05;
+}
 .events .details .card-category{
     font-size: 1rem;
     text-transform: uppercase;

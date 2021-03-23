@@ -4,6 +4,10 @@
     gap: 2rem;
     margin-bottom: 2rem;
 }
+.article-container h4{
+   text-transform: uppercase;
+   color:#664c05 ;
+}
 .article-image{
     overflow: hidden;
 }
@@ -29,6 +33,7 @@
     text-align: justify;
     width: 100%; 
     height: 141px; 
+    color: #000;
     overflow: hidden; 
     text-overflow: ellipsis;
 }

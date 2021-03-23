@@ -6,16 +6,15 @@
 }
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
+    grid-template-columns:1fr 1fr 1fr;
+    gap: 20px 20px;
   }
   
   .grid img {
     border-radius: 20px;
   }
   .grid .pimage{
-    width: 200px;
+    width: 300px;
   }
   
   .grid img:hover {
