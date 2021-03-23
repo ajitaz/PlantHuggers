@@ -57,7 +57,7 @@ export class Shop extends Component {
                                                 if (product.cid == result.cid) {
                                                     return (
                                                         <div key={indx} className="col-4">
-                                                            <Link to={`/product?pid=${product.pid}&cid=${product.cid}`}><img src={`../images/${product.iname}`} alt="" /></Link>
+                                                            <Link to={`/product?pid=${product.pid}&cid=${product.cid}`}><img src={`../images/${product.iname}`} className="pimage" alt="" /></Link>
                                                             <h4>{product.pname}</h4>
                                                             <p>{product.price}</p>
                                                         </div>
