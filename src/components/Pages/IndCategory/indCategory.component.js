@@ -1,87 +1,81 @@
-import React from 'react';
+import axios from 'axios';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Footer } from '../../common/footer/footer.component';
 import { NavBar } from '../../common/navbar/nav.component';
 import './indCategory.component.css';
 
-export const IndCategory = () => {
-    return (
-        <>
-            <NavBar />
-            <div className="bgimg-1" style = {{backgroundImage:'url("../images/background.jpg")'}}>
-            </div>
-            <div className="cont">
-                <h3>Indoor Plants</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
-                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosamLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
-                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosam
-                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
-                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamusLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
-                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosam
-                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
-                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamusLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
-                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosam
-                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
-                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamusLorem ipsum dolor sit amet consectetur adipisicing elit. Eaque nihil, incidunt, placeat minima reprehenderit,
-                explicabo fuga temporibus at similique adipisci suscipit veritatis provident! Impedit ad illo laboriosam
-                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
-                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamus
-                itaque fugiat voluptates molestias voluptate quasi, ab dolorum voluptatibus, iure nostrum reprehenderit,
-                repellat non explicabo harum maxime minima totam laudantium quas nemo nobis iusto incidunt? Vel accusamus
-                ipsum asperiores ipsa unde at, officiis voluptate. Iusto delectus repudiandae qui nihil magni sint saepe
-                velit unde, perferendis enim, ex consequuntur ducimus voluptates eum. Quisquam accusamus sapiente eius
-            numquam consectetur obcaecati!</p>
-            </div>
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-            <div className="small-container">
-                <div className="product-list">
-                    <h2>Indoor Plants</h2>
-                    <div className="row grid">
-                        <div className="col-4">
-                            <img src="/images/plant1.jpg" alt="" />
-                            <h4>Plant Indoor</h4>
-                            <p>Rs.1800</p>
-                        </div>
-                        <div className="col-4">
-                            <img src="/images/plant2.jpg" alt="" />
-                            <h4>Plant Indoor</h4>
-                            <p>Rs.1800</p>
-                        </div>
-                        <div className="col-4">
-                            <img src="/images/plant1.jpg" alt="" />
-                            <h4>Plant Indoor</h4>
-                            <p>Rs.1800</p>
-                        </div>
-                        <div className="col-4">
-                            <img src="/images/plant1.jpg" alt="" />
-                            <h4>Plant Indoor</h4>
-                            <p>Rs.1800</p>
-                        </div>
-                    </div>
-                    <div className="row grid">
-                        <div className="col-4">
-                            <img src="/images/plant1.jpg" alt="" />
-                            <h4>Plant Indoor</h4>
-                            <p>Rs.1800</p>
-                        </div>
-                        <div className="col-4">
-                            <img src="/images/plant2.jpg" alt="" />
-                            <h4>Plant Indoor</h4>
-                            <p>Rs.1800</p>
-                        </div>
-                        <div className="col-4">
-                            <img src="/images/plant1.jpg" alt="" />
-                            <h4>Plant Indoor</h4>
-                            <p>Rs.1800</p>
-                        </div>
-                        <div className="col-4">
-                            <img src="/images/plant1.jpg" alt="" />
-                            <h4>Plant Indoor</h4>
-                            <p>Rs.1800</p>
+export class IndCategory extends Component {
+    constructor() {
+        super();
+        this.state = {
+            category: [],
+            products: []
+        }
+        this.getCategory();
+        this.getProducts();
+    }
+
+    getCategory() {
+        axios.get(`${BASE_URL}/viewContent.php?option=category`)
+            .then(res => {
+                res.data.map((result, index) => {
+                    if (result.cid == this.props.match.params.cid) {
+                        this.setState({
+                            category: result
+                        })
+                    }
+                })
+            })
+    }
+
+    getProducts() {
+        axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`)
+            .then(res => {
+                this.setState({
+                    products: res.data
+                })
+            })
+    }
+
+    render() {
+        return (
+            <>
+                <NavBar />
+                <div className="bgimg-1" style={{ backgroundImage: `url("../images/${this.state.category.iname}")` }}>
+                </div>
+                <div className="cont">
+                    <h3>{this.state.category.cname}</h3>
+                    <p>{this.state.category.description}</p>
+                </div>
+
+                <div className="small-container">
+                    <div className="product-list">
+                        <h2>{`Related ${this.state.category.cname} Products`}</h2>
+                        <div className="row grid">
+                            {
+                                this.state.products.map((product, index) => {
+                                    if (product.cid == this.props.match.params.cid) {
+                                        return (
+                                            <div key={index} className="col-4">
+                                                <Link to={`/product?pid=${product.pid}&cid=${product.cid}`}>
+                                                    <img src={`/images/${product.iname}`} alt="" />
+                                                </Link>
+                                                <h4>{product.pname}</h4>
+                                                <p>Rs.{product.price}</p>
+
+                                            </div>
+                                        )
+                                    }
+                                })
+                            }
                         </div>
                     </div>
                 </div>
-            </div>
-            <Footer />
-        </>
-    )
+                <Footer />
+            </>
+        )
+    }
 }

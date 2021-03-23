@@ -36,7 +36,7 @@ export const AppRouting = (props) => {
         <BrowserRouter>
             <Switch>
                 <Route exact path="/" component={Home}></Route>
-                <Route exact path="/category/:name" component={IndCategory}></Route>
+                <Route exact path="/category/:cid" component={IndCategory}></Route>
                 <Route exact path="/shop" component={Shop}></Route>
                 <Route exact path="/product" component={Products}></Route>
                 <Route exact path="/dashboard/addProduct" component={AddProduct}></Route>
