@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Footer } from '../../common/footer/footer.component';
+import { Link } from 'react-router-dom';
 import { NavBar } from '../../common/navbar/nav.component';
 import './categoryPage.component.css';
 
@@ -39,6 +40,7 @@ export class CategoryPage extends Component {
                                 <div className="cont">
                                     <h3>{category.cname}</h3>
                                     <p>{category.description}</p>
+                                 <Link to="/"> <button>View Product</button></Link>
                                 </div>
                             </div>
                         )
