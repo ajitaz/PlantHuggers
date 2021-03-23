@@ -40,7 +40,7 @@ export class CategoryPage extends Component {
                                 <div className="cont">
                                     <h3>{category.cname}</h3>
                                     <p>{category.description}</p>
-                                 <Link to="/"> <button>View Product</button></Link>
+                                 <Link to={`/category/${category.cid}`}> <button>View Products</button></Link>
                                 </div>
                             </div>
                         )
