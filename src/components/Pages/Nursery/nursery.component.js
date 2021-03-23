@@ -14,6 +14,7 @@ export class Nursery extends Component {
         this.state = {
             data: []
         }
+        this.getNursery();
     }
 
     getNursery() {
@@ -25,9 +26,6 @@ export class Nursery extends Component {
             })
     }
 
-    componentDidMount() {
-        this.getNursery();
-    }
 
     render() {
         return (
