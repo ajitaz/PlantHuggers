@@ -1,59 +1,53 @@
-import React from 'react';
+import axios from 'axios';
+import React, { Component } from 'react';
 import './article.component.css';
 
-export const Article = () => {
-    return (
-        <>
-            <div className="small-container">
-                <h2 className="title">Articles</h2>
-                <div className="article-container">
-                    <article className="article-card">
-                        <div className="article-image">
-                            <img src="../images/cactus.jpg" alt="" />
-                        </div>
-                        <div className="article-content">
-                            <a href="#" className="card-category">Indoor Plants</a>
-                            <h3 className="card-title">How to grow Cactus?</h3>
-                            <p className="card-desc">How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus--008888?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?How to grow Cactus?Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.</p>
-                        </div>
-                    </article>
-                    <article className="article-card">
-                        <div className="article-image">
-                            <img src="../images/plant1.jpg" alt="" />
-                        </div>
-                        <div className="article-content">
-                            <a href="#" className="card-category">Indoor Plants</a>
-                            <h3 className="card-title">Breading plants is possible?</h3>
-                            <p className="card-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! LaboreLorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                            alias eum cum accusamus eligendi soluta maxime, sit odio! Labore..</p>
-                        </div>
-                    </article>
-                    <article className="article-card">
-                        <div className="article-image">
-                            <img src="../images/plant2.jpg" alt="" />
-                        </div>
-                        <div className="article-content">
-                            <a href="#" className="card-category">Indoor plants</a>
-                            <h3 className="card-title">Money plant ? Benefites</h3>
-                            <p className="card-desc">Lorem ipsum Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore..Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam exercitationem
-                        alias eum cum accusamus eligendi soluta maxime, sit odio! Labore.</p>
-                        </div>
-                    </article>
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+export class Article extends Component {
+    constructor() {
+        super();
+        this.state = {
+            articles: []
+        }
+        this.getArticle();
+    }
+
+    getArticle() {
+        axios.get(`${BASE_URL}/viewContent.php?option=viewArticle`)
+            .then(res => {
+                this.setState({
+                    articles: res.data
+                })
+            })
+    }
+
+    render() {
+        return (
+            <>
+                <div className="small-container">
+                    <h2 className="title">Articles</h2>
+                    <div className="article-container">
+                        {
+                            this.state.articles.map((article, index) => {
+                                return (
+                                    <article key={index} className="article-card">
+                                        <div className="article-image">
+                                            <img src={`../images/${article.iname}`} alt="" />
+                                        </div>
+                                        <div className="article-content">
+                                            <a href="#" className="card-category">{article.cname}</a>
+                                            <h3 className="card-title">{article.title}</h3>
+                                            <p className="card-desc">{article.a_description}</p>
+                                        </div>
+                                    </article>
+                                )
+                            })
+                        }
+
+                    </div>
                 </div>
-            </div>
-        </>
-    )
+            </>
+        )
+    }
 }

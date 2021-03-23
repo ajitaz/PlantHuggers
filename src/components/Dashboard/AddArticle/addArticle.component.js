@@ -60,14 +60,15 @@ export class AddArticle extends Component {
             headers: {
                 'Content-Type': 'application/json',
                 'Content-Type': 'multipart/form-data'
+
             }, params: {},
             responseType: 'json'
         })
             .then(res => {
-                alert('Successfully Article Added...');
-                this.props.history.push('/dashboard/setting')})
+                
+                alert(res.data);
+            })
             .catch(err => console.log(err))
-
     }
 
 

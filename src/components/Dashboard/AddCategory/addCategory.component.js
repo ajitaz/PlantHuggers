@@ -45,8 +45,8 @@ export class AddCategory extends Component {
         })
             .then(res => {
                 
-                alert(res);
-                this.props.history.push('/dashboard/setting')
+                alert(res.data);
+                
             })
             .catch(err => console.log(err))
     }
