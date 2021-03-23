@@ -76,7 +76,7 @@ export class Products extends Component {
                                 <div className="row grid">
                                     {
                                         this.state.products.map((relatedP, index) => {
-                                            if (acitveCid == relatedP.cid) {
+                                            if (acitveCid == relatedP.cid && activePid != relatedP.pid) {
 
                                                 return (
                                                     <div key={index} className="col-4">
