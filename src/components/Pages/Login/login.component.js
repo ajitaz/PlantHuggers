@@ -36,16 +36,20 @@ export class Login extends Component {
             .then(res => {
                 switch (res.data['flag']) {
                     case 'Admin':
+                        localStorage.setItem('uname', res.data['uname']);
+                        localStorage.setItem('uid',res.data['id']);
                         this.props.history.push('/dashboard');
-                        localStorage.setItem('uid', res.data['id']);
                         break;
                     case 'User':
+                        localStorage.setItem('uname', res.data['uname']);
+                        localStorage.setItem('uid',res.data['id']);
                         this.props.history.push('/');
-                        localStorage.setItem('uid', res.data['id']);
                         break;
                     case 'NA':
+                        localStorage.setItem('uname', res.data['uname']);
+                        localStorage.setItem('uid',res.data['id']);
                         this.props.history.push('/nurseryDashboard');
-                        localStorage.setItem('uid', res.data['id']);
+
                         break;
                     default:
                         console.log('DID NOT MATCH');
