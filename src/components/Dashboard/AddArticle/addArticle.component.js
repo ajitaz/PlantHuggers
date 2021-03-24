@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './addArticle.component.css';
 import axios from 'axios';
+import { withRouter } from 'react-router';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 
-export class AddArticle extends Component {
+class AddArticle extends Component {
 
     constructor() {
         super();
@@ -65,8 +66,8 @@ export class AddArticle extends Component {
             responseType: 'json'
         })
             .then(res => {
-                
-                alert(res.data);
+                alert("Successfully Added Article >> ",res.data);
+                this.props.history.push('/dashboard');
             })
             .catch(err => console.log(err))
     }
@@ -104,3 +105,4 @@ export class AddArticle extends Component {
 
 }
 
+export default withRouter(AddArticle);

@@ -17,7 +17,7 @@ import { AddProduct } from './Dashboard/AddProduct/addProduct.component';
 import { IndNursery } from './Pages/Ind_Nursery/indNursery.component';
 import { CategoryPage } from './Pages/Category/categoryPage.component';
 import { IndCategory } from './Pages/IndCategory/indCategory.component';
-import { IndArticle, Ind_Article } from './Pages/Ind_Article/indArticle.component';
+import { IndArticle } from './Pages/Ind_Article/indArticle.component';
 import { Setting } from './Dashboard/Setting/settng.component';
 
 

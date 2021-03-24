@@ -1,7 +1,7 @@
 import React from 'react';
 import Popup from 'reactjs-popup';
-import { AddArticle } from '../AddArticle/addArticle.component';
-import { AddCategory } from '../AddCategory/addCategory.component';
+import AddArticle from '../AddArticle/addArticle.component';
+import AddCategory from '../AddCategory/addCategory.component';
 import { DashNav } from '../DashNav/dashNav.component';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './setting.component.css';
@@ -25,7 +25,7 @@ export const Setting = () => {
                             )}
                         </Popup>
                         <Popup trigger={<button className="primary"><i className="fa fa-plus-circle"></i> Add category</button>} position="right center" modal>
-                        {close => (
+                            {close => (
                                 <div className="modal">
                                     <button className="close" onClick={close}>&times;</button>
                                     <AddCategory />
