@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { Button } from '../../common/Button/button.component';
 
-const BASE_URL = process.env.React_APP_BASE_URL;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 const defaultForm = {

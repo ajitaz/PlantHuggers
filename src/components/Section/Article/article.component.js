@@ -44,7 +44,6 @@ export class Article extends Component {
                                                 <p className="card-desc">{article.a_description}</p>
                                             </div>
                                         </Link>
-
                                     </article>
                                 )
                             })

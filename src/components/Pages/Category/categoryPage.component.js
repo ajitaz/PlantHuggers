@@ -35,7 +35,6 @@ export class CategoryPage extends Component {
 
                 {
                     this.state.data.map((category, index) => {
-                        console.log(category.iname)
                         return (
                             <div key={index}>
                                 <div className="bgimg-1" style={{ backgroundImage: `url("../images/${category.iname}")` }} />
