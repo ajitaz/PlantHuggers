@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../common/Button/button.component';
 import './login.component.css';
-import { Register } from './register.component'
+import Register from './register.component'
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export class Login extends Component {
@@ -34,21 +34,21 @@ export class Login extends Component {
             responseType: 'json'
         })
             .then(res => {
-                switch(res.data['flag']){
+                switch (res.data['flag']) {
                     case 'Admin':
                         this.props.history.push('/dashboard');
-                        localStorage.setItem('uid',res.data['id']);
+                        localStorage.setItem('uid', res.data['id']);
                         break;
                     case 'User':
                         this.props.history.push('/');
-                        localStorage.setItem('uid',res.data['id']);
+                        localStorage.setItem('uid', res.data['id']);
                         break;
                     case 'NA':
                         this.props.history.push('/nurseryDashboard');
-                        localStorage.setItem('uid',res.data['id']);
+                        localStorage.setItem('uid', res.data['id']);
                         break;
                     default:
-                        console.log('DID NOT MATCH');            
+                        console.log('DID NOT MATCH');
                 }
             })
             .catch(err => console.log(err));
@@ -57,9 +57,10 @@ export class Login extends Component {
     }
 
 
-
     render() {
-
+        if (this.props.location.state.fromRegister == true) {
+            login();
+        }
         function register() {
             document.getElementById("login-form").style.left = "-450px";
             document.getElementById("register-form").style.left = "-340px";
@@ -95,11 +96,11 @@ export class Login extends Component {
                                     <input className="input-form" type="text" placeholder="Enter your username" name="username" onChange={this.handleChange} required /><br /><br />
                                     <input className="input-form" type="password" placeholder="Enter your password" name="password" onChange={this.handleChange} required /> <br /><br /><br /><br />
                                     <Button
-                                    isSubmitting = {false}
-                                    isValidForm = {true}
-                                    enabledLable = 'Login'
-                                    disabledLable = 'Logining'
-                                     />
+                                        isSubmitting={false}
+                                        isValidForm={true}
+                                        enabledLable='Login'
+                                        disabledLable='Logining'
+                                    />
 
                                 </form>
                                 <Register />

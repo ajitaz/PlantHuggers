@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
 import { Button } from '../../common/Button/button.component';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -9,11 +10,11 @@ const defaultForm = {
     username: '',
     password: '',
     email: '',
-    phone:'',
+    phone: '',
     flag: 'User'
 }
 
-export class Register extends Component {
+class Register extends Component {
     constructor() {
         super();
         this.state = {
@@ -24,9 +25,9 @@ export class Register extends Component {
                 username: '',
                 password: '',
                 email: '',
-                phone :''
+                phone: ''
             },
-            isValidForm : false,
+            isValidForm: false,
             isSubmitting: false
         }
     }
@@ -41,7 +42,6 @@ export class Register extends Component {
         }), () => {
             this.validateForm(name);
         })
-
     }
 
     validateForm = (fieldName) => {
@@ -66,14 +66,14 @@ export class Register extends Component {
                         : 'Invalid email!!'
                     : 'required field*'
                 break;
-                case 'phone':
-                    errMsg = this.state.data[fieldName]
-                        ? this.state.data[fieldName].length > 10 || this.state.data[fieldName].length < 9
-                            ? 'invalid Phone number'
-                            : ''
-                        : 'required field*';
-                    break;
-    
+            case 'phone':
+                errMsg = this.state.data[fieldName]
+                    ? this.state.data[fieldName].length > 10 || this.state.data[fieldName].length < 9
+                        ? 'invalid Phone number'
+                        : ''
+                    : 'required field*';
+                break;
+
             default:
                 break;
         }
@@ -84,8 +84,8 @@ export class Register extends Component {
                 ...preState.error,
                 [fieldName]: errMsg
             }
-        }),()=>{
-            const error = Object.values(this.state.error).filter(err=>err);
+        }), () => {
+            const error = Object.values(this.state.error).filter(err => err);
             this.setState({
                 isValidForm: error.length === 0
             })
@@ -105,6 +105,12 @@ export class Register extends Component {
         })
             .then(res => {
                 console.log('successfully added');
+                this.props.history.push({
+                    pathname: '/login',
+                    search: '',
+                    state: { fromRegister: true }
+                })
+
             })
             .catch(err => {
                 console.log(err);
@@ -117,20 +123,22 @@ export class Register extends Component {
         return (
             <form id="register-form" onSubmit={this.handleSubmit}>
                 <input className="input-form" type="text" name="username" placeholder="Enter your full name" onChange={this.handleChange} required /><br /><br />
-                <p className = "error">{this.state.error.username}</p>
+                <p className="error">{this.state.error.username}</p>
                 <input className="input-form" type="password" name="password" placeholder="Enter your password" onChange={this.handleChange} required /><br /><br />
-                <p className = "error">{this.state.error.password}</p>
+                <p className="error">{this.state.error.password}</p>
                 <input className="input-form" type="email" name="email" placeholder="Enter your email" onChange={this.handleChange} required /><br /><br />
-                <p className = "error">{this.state.error.email}</p>
+                <p className="error">{this.state.error.email}</p>
                 <input className="input-form" type="Number" name="phone" placeholder="Enter your Phone Number" onChange={this.handleChange} required /><br /><br />
-                <p className = "error">{this.state.error.phone}</p>
-                <Button 
-                    enabledLable = 'Register'
-                    isValidForm = {this.state.isValidForm}
-                    isSubmitting = {this.state.isSubmitting}
+                <p className="error">{this.state.error.phone}</p>
+                <Button
+                    enabledLable='Register'
+                    isValidForm={this.state.isValidForm}
+                    isSubmitting={this.state.isSubmitting}
                 ></Button>
-                <br/><br/>
+                <br /><br />
             </form>
         )
     }
 }
+
+export default withRouter(Register);

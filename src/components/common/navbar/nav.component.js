@@ -9,10 +9,14 @@ export const NavBar = (props) => {
             <li><Link to=""><i className="fas fa-user"></i></Link></li>
         </ul>
         : <ul>
-            <li><Link to="/login" className="login-btn">Login</Link></li>
+            <li><Link to={{
+                pathname: '/login',
+                search: '',
+                state: { fromRegister: false }
+            }} className="login-btn">Login</Link></li>
         </ul>
 
-        
+
     return (
         <div className="navbar">
             <div className="logo">
@@ -28,7 +32,7 @@ export const NavBar = (props) => {
                 </ul>
             </nav>
             <div className="nav-details">
-               {userLogged}
+                {userLogged}
             </div>
         </div>
     )
