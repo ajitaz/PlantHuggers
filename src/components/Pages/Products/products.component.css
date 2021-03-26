@@ -35,6 +35,11 @@
 .details h3{
     margin: 20px 0;
 }
+.pdesc{
+    text-align: justify;
+    height:300px;
+    overflow:hidden;
+} 
 .Pdetails button {
     text-align: center;
     background: #4CAF50;

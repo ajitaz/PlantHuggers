@@ -9,11 +9,6 @@
     min-width: 300px;
     margin-top: 10%;
 }
-.btn{
-    display: inline-block;
-    background: #4CAF50;
-    color: #fff;
-    padding: 8px 30px;
-    margin: 30px 0;
-    border-radius: 30px;
+.bpara{
+    text-align: justify;
 }
