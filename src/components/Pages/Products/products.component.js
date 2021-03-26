@@ -57,7 +57,7 @@ export class Products extends Component {
                                                 {/* <input type="number" value="1" /> */}
                                                 <button>Add to Cart</button>
                                                 <h3>product Detail</h3>
-                                                <p className="pdesc">
+                                                <p>
                                                     {result.p_description}
                                                 </p>
                                             </div>
