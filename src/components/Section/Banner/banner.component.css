@@ -9,6 +9,10 @@
     min-width: 300px;
     margin-top: 10%;
 }
+
+.bannerP{
+    color:#fff
+}
 .btn{
     display: inline-block;
     background: #4CAF50;
