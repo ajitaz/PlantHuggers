@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Footer } from '../../common/footer/footer.component';
-import { NavBar } from '../../common/navbar/nav.component';
 import './nursery.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -15,7 +13,7 @@ export class Nursery extends Component {
             data: []
         }
         this.getNursery();
-        window.scrollTo(0,0);
+        window.scrollTo(0, 0);
     }
 
     getNursery() {
@@ -32,7 +30,6 @@ export class Nursery extends Component {
     render() {
         return (
             <>
-                <NavBar isLoggedIn={false} />
                 <h2 className="title">Partner Nursery</h2>
                 {
                     this.state.data.map((result, index) => {
@@ -43,7 +40,7 @@ export class Nursery extends Component {
                                 <div className="nurserycard">
                                     <h1>{result.name}</h1>
                                     <p>
-                                       {result.description}
+                                        {result.description}
                                     </p>
 
                                     <p>
@@ -56,7 +53,6 @@ export class Nursery extends Component {
 
                 }
 
-                <Footer />
             </>
         )
     }

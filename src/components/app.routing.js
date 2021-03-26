@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Products } from './Pages/Products/products.component';
 import { Home } from './Pages/Home/home.component';
 import { Nursery } from '../components/Pages/Nursery/nursery.component';
@@ -19,6 +19,8 @@ import { CategoryPage } from './Pages/Category/categoryPage.component';
 import { IndCategory } from './Pages/IndCategory/indCategory.component';
 import { IndArticle } from './Pages/Ind_Article/indArticle.component';
 import { Setting } from './Dashboard/Setting/settng.component';
+import { NavBar } from '../components/common/navbar/nav.component';
+import { Footer } from '../components/common/footer/footer.component';
 
 
 
@@ -31,30 +33,58 @@ const NotFound = () => {
     )
 }
 
+
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+    return <Route {...rest} render={routeProps => (
+        (localStorage.getItem('flag') === 'Admin' || localStorage.getItem('flag') === 'NA')
+            ? <>
+                <Component {...routeProps}></Component>
+            </>
+            : <Redirect to={{
+                pathname: '/login',
+                state: { fromRegister: false }
+            }}></Redirect>
+
+
+    )}></Route>
+}
+
+const PublicRoute = ({ component: Component, ...rest }) => {
+    return <Route {...rest} render={routeProps => (
+
+        <>
+            <NavBar isLoggedIn={localStorage.getItem('flag') ? true : false} />
+            <Component {...routeProps}></Component>
+            <Footer />
+        </>
+
+    )}></Route>
+}
+
 export const AppRouting = (props) => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path="/" component={Home}></Route>
-                <Route exact path="/category/:cid" component={IndCategory}></Route>
-                <Route exact path="/shop" component={Shop}></Route>
-                <Route exact path="/product" component={Products}></Route>
-                <Route exact path="/dashboard/addProduct" component={AddProduct}></Route>
-                <Route exact path="/category" component={CategoryPage}></Route>
-                <Route exact path="/nursery" component={Nursery}></Route>
-                <Route exact path="/nursery/:nid" component={IndNursery}></Route>
-                <Route exact path="/articles" component={Articles}></Route>
-                <Route exact path="/indArticle/:aid" component={IndArticle}></Route>
+                <PublicRoute exact path="/" component={Home}></PublicRoute>
+                <PublicRoute exact path="/category/:cid" component={IndCategory}></PublicRoute>
+                <PublicRoute exact path="/shop" component={Shop}></PublicRoute>
+                <PublicRoute exact path="/product" component={Products}></PublicRoute>
+                <ProtectedRoute exact path="/dashboard/addProduct" component={AddProduct}></ProtectedRoute>
+                <PublicRoute exact path="/category" component={CategoryPage}></PublicRoute>
+                <PublicRoute exact path="/nursery" component={Nursery}></PublicRoute>
+                <PublicRoute exact path="/nursery/:nid" component={IndNursery}></PublicRoute>
+                <PublicRoute exact path="/articles" component={Articles}></PublicRoute>
+                <PublicRoute exact path="/indArticle/:aid" component={IndArticle}></PublicRoute>
                 <Route exact path="/login" component={Login}></Route>
-                <Route exact path="/dashboard" component={Dashboard}></Route>
-                <Route exact path="/NurseryDashboard" component={NurseryDashboard}></Route>
-                <Route exact path="/dashboard/user" component={User}></Route>
-                <Route exact path="/dashboard/viewProduct" component={viewProduct}></Route>
-                <Route exact path="/dashboard/user/adduser" component={AddUser}></Route>
-                <Route exact path="/dashboard/addNursery" component={AddNursery}></Route>
-                <Route exact path="/dashboard/viewNursery" component={ViewNursery}></Route>
-                <Route exact path="/dashboard/setting" component={Setting}></Route>
-                <Route component={NotFound}></Route>
+                <ProtectedRoute exact path="/dashboard" component={Dashboard}></ProtectedRoute>
+                <ProtectedRoute exact path="/NurseryDashboard" component={NurseryDashboard}></ProtectedRoute>
+                <ProtectedRoute exact path="/dashboard/user" component={User}></ProtectedRoute>
+                <ProtectedRoute exact path="/dashboard/viewProduct" component={viewProduct}></ProtectedRoute>
+                <ProtectedRoute exact path="/dashboard/user/adduser" component={AddUser}></ProtectedRoute>
+                <ProtectedRoute exact path="/dashboard/addNursery" component={AddNursery}></ProtectedRoute>
+                <ProtectedRoute exact path="/dashboard/viewNursery" component={ViewNursery}></ProtectedRoute>
+                <ProtectedRoute exact path="/dashboard/setting" component={Setting}></ProtectedRoute>
+                <PublicRoute component={NotFound}></PublicRoute>
             </Switch>
 
         </BrowserRouter>

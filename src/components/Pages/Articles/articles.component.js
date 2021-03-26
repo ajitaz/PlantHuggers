@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Footer } from '../../common/footer/footer.component';
-import { NavBar } from '../../common/navbar/nav.component';
 import './articles.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -32,7 +30,6 @@ export class Articles extends Component {
     render() {
         return (
             <>
-                <NavBar isLoggedIn={false} />
                 <div className="events">
                     <ul>
                         {
@@ -53,7 +50,6 @@ export class Articles extends Component {
                         }
                     </ul>
                 </div>
-                <Footer />
             </>
         )
     }

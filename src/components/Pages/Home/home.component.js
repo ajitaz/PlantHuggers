@@ -1,7 +1,5 @@
 import React from 'react';
-import { NavBar } from '../../common/navbar/nav.component';
 import { Category } from '../../Section/category/category.component';
-import { Footer } from '../../common/footer/footer.component';
 import { Header } from '../../Section/Header/header.component';
 import { FeatureComp } from '../../Section/featureProduct/feature.component';
 import { NewArrival } from '../../Section/newArrival/newArrival.component';
@@ -14,14 +12,13 @@ export const Home = () => {
 
     return (
         <div>
-            <NavBar isLoggedIn={false} />
+            
             <Header />
             <NewArrival />
             <Category />
             <FeatureComp />
             <Article />
             <Nursery />
-            <Footer />
         </div>
     )
 }

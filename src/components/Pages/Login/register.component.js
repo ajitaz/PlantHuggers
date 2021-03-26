@@ -107,7 +107,6 @@ class Register extends Component {
                 console.log('successfully added');
                 this.props.history.push({
                     pathname: '/login',
-                    search: '',
                     state: { fromRegister: true }
                 })
 

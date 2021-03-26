@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { Footer } from '../../common/footer/footer.component';
-import { NavBar } from '../../common/navbar/nav.component';
 import { Link } from 'react-router-dom';
 import './shop.component.css';
 import axios from 'axios';
@@ -43,7 +41,6 @@ export class Shop extends Component {
     render() {
         return (
             <>
-                <NavBar />
                 <div className="small-container">
                     <h2 className="title">All Products</h2>
                     {
@@ -53,7 +50,7 @@ export class Shop extends Component {
                                     <h2>{result.cname}</h2>
                                     <div className="grid">
                                         {
-                                            this.state.products.map((product,indx) => {
+                                            this.state.products.map((product, indx) => {
                                                 if (product.cid == result.cid) {
                                                     return (
                                                         <div key={indx} className="col-4">
@@ -77,7 +74,6 @@ export class Shop extends Component {
                     }
 
                 </div>
-                <Footer />
             </>
         )
     }

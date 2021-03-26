@@ -38,16 +38,19 @@ export class Login extends Component {
                     case 'Admin':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid',res.data['id']);
+                        localStorage.setItem('flag',res.data['flag']);
                         this.props.history.push('/dashboard');
                         break;
                     case 'User':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid',res.data['id']);
+                        localStorage.setItem('flag',res.data['flag']);
                         this.props.history.push('/');
                         break;
                     case 'NA':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid',res.data['id']);
+                        localStorage.setItem('flag',res.data['flag']);
                         this.props.history.push('/nurseryDashboard');
 
                         break;

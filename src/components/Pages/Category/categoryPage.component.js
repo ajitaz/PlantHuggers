@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { Footer } from '../../common/footer/footer.component';
 import { Link } from 'react-router-dom';
-import { NavBar } from '../../common/navbar/nav.component';
 import './categoryPage.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -31,8 +29,6 @@ export class CategoryPage extends Component {
     render() {
         return (
             <>
-                <NavBar />
-
                 {
                     this.state.data.map((category, index) => {
                         return (
@@ -48,8 +44,6 @@ export class CategoryPage extends Component {
                     })
 
                 }
-
-                <Footer />
             </>
         )
     }

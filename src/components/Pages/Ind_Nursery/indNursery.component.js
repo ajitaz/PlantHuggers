@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Footer } from '../../common/footer/footer.component';
-import { NavBar } from '../../common/navbar/nav.component';
 import './indNursery.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -46,8 +44,6 @@ export class IndNursery extends Component {
     render() {
         return (
             <>
-                <NavBar isLoggedIn={false} />
-
                 <div className="bgimg-1" style={{ backgroundImage: `url("../images/${this.state.nursery.iname}")` }}>
                     <div className="caption">
                         <span className="border">{this.state.nursery.name}</span>
@@ -94,7 +90,6 @@ export class IndNursery extends Component {
 
                     </div>
                 </div>
-                <Footer />
             </>
         )
     }

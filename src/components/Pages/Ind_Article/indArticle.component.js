@@ -1,7 +1,5 @@
 import axios from 'axios';
 import React, { Component } from 'react';
-import { Footer } from '../../common/footer/footer.component';
-import { NavBar } from '../../common/navbar/nav.component';
 import './indArticle.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -33,21 +31,12 @@ export class IndArticle extends Component {
     render() {
         return (
             <>
-                <NavBar />
-
-
                 <div className="bgimg-1" style={{ backgroundImage: `url("../images/${this.state.article.iname}")` }}>
                 </div>
                 <div className="cont">
                     <h3>{this.state.article.title}</h3>
                     <p>{this.state.article.a_description}</p>
                 </div>
-
-
-                    )
-
-
-                <Footer />
             </>
         )
     }

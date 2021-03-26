@@ -1,7 +1,5 @@
 import axios from 'axios';
 import React, { Component, Fragment } from 'react';
-import { Footer } from '../../common/footer/footer.component';
-import { NavBar } from '../../common/navbar/nav.component';
 import { Link } from 'react-router-dom';
 import './products.component.css';
 
@@ -38,7 +36,6 @@ export class Products extends Component {
         const acitveCid = url.get('cid')
         return (
             <>
-                <NavBar isLoggedIn={false}></NavBar>
                 <div className="Psmall-container single-product">
                     <div className="head">
                         {
@@ -97,8 +94,6 @@ export class Products extends Component {
 
 
                 </div>
-
-                <Footer></Footer>
             </>
 
         )

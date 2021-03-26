@@ -1,8 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Footer } from '../../common/footer/footer.component';
-import { NavBar } from '../../common/navbar/nav.component';
 import './indCategory.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -45,7 +43,6 @@ export class IndCategory extends Component {
     render() {
         return (
             <>
-                <NavBar />
                 <div className="bgimg-1" style={{ backgroundImage: `url("../images/${this.state.category.iname}")` }}>
                 </div>
                 <div className="cont">
@@ -76,7 +73,6 @@ export class IndCategory extends Component {
                         </div>
                     </div>
                 </div>
-                <Footer />
             </>
         )
     }
