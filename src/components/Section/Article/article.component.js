@@ -33,7 +33,7 @@ export class Article extends Component {
                         {
                             this.state.articles.map((article, index) => {
                                 return (
-                                    <article key={index} className="article-card">
+                                    <article key={index} className="article-card hide-4">
                                         <Link to={`/indArticle/${article.aid}`}>
                                             <div className="article-image">
                                                 <img src={`../images/${article.iname}`} alt="" />
