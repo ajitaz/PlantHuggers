@@ -9,8 +9,19 @@
     min-width: 300px;
     margin-top: 10%;
 }
-
+.btitle{
+    font-size: 50px;
+    color: #fff;
+}
 .bpara{
     text-align: justify;
     color:#fff
+}
+.btn{
+    display: inline-block;
+    background: #4CAF50;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
 }

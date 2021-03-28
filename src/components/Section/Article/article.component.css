@@ -56,3 +56,6 @@
     line-height: 1.5rem;
 
 }
+.hide-4:nth-child(n+5){
+    display: none;
+     }
