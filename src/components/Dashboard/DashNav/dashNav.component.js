@@ -8,7 +8,6 @@ export const DashNav = () => {
     function clearLocalStorage() {
         localStorage.clear();
     }
-
     return (
         <header>
             <div className="welcome">
@@ -19,7 +18,9 @@ export const DashNav = () => {
                     pathname: '/login',
                     search: '',
                     state: { fromRegister: false }
-                }}><button onClick={() => { clearLocalStorage() }} className="lbtn">Logout</button></Link>
+                }}>
+                    <button onClick={() => { clearLocalStorage() }} className="lbtn">Logout</button>
+                </Link>
                 <Link to="/"><button className="sbtn">Home</button></Link>
             </div>
         </header>

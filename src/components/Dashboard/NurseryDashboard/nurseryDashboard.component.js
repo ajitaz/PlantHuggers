@@ -11,7 +11,7 @@ import './nurseryDashboard.component.css';
          <Sidebar isNurseryAdmin= {true} />
               <div className="main-content">
                     <DashNav />
-                    <Overview isOverview= {true} />
+                    <Overview isNursery= {true} />
                 </div>
          </>
      )

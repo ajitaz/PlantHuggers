@@ -9,11 +9,11 @@ export class Dashboard extends Component {
         super();
         window.scrollTo(0, 0);
     }
-  
+
     render() {
         return (
             <>
-                <Sidebar />
+                <Sidebar isNursery={false} />
                 <div className="main-content">
                     <DashNav />
                     <Overview />

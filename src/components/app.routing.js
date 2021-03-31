@@ -34,9 +34,9 @@ const NotFound = () => {
 }
 
 
-const ProtectedRoute = ({ component: Component, ...rest }) => {
+const AdminRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={routeProps => (
-        (localStorage.getItem('flag') === 'Admin' || localStorage.getItem('flag') === 'NA')
+        (localStorage.getItem('flag') === 'Admin')
             ? <>
                 <Component {...routeProps}></Component>
             </>
@@ -61,6 +61,20 @@ const PublicRoute = ({ component: Component, ...rest }) => {
     )}></Route>
 }
 
+const NurseryAdminRoute = ({ component: Component, ...rest }) => {
+    return <Route {...rest} render={routeProps => (
+        (localStorage.getItem('flag') === 'NA' || localStorage.getItem('flag') === 'Admin')
+            ? <>
+                <Component {...routeProps}></Component>
+            </>
+            : <Redirect to={{
+                pathname: '/login',
+                state: { fromRegister: false }
+            }}></Redirect>
+
+    )}></Route>
+}
+
 export const AppRouting = (props) => {
     return (
         <BrowserRouter>
@@ -69,22 +83,23 @@ export const AppRouting = (props) => {
                 <PublicRoute exact path="/category/:cid" component={IndCategory}></PublicRoute>
                 <PublicRoute exact path="/shop" component={Shop}></PublicRoute>
                 <PublicRoute exact path="/product" component={Products}></PublicRoute>
-                <ProtectedRoute exact path="/dashboard/addProduct" component={AddProduct}></ProtectedRoute>
+                <AdminRoute exact path="/dashboard/addProduct" component={AddProduct}></AdminRoute>
                 <PublicRoute exact path="/category" component={CategoryPage}></PublicRoute>
                 <PublicRoute exact path="/nursery" component={Nursery}></PublicRoute>
                 <PublicRoute exact path="/nursery/:nid" component={IndNursery}></PublicRoute>
                 <PublicRoute exact path="/articles" component={Articles}></PublicRoute>
                 <PublicRoute exact path="/indArticle/:aid" component={IndArticle}></PublicRoute>
                 <Route exact path="/login" component={Login}></Route>
-                <ProtectedRoute exact path="/dashboard" component={Dashboard}></ProtectedRoute>
-                <ProtectedRoute exact path="/NurseryDashboard" component={NurseryDashboard}></ProtectedRoute>
-                <ProtectedRoute exact path="/dashboard/user" component={User}></ProtectedRoute>
-                <ProtectedRoute exact path="/dashboard/viewProduct" component={viewProduct}></ProtectedRoute>
-                <ProtectedRoute exact path="/dashboard/user/adduser" component={AddUser}></ProtectedRoute>
-                <ProtectedRoute exact path="/dashboard/addNursery" component={AddNursery}></ProtectedRoute>
-                <ProtectedRoute exact path="/dashboard/viewNursery" component={ViewNursery}></ProtectedRoute>
-                <ProtectedRoute exact path="/dashboard/setting" component={Setting}></ProtectedRoute>
-                <PublicRoute component={NotFound}></PublicRoute>
+                <AdminRoute exact path="/dashboard" component={Dashboard}></AdminRoute>
+                <NurseryAdminRoute exact path="/NurseryDashboard" component={NurseryDashboard}></NurseryAdminRoute>
+                <AdminRoute exact path="/dashboard/user" component={User}></AdminRoute>
+                <AdminRoute exact path="/dashboard/viewProduct" component={viewProduct}></AdminRoute>
+                <AdminRoute exact path="/dashboard/user/adduser" component={AddUser}></AdminRoute>
+                <AdminRoute exact path="/dashboard/addNursery" component={AddNursery}></AdminRoute>
+                <AdminRoute exact path="/dashboard/viewNursery" component={ViewNursery}></AdminRoute>
+                <AdminRoute exact path="/dashboard/setting" component={Setting}></AdminRoute>
+                <NurseryAdminRoute exact path="/nurseryDashboard/product" component={viewProduct}></NurseryAdminRoute>
+                <PublicRoute component={NotFound}></PublicRoute> 
             </Switch>
 
         </BrowserRouter>

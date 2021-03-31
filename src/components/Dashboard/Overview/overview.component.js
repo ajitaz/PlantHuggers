@@ -4,10 +4,9 @@ import './overview.component.css';
 
 export const Overview = (props) => {
 
-    let overview = props.isOverview
-        ?
-        <>
-            <h2 className="dash-title">Overview</h2>
+    let Nursery = props.isNursery
+        ? <>
+            <h2 className="dash-title"> Nursery Dashboard Overview</h2>
             <div className="dash-cards">
                 <div className="Dcard-single">
                     <div className="Dcard-body">
@@ -47,8 +46,7 @@ export const Overview = (props) => {
                 </div>
             </div>
         </>
-        :
-        <>
+        : <>
             <h2 className="dash-title">Overview</h2>
             <div className="dash-cards">
                 <div className="Dcard-single">
@@ -92,7 +90,7 @@ export const Overview = (props) => {
     return (
         <>
             <main>
-                {overview}
+                {Nursery}
             </main>
         </>
     )

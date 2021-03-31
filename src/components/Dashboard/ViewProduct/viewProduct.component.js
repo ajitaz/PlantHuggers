@@ -20,7 +20,10 @@ export class viewProduct extends Component {
     }
 
     getProducts() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`)
+        let option = (localStorage.getItem('flag') === 'NA')
+            ? `nurseryViewProduct&uid=${localStorage.getItem('uid')}`
+            : 'viewProduct'
+        axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
             .then(res => {
                 this.setState({
                     data: res.data
@@ -53,9 +56,12 @@ export class viewProduct extends Component {
 
 
     render() {
+        let isNursery = localStorage.getItem('flag') === 'NA'
+            ? true
+            : false
         return (
             <>
-                <Sidebar />
+                <Sidebar isNurseryAdmin={isNursery} />
                 <div className="main-content">
                     <DashNav />
                     <main>
