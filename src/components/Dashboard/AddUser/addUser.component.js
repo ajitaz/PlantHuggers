@@ -4,7 +4,6 @@ import axios from 'axios';
 import { Button } from '../../common/Button/button.component';
 import { DashNav } from '../DashNav/dashNav.component';
 
-// const BASE_URL = 'http://localhost:80/plant_hugger_php/addUser.php';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const defaultForm = {
