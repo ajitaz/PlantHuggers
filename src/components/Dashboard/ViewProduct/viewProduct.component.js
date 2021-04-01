@@ -66,7 +66,7 @@ export class viewProduct extends Component {
                     <DashNav />
                     <main>
                         <h2 className="dash-title">Product-List</h2>
-                        <Link to="/dashboard/addProduct"><button className="primary">Add Product</button></Link>
+                        <Link to="/dashboard/addProduct"><button className="primary" style={{cursor:'pointer'}}>Add Product</button></Link>
                         <div className="list">
                             <table>
                                 <thead>

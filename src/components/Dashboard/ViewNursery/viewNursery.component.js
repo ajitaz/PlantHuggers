@@ -58,7 +58,7 @@ export class ViewNursery extends Component {
                     <DashNav />
                     <main>
                         <h2 className="dash-title">Nursery-List</h2>
-                        <Link to="/dashboard/AddNursery"><button className="primary">Add Nursery</button></Link>
+                        <Link to="/dashboard/AddNursery"><button className="primary" style={{cursor:'pointer'}}>Add Nursery</button></Link>
                         <div className="list">
                             <table>
                                 <thead>

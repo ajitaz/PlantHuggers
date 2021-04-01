@@ -16,7 +16,7 @@ export const Setting = () => {
                     <h2 className="dash-title">Setting</h2>
                     <div className="setting-div">
 
-                        <Popup trigger={<button className="primary"><i className="fa fa-plus-circle"></i> Add Article</button>} position="right center" modal >
+                        <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add Article</button>} position="right center" modal >
                             {close => (
                                 <div className="modal">
                                     <button className="close" onClick={close}>&times;</button>
@@ -24,7 +24,7 @@ export const Setting = () => {
                                 </div>
                             )}
                         </Popup>
-                        <Popup trigger={<button className="primary"><i className="fa fa-plus-circle"></i> Add category</button>} position="right center" modal>
+                        <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add category</button>} position="right center" modal>
                             {close => (
                                 <div className="modal">
                                     <button className="close" onClick={close}>&times;</button>
