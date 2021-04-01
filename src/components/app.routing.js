@@ -21,6 +21,7 @@ import { IndArticle } from './Pages/Ind_Article/indArticle.component';
 import { Setting } from './Dashboard/Setting/settng.component';
 import { NavBar } from '../components/common/navbar/nav.component';
 import { Footer } from '../components/common/footer/footer.component';
+import { Sidebar } from './Dashboard/Sidebar/sidebar.component';
 
 
 
@@ -38,6 +39,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={routeProps => (
         (localStorage.getItem('flag') === 'Admin')
             ? <>
+                <Sidebar isNurseryAdmin={false}></Sidebar>
                 <Component {...routeProps}></Component>
             </>
             : <Redirect to={{
@@ -65,6 +67,7 @@ const NurseryAdminRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={routeProps => (
         (localStorage.getItem('flag') === 'NA' || localStorage.getItem('flag') === 'Admin')
             ? <>
+                <Sidebar isNurseryAdmin={true}></Sidebar>
                 <Component {...routeProps}></Component>
             </>
             : <Redirect to={{
@@ -99,7 +102,9 @@ export const AppRouting = (props) => {
                 <AdminRoute exact path="/dashboard/viewNursery" component={ViewNursery}></AdminRoute>
                 <AdminRoute exact path="/dashboard/setting" component={Setting}></AdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/product" component={viewProduct}></NurseryAdminRoute>
-                <PublicRoute component={NotFound}></PublicRoute> 
+                <NurseryAdminRoute exact path="/nurseryDashboard/addProduct" component={AddProduct}></NurseryAdminRoute>
+
+                <PublicRoute component={NotFound}></PublicRoute>
             </Switch>
 
         </BrowserRouter>

@@ -42,7 +42,6 @@ export class EditUser extends Component {
             }
         }), () => {
             //form valid
-            console.log('edit state: ', this.state);
         }
         )
 

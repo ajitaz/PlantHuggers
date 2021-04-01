@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import AddArticle from '../AddArticle/addArticle.component';
 import AddCategory from '../AddCategory/addCategory.component';
@@ -6,7 +6,23 @@ import { DashNav } from '../DashNav/dashNav.component';
 import { Sidebar } from '../Sidebar/sidebar.component';
 import './setting.component.css';
 
-export const Setting = () => {
+export const Setting = (props) => {
+    const [state, setState] = useState({
+        isPopup: false
+    })
+    console.log('inital state>>',state.isPopup)
+
+    useEffect(() => {
+        console.log('inital Props>>',props.location.fromPopup)
+
+        if (props.location.fromPopup === true ) {
+            setState({
+                isPopup: props.location.fromPopup ? true : false
+            })
+            props.location.fromPopup=false
+        }
+    })
+
     return (
         <>
             <div className="main-content">

@@ -99,7 +99,6 @@ export class AddProduct extends Component {
   render() {
     return (
       <>
-        <Sidebar />
         <div className="main-content">
           <DashNav />
           <main>
