@@ -53,7 +53,6 @@ export class ViewNursery extends Component {
     render() {
         return (
             <>
-                <Sidebar />
                 <div className="main-content">
                     <DashNav />
                     <main>

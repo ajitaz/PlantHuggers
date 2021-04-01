@@ -3,23 +3,20 @@ import Popup from 'reactjs-popup';
 import AddArticle from '../AddArticle/addArticle.component';
 import AddCategory from '../AddCategory/addCategory.component';
 import { DashNav } from '../DashNav/dashNav.component';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import './setting.component.css';
 
 export const Setting = (props) => {
     const [state, setState] = useState({
         isPopup: false
     })
-    console.log('inital state>>',state.isPopup)
 
     useEffect(() => {
-        console.log('inital Props>>',props.location.fromPopup)
 
-        if (props.location.fromPopup === true ) {
+        if (props.location.fromPopup === true) {
             setState({
                 isPopup: props.location.fromPopup ? true : false
             })
-            props.location.fromPopup=false
+            props.location.fromPopup = false
         }
     })
 
@@ -27,7 +24,6 @@ export const Setting = (props) => {
         <>
             <div className="main-content">
                 <DashNav />
-                <Sidebar />
                 <main>
                     <h2 className="dash-title">Setting</h2>
                     <div className="setting-div">

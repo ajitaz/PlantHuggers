@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import './addUser.component.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '../../common/Button/button.component';
 import { DashNav } from '../DashNav/dashNav.component';
@@ -112,7 +110,6 @@ export class AddUser extends Component {
     render() {
         return (
             <>
-                <Sidebar />
                 <div className="main-content">
                    <DashNav />
                     <main>

@@ -56,7 +56,7 @@ export class User extends Component {
 
         return (
             <>
-                <Sidebar />
+
                 <div className="main-content">
                     <DashNav />
                     <main className="userMain">

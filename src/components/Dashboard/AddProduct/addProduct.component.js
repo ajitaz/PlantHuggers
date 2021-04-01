@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import { DashNav } from '../DashNav/dashNav.component';
 import './addProduct.component.css';
 import axios from 'axios';

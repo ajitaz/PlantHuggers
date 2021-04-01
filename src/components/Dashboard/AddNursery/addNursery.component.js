@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import { DashNav } from '../DashNav/dashNav.component';
 import './addNursery.component.css';
 import axios from 'axios';
@@ -58,7 +57,6 @@ export class AddNursery extends Component {
   render() {
     return (
       <>
-        <Sidebar />
         <div className="main-content">
           <DashNav />
           <main>
