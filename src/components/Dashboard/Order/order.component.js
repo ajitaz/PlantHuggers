@@ -17,7 +17,7 @@ export class Order extends Component {
     }
 
     getOrder() {
-        let option = (this.props.isNurseryDashboard === true)
+        let option = this.props.isNurseryDashboard === true
             ? `nurseryViewOrder&uid=${localStorage.getItem('uid')}`
             : 'viewOrder'
         axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
@@ -26,7 +26,6 @@ export class Order extends Component {
                     data: res.data
                 })
             })
-            console.log(option)
     }
 
     componentDidMount() {

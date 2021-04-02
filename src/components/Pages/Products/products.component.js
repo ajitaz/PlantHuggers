@@ -81,7 +81,7 @@ export class Products extends Component {
                                                 <p>{result.cname}</p>
                                                 <h1>{result.pname}</h1>
                                                 <h4>Rs {result.price}</h4>
-                                                <input type="number" onChange={this.handleChange} />
+                                                <input type="number" placeholder='0' onChange={this.handleChange} />
                                                 <button onClick={() => {
                                                     this.handleOrder(result.pid, result.nid)
                                                 }}>Add to Cart</button>
