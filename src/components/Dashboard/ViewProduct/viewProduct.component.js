@@ -56,17 +56,16 @@ export class viewProduct extends Component {
 
 
     render() {
-        let isNursery = localStorage.getItem('flag') === 'NA'
-            ? true
-            : false
+        let addProPath = (localStorage.getItem('flag') === 'NA')
+            ? '/nurseryDashboard/addProduct'
+            : '/dashboard/addProduct'
         return (
             <>
-                <Sidebar isNurseryAdmin={isNursery} />
                 <div className="main-content">
                     <DashNav />
                     <main>
                         <h2 className="dash-title">Product-List</h2>
-                        <Link to="/dashboard/addProduct"><button className="primary">Add Product</button></Link>
+                        <Link to={addProPath}><button className="primary" style={{ cursor: 'pointer' }}>Add Product</button></Link>
                         <div className="list">
                             <table>
                                 <thead>

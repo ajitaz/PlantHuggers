@@ -66,10 +66,13 @@ class AddArticle extends Component {
             responseType: 'json'
         })
             .then(res => {
-                alert("Successfully Added Article >> ",res.data);
-                this.props.history.push('/dashboard');
+                alert("Successfully Added Article >> ");
+                this.props.history.push({
+                    pathname:'/dashboard/setting',
+                    fromPopup: true
+                });
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err)) 
     }
 
 

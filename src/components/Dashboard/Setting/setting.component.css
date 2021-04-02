@@ -19,7 +19,7 @@ main{
     height: 750px;
   }
 
-.modal > .close {
+.modal .close {
     cursor: pointer;
     position: absolute;
     display: block;

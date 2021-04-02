@@ -4,7 +4,7 @@ import './overview.component.css';
 
 export const Overview = (props) => {
 
-    let Nursery = props.isNursery
+    let content = props.isNursery
         ? <>
             <h2 className="dash-title"> Nursery Dashboard Overview</h2>
             <div className="dash-cards">
@@ -90,7 +90,7 @@ export const Overview = (props) => {
     return (
         <>
             <main>
-                {Nursery}
+                {content}
             </main>
         </>
     )

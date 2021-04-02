@@ -5,7 +5,6 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import { DashNav } from '../DashNav/dashNav.component';
 import { EditUser } from '../Functions/EditUser/editUser.component';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import './user.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -56,12 +55,11 @@ export class User extends Component {
 
         return (
             <>
-                <Sidebar />
                 <div className="main-content">
                     <DashNav />
                     <main className="userMain">
                         <h2 className="dash-title">Users-List</h2>
-                        <Link to="/dashboard/user/adduser"><button className="primary">Add user</button></Link>
+                        <Link to="/dashboard/user/adduser"><button className="primary" style={{ cursor: 'pointer' }}>Add user</button></Link>
                         <div className="list">
                             <table>
                                 <thead>

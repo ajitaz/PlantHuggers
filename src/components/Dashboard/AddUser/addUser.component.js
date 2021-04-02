@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import './addUser.component.css';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '../../common/Button/button.component';
 import { DashNav } from '../DashNav/dashNav.component';
 
-// const BASE_URL = 'http://localhost:80/plant_hugger_php/addUser.php';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 const defaultForm = {
@@ -112,7 +109,6 @@ export class AddUser extends Component {
     render() {
         return (
             <>
-                <Sidebar />
                 <div className="main-content">
                    <DashNav />
                     <main>
