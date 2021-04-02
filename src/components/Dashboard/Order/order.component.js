@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import { DashNav } from '../DashNav/dashNav.component';
 import axios from 'axios';
 import './order.component.css';
@@ -7,7 +6,7 @@ import Popup from 'reactjs-popup';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export class order extends Component {
+export class Order extends Component {
 
     constructor() {
         super();
@@ -54,12 +53,8 @@ export class order extends Component {
 
 
     render() {
-        let isNursery = localStorage.getItem('flag') === 'NA'
-            ? true
-            : false
         return (
             <>
-                <Sidebar isNurseryAdmin={isNursery} />
                 <div className="main-content">
                     <DashNav />
                     <main>
