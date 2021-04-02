@@ -12,13 +12,23 @@ export const Setting = (props) => {
 
     useEffect(() => {
 
-        if (props.location.fromPopup === true) {
-            setState({
-                isPopup: props.location.fromPopup ? true : false
-            })
-            props.location.fromPopup = false
-        }
-    })
+            if (props.location.fromPopup === true) {
+                setState({
+                    isPopup: props.location.fromPopup ? true : false
+                })
+                props.location.fromPopup = false
+            }
+        })
+    //     setState({
+    //         isPopup: props.location.fromPopup === true ? true : false
+    //     })
+
+    // }, [state.isPopup])
+
+    // useEffect(() => {
+    //     console.log(state.isPopup)
+    // })
+
 
     return (
         <>
