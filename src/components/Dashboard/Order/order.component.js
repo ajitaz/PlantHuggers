@@ -51,7 +51,6 @@ export class Order extends Component {
 
     }
 
-
     render() {
         return (
             <>
@@ -77,7 +76,7 @@ export class Order extends Component {
                                             return (
                                                 <tr key={index}>
                                                     <td>{result.pname}</td>
-                                                    <td><img src={`../images/${result.iname}`}/></td>
+                                                    <td><img src={`../images/${result.iname}`} /></td>
                                                     <td>{result.cname}</td>
                                                     <td>{result.price}</td>
                                                     <td>{result.quantity}</td>
@@ -90,7 +89,7 @@ export class Order extends Component {
                                                             )}
                                                         </Popup>
 
-                                                        <button className="delete" onClick={() => { this.handleClick(result.pid, 'deleteProduct') }}> <i className="fas fa-trash-alt"> Delete</i></button>
+                                                        <button className="delete" onClick={() => { this.handleClick(result.pid, 'deleteOrder') }}> <i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )
