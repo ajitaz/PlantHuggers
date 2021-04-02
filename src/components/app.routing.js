@@ -23,6 +23,7 @@ import { NavBar } from '../components/common/navbar/nav.component';
 import { Footer } from '../components/common/footer/footer.component';
 import { Sidebar } from './Dashboard/Sidebar/sidebar.component';
 import { Order } from './Dashboard/Order/order.component';
+import { Cart } from './Pages/Cart/cart.component';
 
 
 
@@ -106,7 +107,7 @@ export const AppRouting = (props) => {
                 <NurseryAdminRoute exact path="/nurseryDashboard/product" component={viewProduct}></NurseryAdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/order" component = {Order}></NurseryAdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/addProduct" component={AddProduct}></NurseryAdminRoute>
-
+                <PublicRoute exact path="/cart" component={Cart}></PublicRoute>
                 <PublicRoute component={NotFound}></PublicRoute>
 
             </Switch>

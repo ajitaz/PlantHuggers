@@ -68,7 +68,6 @@ export class Products extends Component {
                                                 <p>{result.cname}</p>
                                                 <h1>{result.pname}</h1>
                                                 <h4>Rs {result.price}</h4>
-                                                <h4>Quantity</h4>
                                                 <input type="number" />
                                                 <button onClick={() => {
                                                     this.handleOrder(result.pid,result.nid)
