@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import { DashNav } from '../DashNav/dashNav.component';
 import axios from 'axios';
 import './order.component.css';
@@ -7,7 +6,7 @@ import Popup from 'reactjs-popup';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export class order extends Component {
+export class Order extends Component {
 
     constructor() {
         super();
@@ -52,14 +51,9 @@ export class order extends Component {
 
     }
 
-
     render() {
-        let isNursery = localStorage.getItem('flag') === 'NA'
-            ? true
-            : false
         return (
             <>
-                <Sidebar isNurseryAdmin={isNursery} />
                 <div className="main-content">
                     <DashNav />
                     <main>
@@ -82,7 +76,7 @@ export class order extends Component {
                                             return (
                                                 <tr key={index}>
                                                     <td>{result.pname}</td>
-                                                    <td><img src={`../images/${result.iname}`}/></td>
+                                                    <td><img src={`../images/${result.iname}`} /></td>
                                                     <td>{result.cname}</td>
                                                     <td>{result.price}</td>
                                                     <td>{result.quantity}</td>
@@ -95,7 +89,7 @@ export class order extends Component {
                                                             )}
                                                         </Popup>
 
-                                                        <button className="delete" onClick={() => { this.handleClick(result.pid, 'deleteProduct') }}> <i className="fas fa-trash-alt"> Delete</i></button>
+                                                        <button className="delete" onClick={() => { this.handleClick(result.pid, 'deleteOrder') }}> <i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )

@@ -22,7 +22,8 @@ import { Setting } from './Dashboard/Setting/settng.component';
 import { NavBar } from '../components/common/navbar/nav.component';
 import { Footer } from '../components/common/footer/footer.component';
 import { Sidebar } from './Dashboard/Sidebar/sidebar.component';
-import { Cart } from './Pages/Cart/cart.component';
+import { Order } from './Dashboard/Order/order.component';
+
 
 
 
@@ -92,7 +93,6 @@ export const AppRouting = (props) => {
                 <PublicRoute exact path="/nursery" component={Nursery}></PublicRoute>
                 <PublicRoute exact path="/nursery/:nid" component={IndNursery}></PublicRoute>
                 <PublicRoute exact path="/articles" component={Articles}></PublicRoute>
-                <PublicRoute exact path="/cart" component={Cart}></PublicRoute>
                 <PublicRoute exact path="/indArticle/:aid" component={IndArticle}></PublicRoute>
                 <Route exact path="/login" component={Login}></Route>
                 <AdminRoute exact path="/dashboard" component={Dashboard}></AdminRoute>
@@ -104,7 +104,7 @@ export const AppRouting = (props) => {
                 <AdminRoute exact path="/dashboard/viewNursery" component={ViewNursery}></AdminRoute>
                 <AdminRoute exact path="/dashboard/setting" component={Setting}></AdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/product" component={viewProduct}></NurseryAdminRoute>
-
+                <NurseryAdminRoute exact path="/nurseryDashboard/order" component = {Order}></NurseryAdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/addProduct" component={AddProduct}></NurseryAdminRoute>
 
                 <PublicRoute component={NotFound}></PublicRoute>
