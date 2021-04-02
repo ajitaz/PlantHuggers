@@ -42,10 +42,11 @@ export class Nursery extends Component {
                                     <p>
                                         {result.description}
                                     </p>
-
                                     <p>
-                                        <i className="fas fa-map-marker-alt"></i> {result.address}<br /><i className="fas fa-mobile-alt"></i> {result.phone}</p>
-                                    <Link to={`/nursery/${result.nid}`}><button>view Details</button></Link>
+                                        <i className="fas fa-map-marker-alt"></i> {result.address}<br /><i className="fas fa-mobile-alt"></i> {result.phone}
+                                        <Link to={`/nursery/${result.nid}`}><br/><br/>
+                                        <button>view Details</button></Link>
+                                        </p>
                                 </div>
                             </div>
                         )
