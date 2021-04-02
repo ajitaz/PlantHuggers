@@ -21,6 +21,7 @@ import { IndArticle } from './Pages/Ind_Article/indArticle.component';
 import { Setting } from './Dashboard/Setting/settng.component';
 import { NavBar } from '../components/common/navbar/nav.component';
 import { Footer } from '../components/common/footer/footer.component';
+import { order } from './Dashboard/Order/order.component';
 
 
 
@@ -99,6 +100,7 @@ export const AppRouting = (props) => {
                 <AdminRoute exact path="/dashboard/viewNursery" component={ViewNursery}></AdminRoute>
                 <AdminRoute exact path="/dashboard/setting" component={Setting}></AdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/product" component={viewProduct}></NurseryAdminRoute>
+                <NurseryAdminRoute exact path="/nurseryDashboard/order" component={order}></NurseryAdminRoute>
                 <PublicRoute component={NotFound}></PublicRoute> 
             </Switch>
 
