@@ -17,8 +17,8 @@ export class Order extends Component {
     }
 
     getOrder() {
-        let option = (localStorage.getItem('flag') === 'NA')
-            ? `nurseryOrder&uid=${localStorage.getItem('uid')}`
+        let option = (this.props.isNurseryDashboard === true)
+            ? `nurseryViewOrder&uid=${localStorage.getItem('uid')}`
             : 'viewOrder'
         axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
             .then(res => {
@@ -26,6 +26,7 @@ export class Order extends Component {
                     data: res.data
                 })
             })
+            console.log(option)
     }
 
     componentDidMount() {
@@ -34,7 +35,7 @@ export class Order extends Component {
 
     handleClick = (id, value) => {
         let actionData = {
-            pid: id,
+            oid: id,
             value: value
         }
         axios.post(`${BASE_URL}/action.php`, actionData, {
@@ -62,11 +63,14 @@ export class Order extends Component {
                             <table>
                                 <thead>
                                     <tr>
-                                        <th>Product Name</th>
+                                        <th>Order ID</th>
                                         <th>Product Image</th>
-                                        <th>Category</th>
+                                        <th>Product Name</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
+                                        <th>User Name</th>
+                                        <th>Phone</th>
+                                        <th>Nursery</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -75,13 +79,16 @@ export class Order extends Component {
                                         this.state.data.map((result, index) => {
                                             return (
                                                 <tr key={index}>
-                                                    <td>{result.pname}</td>
+                                                    <td>{result.oid}</td>
                                                     <td><img src={`../images/${result.iname}`} /></td>
-                                                    <td>{result.cname}</td>
+                                                    <td>{result.pname}</td>
                                                     <td>{result.price}</td>
                                                     <td>{result.quantity}</td>
+                                                    <td>{result.username}</td>
+                                                    <td>{result.phone}</td>
+                                                    <td>{result.name}</td>
                                                     <td>
-                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt">more detail</i></button>} position="right center" modal onClose={() => { this.getProducts() }}>
+                                                        <Popup trigger={<button className="edit" ><i>...more</i></button>} position="right center" modal>
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>

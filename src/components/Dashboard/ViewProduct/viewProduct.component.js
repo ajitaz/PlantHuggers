@@ -20,7 +20,7 @@ export class viewProduct extends Component {
     }
 
     getProducts() {
-        let option = (localStorage.getItem('flag') === 'NA')
+        let option = this.props.isNurseryDashboard === true
             ? `nurseryViewProduct&uid=${localStorage.getItem('uid')}`
             : 'viewProduct'
         axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
@@ -33,6 +33,7 @@ export class viewProduct extends Component {
 
     componentDidMount() {
         this.getProducts();
+        console.log(this.props)
     }
 
     handleClick = (id, value) => {

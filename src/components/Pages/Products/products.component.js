@@ -9,7 +9,8 @@ export class Products extends Component {
     constructor() {
         super();
         this.state = {
-            products: []
+            products: [],
+            quantity: ''
         }
         this.getProducts();
     }
@@ -30,11 +31,19 @@ export class Products extends Component {
         window.scrollTo(0, 0);
     }
 
+    handleChange = (e) => {
+        let quantity = e.target.value
+        this.setState({
+            quantity: quantity
+        })
+    }
+
     handleOrder = (pid, nid) => {
         let data = {
             pid: pid,
             nid: nid,
             uid: localStorage.getItem('uid'),
+            quantity: this.state.quantity,
             value: 'addOrder'
         }
         axios.post(`${BASE_URL}/action.php`, data, {
@@ -44,7 +53,11 @@ export class Products extends Component {
             params: {},
             responseType: 'json'
         })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                alert('Added to cart')
+            }
+                )
     }
 
     render() {
@@ -68,9 +81,9 @@ export class Products extends Component {
                                                 <p>{result.cname}</p>
                                                 <h1>{result.pname}</h1>
                                                 <h4>Rs {result.price}</h4>
-                                                <input type="number" />
+                                                <input type="number" onChange={this.handleChange} />
                                                 <button onClick={() => {
-                                                    this.handleOrder(result.pid,result.nid)
+                                                    this.handleOrder(result.pid, result.nid)
                                                 }}>Add to Cart</button>
                                                 <h3>product Detail</h3>
                                                 <p className="pdesc">

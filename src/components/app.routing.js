@@ -71,7 +71,7 @@ const NurseryAdminRoute = ({ component: Component, ...rest }) => {
         (localStorage.getItem('flag') === 'NA' || localStorage.getItem('flag') === 'Admin')
             ? <>
                 <Sidebar isNurseryAdmin={true}></Sidebar>
-                <Component {...routeProps}></Component>
+                <Component {...routeProps} isNurseryDashboard = {true}></Component>
             </>
             : <Redirect to={{
                 pathname: '/login',
@@ -108,6 +108,7 @@ export const AppRouting = (props) => {
                 <NurseryAdminRoute exact path="/nurseryDashboard/order" component = {Order}></NurseryAdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/addProduct" component={AddProduct}></NurseryAdminRoute>
                 <PublicRoute exact path="/cart" component={Cart}></PublicRoute>
+                <AdminRoute exact path= "/dashboard/order" component={Order}></AdminRoute>
                 <PublicRoute component={NotFound}></PublicRoute>
 
             </Switch>

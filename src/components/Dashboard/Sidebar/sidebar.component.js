@@ -49,6 +49,10 @@ export const Sidebar = (props) => {
                         <Link to="/dashboard/setting"><i className="fas fa-cog"></i><span>Setting</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/dashboard/order"><i className="fa fa-cart-arrow-down"></i><span>Order</span>
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </>
