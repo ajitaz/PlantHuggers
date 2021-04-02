@@ -57,7 +57,7 @@ export class Products extends Component {
                 console.log(res)
                 alert('Added to cart')
             }
-                )
+            )
     }
 
     render() {

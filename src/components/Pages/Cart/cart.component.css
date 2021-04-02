@@ -49,6 +49,13 @@
     width: 25%;
     font-size: 1.2em;
 }
+.cart-pname {
+    align-self: center;
+    text-align: center;
+    margin-top: 2%;
+    width: 25%;
+    font-size: 1.2em;
+}
 .cart-item img{
     width: 180px;
     height: 150px;
