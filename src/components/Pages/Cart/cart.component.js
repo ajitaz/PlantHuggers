@@ -44,7 +44,7 @@ export const Cart = () => {
 
     }
     
-
+    let total = 0
 
     return (
         <>
@@ -60,6 +60,7 @@ export const Cart = () => {
                 {
                     state.data.map((result, index) => {
                         if (result.id == localStorage.getItem('uid')) {
+                            total += parseInt(result.price)
                             return (
 
                                 <div key={index} className="cart-row">
@@ -76,7 +77,7 @@ export const Cart = () => {
                 }
                 <div className="cart-total">
                     <strong className="cart-total-title">Total</strong>
-                    <span className="cart-total-price">Rs.{'0'}</span>
+                    <span className="cart-total-price">Rs.{total}</span>
                 </div>
                 <button className="btn btn-primary btn-purchase" type="button">Checkout</button>
             </section>
