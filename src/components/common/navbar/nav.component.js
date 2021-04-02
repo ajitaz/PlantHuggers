@@ -10,9 +10,9 @@ export const NavBar = (props) => {
 
     let userLogged = props.isLoggedIn
         ? <ul>
-            <li><Link to=""><i className="fas fa-shopping-cart"></i></Link></li>
+            <li><Link to="./cart"><i className="fas fa-shopping-cart"></i></Link></li>
             <li><Link to=""><i className="fas fa-user"> {`${localStorage.getItem('uname')}`}</i></Link></li>
-            <li><Link to=""><i class="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link></li>
+            <li><Link to=""><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link></li>
         </ul>
         : <ul>
             <li><Link to={{

@@ -21,8 +21,8 @@ import { IndArticle } from './Pages/Ind_Article/indArticle.component';
 import { Setting } from './Dashboard/Setting/settng.component';
 import { NavBar } from '../components/common/navbar/nav.component';
 import { Footer } from '../components/common/footer/footer.component';
-
 import { Sidebar } from './Dashboard/Sidebar/sidebar.component';
+import { Cart } from './Pages/Cart/cart.component';
 
 
 
@@ -92,6 +92,7 @@ export const AppRouting = (props) => {
                 <PublicRoute exact path="/nursery" component={Nursery}></PublicRoute>
                 <PublicRoute exact path="/nursery/:nid" component={IndNursery}></PublicRoute>
                 <PublicRoute exact path="/articles" component={Articles}></PublicRoute>
+                <PublicRoute exact path="/cart" component={Cart}></PublicRoute>
                 <PublicRoute exact path="/indArticle/:aid" component={IndArticle}></PublicRoute>
                 <Route exact path="/login" component={Login}></Route>
                 <AdminRoute exact path="/dashboard" component={Dashboard}></AdminRoute>
