@@ -56,7 +56,7 @@ export class Shop extends Component {
                                                         <div key={indx} className="col-4 hide-4">
                                                             <Link to={`/product?pid=${product.pid}&cid=${product.cid}`}><img src={`../images/${product.iname}`} className="pimage" alt="" /></Link>
                                                             <h4>{product.pname}</h4>
-                                                            <p>{product.price}</p>
+                                                            <p>RS.{product.price}</p>
                                                         </div>
                                                     )
                                                 }

@@ -19,7 +19,7 @@ export class Order extends Component {
     getOrder() {
         let option = (localStorage.getItem('flag') === 'NA')
             ? `nurseryOrder&uid=${localStorage.getItem('uid')}`
-            : 'order'
+            : 'viewOrder'
         axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
             .then(res => {
                 this.setState({
@@ -81,7 +81,7 @@ export class Order extends Component {
                                                     <td>{result.price}</td>
                                                     <td>{result.quantity}</td>
                                                     <td>
-                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> View</i></button>} position="right center" modal onClose={() => { this.getProducts() }}>
+                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt">more detail</i></button>} position="right center" modal onClose={() => { this.getProducts() }}>
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>
@@ -89,7 +89,7 @@ export class Order extends Component {
                                                             )}
                                                         </Popup>
 
-                                                        <button className="delete" onClick={() => { this.handleClick(result.pid, 'deleteOrder') }}> <i className="fas fa-trash-alt"> Delete</i></button>
+                                                        <button className="delete" onClick={() => { this.handleClick(result.oid, 'deleteOrder') }}> <i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )

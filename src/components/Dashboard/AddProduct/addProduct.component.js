@@ -43,7 +43,7 @@ export class AddProduct extends Component {
     }
     axios.post(`${BASE_URL}/action.php`, data, {
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       }, params: {},
       responseType: 'json'
     })

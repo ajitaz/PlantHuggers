@@ -30,6 +30,23 @@ export class Products extends Component {
         window.scrollTo(0, 0);
     }
 
+    handleOrder = (pid, nid) => {
+        let data = {
+            pid: pid,
+            nid: nid,
+            uid: localStorage.getItem('uid'),
+            value: 'addOrder'
+        }
+        axios.post(`${BASE_URL}/action.php`, data, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            params: {},
+            responseType: 'json'
+        })
+            .then(res => console.log(res))
+    }
+
     render() {
         const url = new URLSearchParams(this.props.location.search);
         const activePid = url.get('pid')
@@ -51,8 +68,11 @@ export class Products extends Component {
                                                 <p>{result.cname}</p>
                                                 <h1>{result.pname}</h1>
                                                 <h4>Rs {result.price}</h4>
-                                                {/* <input type="number" value="1" /> */}
-                                                <button>Add to Cart</button>
+                                                <h4>Quantity</h4>
+                                                <input type="number" />
+                                                <button onClick={() => {
+                                                    this.handleOrder(result.pid,result.nid)
+                                                }}>Add to Cart</button>
                                                 <h3>product Detail</h3>
                                                 <p className="pdesc">
                                                     {result.p_description}
