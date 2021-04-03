@@ -14,8 +14,6 @@ export class IndNursery extends Component {
         }
         this.getNursery();
         this.getProducts();
-        window.scrollTo(0, 0);
-
     }
 
     getNursery() {
@@ -39,7 +37,6 @@ export class IndNursery extends Component {
                 })
             })
     }
-
 
     render() {
         return (
@@ -87,7 +84,6 @@ export class IndNursery extends Component {
                                 })
                             }
                         </div>
-
                     </div>
                 </div>
             </>

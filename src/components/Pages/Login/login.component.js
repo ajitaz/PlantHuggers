@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { Button } from '../../common/Button/button.component';
 import './login.component.css';
 import Register from './register.component'
+import notify from './../../Util/notify'
+
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export class Login extends Component {
@@ -55,7 +57,7 @@ export class Login extends Component {
 
                         break;
                     default:
-                        console.log('DID NOT MATCH');
+                        notify.showError('Username or Password did not match!')
                 }
             })
             .catch(err => console.log(err));

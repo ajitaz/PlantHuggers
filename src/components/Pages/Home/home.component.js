@@ -8,11 +8,8 @@ import { Nursery } from '../../Section/Partner_Nursery/partnerNursery.component'
 
 export const Home = () => {
 
-    window.scrollTo(0, 0);
-
     return (
         <div>
-            
             <Header />
             <NewArrival />
             <Category />

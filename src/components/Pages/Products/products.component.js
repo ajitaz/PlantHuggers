@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import notify from './../../Util/notify';
 import './products.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -24,11 +25,6 @@ export class Products extends Component {
                 )
             })
 
-    }
-
-
-    componentDidUpdate() {
-        window.scrollTo(0, 0);
     }
 
     handleChange = (e) => {
@@ -55,9 +51,8 @@ export class Products extends Component {
         })
             .then(res => {
                 console.log(res)
-                alert('Added to cart')
-            }
-            )
+                notify.showInfo('Added to cart');
+            })
     }
 
     render() {

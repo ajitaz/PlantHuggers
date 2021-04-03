@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DashNav } from '../DashNav/dashNav.component';
 import './addProduct.component.css';
 import axios from 'axios';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -88,7 +89,7 @@ export class AddProduct extends Component {
       responseType: 'json'
     })
       .then(res => {
-        alert('Successfully Product Added...');
+        notify.showSuccess('Successfully Product Added...')
         this.props.history.push('/dashboard/viewProduct')
       })
       .catch(err => console.log(err))

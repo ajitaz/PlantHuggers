@@ -12,7 +12,6 @@ export class CategoryPage extends Component {
             data: []
         }
         this.getCategory();
-        window.scrollTo(0, 0);
 
     }
 

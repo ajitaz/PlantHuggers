@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import { Button } from '../../common/Button/button.component';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -104,7 +105,7 @@ class Register extends Component {
             responseType: 'json'
         })
             .then(res => {
-                console.log('successfully added');
+                notify.showSuccess('Successfuly Registered')
                 this.props.history.push({
                     pathname: '/login',
                     state: { fromRegister: true }

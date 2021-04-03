@@ -4,7 +4,7 @@ import './overview.component.css';
 
 export const Overview = (props) => {
 
-    let content = props.isNursery
+    let content = props.isNurseryDashboard
         ? <>
             <h2 className="dash-title"> Nursery Dashboard Overview</h2>
             <div className="dash-cards">

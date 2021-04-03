@@ -11,7 +11,6 @@ export class IndArticle extends Component {
             article: []
         }
         this.getArticle();
-        window.scrollTo(0, 0);
     }
 
     getArticle() {

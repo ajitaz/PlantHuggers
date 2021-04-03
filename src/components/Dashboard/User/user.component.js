@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import { DashNav } from '../DashNav/dashNav.component';
-import { EditUser } from '../Functions/EditUser/editUser.component';
+import notify from '../../Util/notify';
+import EditUser from '../Functions/EditUser/editUser.component';
 import './user.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -44,7 +44,7 @@ export class User extends Component {
             responseType: 'json'
         })
             .then(res => {
-                console.log(res);
+                notify.showSuccess('User Deleted...')
                 this.getUserlist();
 
             })
@@ -56,7 +56,6 @@ export class User extends Component {
         return (
             <>
                 <div className="main-content">
-                    <DashNav />
                     <main className="userMain">
                         <h2 className="dash-title">Users-List</h2>
                         <Link to="/dashboard/user/adduser"><button className="primary" style={{ cursor: 'pointer' }}>Add user</button></Link>
@@ -85,7 +84,7 @@ export class User extends Component {
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>
-                                                                    <EditUser editData={result} />
+                                                                    <EditUser editData={result} close={close} />
                                                                 </div>
                                                             )}
                                                         </Popup>

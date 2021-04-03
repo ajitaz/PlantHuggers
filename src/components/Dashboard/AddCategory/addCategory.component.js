@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './addCategory.component.css';
 import axios from 'axios';
 import { withRouter } from 'react-router';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 class AddCategory extends Component {
@@ -45,8 +46,8 @@ class AddCategory extends Component {
             responseType: 'json'
         })
             .then(res => {
-                alert("Successfully Added Category");
-                this.props.history.push('/dashboard');
+                notify.showSuccess("Successfully Added Category >> ")
+                this.props.close()
 
 
 

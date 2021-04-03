@@ -23,10 +23,6 @@ export class Articles extends Component {
             })
     }
 
-    componentDidUpdate(){
-        window.scrollTo(0,0);
-    }
-
     render() {
         return (
             <>

@@ -24,6 +24,7 @@ import { Footer } from '../components/common/footer/footer.component';
 import { Sidebar } from './Dashboard/Sidebar/sidebar.component';
 import { Order } from './Dashboard/Order/order.component';
 import { Cart } from './Pages/Cart/cart.component';
+import { DashNav } from './Dashboard/DashNav/dashNav.component';
 
 
 
@@ -43,6 +44,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
         (localStorage.getItem('flag') === 'Admin')
             ? <>
                 <Sidebar isNurseryAdmin={false}></Sidebar>
+                <DashNav />
                 <Component {...routeProps}></Component>
             </>
             : <Redirect to={{
@@ -55,6 +57,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
 }
 
 const PublicRoute = ({ component: Component, ...rest }) => {
+    window.scrollTo(0, 0);
     return <Route {...rest} render={routeProps => (
 
         <>
@@ -71,7 +74,8 @@ const NurseryAdminRoute = ({ component: Component, ...rest }) => {
         (localStorage.getItem('flag') === 'NA' || localStorage.getItem('flag') === 'Admin')
             ? <>
                 <Sidebar isNurseryAdmin={true}></Sidebar>
-                <Component {...routeProps} isNurseryDashboard = {true}></Component>
+                <DashNav />
+                <Component {...routeProps} isNurseryDashboard={true}></Component>
             </>
             : <Redirect to={{
                 pathname: '/login',
@@ -105,10 +109,10 @@ export const AppRouting = (props) => {
                 <AdminRoute exact path="/dashboard/viewNursery" component={ViewNursery}></AdminRoute>
                 <AdminRoute exact path="/dashboard/setting" component={Setting}></AdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/product" component={viewProduct}></NurseryAdminRoute>
-                <NurseryAdminRoute exact path="/nurseryDashboard/order" component = {Order}></NurseryAdminRoute>
+                <NurseryAdminRoute exact path="/nurseryDashboard/order" component={Order}></NurseryAdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/addProduct" component={AddProduct}></NurseryAdminRoute>
                 <PublicRoute exact path="/cart" component={Cart}></PublicRoute>
-                <AdminRoute exact path= "/dashboard/order" component={Order}></AdminRoute>
+                <AdminRoute exact path="/dashboard/order" component={Order}></AdminRoute>
                 <PublicRoute component={NotFound}></PublicRoute>
 
             </Switch>

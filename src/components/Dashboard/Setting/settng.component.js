@@ -2,38 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import AddArticle from '../AddArticle/addArticle.component';
 import AddCategory from '../AddCategory/addCategory.component';
-import { DashNav } from '../DashNav/dashNav.component';
 import './setting.component.css';
 
 export const Setting = (props) => {
-    const [state, setState] = useState({
-        isPopup: false
-    })
-
-    useEffect(() => {
-
-        if (props.location.fromPopup === true) {
-            setState({
-                isPopup: props.location.fromPopup ? true : false
-            })
-            props.location.fromPopup = false
-        }
-    })
-    //     setState({
-    //         isPopup: props.location.fromPopup === true ? true : false
-    //     })
-
-    // }, [state.isPopup])
-
-    // useEffect(() => {
-    //     console.log(state.isPopup)
-    // })
-
 
     return (
         <>
             <div className="main-content">
-                <DashNav />
                 <main>
                     <h2 className="dash-title">Setting</h2>
                     <div className="setting-div">
@@ -42,7 +17,7 @@ export const Setting = (props) => {
                             {close => (
                                 <div className="modal">
                                     <button className="close" onClick={close}>&times;</button>
-                                    <AddArticle />
+                                    <AddArticle close={close} />
                                 </div>
                             )}
                         </Popup>
@@ -50,7 +25,7 @@ export const Setting = (props) => {
                             {close => (
                                 <div className="modal">
                                     <button className="close" onClick={close}>&times;</button>
-                                    <AddCategory />
+                                    <AddCategory close={close} />
                                 </div>
                             )}
                         </Popup>

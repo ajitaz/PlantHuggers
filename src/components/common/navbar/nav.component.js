@@ -1,6 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './nav.component.css';
+import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
+
+const StyledBadge = withStyles((theme) => ({
+    badge: {
+        right: -3,
+        top: 13,
+        border: `2px solid ${theme.palette.background.paper}`,
+        padding: '0 4px',
+    },
+}))(Badge);
 
 export const NavBar = (props) => {
 
@@ -10,7 +23,14 @@ export const NavBar = (props) => {
 
     let userLogged = props.isLoggedIn
         ? <ul>
-            <li><Link to="./cart"><i className="fas fa-shopping-cart"></i></Link></li>
+            <li><Link to="./cart">
+                <IconButton aria-label="cart">
+                    <StyledBadge badgeContent={localStorage.getItem('uid')} color="secondary">
+                        <ShoppingCartSharpIcon style={{ color: 'black' }} />
+                    </StyledBadge>
+                </IconButton>
+            </Link></li>
+
             <li><Link to=""><i className="fas fa-user"> {`${localStorage.getItem('uname')}`}</i></Link></li>
             <li><Link to=""><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link></li>
         </ul>

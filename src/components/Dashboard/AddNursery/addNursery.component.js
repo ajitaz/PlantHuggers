@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { DashNav } from '../DashNav/dashNav.component';
 import './addNursery.component.css';
 import axios from 'axios';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -48,7 +49,7 @@ export class AddNursery extends Component {
       responseType: 'json'
     })
       .then(res => {
-        alert('Successfully Nursery Added...');
+        notify.showSuccess('Successfully Nursery Added...')
         this.props.history.push('/dashboard/viewNursery')
       })
       .catch(err => console.log(err))

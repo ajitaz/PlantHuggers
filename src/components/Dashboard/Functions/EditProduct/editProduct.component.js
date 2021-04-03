@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './editProduct.component.css';
 import axios from 'axios';
+import notify from '../../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -73,7 +74,10 @@ export class EditProduct extends Component {
             }, params: {},
             responseType: 'json'
         })
-            .then(res => console.log(res))
+            .then(res => {
+                notify.showInfo('Product Edited.....')
+                this.props.close()
+            })
             .catch(err => console.log(err));
 
     }

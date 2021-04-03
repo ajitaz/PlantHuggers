@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router';
+import notify from '../../../Util/notify';
 import './editUser.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
@@ -11,7 +13,8 @@ const defaultForm = {
     phone: '',
     flag: ''
 }
-export class EditUser extends Component {
+
+class EditUser extends Component {
     constructor() {
         super();
         this.state = {
@@ -60,7 +63,10 @@ export class EditUser extends Component {
             }, params: {},
             responseType: 'json'
         })
-            .then(res => console.log(res))
+            .then(res => {
+                notify.showInfo('User Edited')
+                this.props.close()
+            })
             .catch(err => console.log(err));
 
     }
@@ -68,7 +74,6 @@ export class EditUser extends Component {
     render() {
         return (
             <>
-
                 <div className="title">Edit User</div>
                 <form onSubmit={this.handleSubmit} method="POST">
                     <label htmlFor="uname">UserName</label>
@@ -93,3 +98,5 @@ export class EditUser extends Component {
         )
     }
 }
+
+export default withRouter(EditUser);

@@ -20,9 +20,7 @@ export const Cart = () => {
     }
 
     useEffect(() => {
-
         getOrder();
-
     }, [])
 
     function handleClick(id, value) {
@@ -43,7 +41,7 @@ export const Cart = () => {
             })
 
     }
-    
+
     let total = 0
 
     return (
@@ -68,7 +66,7 @@ export const Cart = () => {
                                     <span className="cart-pname">{result.pname}</span>
                                     <span className="cart-quantity">{result.quantity}</span>
                                     <span className="cart-price">Rs.{result.price}</span>
-                                    <span className="cart-action"><button className="btn-danger" onClick={() => { handleClick(result.oid, 'deleteOrder') }}>Remove</button></span>
+                                    <span className="cart-action"><button className="btn-danger" style={{ cursor: 'pointer' }} onClick={() => { handleClick(result.oid, 'deleteOrder') }}>Remove</button></span>
                                 </div>
 
                             )
@@ -79,7 +77,7 @@ export const Cart = () => {
                     <strong className="cart-total-title">Total</strong>
                     <span className="cart-total-price">Rs.{total}</span>
                 </div>
-                <button className="btn btn-primary btn-purchase" type="button">Checkout</button>
+                <button className="btn btn-primary btn-purchase" type="button" style={{ cursor: 'pointer' }}>Checkout</button>
             </section>
         </>
     )

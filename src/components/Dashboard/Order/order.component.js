@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { DashNav } from '../DashNav/dashNav.component';
 import axios from 'axios';
 import './order.component.css';
 import Popup from 'reactjs-popup';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -44,7 +44,7 @@ export class Order extends Component {
             responseType: 'json'
         })
             .then(res => {
-                console.log(res);
+                notify.showSuccess("Order Deleted.....")
                 this.getOrder();
 
             })
@@ -55,7 +55,6 @@ export class Order extends Component {
         return (
             <>
                 <div className="main-content">
-                    <DashNav />
                     <main>
                         <h2 className="dash-title">Order-List</h2>
                         <div className="list">

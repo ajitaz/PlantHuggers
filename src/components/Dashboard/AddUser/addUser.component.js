@@ -3,6 +3,7 @@ import './addUser.component.css';
 import axios from 'axios';
 import { Button } from '../../common/Button/button.component';
 import { DashNav } from '../DashNav/dashNav.component';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -99,7 +100,7 @@ export class AddUser extends Component {
             responseType: 'json'
         })
             .then(res => {
-                alert('Successfully User Added...');
+                notify.showSuccess('Successfully User Added...')
                 this.props.history.push('/dashboard/user')
             })
             .catch(err => console.log(err));

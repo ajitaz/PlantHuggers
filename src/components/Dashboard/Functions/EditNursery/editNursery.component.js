@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import notify from '../../../Util/notify';
 import './editNursery.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 const defaultForm = {
-    nid:'',
+    nid: '',
     name: '',
     phone: '',
     address: '',
@@ -55,7 +56,7 @@ export class EditNursery extends Component {
         e.preventDefault();
         let data = {
             ...this.state.data,
-            value :'editNursery'
+            value: 'editNursery'
         }
         axios.post(`${BASE_URL}/action.php`, data, {
             headers: {
@@ -63,7 +64,10 @@ export class EditNursery extends Component {
             }, params: {},
             responseType: 'json'
         })
-            .then(res => console.log(res))
+            .then(res => {
+                notify.showInfo('Nursery Edited....')
+                this.props.close()
+            })
             .catch(err => console.log(err));
 
     }

@@ -13,7 +13,6 @@ export class Nursery extends Component {
             data: []
         }
         this.getNursery();
-        window.scrollTo(0, 0);
     }
 
     getNursery() {
@@ -24,8 +23,6 @@ export class Nursery extends Component {
                 })
             })
     }
-
-
 
     render() {
         return (
@@ -44,9 +41,9 @@ export class Nursery extends Component {
                                     </p>
                                     <p>
                                         <i className="fas fa-map-marker-alt"></i> {result.address}<br /><i className="fas fa-mobile-alt"></i> {result.phone}
-                                        <Link to={`/nursery/${result.nid}`}><br/><br/>
-                                        <button style={{cursor:'pointer'}}>view Details</button></Link>
-                                        </p>
+                                        <Link to={`/nursery/${result.nid}`}><br /><br />
+                                            <button style={{ cursor: 'pointer' }}>view Details</button></Link>
+                                    </p>
                                 </div>
                             </div>
                         )

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import { Link } from 'react-router-dom';
-import { DashNav } from '../DashNav/dashNav.component';
 import './viewProduct.component.css';
 import axios from 'axios';
 import Popup from 'reactjs-popup';
 import { EditProduct } from '../Functions/EditProduct/editProduct.component';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -48,7 +47,7 @@ export class viewProduct extends Component {
             responseType: 'json'
         })
             .then(res => {
-                console.log(res);
+                notify.showSuccess('Product Deleted')
                 this.getProducts();
 
             })
@@ -63,7 +62,6 @@ export class viewProduct extends Component {
         return (
             <>
                 <div className="main-content">
-                    <DashNav />
                     <main>
                         <h2 className="dash-title">Product-List</h2>
                         <Link to={addProPath}><button className="primary" style={{ cursor: 'pointer' }}>Add Product</button></Link>
@@ -96,7 +94,7 @@ export class viewProduct extends Component {
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>
-                                                                    <EditProduct editData={result} />
+                                                                    <EditProduct editData={result} close={close} />
                                                                 </div>
                                                             )}
                                                         </Popup>

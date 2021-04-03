@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { Sidebar } from '../Sidebar/sidebar.component';
 import { Link } from 'react-router-dom';
-import { DashNav } from '../DashNav/dashNav.component';
 import './viewNursery.component.css';
 import axios from 'axios';
 import Popup from 'reactjs-popup';
 import { EditNursery } from '../Functions/EditNursery/editNursery.component';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -43,7 +42,7 @@ export class ViewNursery extends Component {
             responseType: 'json'
         })
             .then(res => {
-                console.log(res);
+                notify.showSuccess('Nursery Deleted....')
                 this.getNursery();
 
             })
@@ -54,10 +53,9 @@ export class ViewNursery extends Component {
         return (
             <>
                 <div className="main-content">
-                    <DashNav />
                     <main>
                         <h2 className="dash-title">Nursery-List</h2>
-                        <Link to="/dashboard/AddNursery"><button className="primary" style={{cursor:'pointer'}}>Add Nursery</button></Link>
+                        <Link to="/dashboard/AddNursery"><button className="primary" style={{ cursor: 'pointer' }}>Add Nursery</button></Link>
                         <div className="list">
                             <table>
                                 <thead>
@@ -85,11 +83,11 @@ export class ViewNursery extends Component {
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>
-                                                                    <EditNursery editData={result} />
+                                                                    <EditNursery editData={result} close={close} />
                                                                 </div>
                                                             )}
                                                         </Popup>
-                                                        <button className="delete" onClick={()=>{this.handleClick(result.nid,'deleteNursery')}}><i className="fas fa-trash-alt"> Delete</i></button>
+                                                        <button className="delete" onClick={() => { this.handleClick(result.nid, 'deleteNursery') }}><i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )
