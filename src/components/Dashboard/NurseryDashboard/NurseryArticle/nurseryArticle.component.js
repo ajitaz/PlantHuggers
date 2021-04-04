@@ -7,7 +7,7 @@ export const NurseryArticle = () => {
         <>
             <div className="main-content">
                 <main>
-                    <div className="form">
+                    <div className="form ">
                         <AddArticle />
                     </div>
 

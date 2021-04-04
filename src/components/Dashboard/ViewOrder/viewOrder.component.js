@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './order.component.css';
+import './viewOrder.component.css';
 import Popup from 'reactjs-popup';
 import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export class Order extends Component {
+export class ViewOrder extends Component {
 
     constructor() {
         super();
