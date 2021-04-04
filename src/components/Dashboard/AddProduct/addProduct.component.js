@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { DashNav } from '../DashNav/dashNav.component';
 import './addProduct.component.css';
 import axios from 'axios';
 import notify from '../../Util/notify';
@@ -90,7 +89,6 @@ export class AddProduct extends Component {
     })
       .then(res => {
         notify.showSuccess('Successfully Product Added...')
-        this.props.history.push('/dashboard/viewProduct')
       })
       .catch(err => console.log(err))
   }
@@ -100,7 +98,6 @@ export class AddProduct extends Component {
     return (
       <>
         <div className="main-content">
-          <DashNav />
           <main>
             <h2 className="dash-title">Add Product</h2>
             <div className="form">

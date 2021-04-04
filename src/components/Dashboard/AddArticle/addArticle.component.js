@@ -17,7 +17,7 @@ class AddArticle extends Component {
             description: '',
             cid: '',
             image: '',
-            author: '5',
+            author: localStorage.getItem('uid'),
             data: []
 
         }
@@ -78,7 +78,7 @@ class AddArticle extends Component {
     render() {
         return (
             <>
-                <div className="title">Add Article</div>
+                <h2 className="title">Add Article</h2>
                 <form method="POST" onSubmit={this.handleSubmit} noValidate>
                     <label htmlFor="title">Title</label>
                     <input type="text" name="title" placeholder="Title.." onChange={this.handleChange} />

@@ -25,6 +25,8 @@ import { Sidebar } from './Dashboard/Sidebar/sidebar.component';
 import { Order } from './Dashboard/Order/order.component';
 import { Cart } from './Pages/Cart/cart.component';
 import { DashNav } from './Dashboard/DashNav/dashNav.component';
+import { NurseryArticle } from './Dashboard/NurseryDashboard/NurseryArticle/nurseryArticle.component';
+
 
 
 
@@ -37,6 +39,7 @@ const NotFound = () => {
         </div>
     )
 }
+
 
 
 const AdminRoute = ({ component: Component, ...rest }) => {
@@ -113,6 +116,7 @@ export const AppRouting = (props) => {
                 <NurseryAdminRoute exact path="/nurseryDashboard/addProduct" component={AddProduct}></NurseryAdminRoute>
                 <PublicRoute exact path="/cart" component={Cart}></PublicRoute>
                 <AdminRoute exact path="/dashboard/order" component={Order}></AdminRoute>
+                <NurseryAdminRoute exact path="/nurseryDashboard/article" component={NurseryArticle}></NurseryAdminRoute>
                 <PublicRoute component={NotFound}></PublicRoute>
 
             </Switch>
