@@ -1,3 +1,4 @@
+import React from 'react';
 import { Overview } from '../Overview/overview.component';
 import './board.component.css';
 

@@ -19,8 +19,11 @@ export const NewArrival = () => {
 
     useEffect(() => {
         getNewArrival()
-        console.log(state)
     }, [])
+
+    
+    
+
     return (
         <>
             <div className="featured">
@@ -28,7 +31,7 @@ export const NewArrival = () => {
                 <div className="small-container">
                     <div className="row">
                         {
-                            state.map((product,index) => {
+                            state.map((product, index) => {
                                 return (
                                     <div key={index} className="col-3">
                                         <Link to={`/product?pid=${product.pid}&cid=${product.cid}`}><img src={`../images/${product.iname}`} alt="" /></Link>

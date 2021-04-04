@@ -32,7 +32,6 @@ export class viewProduct extends Component {
 
     componentDidMount() {
         this.getProducts();
-        console.log(this.props)
     }
 
     handleClick = (id, value) => {

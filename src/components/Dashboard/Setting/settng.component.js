@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import AddArticle from '../AddArticle/addArticle.component';
 import AddCategory from '../AddCategory/addCategory.component';
+import AddNewArrival from './../AddNewArrival/addNewArrival.component';
 import './setting.component.css';
 
 export const Setting = (props) => {
@@ -26,6 +27,14 @@ export const Setting = (props) => {
                                 <div className="modal">
                                     <button className="close" onClick={close}>&times;</button>
                                     <AddCategory close={close} />
+                                </div>
+                            )}
+                        </Popup>
+                        <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add NewArrival</button>} position="right center" modal>
+                            {close => (
+                                <div className="modal">
+                                    <button className="close" onClick={close}>&times;</button>
+                                    <AddNewArrival close={close} />
                                 </div>
                             )}
                         </Popup>
