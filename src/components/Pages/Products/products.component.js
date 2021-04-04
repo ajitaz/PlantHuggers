@@ -52,6 +52,7 @@ export class Products extends Component {
             .then(res => {
                 console.log(res)
                 notify.showInfo('Added to cart');
+                //send mail????
             })
     }
 
