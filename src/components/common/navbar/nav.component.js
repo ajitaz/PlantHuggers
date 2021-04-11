@@ -5,6 +5,9 @@ import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
+import { connect } from 'react-redux';
+import { add_to_cart_ac, fetch_orderCount_ac } from './../../../Actions/Order/order.action';
+
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -15,17 +18,22 @@ const StyledBadge = withStyles((theme) => ({
     },
 }))(Badge);
 
-export const NavBar = (props) => {
+
+const NavBarComponent = (props) => {
 
     function clearLocalStorage() {
         localStorage.clear();
+    }
+
+    if (props.isLoggedIn) {
+        props.fetch();
     }
 
     let userLogged = props.isLoggedIn
         ? <ul>
             <li><Link to="./cart">
                 <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={localStorage.getItem('uid')} color="secondary">
+                    <StyledBadge badgeContent={props.count} color="secondary">
                         <ShoppingCartSharpIcon style={{ color: 'black' }} />
                     </StyledBadge>
                 </IconButton>
@@ -63,3 +71,17 @@ export const NavBar = (props) => {
         </div>
     )
 }
+
+const mapStateToProps = (rootStore) => {
+    return {
+        count: rootStore.order.orderCount,
+        cart: rootStore.order.cart
+    }
+}
+
+const mapDispatchToProps = dispatch => ({
+    fetch: () => { dispatch(fetch_orderCount_ac()) },
+    add: () => { dispatch(add_to_cart_ac()) }
+})
+
+export const NavBar = connect(mapStateToProps, mapDispatchToProps)(NavBarComponent)

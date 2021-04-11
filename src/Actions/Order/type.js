@@ -1,0 +1,3 @@
+export const SET_ORDER_COUNT = 'SET_ORDER_COUNT';
+export const SET_ORDER_PRODUCT = 'SET_ORDER_PRODUCT';
+export const ADD_TO_CART = 'ADD_TO_CART';

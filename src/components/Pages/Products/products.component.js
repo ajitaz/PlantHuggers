@@ -11,7 +11,7 @@ export class Products extends Component {
         super();
         this.state = {
             products: [],
-            quantity: ''
+            quantity: 1
         }
         this.getProducts();
     }
@@ -31,10 +31,11 @@ export class Products extends Component {
         let quantity = e.target.value
         this.setState({
             quantity: quantity
-        })
+        })        
     }
 
     handleOrder = (pid, nid) => {
+        //store in redux store
         let data = {
             pid: pid,
             nid: nid,
@@ -77,7 +78,7 @@ export class Products extends Component {
                                                 <p>{result.cname}</p>
                                                 <h1>{result.pname}</h1>
                                                 <h4>Rs {result.price}</h4>
-                                                <input type="number" placeholder='0' onChange={this.handleChange} />
+                                                <input type="number" value={this.state.quantity} onChange={this.handleChange} />
                                                 <button onClick={() => {
                                                     this.handleOrder(result.pid, result.nid)
                                                 }}>Add to Cart</button>

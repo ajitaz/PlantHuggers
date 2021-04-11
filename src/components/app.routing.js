@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter, Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import { Products } from './Pages/Products/products.component';
 import { Home } from './Pages/Home/home.component';
 import { Nursery } from '../components/Pages/Nursery/nursery.component';
@@ -58,13 +58,27 @@ const AdminRoute = ({ component: Component, ...rest }) => {
 
     )}></Route>
 }
+export const CartContext = React.createContext();
+
+const CartContextProvider = () => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <CartContext.Provider value={{ count:8, setCount }}>
+           
+        </CartContext.Provider>
+    )
+}
+
+export default withRouter(CartContextProvider)
 
 const PublicRoute = ({ component: Component, ...rest }) => {
     window.scrollTo(0, 0);
+
     return <Route {...rest} render={routeProps => (
 
         <>
-            <NavBar isLoggedIn={localStorage.getItem('flag') ? true : false} />
+             <NavBar isLoggedIn={localStorage.getItem('flag') ? true : false} />
             <Component {...routeProps}></Component>
             <Footer />
         </>
