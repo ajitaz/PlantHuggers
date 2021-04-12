@@ -1,5 +1,5 @@
 import axios from "axios"
-import { SET_ORDER_PRODUCT, SET_ORDER_COUNT, ADD_TO_CART } from "./type"
+import { SET_ORDER_PRODUCT, SET_ORDER_COUNT, ADD_TO_CART, ADD_TO_FRESHCART } from "./type"
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
 
@@ -19,8 +19,15 @@ export const fetch_orderCount_ac = (params) => (dispatch) => {
 
 export const add_to_cart_ac = (params) => (dispatch) => {
     dispatch({
-        type: ADD_TO_CART,
+        type: SET_ORDER_PRODUCT,
         payload: params.data
+    })
+}
+
+export const add_to_freshcart_ac = (params) => (dispatch) => {
+    dispatch({
+        type: ADD_TO_FRESHCART,
+        payload: params
     })
 }
 

@@ -3,10 +3,12 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import notify from './../../Util/notify';
 import './products.component.css';
+import { connect } from 'react-redux';
+import { add_to_freshcart_ac, fetch_orderCount_ac } from '../../../Actions/Order/order.action';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export class Products extends Component {
+export class ProductsComponent extends Component {
     constructor() {
         super();
         this.state = {
@@ -31,10 +33,10 @@ export class Products extends Component {
         let quantity = e.target.value
         this.setState({
             quantity: quantity
-        })        
+        })
     }
 
-    handleOrder = (pid, nid) => {
+    handleOrder = (pid, nid, cartItem) => {
         //store in redux store
         let data = {
             pid: pid,
@@ -51,13 +53,18 @@ export class Products extends Component {
             responseType: 'json'
         })
             .then(res => {
-                console.log(res)
+                console.log('added order to Cart>>',res)
+                this.props.fetch()
                 notify.showInfo('Added to cart');
                 //send mail????
             })
-    }
 
+        this.props.addToFreshCart(cartItem)
+
+    }
     render() {
+        console.log('here at console>>', this.props)
+
         const url = new URLSearchParams(this.props.location.search);
         const activePid = url.get('pid')
         const acitveCid = url.get('cid')
@@ -80,7 +87,7 @@ export class Products extends Component {
                                                 <h4>Rs {result.price}</h4>
                                                 <input type="number" value={this.state.quantity} onChange={this.handleChange} />
                                                 <button onClick={() => {
-                                                    this.handleOrder(result.pid, result.nid)
+                                                    this.handleOrder(result.pid, result.nid, result)
                                                 }}>Add to Cart</button>
                                                 <h3>product Detail</h3>
                                                 <p className="pdesc">
@@ -128,3 +135,13 @@ export class Products extends Component {
         )
     }
 }
+
+const mapStateToProps = (rootStore) => ({
+    freshcart: rootStore.order.freshCart
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    addToFreshCart: (order) => { dispatch(add_to_freshcart_ac(order)) },
+    fetch: () => { dispatch(fetch_orderCount_ac()) }
+})
+export const Products = connect(mapStateToProps, mapDispatchToProps)(ProductsComponent)

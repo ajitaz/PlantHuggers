@@ -30,7 +30,7 @@ const CartComponent = (props) => {
     }, [])
 
     useEffect(() => {
-        props.add(state.data)
+        props.addToCart(state.data)
     }, [state.data])
 
     function handleDelete(id, value) {
@@ -102,7 +102,7 @@ const mapStateToProps = (rootStore) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    add: (data) => { dispatch(add_to_cart_ac({data})) }
+    addToCart: (data) => { dispatch(add_to_cart_ac({data})) }
 })
 
 export const Cart = connect(mapStateToProps, mapDispatchToProps)(CartComponent)

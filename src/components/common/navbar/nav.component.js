@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
 import { connect } from 'react-redux';
-import { add_to_cart_ac, fetch_orderCount_ac } from './../../../Actions/Order/order.action';
+import { fetch_orderCount_ac } from './../../../Actions/Order/order.action';
 
 
 const StyledBadge = withStyles((theme) => ({
@@ -80,8 +80,7 @@ const mapStateToProps = (rootStore) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    fetch: () => { dispatch(fetch_orderCount_ac()) },
-    add: () => { dispatch(add_to_cart_ac()) }
+    fetch: () => { dispatch(fetch_orderCount_ac()) }
 })
 
 export const NavBar = connect(mapStateToProps, mapDispatchToProps)(NavBarComponent)

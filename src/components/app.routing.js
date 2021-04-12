@@ -29,9 +29,6 @@ import { NurseryArticle } from './Dashboard/NurseryDashboard/NurseryArticle/nurs
 
 
 
-
-
-
 const NotFound = () => {
     return (
         <div>
@@ -58,19 +55,6 @@ const AdminRoute = ({ component: Component, ...rest }) => {
 
     )}></Route>
 }
-export const CartContext = React.createContext();
-
-const CartContextProvider = () => {
-    const [count, setCount] = useState(0);
-
-    return (
-        <CartContext.Provider value={{ count:8, setCount }}>
-           
-        </CartContext.Provider>
-    )
-}
-
-export default withRouter(CartContextProvider)
 
 const PublicRoute = ({ component: Component, ...rest }) => {
     window.scrollTo(0, 0);
@@ -78,7 +62,7 @@ const PublicRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={routeProps => (
 
         <>
-             <NavBar isLoggedIn={localStorage.getItem('flag') ? true : false} />
+            <NavBar isLoggedIn={localStorage.getItem('flag') ? true : false} />
             <Component {...routeProps}></Component>
             <Footer />
         </>
@@ -102,7 +86,7 @@ const NurseryAdminRoute = ({ component: Component, ...rest }) => {
     )}></Route>
 }
 
-export const AppRouting = (props) => {
+export const AppRouting = () => {
     return (
         <BrowserRouter>
             <Switch>
