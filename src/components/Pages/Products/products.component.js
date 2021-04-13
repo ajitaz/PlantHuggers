@@ -13,7 +13,7 @@ export class ProductsComponent extends Component {
         super();
         this.state = {
             products: [],
-            quantity: 1
+            quantity: ''
         }
         this.getProducts();
     }
@@ -22,11 +22,11 @@ export class ProductsComponent extends Component {
         axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`)
             .then(res => {
                 this.setState({
-                    products: res.data
+                    products: res.data,
+                    quantity:1
                 }
                 )
             })
-
     }
 
     handleChange = (e) => {
@@ -36,35 +36,7 @@ export class ProductsComponent extends Component {
         })
     }
 
-    handleOrder = (pid, nid, cartItem) => {
-        //store in redux store
-        let data = {
-            pid: pid,
-            nid: nid,
-            uid: localStorage.getItem('uid'),
-            quantity: this.state.quantity,
-            value: 'addOrder'
-        }
-        axios.post(`${BASE_URL}/action.php`, data, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            params: {},
-            responseType: 'json'
-        })
-            .then(res => {
-                console.log('added order to Cart>>',res)
-                this.props.fetch()
-                notify.showInfo('Added to cart');
-                //send mail????
-            })
-
-        this.props.addToFreshCart(cartItem)
-
-    }
     render() {
-        console.log('here at console>>', this.props)
-
         const url = new URLSearchParams(this.props.location.search);
         const activePid = url.get('pid')
         const acitveCid = url.get('cid')
@@ -87,7 +59,9 @@ export class ProductsComponent extends Component {
                                                 <h4>Rs {result.price}</h4>
                                                 <input type="number" value={this.state.quantity} onChange={this.handleChange} />
                                                 <button onClick={() => {
-                                                    this.handleOrder(result.pid, result.nid, result)
+                                                    this.props.addToFreshCart(result, this.state.quantity)
+                                                    notify.showSuccess('Item Added to Cart.')
+                                                    this.getProducts();
                                                 }}>Add to Cart</button>
                                                 <h3>product Detail</h3>
                                                 <p className="pdesc">
@@ -141,7 +115,7 @@ const mapStateToProps = (rootStore) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    addToFreshCart: (order) => { dispatch(add_to_freshcart_ac(order)) },
-    fetch: () => { dispatch(fetch_orderCount_ac()) }
+    addToFreshCart: (order, quantity) => { dispatch(add_to_freshcart_ac(order, quantity)) },
+    fetchCount: () => { dispatch(fetch_orderCount_ac()) }
 })
 export const Products = connect(mapStateToProps, mapDispatchToProps)(ProductsComponent)

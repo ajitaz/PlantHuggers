@@ -69,10 +69,10 @@
 }
 .btn-danger {
     color: white;
-    background-color: #EB5757;
+    background-color: #f05c0d;
     border: none;
     width: 100px;
-    height: 20px;
+    height: 30px;
     border-radius: .3em;
     font-weight: bold;
 }

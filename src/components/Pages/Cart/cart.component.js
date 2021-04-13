@@ -1,71 +1,104 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { add_to_cart_ac } from '../../../Actions/Order/order.action';
+import { add_to_cart_ac, clear_fresh_cart_ac, remove_from_cart_ac } from '../../../Actions/Order/order.action';
 import './cart.component.css';
+import emailjs from 'emailjs-com';
+import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
 const CartComponent = (props) => {
 
-    const [state, setState] = useState({
-        data: []
-    })
-
-    function getOrder() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewOrder`)
-            .then(res => {
-                setState({
-                    data: res.data.filter((order) => {
-                        if (order.id == localStorage.getItem('uid')) {
-                            return order
-                        }
-                    })
-                })
-            })
-    }
-
     useEffect(() => {
-        getOrder();
+        props.addToCart();
     }, [])
 
-    useEffect(() => {
-        props.addToCart(state.data)
-    }, [state.data])
-
-    function handleDelete(id, value) {
-        // edit redux store
-        let actionData = {
-            oid: id,
-            value: value
-        }
-        axios.post(`${BASE_URL}/action.php`, actionData, {
-            headers: {
-                "Content-Type": "application/json"
-            }, params: {},
-            responseType: 'json'
-        })
-            .then(res => {
-                console.log(res);
-                getOrder();
-
-            })
-
-    }
 
     function handleCheckout() {
-        // backend 
-        // props.cart.map((order)=>{
-        // axios
-        // })
+        let cartItem = ''
+        props.freshCart.forEach((element, index) => {
+            cartItem += (++index) + '> ' + element['pname'] + '    Quantity = ' + element['orderQuantity'] + '     '
+        })
+        axios.get(`${BASE_URL}/viewContent.php?option=emailUser&uid=${localStorage.getItem('uid')}`)
+            .then(res => {
+                var templateParams = {
+                    name: res.data.username,
+                    message: cartItem,
+                    user_email: res.data[0].email
+                };
+                emailjs.send('service_c5455lg', 'template_5r3vdvl', templateParams, 'user_CQQWpWC0YP59vNipgh111')
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, function (err) {
+                        console.log('FAILED...', err);
+                    });
+            })
+
+        props.freshCart.forEach((item) => {
+            let data = {
+                pid: item.pid,
+                nid: item.nid,
+                uid: localStorage.getItem('uid'),
+                quantity: item.orderQuantity,
+                value: 'addOrder'
+            }
+            axios.post(`${BASE_URL}/action.php`, data, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                params: {},
+                responseType: 'json'
+            })
+                .then(res => {
+                    console.log('added order to Cart>>', res)
+
+                })
+
+        })
+        props.clearFreshCart();
+        props.addToCart();
+        notify.showSuccess('Your Orders has benn made.')
+        notify.showInfo('Email has been sent to Nursery.')
     }
 
     let total = 0
+    let yourCart = props.freshCart.length === 0
+        ? ''
+        : <><h2 className="section-header">Your Cart</h2>
+            <div className="cart-row">
+                <span className="cart-item cart-header cart-column">Items</span>
+                <span className="cart-pname cart-header cart-column">Name</span>
+                <span className="cart-quantity cart-header cart-column">Quantity</span>
+                <span className="cart-price cart-header cart-column">Price</span>
+                <span className="cart-action cart-header cart-column">Action</span>
+            </div>
+            {
+                props.freshCart.map((result, index) => {
+                    total += parseInt(result.price)
+                    return (
+                        <div key={index} className="cart-row">
+                            <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
+                            <span className="cart-pname">{result.pname}</span>
+                            <span className="cart-quantity">{result.orderQuantity}</span>
+                            <span className="cart-price">Rs.{result.price}</span>
+                            <span className="cart-action"><button className="btn btn-danger" style={{ cursor: 'pointer' }} onClick={() => { props.removeCartItem(index) }}>Remove</button></span>
+                        </div>
+                    )
+                })
+            }
+            <div className="cart-total">
+                <strong className="cart-total-title">Total</strong>
+                <span className="cart-total-price">Rs.{total}</span>
+            </div>
+            <button className="btn btn-primary btn-purchase" type="button" style={{ cursor: 'pointer' }} onClick={handleCheckout}>Checkout</button>
+        </>
 
     return (
         <>
             <section className="container content-section">
-                <h2 className="section-header">shopping cart</h2>
+                {yourCart}
+                <h2 className="section-header">Pending Orders</h2>
                 <div className="cart-row">
                     <span className="cart-item cart-header cart-column">Items</span>
                     <span className="cart-pname cart-header cart-column">Name</span>
@@ -82,7 +115,7 @@ const CartComponent = (props) => {
                                 <span className="cart-pname">{result.pname}</span>
                                 <span className="cart-quantity">{result.quantity}</span>
                                 <span className="cart-price">Rs.{result.price}</span>
-                                <span className="cart-action"><button className="btn-danger" style={{ cursor: 'pointer' }} onClick={() => { handleDelete(result.oid, 'deleteOrder') }}>Remove</button></span>
+                                <span className="cart-action"><button className="btn btn-warning" disabled>PENDING</button></span>
                             </div>
                         )
                     })
@@ -91,18 +124,22 @@ const CartComponent = (props) => {
                     <strong className="cart-total-title">Total</strong>
                     <span className="cart-total-price">Rs.{total}</span>
                 </div>
-                <button className="btn btn-primary btn-purchase" type="button" style={{ cursor: 'pointer' }}>Checkout</button>
             </section>
         </>
     )
 }
 
 const mapStateToProps = (rootStore) => ({
-    cart: rootStore.order.cart
+    cart: rootStore.order.cart,
+    freshCart: rootStore.order.freshCart
+
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    addToCart: (data) => { dispatch(add_to_cart_ac({data})) }
+const mapDispatchToProps = dispatch => ({
+    addToCart: () => { dispatch(add_to_cart_ac()) },
+    removeCartItem: (index) => { dispatch(remove_from_cart_ac(index)) },
+    clearFreshCart: () => { dispatch(clear_fresh_cart_ac()) }
+
 })
 
 export const Cart = connect(mapStateToProps, mapDispatchToProps)(CartComponent)

@@ -1,4 +1,5 @@
 export const SET_ORDER_COUNT = 'SET_ORDER_COUNT';
-export const SET_ORDER_PRODUCT = 'SET_ORDER_PRODUCT';
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const ADD_TO_FRESHCART =  'ADD_TO_FRESHCART';
+export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+export const CLEAR_FRESH_CART = 'CLEAR_FRESH_CART'
