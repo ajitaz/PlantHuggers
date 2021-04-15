@@ -13,7 +13,7 @@ export const Home = () => {
             <Header />
             <NewArrival />
             <Category />
-            <FeatureComp />
+            {/* <FeatureComp /> */}
             <Article />
             <Nursery />
         </div>

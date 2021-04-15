@@ -18,7 +18,7 @@ const CartComponent = (props) => {
     function handleCheckout() {
         let cartItem = ''
         props.freshCart.forEach((element, index) => {
-            cartItem += (++index) + '> ' + element['pname'] + '    Quantity = ' + element['orderQuantity'] + '     '
+            cartItem += (++index) + ':- ' + element['pname'] + '     '
         })
         axios.get(`${BASE_URL}/viewContent.php?option=emailUser&uid=${localStorage.getItem('uid')}`)
             .then(res => {
@@ -65,7 +65,8 @@ const CartComponent = (props) => {
     let total = 0
     let yourCart = props.freshCart.length === 0
         ? ''
-        : <><h2 className="section-header">Your Cart</h2>
+        : <>
+            <h2 className="section-header">Your Cart</h2>
             <div className="cart-row">
                 <span className="cart-item cart-header cart-column">Items</span>
                 <span className="cart-pname cart-header cart-column">Name</span>
@@ -94,36 +95,43 @@ const CartComponent = (props) => {
             <button className="btn btn-primary btn-purchase" type="button" style={{ cursor: 'pointer' }} onClick={handleCheckout}>Checkout</button>
         </>
 
+    let pendingCart = props.cart.length == 0
+        ? <> <h2 className="section-header">NO Orders Pending</h2></>
+        : <>
+            <h2 className="section-header">Pending Orders</h2>
+            <div className="cart-row">
+                <span className="cart-item cart-header cart-column">Items</span>
+                <span className="cart-pname cart-header cart-column">Name</span>
+                <span className="cart-quantity cart-header cart-column">Quantity</span>
+                <span className="cart-price cart-header cart-column">Price</span>
+                <span className="cart-action cart-header cart-column">Action</span>
+            </div>
+            {
+                props.cart.map((result, index) => {
+                    total += parseInt(result.price)
+                    return (
+                        <div key={index} className="cart-row">
+                            <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
+                            <span className="cart-pname">{result.pname}</span>
+                            <span className="cart-quantity">{result.quantity}</span>
+                            <span className="cart-price">Rs.{result.price}</span>
+                            <span className="cart-action"><button className="btn btn-warning" disabled>PENDING</button></span>
+                        </div>
+                    )
+                })
+            }
+            <div className="cart-total">
+                <strong className="cart-total-title">Total</strong>
+                <span className="cart-total-price">Rs.{total}</span>
+            </div>
+        </>
+
+
     return (
         <>
             <section className="container content-section">
                 {yourCart}
-                <h2 className="section-header">Pending Orders</h2>
-                <div className="cart-row">
-                    <span className="cart-item cart-header cart-column">Items</span>
-                    <span className="cart-pname cart-header cart-column">Name</span>
-                    <span className="cart-quantity cart-header cart-column">Quantity</span>
-                    <span className="cart-price cart-header cart-column">Price</span>
-                    <span className="cart-action cart-header cart-column">Action</span>
-                </div>
-                {
-                    props.cart.map((result, index) => {
-                        total += parseInt(result.price)
-                        return (
-                            <div key={index} className="cart-row">
-                                <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
-                                <span className="cart-pname">{result.pname}</span>
-                                <span className="cart-quantity">{result.quantity}</span>
-                                <span className="cart-price">Rs.{result.price}</span>
-                                <span className="cart-action"><button className="btn btn-warning" disabled>PENDING</button></span>
-                            </div>
-                        )
-                    })
-                }
-                <div className="cart-total">
-                    <strong className="cart-total-title">Total</strong>
-                    <span className="cart-total-price">Rs.{total}</span>
-                </div>
+                {pendingCart}
             </section>
         </>
     )
