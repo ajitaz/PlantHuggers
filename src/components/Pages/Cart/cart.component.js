@@ -56,11 +56,15 @@ const CartComponent = (props) => {
                 })
 
         })
-        props.clearFreshCart();
-        props.addToCart();
+        setTimeout(() => { 
+            props.clearFreshCart()
+            props.addToCart()
+            notify.showInfo('Email has been sent to Nursery.')
+        }, 1500)
         notify.showSuccess('Your Orders has benn made.')
-        notify.showInfo('Email has been sent to Nursery.')
+       
     }
+
 
     let total = 0
     let yourCart = props.freshCart.length === 0

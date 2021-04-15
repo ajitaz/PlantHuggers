@@ -17,7 +17,7 @@ export const fetch_orderCount_ac = (params) => (dispatch) => {
         })
 }
 
-function getCartItems(dispatch) {
+function fetchCartItems(dispatch) {
     axios.get(`${BASE_URL}/viewContent.php?option=viewOrder`)
         .then(res => {
             dispatch({
@@ -32,7 +32,7 @@ function getCartItems(dispatch) {
 }
 
 export const add_to_cart_ac = () => (dispatch) => {
-    getCartItems(dispatch);
+    fetchCartItems(dispatch);
 }
 
 export const add_to_freshcart_ac = (params,quantity) => (dispatch) => {
