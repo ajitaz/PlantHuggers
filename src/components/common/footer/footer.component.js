@@ -1,18 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './footer.component.css';
 import { Link } from 'react-router-dom';
+import emailjs from 'emailjs-com';
+import notify from '../../Util/notify';
 
 export const Footer = () => {
+
+    const [state, setState] = useState({
+        email:'',
+        message:''
+    });
+
+  
+    function sendFeedback(e) {
+        e.preventDefault();
+        let message = `user email :- ${state.email} \n  message :- ${state.message}`
+        var templateParams = {
+            message: message,
+            user_email: 'planthuggerforyou@gmail.com'
+        };
+        emailjs.send('service_c5455lg', 'template_5r3vdvl', templateParams, 'user_CQQWpWC0YP59vNipgh111')
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                notify.showSuccess('Thank you for your feedback.')
+                setState({
+                    email:'',
+                    message:''
+                })
+            }, function (err) {
+                console.log('FAILED...', err);
+            });
+        
+    }
+
     return (
         <footer>
             <div className="footer-content">
                 <div className="footer-about box">
                     <h2>About us</h2>
                     <div className="content">
-                    <img src="../images/planthuggers.png" alt="" />
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora ex sunt natus unde eligendi
-                        obcaecati minus sequi molestiae molestias quod? Qui fuga rem fugit exercitationem fugiat quia.
-                        Illum, error reprehenderit?</p>
+                        <img src="../images/planthuggers.png" alt="" />
+                        <p></p>
                     </div>
                 </div>
                 <div className="footer-links box">
@@ -28,17 +56,29 @@ export const Footer = () => {
                 <div className="footer-contact box">
                     <h2>Contact us</h2>
                     <div className="content">
-                        <form action="#">
+                        <form onSubmit={sendFeedback}>
                             <div className="email">
                                 <div className="text">Email *</div>
-                                <input type="email" name="" required />
+                                <input type="email" name="email" value={state.email} onChange={(e) => {
+                                    setState({
+                                        ...state,
+                                        email: e.target.value
+                                    })
+                                }} required />
                             </div>
                             <div className="msg">
                                 <div className="text">Message *</div>
-                                <textarea name="" id="txarea"  required></textarea>
+                                <textarea name="message" value={state.message} onChange={(e) => {
+                                    setState(() => ({
+                                        ...state,
+                                        message: e.target.value
+                                    }
+                                    ))
+                                }} required></textarea>
+
 
                             </div>
-                            <button type="submit" className="btn">Send</button>
+                            <button type="submit" className="btn" style={{cursor:'pointer'}}>Send</button>
                         </form>
                     </div>
                 </div>

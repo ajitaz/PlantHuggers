@@ -18,6 +18,7 @@ footer{
 }
  .footer-content button{
      border: none;
+     cursor: default;
  }
  .box h2{
      font-size: 1.5rem;

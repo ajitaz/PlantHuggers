@@ -51,7 +51,7 @@ const CartComponent = (props) => {
                 responseType: 'json'
             })
                 .then(res => {
-                    console.log('added order to Cart>>', res)
+                    console.log('Orders added to Database>>', res)
 
                 })
 
@@ -59,9 +59,9 @@ const CartComponent = (props) => {
         setTimeout(() => { 
             props.clearFreshCart()
             props.addToCart()
-            notify.showInfo('Email has been sent to Nursery.')
+            notify.showInfo('Your orders has been notified to Nursery.')
         }, 1500)
-        notify.showSuccess('Your Orders has benn made.')
+        notify.showSuccess('Your Orders has been made.')
        
     }
 
