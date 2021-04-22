@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './footer.component.css';
 import { Link } from 'react-router-dom';
 import emailjs from 'emailjs-com';
@@ -7,11 +7,10 @@ import notify from '../../Util/notify';
 export const Footer = () => {
 
     const [state, setState] = useState({
-        email:'',
-        message:''
+        email: '',
+        message: ''
     });
 
-  
     function sendFeedback(e) {
         e.preventDefault();
         let message = `user email :- ${state.email} \n  message :- ${state.message}`
@@ -24,13 +23,12 @@ export const Footer = () => {
                 console.log('SUCCESS!', response.status, response.text);
                 notify.showSuccess('Thank you for your feedback.')
                 setState({
-                    email:'',
-                    message:''
+                    email: '',
+                    message: ''
                 })
             }, function (err) {
                 console.log('FAILED...', err);
             });
-        
     }
 
     return (
@@ -60,17 +58,17 @@ export const Footer = () => {
                             <div className="email">
                                 <div className="text">Email *</div>
                                 <input type="email" name="email" value={state.email} onChange={(e) => {
-                                    setState({
-                                        ...state,
+                                    setState((prevState) => ({
+                                        ...prevState,
                                         email: e.target.value
-                                    })
+                                    }))
                                 }} required />
                             </div>
                             <div className="msg">
                                 <div className="text">Message *</div>
                                 <textarea name="message" value={state.message} onChange={(e) => {
-                                    setState(() => ({
-                                        ...state,
+                                    setState((prevState) => ({
+                                        ...prevState,
                                         message: e.target.value
                                     }
                                     ))
@@ -78,7 +76,7 @@ export const Footer = () => {
 
 
                             </div>
-                            <button type="submit" className="btn" style={{cursor:'pointer'}}>Send</button>
+                            <button type="submit" className="btn" style={{ cursor: 'pointer' }}>Send</button>
                         </form>
                     </div>
                 </div>

@@ -1,8 +1,47 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './overview.component.css';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const Overview = (props) => {
+
+    const [state, setState] = useState({
+        userCount: '',
+        productCount: '',
+        nurseryCount: ''
+    })
+
+    useEffect(() => {
+        getCount();
+    }, [])
+
+    function getCount() {
+        axios.get(`${BASE_URL}/viewContent.php?option=viewUser`)
+            .then(res => {
+                setState((prevState) => ({
+                    ...prevState,
+                    userCount: res.data.length
+                }))
+            });
+
+        axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`)
+            .then(res => {
+                setState((prevState) => ({
+                    ...prevState,
+                    productCount: res.data.length
+                }))
+            });
+
+        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`)
+            .then(res => {
+                setState((prevState) => ({
+                    ...prevState,
+                    nurseryCount: res.data.length
+                }))
+            });
+
+    }
 
     let content = props.isNurseryDashboard
         ? <>
@@ -54,7 +93,7 @@ export const Overview = (props) => {
                         <i className="fas fa-home"></i>
                         <div>
                             <h5>Users</h5>
-                            <h4>27</h4>
+                            <h4>{state.userCount}</h4>
                         </div>
                     </div>
                     <div className="Dcard-footer">
@@ -66,7 +105,7 @@ export const Overview = (props) => {
                         <i className="fas fa-shopping-cart"></i>
                         <div>
                             <h5>Products</h5>
-                            <h4>45,666</h4>
+                            <h4>{state.productCount}</h4>
                         </div>
                     </div>
                     <div className="Dcard-footer">
@@ -78,7 +117,7 @@ export const Overview = (props) => {
                         <i className="fas fa-hand-holding-seedling"></i>
                         <div>
                             <h5>Nursery</h5>
-                            <h4>13</h4>
+                            <h4>{state.nurseryCount}</h4>
                         </div>
                     </div>
                     <div className="Dcard-footer">
