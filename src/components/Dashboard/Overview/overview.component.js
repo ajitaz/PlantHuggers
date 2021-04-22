@@ -9,14 +9,50 @@ export const Overview = (props) => {
     const [state, setState] = useState({
         userCount: '',
         productCount: '',
-        nurseryCount: ''
+        nurseryCount: '',
+        orderCount: '',
+        nurseryProductCount: '',
+        nurseryArticleCount: ''
     })
 
     useEffect(() => {
-        getCount();
+        if (!props.isNurseryDashboard) {
+            getCountAdmin();
+        } else {
+            getCountNursery();
+        }
     }, [])
 
-    function getCount() {
+    const getCountNursery = () => {
+        let uid = localStorage.getItem('uid')
+        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewProduct&uid=${uid}`)
+            .then(res => {
+                setState((prevState) => ({
+                    ...prevState,
+                    nurseryProductCount: res.data.length
+                }))
+            });
+        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewOrder&uid=${uid}`)
+            .then(res => {
+                setState((prevState) => ({
+                    ...prevState,
+                    orderCount: res.data.length
+                }))
+            });
+        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewArticle&uid=${uid}`)
+            .then(res => {
+                setState((prevState) => ({
+                    ...prevState,
+                    nurseryArticleCount: res.data.length
+                }))
+            });
+    }
+
+
+
+
+
+    function getCountAdmin() {
         axios.get(`${BASE_URL}/viewContent.php?option=viewUser`)
             .then(res => {
                 setState((prevState) => ({
@@ -40,7 +76,6 @@ export const Overview = (props) => {
                     nurseryCount: res.data.length
                 }))
             });
-
     }
 
     let content = props.isNurseryDashboard
@@ -52,7 +87,7 @@ export const Overview = (props) => {
                         <i className="fas fa-shopping-cart"></i>
                         <div>
                             <h5>Products</h5>
-                            <h4>45,666</h4>
+                            <h4>{state.nurseryProductCount}</h4>
                         </div>
                     </div>
                     <div className="Dcard-footer">
@@ -64,7 +99,7 @@ export const Overview = (props) => {
                         <i className="fas fa-plus-circle"></i>
                         <div>
                             <h5>Article</h5>
-                            <h4>4</h4>
+                            <h4>{state.nurseryArticleCount}</h4>
                         </div>
                     </div>
                     <div className="Dcard-footer">
@@ -76,7 +111,7 @@ export const Overview = (props) => {
                         <i className="fa fa-cart-arrow-down"></i>
                         <div>
                             <h5>Orders</h5>
-                            <h4>25</h4>
+                            <h4>{state.orderCount}</h4>
                         </div>
                     </div>
                     <div className="Dcard-footer">
