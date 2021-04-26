@@ -106,8 +106,6 @@ export class AddProduct extends Component {
                 <input type="text" name="name" placeholder="product.." onChange={this.handleChange} />
                 <label htmlFor="description">Description</label>
                 <textarea name="description" onChange={this.handleChange}></textarea>
-                {/* <label htmlFor="tags">Tags</label>
-                <input type="text" id="tags" name="tags" placeholder="product Tags.." /> */}
                 <label htmlFor="price">Price</label>
                 <input type="number" name="price" placeholder="product Price.." onChange={this.handleChange} />
                 <label htmlFor="quantity">Quantity</label>

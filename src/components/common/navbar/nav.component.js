@@ -24,7 +24,6 @@ const NavBarComponent = (props) => {
     function clearLocalStorage() {
         localStorage.clear();
         props.clearFreshCart();
-        console.log('here at nav',props)
     }
 
     if (props.isLoggedIn) {

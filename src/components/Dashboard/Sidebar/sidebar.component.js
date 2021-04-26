@@ -12,7 +12,7 @@ export const Sidebar = (props) => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/nurseryDashboard/addProduct"><i className="fas fa-shopping-cart"></i><span>Product</span>
+                        <Link to="/nurseryDashboard/product"><i className="fas fa-shopping-cart"></i><span>Product</span>
                         </Link>
                     </li>
                     <li>
