@@ -23,7 +23,7 @@ export class ProductsComponent extends Component {
             .then(res => {
                 this.setState({
                     products: res.data,
-                    quantity:1
+                    quantity: 1
                 }
                 )
             })
@@ -34,6 +34,20 @@ export class ProductsComponent extends Component {
         this.setState({
             quantity: quantity
         })
+    }
+
+    handleClick = (item) => {
+        if (localStorage.getItem('uid')) {
+            this.props.addToFreshCart(item, this.state.quantity)
+            notify.showSuccess('Item Added to Cart.')
+            this.setState({
+                quantity: 1
+            })
+        } else {
+            notify.showWarning('Please Login first to make orders.')
+            this.props.history.push('/login',{fromRegister:false})
+
+        }
     }
 
     render() {
@@ -59,10 +73,8 @@ export class ProductsComponent extends Component {
                                                 <h4>Rs {result.price}</h4>
                                                 <input type="number" value={this.state.quantity} onChange={this.handleChange} />
                                                 <button onClick={() => {
-                                                    this.props.addToFreshCart(result, this.state.quantity)
-                                                    notify.showSuccess('Item Added to Cart.')
-                                                    this.getProducts();
-                                                }}>Add to Cart</button>
+                                                    this.handleClick(result)
+                                                }} >Add to Cart</button>
                                                 <h3>product Detail</h3>
                                                 <p className="pdesc">
                                                     {result.p_description}

@@ -67,7 +67,7 @@ const CartComponent = (props) => {
 
 
     let total = 0
-    let yourCart = props.freshCart.length === 0
+    let currentCart = props.freshCart.length === 0
         ? ''
         : <>
             <h2 className="section-header">Your Cart</h2>
@@ -102,7 +102,7 @@ const CartComponent = (props) => {
     let pendingCart = props.cart.length == 0
         ? <> <h2 className="section-header">NO Orders Pending</h2></>
         : <>
-            <h2 className="section-header">Pending Orders</h2>
+            <h2 className="section-header">Your Orders</h2>
             <div className="cart-row">
                 <span className="cart-item cart-header cart-column">Items</span>
                 <span className="cart-pname cart-header cart-column">Name</span>
@@ -119,7 +119,9 @@ const CartComponent = (props) => {
                             <span className="cart-pname">{result.pname}</span>
                             <span className="cart-quantity">{result.quantity}</span>
                             <span className="cart-price">Rs.{result.price}</span>
-                            <span className="cart-action"><button className="btn btn-warning" disabled>PENDING</button></span>
+                            <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
+                            <span className="cart-action"><button className="btn btn-warning" style={{backgroundColor:'#f05c0d',cursor: 'pointer'}}>Cancle</button></span>
+
                         </div>
                     )
                 })
@@ -134,7 +136,7 @@ const CartComponent = (props) => {
     return (
         <>
             <section className="container content-section">
-                {yourCart}
+                {currentCart}
                 {pendingCart}
             </section>
         </>

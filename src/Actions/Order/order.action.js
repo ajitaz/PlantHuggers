@@ -35,7 +35,7 @@ export const add_to_cart_ac = () => (dispatch) => {
     fetchCartItems(dispatch);
 }
 
-export const add_to_freshcart_ac = (params,quantity) => (dispatch) => {
+export const add_to_freshcart_ac = (params, quantity) => (dispatch) => {
     params.orderQuantity = quantity
     dispatch({
         type: ADD_TO_FRESHCART,
