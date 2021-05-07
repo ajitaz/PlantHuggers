@@ -10,9 +10,15 @@ const BASE_URL = process.env.REACT_APP_BASE_URL
 
 const CartComponent = (props) => {
 
+    const [cancelItems, setCancelItems] = useState([])
+
     useEffect(() => {
         props.addToCart();
     }, [])
+
+    useEffect(()=>{
+        console.log(cancelItems)
+    },[cancelItems])
 
 
     function handleCheckout() {
@@ -56,16 +62,23 @@ const CartComponent = (props) => {
                 })
 
         })
-        setTimeout(() => { 
+        setTimeout(() => {
             props.clearFreshCart()
             props.addToCart()
             notify.showInfo('Your orders has been notified to Nursery.')
         }, 1500)
         notify.showSuccess('Your Orders has been made.')
-       
+
     }
 
+    function handleCancel(item) {
+        setCancelItems((prev) => ([...prev, item.oid]))
+        //create cancelProducts table
+        //post cancle order to cancleProduct table
+        //fetch cancelProduct , store in cancelItem state 
 
+
+    }
     let total = 0
     let currentCart = props.freshCart.length === 0
         ? ''
@@ -113,14 +126,23 @@ const CartComponent = (props) => {
             {
                 props.cart.map((result, index) => {
                     total += parseInt(result.price)
+
+                    let action = !cancelItems.some(item => result.oid == item)
+                        ? <>
+                            <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
+                            <span className="cart-action"><button className="btn btn-warning" onClick={(index) => { handleCancel(result) }} style={{ backgroundColor: '#f05c0d', cursor: 'pointer' }}>Cancle</button></span>
+                        </>
+                        : <>
+                            <span className="cart-action"><button className="btn btn-warning" style={{ backgroundColor: '#bccc2e', color: 'black' }} disabled>Requested Cancel order</button></span>
+
+                        </>
                     return (
                         <div key={index} className="cart-row">
                             <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
                             <span className="cart-pname">{result.pname}</span>
                             <span className="cart-quantity">{result.quantity}</span>
                             <span className="cart-price">Rs.{result.price}</span>
-                            <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
-                            <span className="cart-action"><button className="btn btn-warning" style={{backgroundColor:'#f05c0d',cursor: 'pointer'}}>Cancle</button></span>
+                            {action}
 
                         </div>
                     )

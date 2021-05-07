@@ -63,6 +63,7 @@ export class ViewNursery extends Component {
                                         <th>Nursery Name</th>
                                         <th>Nursery Image</th>
                                         <th>Phone</th>
+                                        <th>Email</th>
                                         <th>Address</th>
                                         <th>Description</th>
                                         <th>Action</th>
@@ -76,6 +77,7 @@ export class ViewNursery extends Component {
                                                     <td>{result.name}</td>
                                                     <td><img src={`../images/${result.iname}`} alt="cactus" /></td>
                                                     <td>{result.phone}</td>
+                                                    <td>{result.nur_email}</td>
                                                     <td>{result.address}</td>
                                                     <td>{result.description}</td>
                                                     <td>

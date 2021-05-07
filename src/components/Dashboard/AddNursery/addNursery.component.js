@@ -14,6 +14,7 @@ export class AddNursery extends Component {
       description: '',
       address: '',
       phone: '',
+      email:'',
       image: ''
     }
   }
@@ -25,9 +26,8 @@ export class AddNursery extends Component {
         [name]: e.target.files[0]
       })
     } else {
-      this.setState(({
+      this.setState({
         [name]: value
-      }), () => {
       })
     }
   }
@@ -39,6 +39,7 @@ export class AddNursery extends Component {
     formData.append('description', this.state.description)
     formData.append('address', this.state.address)
     formData.append('phone', this.state.phone)
+    formData.append('email',this.state.email)
     formData.append('image', this.state.image)
 
     axios.post(`${BASE_URL}/addNursery.php`, formData, {
@@ -70,6 +71,8 @@ export class AddNursery extends Component {
                 <textarea name="description" onChange={this.handleChange}></textarea>
                 <label htmlFor="phone">Phone</label>
                 <input type="Number" name="phone" placeholder="Phone No.." onChange={this.handleChange} />
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" placeholder="Email.." onChange={this.handleChange} />
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address.." onChange={this.handleChange} />
                 <label htmlFor="img">Select Nursery image:</label>

@@ -10,6 +10,7 @@ const defaultForm = {
     nid: '',
     name: '',
     phone: '',
+    email: '',
     address: '',
     description: ''
 }
@@ -31,6 +32,7 @@ export class EditNursery extends Component {
                 nid: this.props.editData.nid,
                 name: this.props.editData.name,
                 phone: this.props.editData.phone,
+                email: this.props.editData.nur_email,
                 description: this.props.editData.description,
                 address: this.props.editData.address
 
@@ -83,6 +85,8 @@ export class EditNursery extends Component {
                     <textarea name="description" onChange={this.handleChange} value={this.state.data.description} />
                     <label htmlFor="phone">Phone</label>
                     <input type="text" name="phone" onChange={this.handleChange} value={this.state.data.phone} />
+                    <label htmlFor="email">Email</label>
+                    <input type="email" name="email" onChange={this.handleChange} value={this.state.data.email} />
                     <label htmlFor="address">Address</label>
                     <input type="text" name="address" onChange={this.handleChange} value={this.state.data.address} />
 
