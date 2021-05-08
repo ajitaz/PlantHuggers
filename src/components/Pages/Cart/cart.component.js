@@ -13,12 +13,20 @@ const CartComponent = (props) => {
     const [cancelItems, setCancelItems] = useState([])
 
     useEffect(() => {
+        fetchCancelOrder();
         props.addToCart();
     }, [])
 
-    useEffect(()=>{
+    function fetchCancelOrder() {
+        axios.get(`${BASE_URL}/viewContent.php?option=getCancleOrder`)
+            .then(res => {
+                setCancelItems(res.data)
+            })
+    }
+
+    useEffect(() => {
         console.log(cancelItems)
-    },[cancelItems])
+    }, [cancelItems])
 
 
     function handleCheckout() {
@@ -71,13 +79,26 @@ const CartComponent = (props) => {
 
     }
 
+    function addCancleOrder(oid) {
+        let data = {
+            oid: oid,
+            value: 'addCancelOrder'
+        }
+        axios.post(`${BASE_URL}/action.php`, data, {
+            headers: {
+                'Content-Type': 'application/json'
+            }, params: {},
+            responseType: 'json'
+        })
+            .then(res => {
+                notify.showSuccess('Cancel Order Added')
+                fetchCancelOrder()
+
+            })
+    }
+
     function handleCancel(item) {
-        setCancelItems((prev) => ([...prev, item.oid]))
-        //create cancelProducts table
-        //post cancle order to cancleProduct table
-        //fetch cancelProduct , store in cancelItem state 
-
-
+        addCancleOrder(item.oid)
     }
     let total = 0
     let currentCart = props.freshCart.length === 0
@@ -127,7 +148,7 @@ const CartComponent = (props) => {
                 props.cart.map((result, index) => {
                     total += parseInt(result.price)
 
-                    let action = !cancelItems.some(item => result.oid == item)
+                    let action = !cancelItems.some(item => result.oid == item.oid)
                         ? <>
                             <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
                             <span className="cart-action"><button className="btn btn-warning" onClick={(index) => { handleCancel(result) }} style={{ backgroundColor: '#f05c0d', cursor: 'pointer' }}>Cancle</button></span>
