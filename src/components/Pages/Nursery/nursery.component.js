@@ -40,7 +40,7 @@ export class Nursery extends Component {
                                         {result.description}
                                     </p>
                                     <p>
-                                        <i className="fas fa-map-marker-alt"></i> {result.address}<br /><i className="fas fa-mobile-alt"></i> {result.phone}
+                                        <i className="fas fa-map-marker-alt"></i> {result.address}<br /><i className="fas fa-at"></i> {result.nur_email}<br /><i className="fas fa-mobile-alt"></i> {result.phone}
                                         <Link to={`/nursery/${result.nid}`}><br /><br />
                                             <button style={{ cursor: 'pointer' }}>view Details</button></Link>
                                     </p>
