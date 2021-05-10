@@ -59,6 +59,7 @@ export class IndNursery extends Component {
                     <div>
                         <p>Contact</p>
                         <p> <i className="fas fa-phone-alt"></i> {this.state.nursery.phone}</p>
+                        <p> <i className="fas fa-at"></i> {this.state.nursery.nur_email}</p>
                         <p> <i className="fas fa-map-marker-alt"></i> {this.state.nursery.address}</p>
                     </div>
                 </div>
