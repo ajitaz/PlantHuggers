@@ -74,6 +74,8 @@
 }
 .col-4 img{
     width: 100%;
+    height: 350px;
+
 }
 .col-4 p{
     font-size: 14px;
