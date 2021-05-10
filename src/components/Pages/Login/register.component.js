@@ -126,6 +126,8 @@ class Register extends Component {
                 <p className="error">{this.state.error.username}</p>
                 <input className="input-form" type="password" name="password" placeholder="Enter your password" onChange={this.handleChange} required /><br /><br />
                 <p className="error">{this.state.error.password}</p>
+                <input className="input-form" type="password" name="cpassword" placeholder="Confirm Password" onChange={this.handleChange} required /><br /><br />
+                <p className="error">{this.state.error.password}</p>
                 <input className="input-form" type="email" name="email" placeholder="Enter your email" onChange={this.handleChange} required /><br /><br />
                 <p className="error">{this.state.error.email}</p>
                 <input className="input-form" type="Number" name="phone" placeholder="Enter your Phone Number" onChange={this.handleChange} required /><br /><br />
