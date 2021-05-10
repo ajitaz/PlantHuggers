@@ -1,6 +1,7 @@
 import React from 'react';
 import { Category } from '../../Section/category/category.component';
 import { Header } from '../../Section/Header/header.component';
+import { FeatureComp } from '../../Section/featureProduct/feature.component';
 import { NewArrival } from '../../Section/newArrival/newArrival.component';
 import { Article } from '../../Section/Article/article.component';
 import { Nursery } from '../../Section/Partner_Nursery/partnerNursery.component';
@@ -12,6 +13,7 @@ export const Home = () => {
             <Header />
             <NewArrival />
             <Category />
+            {/* <FeatureComp /> */}
             <Article />
             <Nursery />
         </div>
