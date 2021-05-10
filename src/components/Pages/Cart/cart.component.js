@@ -24,11 +24,6 @@ const CartComponent = (props) => {
             })
     }
 
-    useEffect(() => {
-        console.log(cancelItems)
-    }, [cancelItems])
-
-
     function handleCheckout() {
         let cartItem = ''
         props.freshCart.forEach((element, index) => {
@@ -79,7 +74,7 @@ const CartComponent = (props) => {
 
     }
 
-    function addCancleOrder(oid) {
+    function addCancleOrder(oid, email, name) {
         let data = {
             oid: oid,
             value: 'addCancelOrder'
@@ -91,14 +86,24 @@ const CartComponent = (props) => {
             responseType: 'json'
         })
             .then(res => {
-                notify.showSuccess('Cancel Order Added')
-                fetchCancelOrder()
+                let cancelEmail = {
+                    user_email: email,
+                    message: 'This order has been canceled => ' + oid + ' ',
+                    name: name
+                }
+                emailjs.send('service_c5455lg', 'template_5r3vdvl', cancelEmail, 'user_CQQWpWC0YP59vNipgh111')
+                    .then(function (response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, function (err) {
+                        console.log('FAILED...', err);
+                    });
 
+                fetchCancelOrder()
             })
     }
 
     function handleCancel(item) {
-        addCancleOrder(item.oid)
+        addCancleOrder(item.oid, item.nur_email, item.name)
     }
     let total = 0
     let currentCart = props.freshCart.length === 0
@@ -147,7 +152,6 @@ const CartComponent = (props) => {
             {
                 props.cart.map((result, index) => {
                     total += parseInt(result.price)
-
                     let action = !cancelItems.some(item => result.oid == item.oid)
                         ? <>
                             <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
@@ -155,7 +159,6 @@ const CartComponent = (props) => {
                         </>
                         : <>
                             <span className="cart-action"><button className="btn btn-warning" style={{ backgroundColor: '#bccc2e', color: 'black' }} disabled>Requested Cancel order</button></span>
-
                         </>
                     return (
                         <div key={index} className="cart-row">

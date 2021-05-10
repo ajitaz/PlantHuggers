@@ -12,7 +12,6 @@ export class CategoryPage extends Component {
             data: []
         }
         this.getCategory();
-
     }
 
     getCategory() {
@@ -23,7 +22,6 @@ export class CategoryPage extends Component {
                 })
             })
     }
-
 
     render() {
         return (
@@ -41,7 +39,6 @@ export class CategoryPage extends Component {
                             </div>
                         )
                     })
-
                 }
             </>
         )
