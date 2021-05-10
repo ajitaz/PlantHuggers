@@ -104,6 +104,7 @@ export class Login extends Component {
                                 <form id="login-form" onSubmit={this.handleSubmit}>
                                     <input className="input-form" type="text" placeholder="Enter your username" name="username" onChange={this.handleChange} required /><br /><br />
                                     <input className="input-form" type="password" placeholder="Enter your password" name="password" onChange={this.handleChange} required /> <br /><br /><br /><br />
+                                    <p>Forget Password?</p>
                                     <Button
                                         isSubmitting={false}
                                         isValidForm={true}

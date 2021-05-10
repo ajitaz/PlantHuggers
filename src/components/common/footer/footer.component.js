@@ -37,6 +37,7 @@ export const Footer = () => {
                 <div className="footer-about box">
                     <h2>About us</h2>
                     <div className="content">
+                    <p>PlantHugger is an E-commerce web app where people can explore plants, buy gardening tools and products as well as explore their interests through articles written by many plantsmen and plant nurseries.</p>
                         <img src="../images/planthuggers.png" alt="" />
                         <p></p>
                     </div>
