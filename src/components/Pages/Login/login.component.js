@@ -5,6 +5,8 @@ import { Button } from '../../common/Button/button.component';
 import './login.component.css';
 import Register from './register.component'
 import notify from './../../Util/notify'
+import Popup from 'reactjs-popup';
+import emailjs from 'emailjs-com';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -14,9 +16,10 @@ export class Login extends Component {
         super();
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            forgotUname: '',
+            email: ''
         }
-
     }
 
     handleChange = (e) => {
@@ -28,7 +31,10 @@ export class Login extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let formData = this.state;
+        let formData = {
+            username: this.state.username,
+            password: this.state.password
+        };
         axios.post(`${BASE_URL}/verifyUser.php`, formData, {
             headers: {
                 "Content-Type": "application/json"
@@ -39,20 +45,20 @@ export class Login extends Component {
                 switch (res.data['flag']) {
                     case 'Admin':
                         localStorage.setItem('uname', res.data['uname']);
-                        localStorage.setItem('uid',res.data['id']);
-                        localStorage.setItem('flag',res.data['flag']);
+                        localStorage.setItem('uid', res.data['id']);
+                        localStorage.setItem('flag', res.data['flag']);
                         this.props.history.push('/dashboard');
                         break;
                     case 'User':
                         localStorage.setItem('uname', res.data['uname']);
-                        localStorage.setItem('uid',res.data['id']);
-                        localStorage.setItem('flag',res.data['flag']);
+                        localStorage.setItem('uid', res.data['id']);
+                        localStorage.setItem('flag', res.data['flag']);
                         this.props.history.push('/');
                         break;
                     case 'NA':
                         localStorage.setItem('uname', res.data['uname']);
-                        localStorage.setItem('uid',res.data['id']);
-                        localStorage.setItem('flag',res.data['flag']);
+                        localStorage.setItem('uid', res.data['id']);
+                        localStorage.setItem('flag', res.data['flag']);
                         this.props.history.push('/nurseryDashboard');
 
                         break;
@@ -61,10 +67,31 @@ export class Login extends Component {
                 }
             })
             .catch(err => console.log(err));
-
-
     }
 
+    handelForgotPassword = (e) => {
+        const { name, value } = e.target
+        this.setState({
+            [name]: value
+        })
+    }
+
+    sendForgotPassword = (close) => {
+        axios.get(`${BASE_URL}/viewContent.php?option=viewUser`)
+            .then(res => {
+                if (res.data.some(user => user.username == this.state.forgotUname && user.email == this.state.email)) {
+                    emailjs.send('service_c5455lg', 'template_fpinuzw', { user_email: this.state.email, name: this.state.forgotUname, message: 'http://localhost:3000/category/1' }, 'user_CQQWpWC0YP59vNipgh111')
+                        .then(function (response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                        }, function (err) {
+                            console.log('FAILED...', err);
+                        });
+                    close()
+                } else {
+                    notify.showError("Username or Email didnot matched!. Please enter correct information.")
+                }
+            })
+    }
 
     render() {
         if (this.props.location.state.fromRegister == true) {
@@ -104,14 +131,29 @@ export class Login extends Component {
                                 <form id="login-form" onSubmit={this.handleSubmit}>
                                     <input className="input-form" type="text" placeholder="Enter your username" name="username" onChange={this.handleChange} required /><br /><br />
                                     <input className="input-form" type="password" placeholder="Enter your password" name="password" onChange={this.handleChange} required /> <br /><br /><br /><br />
-                                    <p>Forget Password?</p>
+                                    <Popup trigger={<p style={{ color: "blue", cursor: 'pointer', textDecoration: 'underLine' }}>Forgot Password?</p>} contentStyle={{ width: "700px", height: '300px' }} position='top center'>
+                                        {close => (
+                                            <div className="modal">
+                                                <div style={{ marginTop: "25px" }}>
+                                                    <h2>Please enter your username and email that you provided during Registration.</h2><br />
+                                                    <button className="close" style={{ color: 'white' }} onClick={close}>&times;</button>
+                                                    <label >Your Username</label>
+                                                    <input type="text" name="forgotUname" placeholder="Enter your username" onChange={this.handelForgotPassword}></input>
+                                                    <label>Your Email</label>
+                                                    <input type="email" name="email" placeholder="Enter your Email address" onChange={this.handelForgotPassword}></input>
+                                                    <button onClick={() => {
+                                                        this.sendForgotPassword(close)
+                                                    }}>Done</button>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </Popup><br />
                                     <Button
                                         isSubmitting={false}
                                         isValidForm={true}
                                         enabledLable='Login'
                                         disabledLable='Logining'
                                     />
-
                                 </form>
                                 <Register />
 
