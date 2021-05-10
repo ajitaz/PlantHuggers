@@ -32,7 +32,7 @@ const NavBarComponent = (props) => {
 
     let userLogged = props.isLoggedIn
         ? <ul>
-            <li><Link to="./cart">
+            <li><Link to="/cart">
                 <IconButton aria-label="cart">
                     <StyledBadge badgeContent={(props.count+props.freshCartCount)} color="secondary">
                         <ShoppingCartSharpIcon style={{ color: 'black' }} />
