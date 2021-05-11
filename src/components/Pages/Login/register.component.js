@@ -10,6 +10,7 @@ const BASE_URL = process.env.REACT_APP_BASE_URL;
 const defaultForm = {
     username: '',
     password: '',
+    confirmPassword: '',
     email: '',
     phone: '',
     flag: 'User'
@@ -25,6 +26,7 @@ class Register extends Component {
             error: {
                 username: '',
                 password: '',
+                confirmPassword: '',
                 email: '',
                 phone: ''
             },
@@ -58,6 +60,13 @@ class Register extends Component {
                     ? this.state.data[fieldName].length < 5
                         ? 'weak password!!'
                         : ''
+                    : 'required field*';
+                break;
+            case 'confirmPassword':
+                errMsg = this.state.data[fieldName]
+                    ? this.state.data[fieldName] === this.state.data.password
+                        ? ''
+                        : 'Password didnot match'
                     : 'required field*';
                 break;
             case 'email':
@@ -126,8 +135,8 @@ class Register extends Component {
                 <p className="error">{this.state.error.username}</p>
                 <input className="input-form" type="password" name="password" placeholder="Enter your password" onChange={this.handleChange} required /><br /><br />
                 <p className="error">{this.state.error.password}</p>
-                <input className="input-form" type="password" name="cpassword" placeholder="Confirm Password" onChange={this.handleChange} required /><br /><br />
-                <p className="error">{this.state.error.password}</p>
+                <input className="input-form" type="password" name="confirmPassword" placeholder="Confirm Password" onChange={this.handleChange} required /><br /><br />
+                <p className="error">{this.state.error.confirmPassword}</p>
                 <input className="input-form" type="email" name="email" placeholder="Enter your email" onChange={this.handleChange} required /><br /><br />
                 <p className="error">{this.state.error.email}</p>
                 <input className="input-form" type="Number" name="phone" placeholder="Enter your Phone Number" onChange={this.handleChange} required /><br /><br />

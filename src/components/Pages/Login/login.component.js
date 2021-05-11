@@ -83,10 +83,11 @@ export class Login extends Component {
                     emailjs.send('service_c5455lg', 'template_fpinuzw', { user_email: this.state.email, name: this.state.forgotUname, message: 'http://localhost:3000/category/1' }, 'user_CQQWpWC0YP59vNipgh111')
                         .then(function (response) {
                             console.log('SUCCESS!', response.status, response.text);
+                            notify.showInfo("Please check your email, a reset link has been sent")
+                            close()
                         }, function (err) {
                             console.log('FAILED...', err);
                         });
-                    close()
                 } else {
                     notify.showError("Username or Email didnot matched!. Please enter correct information.")
                 }
