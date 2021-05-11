@@ -112,7 +112,6 @@ class Reset extends Component {
                                 <p className="error">{this.state.error.confirmPassword}</p>
                             </div>
                             <div className="form-submit">
-                                {/* <button type="submit" disabled={!this.state.isValidForm}>Reset</button> */}
                                 <Button
                                     enabledLable='Reset'
                                     isValidForm={this.state.isValidForm}
