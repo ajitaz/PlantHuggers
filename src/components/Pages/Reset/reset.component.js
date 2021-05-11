@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { Button } from '../../common/Button/button.component';
 import '../Reset/reset.component.css';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -111,7 +112,12 @@ class Reset extends Component {
                                 <p className="error">{this.state.error.confirmPassword}</p>
                             </div>
                             <div className="form-submit">
-                                <button type="submit" disabled={!this.state.isValidForm}>Reset</button>
+                                {/* <button type="submit" disabled={!this.state.isValidForm}>Reset</button> */}
+                                <Button
+                                    enabledLable='Reset'
+                                    isValidForm={this.state.isValidForm}
+                                    isSubmitting={false}
+                                ></Button>
                             </div>
                         </form>
                     </div>
