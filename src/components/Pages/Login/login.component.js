@@ -79,18 +79,23 @@ export class Login extends Component {
     sendForgotPassword = (close) => {
         axios.get(`${BASE_URL}/viewContent.php?option=viewUser`)
             .then(res => {
+                let emailMessage = {
+                    user_email: this.state.email,
+                    name: this.state.forgotUname,
+                    message: `http://localhost:3000/resetPassword/${this.state.forgotUname}`
+                }
                 if (res.data.some(user => user.username == this.state.forgotUname && user.email == this.state.email)) {
-                    emailjs.send('service_c5455lg', 'template_fpinuzw', { user_email: this.state.email, name: this.state.forgotUname, message: 'http://localhost:3000/category/1' }, 'user_CQQWpWC0YP59vNipgh111')
+                    emailjs.send('service_c5455lg', 'template_fpinuzw', emailMessage , 'user_CQQWpWC0YP59vNipgh111')
                         .then(function (response) {
                             console.log('SUCCESS!', response.status, response.text);
-                            notify.showInfo("Please check your email, a reset link has been sent")
-                            close()
+                            alert("Please check your email, a reset link has been sent")
                         }, function (err) {
                             console.log('FAILED...', err);
                         });
                 } else {
                     notify.showError("Username or Email didnot matched!. Please enter correct information.")
                 }
+                close()
             })
     }
 
@@ -160,7 +165,7 @@ export class Login extends Component {
 
                             </div>
                         </div>
-                        <Link to="/"><button className="loginbtn"> &#8592; Back to Home</button></Link>
+                        <Link to="/"><button className="loginbtn" style={{ cursor: 'pointer' }}> &#8592; Back to Home</button></Link>
                     </div>
                 </div>
 
