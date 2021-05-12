@@ -85,7 +85,7 @@ export class Login extends Component {
                     message: `http://localhost:3000/resetPassword/${this.state.forgotUname}`
                 }
                 if (res.data.some(user => user.username == this.state.forgotUname && user.email == this.state.email)) {
-                    emailjs.send('service_c5455lg', 'template_fpinuzw', emailMessage , 'user_CQQWpWC0YP59vNipgh111')
+                    emailjs.send('service_c5455lg', 'template_fpinuzw', emailMessage, 'user_CQQWpWC0YP59vNipgh111')
                         .then(function (response) {
                             console.log('SUCCESS!', response.status, response.text);
                             alert("Please check your email, a reset link has been sent")

@@ -7,6 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';
 import { connect } from 'react-redux';
 import { clear_fresh_cart_ac, fetch_orderCount_ac } from './../../../Actions/Order/order.action';
+import Popup from 'reactjs-popup';
+import Search from '../Search/search.component';
 
 
 const StyledBadge = withStyles((theme) => ({
@@ -32,20 +34,32 @@ const NavBarComponent = (props) => {
 
     let userLogged = props.isLoggedIn
         ? <ul>
-        <li><Link to="/"><i className="fas fa-search"> </i></Link></li>
+            <li><Popup trigger={<i className="fas fa-search"> </i>} contentStyle={{ width: "700px", height: '350px', overflow: 'hidden' }} position="bottom right">
+                {close => (
+                    <div className="modal">
+                        <Search close={close} />
+                    </div>
+                )}
+            </Popup></li>
             <li><Link to="/cart">
                 <IconButton aria-label="cart">
-                    <StyledBadge badgeContent={(props.count+props.freshCartCount)} color="secondary">
+                    <StyledBadge badgeContent={(props.count + props.freshCartCount)} color="secondary">
                         <ShoppingCartSharpIcon style={{ color: 'black' }} />
                     </StyledBadge>
                 </IconButton>
             </Link></li>
-           
+
             <li><Link to=""><i className="fas fa-user"> {`${localStorage.getItem('uname')}`}</i></Link></li>
             <li><Link to=""><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link></li>
         </ul>
         : <ul>
-        <li><Link to="/"><i className="fas fa-search"></i></Link></li>
+            <li><Popup trigger={<i className="fas fa-search"> </i>} contentStyle={{ width: "700px", height: '350px', overflow: 'hidden' }} position="bottom right">
+                {close => (
+                    <div className="modal">
+                        <Search close={close} />
+                    </div>
+                )}
+            </Popup></li>
             <li><Link to={{
                 pathname: '/login',
                 search: '',
@@ -78,7 +92,7 @@ const NavBarComponent = (props) => {
 const mapStateToProps = (rootStore) => {
     return {
         count: rootStore.order.orderCount,
-        freshCartCount:rootStore.order.freshCart.length
+        freshCartCount: rootStore.order.freshCart.length
     }
 }
 
