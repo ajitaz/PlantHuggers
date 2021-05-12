@@ -32,6 +32,7 @@ const NavBarComponent = (props) => {
 
     let userLogged = props.isLoggedIn
         ? <ul>
+        <li><Link to="/"><i className="fas fa-search"> </i></Link></li>
             <li><Link to="/cart">
                 <IconButton aria-label="cart">
                     <StyledBadge badgeContent={(props.count+props.freshCartCount)} color="secondary">
@@ -39,11 +40,12 @@ const NavBarComponent = (props) => {
                     </StyledBadge>
                 </IconButton>
             </Link></li>
-
+           
             <li><Link to=""><i className="fas fa-user"> {`${localStorage.getItem('uname')}`}</i></Link></li>
             <li><Link to=""><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link></li>
         </ul>
         : <ul>
+        <li><Link to="/"><i className="fas fa-search"></i></Link></li>
             <li><Link to={{
                 pathname: '/login',
                 search: '',
