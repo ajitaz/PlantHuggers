@@ -34,7 +34,7 @@ const Search = (props) => {
                             return (
                                 <div key={index}>
                                     <p >{item.pname}</p>
-                                    <img src={`../images/${item.iname}`} alt="" height="200px" style={{ cursor: 'pointer' }} onClick={() => {
+                                    <img src={`../images/${item.iname}`} alt="" height="200px" width="200px" style={{ cursor: 'pointer' }} onClick={() => {
                                         props.history.push(`/product?pid=${item.pid}&cid=${item.cid}`)
                                         props.close()
                                     }} />
