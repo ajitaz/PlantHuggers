@@ -3,7 +3,7 @@ import React from 'react';
 import { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Button } from '../../common/Button/button.component';
-import '../Reset/reset.component.css';
+import './reset.component.css';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 

@@ -23,8 +23,8 @@ const Search = (props) => {
 
     return (
         <>
-            <label>Search</label>
-            <input type="text" name="keyword" onChange={(e) => { setKeyword(e.target.value) }}></input>
+            <h1>Search</h1>
+            <input type="text" name="keyword" placeholder="What are you looking for?" onChange={(e) => { setKeyword(e.target.value) }}></input>
             <div className='SearchedView'>
                 {
                     products.map((item, index) => {
@@ -34,10 +34,10 @@ const Search = (props) => {
                             return (
                                 <div key={index}>
                                     <p >{item.pname}</p>
-                                    <img src={`../images/${item.iname}`} alt="" height="200px" onClick={()=>{
-                                      props.history.push(`/product?pid=${item.pid}&cid=${item.cid}`)
-                                      props.close()
-                                    }}/>
+                                    <img src={`../images/${item.iname}`} alt="" height="200px" style={{ cursor: 'pointer' }} onClick={() => {
+                                        props.history.push(`/product?pid=${item.pid}&cid=${item.cid}`)
+                                        props.close()
+                                    }} />
                                 </div>
                             )
                         }

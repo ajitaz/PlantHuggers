@@ -26,7 +26,7 @@ import { ViewOrder } from './Dashboard/ViewOrder/viewOrder.component';
 import { Cart } from './Pages/Cart/cart.component';
 import { DashNav } from './Dashboard/DashNav/dashNav.component';
 import { NurseryArticle } from './Dashboard/NurseryDashboard/NurseryArticle/nurseryArticle.component';
-import Reset  from './Pages/Reset/reset.component';
+import Reset  from './Pages/ResetPassword/reset.component';
 
 
 
