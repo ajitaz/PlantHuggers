@@ -141,13 +141,13 @@ export class Login extends Component {
                                         {close => (
                                             <div className="modal">
                                                 <div style={{ marginTop: "25px" }}>
-                                                    <h2>Please enter your username and email that you provided during Registration.</h2><br />
+                                                    <h2 className="forget-title">Please enter your username and email that you provided during Registration.</h2><br />
                                                     <button className="close" style={{ color: 'white' }} onClick={close}>&times;</button>
                                                     <label >Your Username</label>
                                                     <input type="text" name="forgotUname" placeholder="Enter your username" onChange={this.handelForgotPassword}></input>
                                                     <label>Your Email</label>
                                                     <input type="email" name="email" placeholder="Enter your Email address" onChange={this.handelForgotPassword}></input>
-                                                    <button onClick={() => {
+                                                    <button className="forget-btn" onClick={() => {
                                                         this.sendForgotPassword(close)
                                                     }}>Done</button>
                                                 </div>
