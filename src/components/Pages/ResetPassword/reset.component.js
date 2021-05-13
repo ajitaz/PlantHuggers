@@ -118,12 +118,14 @@ class Reset extends Component {
                                     isSubmitting={false}
                                 ></Button>
                             </div>
-                        </form>
-                    </div>
-                    <Link to={{
+                            <Link to={{
                         pathname: '/login',
                         state: { fromRegister: false }
                     }}><button className="loginbtn" style={{ cursor: 'pointer' }}> &#8592; Back to Login</button></Link>
+                        </form>
+                        
+                    </div>
+                   
                 </div>
             </>
         )
