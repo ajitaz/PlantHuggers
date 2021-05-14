@@ -53,6 +53,10 @@ export const Sidebar = (props) => {
                         <Link to="/dashboard/order"><i className="fa fa-cart-arrow-down"></i><span>Order</span>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/dashboard/viewArticle"><i className="fa fa-cart-arrow-down"></i><span>Articles</span>
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </>
