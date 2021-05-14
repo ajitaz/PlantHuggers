@@ -1,21 +1,18 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import notify from '../../../Util/notify';
-import './editNursery.component.css';
+import './editArticle.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 
 const defaultForm = {
-    nid: '',
-    name: '',
-    phone: '',
-    email: '',
-    address: '',
+    aid: '',
+    title: '',
     description: ''
 }
 
-export class EditNursery extends Component {
+export class EditArticle extends Component {
 
     constructor() {
         super();
@@ -29,13 +26,9 @@ export class EditNursery extends Component {
     componentDidMount() {
         this.setState({
             data: {
-                nid: this.props.editData.nid,
-                name: this.props.editData.name,
-                phone: this.props.editData.phone,
-                email: this.props.editData.nur_email,
-                description: this.props.editData.description,
-                address: this.props.editData.address
-
+                aid: this.props.editData.aid,
+                title: this.props.editData.title,
+                description: this.props.editData.a_description,
             }
         })
     }
@@ -55,7 +48,7 @@ export class EditNursery extends Component {
         e.preventDefault();
         let data = {
             ...this.state.data,
-            value: 'editNursery'
+            value: 'editArticle'
         }
         axios.post(`${BASE_URL}/action.php`, data, {
             headers: {
@@ -64,7 +57,7 @@ export class EditNursery extends Component {
             responseType: 'json'
         })
             .then(res => {
-                notify.showInfo('Nursery Edited....')
+                notify.showInfo('Article Edited....')
                 this.props.close()
             })
             .catch(err => console.log(err));
@@ -74,19 +67,12 @@ export class EditNursery extends Component {
     render() {
         return (
             <>
-                <div className="title">Edit Nursery</div>
+                <div className="title">Edit Article</div>
                 <form onSubmit={this.handleSubmit} method="POST">
-                    <label htmlFor="name">Nursery Name</label>
-                    <input type="text" name="name" onChange={this.handleChange} value={this.state.data.name} />
+                    <label htmlFor="name">Article Title</label>
+                    <input type="text" name="title" onChange={this.handleChange} value={this.state.data.title} />
                     <label htmlFor="description">Description</label>
                     <textarea name="description" onChange={this.handleChange} value={this.state.data.description} />
-                    <label htmlFor="phone">Phone</label>
-                    <input type="text" name="phone" onChange={this.handleChange} value={this.state.data.phone} />
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" onChange={this.handleChange} value={this.state.data.email} />
-                    <label htmlFor="address">Address</label>
-                    <input type="text" name="address" onChange={this.handleChange} value={this.state.data.address} />
-
                     <br /><br /><br /><br /><br /><br />
                     <input type="submit" value="Edit" />
                 </form>

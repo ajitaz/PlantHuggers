@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './viewArticle.component.css';
 import axios from 'axios';
 import Popup from 'reactjs-popup';
-import { EditNursery } from '../Functions/EditNursery/editNursery.component';
 import notify from '../../Util/notify';
+import { EditArticle } from '../Functions/EditArticle/editArticle.component';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -77,14 +77,14 @@ export class ViewArticle extends Component {
                                                     <td>{result.author_id}</td>
                                                     <td>{result.cname}</td>
                                                     <td>
-                                                        {/* <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getNursery() }}>
+                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getArticle() }}>
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>
-                                                                    <EditNursery editData={result} close={close} />
+                                                                    <EditArticle editData={result} close={close} />
                                                                 </div>
                                                             )}
-                                                        </Popup> */}
+                                                        </Popup>
                                                         <button className="delete" onClick={() => { this.handleClick(result.aid, 'deleteArticle') }}><i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
