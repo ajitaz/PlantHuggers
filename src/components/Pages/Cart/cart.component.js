@@ -151,7 +151,7 @@ const CartComponent = (props) => {
             </div>
             {
                 props.cart.map((result, index) => {
-                    total += parseInt(result.price)
+                    total += parseInt(result.price) * parseInt(result.quantity)
                     let action = !cancelItems.some(item => result.oid == item.oid)
                         ? <>
                             <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
