@@ -10,9 +10,10 @@ import { clear_fresh_cart_ac, fetch_orderCount_ac } from './../../../Actions/Ord
 import Popup from 'reactjs-popup';
 import Search from '../Search/search.component';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
+const REACT_URL = process.env.REACT_APP_REACT_URL;
 
 
+const imgScr = `${REACT_URL}/images/planthuggers.png`;
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -74,7 +75,7 @@ const NavBarComponent = (props) => {
     return (
         <div className="navbar">
             <div className="logo">
-                <img src={`${BASE_URL}/images/planthuggers.png`} alt="Logo" width="80"></img>
+                <img src={imgScr} alt="Logo" width="80"></img>
             </div>
             <nav>
                 <ul>

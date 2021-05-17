@@ -9,6 +9,7 @@ import Popup from 'reactjs-popup';
 import emailjs from 'emailjs-com';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+const REACT_URL = process.env.REACT_APP_REACT_URL;
 
 export class Login extends Component {
 
@@ -82,7 +83,7 @@ export class Login extends Component {
                 let emailMessage = {
                     user_email: this.state.email,
                     name: this.state.forgotUname,
-                    message: `${BASE_URL}/${this.state.forgotUname}`
+                    message: `${REACT_URL}/resetPassword/${this.state.forgotUname}`
                 }
                 if (res.data.some(user => user.username == this.state.forgotUname && user.email == this.state.email)) {
                     emailjs.send('service_c5455lg', 'template_fpinuzw', emailMessage, 'user_CQQWpWC0YP59vNipgh111')
