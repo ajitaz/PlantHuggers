@@ -24,7 +24,7 @@ const Search = (props) => {
     return (
         <>
             <h1>Search</h1>
-            <input type="text" name="keyword" placeholder="What are you looking for?" onChange={(e) => { setKeyword(e.target.value) }}></input>
+            <input type="text" name="keyword" placeholder="Type name of the plant you are looking for.." onChange={(e) => { setKeyword(e.target.value) }}></input>
             <div className='SearchedView'>
                 {
                     products.map((item, index) => {

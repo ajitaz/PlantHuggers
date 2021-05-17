@@ -50,8 +50,6 @@ export const Overview = (props) => {
 
 
 
-
-
     function getCountAdmin() {
         axios.get(`${BASE_URL}/viewContent.php?option=viewUser`)
             .then(res => {
@@ -103,7 +101,7 @@ export const Overview = (props) => {
                         </div>
                     </div>
                     <div className="Dcard-footer">
-                        <Link to="/nurseryDashboard/article">View All</Link>
+                        <Link to="nurseryDashboard/viewArticle">View All</Link>
                     </div>
                 </div>
                 <div className="Dcard-single">

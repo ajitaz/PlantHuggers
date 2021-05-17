@@ -118,6 +118,7 @@ export const AppRouting = () => {
                 <PublicRoute exact path="/cart" component={Cart}></PublicRoute>
                 <AdminRoute exact path="/dashboard/order" component={ViewOrder}></AdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/article" component={NurseryArticle}></NurseryAdminRoute>
+                <NurseryAdminRoute exact path="/nurseryDashboard/viewArticle" component={ViewArticle}></NurseryAdminRoute>
                 <Route exact path="/resetPassword/:uname" component={Reset}></Route>
                 <PublicRoute component={NotFound}></PublicRoute>
 

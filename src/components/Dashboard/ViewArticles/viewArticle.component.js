@@ -17,7 +17,10 @@ export class ViewArticle extends Component {
     }
 
     getArticle() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewArticle`)
+        let option = this.props.isNurseryDashboard === true
+            ? `nurseryViewArticle&uid=${localStorage.getItem('uid')}`
+            : 'viewArticle'
+        axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
             .then(res => {
                 this.setState({
                     data: res.data
