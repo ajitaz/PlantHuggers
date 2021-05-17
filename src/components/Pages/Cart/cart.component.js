@@ -36,9 +36,6 @@ const CartComponent = (props) => {
                     message: cartItem,
                     user_email: res.data[0].email
                 };
-                console.log('checking res data >> ',res.data)
-                console.log('checking template username >> ',templateParams.name)
-                console.log('checking res data username >> ',res.data[0].username)
                 emailjs.send('service_c5455lg', 'template_5r3vdvl', templateParams, 'user_CQQWpWC0YP59vNipgh111')
                     .then(function (response) {
                         console.log('SUCCESS!', response.status, response.text);
@@ -122,7 +119,7 @@ const CartComponent = (props) => {
             </div>
             {
                 props.freshCart.map((result, index) => {
-                    total += parseInt(result.price)
+                    total += parseInt(result.price) * parseInt(result.orderQuantity)
                     return (
                         <div key={index} className="cart-row">
                             <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
