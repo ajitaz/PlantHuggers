@@ -82,7 +82,7 @@ export class Login extends Component {
                 let emailMessage = {
                     user_email: this.state.email,
                     name: this.state.forgotUname,
-                    message: `http://localhost:3000/resetPassword/${this.state.forgotUname}`
+                    message: `${BASE_URL}/${this.state.forgotUname}`
                 }
                 if (res.data.some(user => user.username == this.state.forgotUname && user.email == this.state.email)) {
                     emailjs.send('service_c5455lg', 'template_fpinuzw', emailMessage, 'user_CQQWpWC0YP59vNipgh111')
