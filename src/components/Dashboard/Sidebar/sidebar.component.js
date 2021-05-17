@@ -20,7 +20,7 @@ export const Sidebar = (props) => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/nurseryDashboard/article"><i className="fas fa-plus-circle"></i><span>Article</span>
+                        <Link to="/nurseryDashboard/article"><i className="fas fa-newspaper"></i><span>Article</span>
                         </Link>
                     </li>
                 </ul>
@@ -54,7 +54,7 @@ export const Sidebar = (props) => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/dashboard/viewArticle"><i className="fa fa-cart-arrow-down"></i><span>Articles</span>
+                        <Link to="/dashboard/viewArticle"><i className="fas fa-newspaper"></i><span>Articles</span>
                         </Link>
                     </li>
                 </ul>
