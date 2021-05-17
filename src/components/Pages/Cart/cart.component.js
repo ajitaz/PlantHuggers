@@ -32,7 +32,7 @@ const CartComponent = (props) => {
         axios.get(`${BASE_URL}/viewContent.php?option=emailUser&uid=${localStorage.getItem('uid')}`)
             .then(res => {
                 var templateParams = {
-                    name: res.data.username,
+                    name: res.data[0].username,
                     message: cartItem,
                     user_email: res.data[0].email
                 };
@@ -155,7 +155,7 @@ const CartComponent = (props) => {
                     let action = !cancelItems.some(item => result.oid == item.oid)
                         ? <>
                             <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
-                            <span className="cart-action"><button className="btn btn-warning" onClick={(index) => { handleCancel(result) }} style={{ backgroundColor: '#f05c0d', cursor: 'pointer' }}>Cancle</button></span>
+                            <span className="cart-action"><button className="btn btn-warning" onClick={(index) => { handleCancel(result) }} style={{ backgroundColor: '#f05c0d', cursor: 'pointer' }}>Cancel</button></span>
                         </>
                         : <>
                             <span className="cart-action"><button className="btn btn-warning" style={{ backgroundColor: '#bccc2e', color: 'black' }} disabled>Requested Cancel order</button></span>
