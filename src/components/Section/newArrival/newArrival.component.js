@@ -33,7 +33,7 @@ export const NewArrival = () => {
                         {
                             state.map((product, index) => {
                                 return (
-                                    <div key={index} className="col-3">
+                                    <div key={index} className="col-3 hide-4">
                                         <Link to={`/product?pid=${product.pid}&cid=${product.cid}`}><img src={`../images/${product.iname}`} alt="" /></Link>
                                     </div>
                                 )
