@@ -125,7 +125,7 @@ const CartComponent = (props) => {
                             <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
                             <span className="cart-pname">{result.pname}</span>
                             <span className="cart-quantity">{result.orderQuantity}</span>
-                            <span className="cart-price">Rs.{result.price}</span>
+                            <span className="cart-price">Rs.{parseInt(result.price) * parseInt(result.orderQuantity)}</span>
                             <span className="cart-action"><button className="btn btn-danger" style={{ cursor: 'pointer' }} onClick={() => { props.removeCartItem(index) }}>Remove</button></span>
                         </div>
                     )
@@ -165,7 +165,7 @@ const CartComponent = (props) => {
                             <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
                             <span className="cart-pname">{result.pname}</span>
                             <span className="cart-quantity">{result.quantity}</span>
-                            <span className="cart-price">Rs.{result.price}</span>
+                            <span className="cart-price">Rs.{parseInt(result.price) * parseInt(result.quantity)}</span>
                             {action}
 
                         </div>
