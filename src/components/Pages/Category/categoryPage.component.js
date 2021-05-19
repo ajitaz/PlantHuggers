@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './categoryPage.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class CategoryPage extends Component {
     constructor() {
@@ -11,16 +12,28 @@ export class CategoryPage extends Component {
         this.state = {
             data: []
         }
+        source = axios.CancelToken.source();
         this.getCategory();
     }
 
     getCategory() {
-        axios.get(`${BASE_URL}/viewContent.php?option=category`)
+        axios.get(`${BASE_URL}/viewContent.php?option=category`,{
+            cancelToken: source.token 
+        })
             .then(res => {
                 this.setState({
                     data: res.data
                 })
             })
+            .catch((e) => {
+                console.log(e.message);
+            })
+    }
+
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("Category Component got unmounted");
+        }
     }
 
     render() {

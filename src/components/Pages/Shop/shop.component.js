@@ -4,6 +4,7 @@ import './shop.component.css';
 import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class Shop extends Component {
     constructor() {
@@ -12,23 +13,34 @@ export class Shop extends Component {
             categories: [],
             products: []
         }
+        source = axios.CancelToken.source()
     }
 
     getCategories() {
-        axios.get(`${BASE_URL}/viewContent.php?option=category`)
+        axios.get(`${BASE_URL}/viewContent.php?option=category`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     categories: res.data
                 })
             })
+            .catch((e) => {
+                console.log(e.message)
+            })
     }
 
     getProducts() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     products: res.data
                 })
+            })
+            .catch((e) => {
+                console.log(e.message)
             })
     }
 
@@ -37,6 +49,11 @@ export class Shop extends Component {
         this.getProducts();
     }
 
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("Shop component got Unmounted")
+        }
+    }
 
     render() {
         return (

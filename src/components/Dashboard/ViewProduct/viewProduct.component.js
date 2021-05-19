@@ -7,6 +7,7 @@ import { EditProduct } from '../Functions/EditProduct/editProduct.component';
 import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class viewProduct extends Component {
 
@@ -15,24 +16,35 @@ export class viewProduct extends Component {
         this.state = {
             data: []
         }
-
+        source = axios.CancelToken.source()
     }
 
     getProducts() {
         let option = this.props.isNurseryDashboard === true
             ? `nurseryViewProduct&uid=${localStorage.getItem('uid')}`
             : 'viewProduct'
-        axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
+        axios.get(`${BASE_URL}/viewContent.php?option=${option}`,{
+            cancelToken:source.token
+        })
             .then(res => {
                 this.setState({
                     data: res.data
                 })
+            })
+            .catch((e)=>{
+                console.log(e.message)
             })
     }
 
     componentDidMount() {
         this.getProducts();
     }
+
+componentWillUnmount(){
+    if(source){
+        source.cancel("ViewProduct got Unmounted")
+    }
+}
 
     handleClick = (id, value) => {
         let actionData = {

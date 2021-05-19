@@ -8,6 +8,8 @@
 # testing
 /coverage
 
+#remote env
+.env
 # production
 /build
 

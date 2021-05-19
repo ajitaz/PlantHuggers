@@ -7,6 +7,7 @@ import { EditNursery } from '../Functions/EditNursery/editNursery.component';
 import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source
 
 export class ViewNursery extends Component {
 
@@ -15,19 +16,31 @@ export class ViewNursery extends Component {
         this.state = {
             data: []
         }
+        source = axios.CancelToken.source()
     }
 
     getNursery() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     data: res.data
                 })
             })
+            .catch((e) => {
+                console.log(e.message)
+            })
     }
 
     componentDidMount() {
         this.getNursery();
+    }
+
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("ViewNursery got Unmounted")
+        }
     }
 
     handleClick = (id, value) => {

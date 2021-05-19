@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './article.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class Article extends Component {
     constructor() {
@@ -11,18 +12,29 @@ export class Article extends Component {
         this.state = {
             articles: []
         }
+        source = axios.CancelToken.source()
         this.getArticle();
     }
 
     getArticle() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewArticle`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewArticle`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     articles: res.data
                 })
             })
+            .catch((e) => {
+                console.log(e.message)
+            })
     }
-    
+
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("SectionArticel got Unmounted")
+        }
+    }
 
     render() {
         return (
