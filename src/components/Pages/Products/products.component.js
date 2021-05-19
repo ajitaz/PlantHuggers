@@ -64,7 +64,7 @@ export class ProductsComponent extends Component {
                                     return (
                                         <Fragment key={index}>
                                             <div className="col-2 image">
-                                                <img src={`/images/${result.iname}`} height="500" />
+                                                <img src={`/images/${result.iname}`}  />
                                             </div>
 
                                             <div className="col-2 Pdetails">

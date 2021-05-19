@@ -119,13 +119,13 @@ const CartComponent = (props) => {
             </div>
             {
                 props.freshCart.map((result, index) => {
-                    total += parseInt(result.price)
+                    total += parseInt(result.price)*parseInt(result.orderQuantity);
                     return (
                         <div key={index} className="cart-row">
                             <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
                             <span className="cart-pname">{result.pname}</span>
                             <span className="cart-quantity">{result.orderQuantity}</span>
-                            <span className="cart-price">Rs.{result.price}</span>
+                            <span className="cart-price">Rs.{parseInt(result.price)*parseInt(result.orderQuantity)}</span>
                             <span className="cart-action"><button className="btn btn-danger" style={{ cursor: 'pointer' }} onClick={() => { props.removeCartItem(index) }}>Remove</button></span>
                         </div>
                     )

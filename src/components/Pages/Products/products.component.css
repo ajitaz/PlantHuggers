@@ -9,7 +9,7 @@
 /* Single product css */
 .head {
     display: flex;
-    height : 800px;
+   
   }
 .single-product .col-2 img{
     padding: 0;
@@ -104,4 +104,12 @@
 .col-4 p{
     font-size: 14px;
     line-height: 50px;
+}
+@media screen and (max-width: 960px){
+    .head{
+        display: flex;
+        flex-direction: column;
+        height: 20%;
+    }
+    
 }
