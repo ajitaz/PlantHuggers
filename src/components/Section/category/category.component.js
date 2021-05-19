@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './category.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class Category extends Component {
 
@@ -12,14 +13,20 @@ export class Category extends Component {
         this.state = {
             data: []
         }
+        source = axios.CancelToken.source()
     }
 
     getCategory() {
-        axios.get(`${BASE_URL}/viewContent.php?option=category`)
+        axios.get(`${BASE_URL}/viewContent.php?option=category`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     data: res.data
                 })
+            })
+            .catch((e) => {
+                console.log(e.message)
             })
     }
 
@@ -27,6 +34,11 @@ export class Category extends Component {
         this.getCategory();
     }
 
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("SectionCategory got Unmounted")
+        }
+    }
 
     render() {
         return (
@@ -39,7 +51,7 @@ export class Category extends Component {
                                 return (
                                     <div key={index} className="Cimage">
                                         <h1>{result.cname}</h1>
-                                        <img src={`../images/${result.iname}` }alt="" />
+                                        <img src={`../images/${result.iname}`} alt="" />
                                         <div className="Coverlay">
                                             <div className="Coverlay-content">
                                                 <h2>{result.cname}<i className="fas fa-info-circle"></i></h2>

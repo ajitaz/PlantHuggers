@@ -6,6 +6,7 @@ import notify from '../../Util/notify';
 import { EditArticle } from '../Functions/EditArticle/editArticle.component';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class ViewArticle extends Component {
 
@@ -14,22 +15,34 @@ export class ViewArticle extends Component {
         this.state = {
             data: []
         }
+        source = axios.CancelToken.source()
     }
 
     getArticle() {
         let option = this.props.isNurseryDashboard === true
             ? `nurseryViewArticle&uid=${localStorage.getItem('uid')}`
             : 'viewArticle'
-        axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
+        axios.get(`${BASE_URL}/viewContent.php?option=${option}`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     data: res.data
                 })
             })
+            .catch((e) => {
+                console.log(e.message)
+            })
     }
 
     componentDidMount() {
         this.getArticle();
+    }
+
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("ViewArticle got Unmounted")
+        }
     }
 
     handleClick = (id, value) => {

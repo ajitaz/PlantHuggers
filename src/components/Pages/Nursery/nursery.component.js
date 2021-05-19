@@ -5,23 +5,36 @@ import './nursery.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-
+let source;
 export class Nursery extends Component {
     constructor() {
         super();
         this.state = {
             data: []
         }
+        source = axios.CancelToken.source();
         this.getNursery();
+        
     }
 
     getNursery() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     data: res.data
                 })
+            }).catch((e) => {
+                console.log(e.message);
             })
+    }
+
+
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("Nursery Component got unmounted");
+        }
     }
 
     render() {

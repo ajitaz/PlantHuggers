@@ -7,20 +7,32 @@ import emailjs from 'emailjs-com';
 import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
+let source;
 
 const CartComponent = (props) => {
 
     const [cancelItems, setCancelItems] = useState([])
 
     useEffect(() => {
+        source = axios.CancelToken.source()
         fetchCancelOrder();
         props.addToCart();
+        return (() => {
+            if (source) {
+                source.cancel("Cart got Unmounted")
+            }
+        })
     }, [])
 
     function fetchCancelOrder() {
-        axios.get(`${BASE_URL}/viewContent.php?option=getCancleOrder`)
+        axios.get(`${BASE_URL}/viewContent.php?option=getCancleOrder`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setCancelItems(res.data)
+            })
+            .catch((e)=>{
+                console.log(e.message)
             })
     }
 

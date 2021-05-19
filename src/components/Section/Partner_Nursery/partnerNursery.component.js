@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './partnerNursery.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class Nursery extends Component {
 
@@ -12,18 +13,28 @@ export class Nursery extends Component {
         this.state = {
             nurseries: []
         }
+        source = axios.CancelToken.source()
         this.getNursery();
     }
 
-    getNursery(){
-        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`)
-        .then(res=>{
-            this.setState({
-                nurseries:res.data
-            })
+    getNursery() {
+        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`, {
+            cancelToken: source.token
         })
+            .then(res => {
+                this.setState({
+                    nurseries: res.data
+                })
+            })
+            .catch((e) => {
+                console.log(e.message)
+            })
     }
-
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("PartnerNursery got Unmounted")
+        }
+    }
 
 
     render() {
