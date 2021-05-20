@@ -69,3 +69,11 @@
      position: absolute;
      bottom: 0;
  }
+ @media screen and (max-width: 960px){
+    .categories{
+        position: relative;
+        column-count: 1;
+        padding: 20px;
+    }
+    
+ }

@@ -61,3 +61,8 @@
     border-radius: 10px;
     margin-bottom: 50px;
   }
+  @media screen and (max-width:960px){
+    .nurserycard p{
+      width: 90%;
+    }
+  }
