@@ -138,7 +138,7 @@ export class Login extends Component {
                                 <form id="login-form" onSubmit={this.handleSubmit}>
                                     <input className="input-form" type="text" placeholder="Enter your username" name="username" onChange={this.handleChange} required /><br /><br />
                                     <input className="input-form" type="password" placeholder="Enter your password" name="password" onChange={this.handleChange} required /> <br /><br /><br /><br />
-                                    <Popup trigger={<p style={{ color: "blue", cursor: 'pointer', textDecoration: 'underLine' }}>Forgot Password?</p>} contentStyle={{ width: "700px", height: '300px' }} position='top center'>
+                                    <Popup trigger={<p style={{ color: "blue", cursor: 'pointer', textDecoration: 'underLine' }}>Forgot Password?</p>} contentStyle={{ width: "700px", height: '300px' }} position='top center' modal>
                                         {close => (
                                             <div className="modal">
                                                 <div style={{ marginTop: "25px" }}>

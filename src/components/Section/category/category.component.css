@@ -78,3 +78,11 @@
  .Coverlay-content button:hover {
      cursor: pointer;
  }
+ @media screen and (max-width: 960px){
+    .Categories{
+        position: relative;
+        column-count: 1;
+        padding: 20px;
+    }
+    
+ }

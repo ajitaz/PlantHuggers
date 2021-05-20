@@ -38,7 +38,7 @@ const NavBarComponent = (props) => {
 
     let userLogged = props.isLoggedIn
         ? <ul>
-            <li><Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} position="bottom right">
+            <li><Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
                 {close => (
                     <div className="modal">
                         <Search close={close} />
@@ -57,7 +57,7 @@ const NavBarComponent = (props) => {
             <li><Link to=""><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link></li>
         </ul>
         : <ul>
-            <li><Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} position="bottom right">
+            <li><Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
                 {close => (
                     <div className="modal">
                         <Search close={close} />
