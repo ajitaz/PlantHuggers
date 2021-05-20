@@ -7,20 +7,32 @@ import emailjs from 'emailjs-com';
 import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
+let source;
 
 const CartComponent = (props) => {
 
     const [cancelItems, setCancelItems] = useState([])
 
     useEffect(() => {
+        source = axios.CancelToken.source()
         fetchCancelOrder();
         props.addToCart();
+        return (() => {
+            if (source) {
+                source.cancel("Cart got Unmounted")
+            }
+        })
     }, [])
 
     function fetchCancelOrder() {
-        axios.get(`${BASE_URL}/viewContent.php?option=getCancleOrder`)
+        axios.get(`${BASE_URL}/viewContent.php?option=getCancleOrder`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setCancelItems(res.data)
+            })
+            .catch((e)=>{
+                console.log(e.message)
             })
     }
 
@@ -32,7 +44,7 @@ const CartComponent = (props) => {
         axios.get(`${BASE_URL}/viewContent.php?option=emailUser&uid=${localStorage.getItem('uid')}`)
             .then(res => {
                 var templateParams = {
-                    name: res.data.username,
+                    name: res.data[0].username,
                     message: cartItem,
                     user_email: res.data[0].email
                 };
@@ -119,13 +131,13 @@ const CartComponent = (props) => {
             </div>
             {
                 props.freshCart.map((result, index) => {
-                    total += parseInt(result.price)*parseInt(result.orderQuantity);
+                    total += parseInt(result.price) * parseInt(result.orderQuantity)
                     return (
                         <div key={index} className="cart-row">
                             <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
                             <span className="cart-pname">{result.pname}</span>
                             <span className="cart-quantity">{result.orderQuantity}</span>
-                            <span className="cart-price">Rs.{parseInt(result.price)*parseInt(result.orderQuantity)}</span>
+                            <span className="cart-price">Rs.{parseInt(result.price) * parseInt(result.orderQuantity)}</span>
                             <span className="cart-action"><button className="btn btn-danger" style={{ cursor: 'pointer' }} onClick={() => { props.removeCartItem(index) }}>Remove</button></span>
                         </div>
                     )
@@ -151,11 +163,11 @@ const CartComponent = (props) => {
             </div>
             {
                 props.cart.map((result, index) => {
-                    total += parseInt(result.price)
+                    total += parseInt(result.price) * parseInt(result.quantity)
                     let action = !cancelItems.some(item => result.oid == item.oid)
                         ? <>
                             <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
-                            <span className="cart-action"><button className="btn btn-warning" onClick={(index) => { handleCancel(result) }} style={{ backgroundColor: '#f05c0d', cursor: 'pointer' }}>Cancle</button></span>
+                            <span className="cart-action"><button className="btn btn-warning" onClick={(index) => { handleCancel(result) }} style={{ backgroundColor: '#f05c0d', cursor: 'pointer' }}>Cancel</button></span>
                         </>
                         : <>
                             <span className="cart-action"><button className="btn btn-warning" style={{ backgroundColor: '#bccc2e', color: 'black' }} disabled>Requested Cancel order</button></span>
@@ -165,7 +177,7 @@ const CartComponent = (props) => {
                             <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
                             <span className="cart-pname">{result.pname}</span>
                             <span className="cart-quantity">{result.quantity}</span>
-                            <span className="cart-price">Rs.{result.price}</span>
+                            <span className="cart-price">Rs.{parseInt(result.price) * parseInt(result.quantity)}</span>
                             {action}
 
                         </div>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './overview.component.css';
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export const Overview = (props) => {
 
@@ -16,63 +17,100 @@ export const Overview = (props) => {
     })
 
     useEffect(() => {
+        source = axios.CancelToken.source()
         if (!props.isNurseryDashboard) {
             getCountAdmin();
         } else {
             getCountNursery();
         }
+
+        return (() => {
+            if (source) {
+                source.cancel("Dashboard Overview got Unmounted")
+            }
+        })
     }, [])
 
     const getCountNursery = () => {
         let uid = localStorage.getItem('uid')
-        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewProduct&uid=${uid}`)
+        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewProduct&uid=${uid}`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setState((prevState) => ({
                     ...prevState,
                     nurseryProductCount: res.data.length
                 }))
+            })
+            .catch((e) => {
+                console.log(e.message)
             });
-        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewOrder&uid=${uid}`)
+        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewOrder&uid=${uid}`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setState((prevState) => ({
                     ...prevState,
                     orderCount: res.data.length
                 }))
+            })
+            .catch((e) => {
+                console.log(e.message)
             });
-        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewArticle&uid=${uid}`)
+        axios.get(`${BASE_URL}/viewContent.php?option=nurseryViewArticle&uid=${uid}`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setState((prevState) => ({
                     ...prevState,
                     nurseryArticleCount: res.data.length
                 }))
+            })
+            .catch((e) => {
+                console.log(e.message)
             });
     }
 
 
 
     function getCountAdmin() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewUser`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewUser`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setState((prevState) => ({
                     ...prevState,
                     userCount: res.data.length
                 }))
+            })
+            .catch((e) => {
+                console.log(e.message)
             });
 
-        axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewProduct`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setState((prevState) => ({
                     ...prevState,
                     productCount: res.data.length
                 }))
+            })
+            .catch((e) => {
+                console.log(e.message)
             });
 
-        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewNursery`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setState((prevState) => ({
                     ...prevState,
                     nurseryCount: res.data.length
                 }))
+            })
+            .catch((e) => {
+                console.log(e.message)
             });
     }
 

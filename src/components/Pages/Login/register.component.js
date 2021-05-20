@@ -131,7 +131,7 @@ class Register extends Component {
     render() {
         return (
             <form id="register-form" onSubmit={this.handleSubmit}>
-                <input className="input-form" type="text" name="username" placeholder="Enter your full name" onChange={this.handleChange} required /><br /><br />
+                <input className="input-form" type="text" name="username" placeholder="Enter your Username" onChange={this.handleChange} required /><br /><br />
                 <p className="error">{this.state.error.username}</p>
                 <input className="input-form" type="password" name="password" placeholder="Enter your password" onChange={this.handleChange} required /><br /><br />
                 <p className="error">{this.state.error.password}</p>

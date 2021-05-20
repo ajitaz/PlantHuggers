@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './newArrival.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export const NewArrival = () => {
 
@@ -11,18 +12,27 @@ export const NewArrival = () => {
 
 
     const getNewArrival = () => {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewNewArrival`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewNewArrival`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 setState(res.data)
+            })
+            .catch((e) => {
+                console.log(e.message)
             })
     }
 
     useEffect(() => {
+        source = axios.CancelToken.source()
         getNewArrival()
+        return(()=>{
+            if (source) {
+                source.cancel("NewArrival got Unmounted")
+            }
+        })
     }, [])
 
-    
-    
 
     return (
         <>

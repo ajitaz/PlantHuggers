@@ -8,6 +8,7 @@ import EditUser from '../Functions/EditUser/editUser.component';
 import './user.component.css';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class User extends Component {
     constructor() {
@@ -15,22 +16,32 @@ export class User extends Component {
         this.state = {
             data: []
         }
+        source = axios.CancelToken.source()
     }
 
     componentDidMount() {
         this.getUserlist();
     }
 
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("User Component got Unmounted")
+        }
+    }
+
     getUserlist() {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewUser`)
+        axios.get(`${BASE_URL}/viewContent.php?option=viewUser`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     data: res.data
                 })
             })
+            .catch((e) => {
+                console.log(e.message)
+            })
     }
-
-
 
     handleClick = (id, value) => {
         let actionData = {

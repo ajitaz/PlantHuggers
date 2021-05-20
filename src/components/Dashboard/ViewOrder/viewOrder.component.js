@@ -5,6 +5,7 @@ import Popup from 'reactjs-popup';
 import notify from '../../Util/notify';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
+let source;
 
 export class ViewOrder extends Component {
 
@@ -13,23 +14,34 @@ export class ViewOrder extends Component {
         this.state = {
             data: []
         }
-
+        source = axios.CancelToken.source()
     }
 
     getOrder() {
         let option = this.props.isNurseryDashboard === true
             ? `nurseryViewOrder&uid=${localStorage.getItem('uid')}`
             : 'viewOrder'
-        axios.get(`${BASE_URL}/viewContent.php?option=${option}`)
+        axios.get(`${BASE_URL}/viewContent.php?option=${option}`, {
+            cancelToken: source.token
+        })
             .then(res => {
                 this.setState({
                     data: res.data
                 })
             })
+            .catch((e) => {
+                console.log(e.message)
+            })
     }
 
     componentDidMount() {
         this.getOrder();
+    }
+
+    componentWillUnmount() {
+        if (source) {
+            source.cancel("ViewOrder got Unmounted")
+        }
     }
 
     handleClick = (id, value) => {
