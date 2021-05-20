@@ -39,7 +39,8 @@
 .pdesc{
     text-align: justify;
     height:300px;
-    overflow:hidden;
+    scroll-behavior: auto;
+    overflow:scroll;
 } 
 .Pdetails button {
     text-align: center;
@@ -105,6 +106,7 @@
     font-size: 14px;
     line-height: 50px;
 }
+
 @media screen and (max-width: 960px){
     .head{
         display: flex;
