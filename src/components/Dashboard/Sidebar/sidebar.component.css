@@ -1,44 +1,37 @@
-.sidebar{
-    height: 100%;
+#sidebar{
+    height:100%;
     width:240px;
-    position: fixed;
+    position: absolute;
     left: 0;
-    top: 0;
+    top: 60px;
+    display: block;
     z-index:100;
     background:#027581;
     color: #fff;
-    overflow-y: auto;
-    
-
 }
-.brand{
-white-space: nowrap;
-margin-top: 20px;
-font-size: 18px;
-color: #fff;
-}
-.sidebar-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    padding: 0rem 1rem;
-
+.toggle-btn{
+    margin-left: 20px;
+    position: fixed;
+    left: 20px;
+    top: 5px;
+    padding: 10px;
+    z-index: 1000;
+    border: none;
+    background: none;
 }
 .sidebar-menu{
     padding: 1rem;
 }
-.sidebar li{
+#sidebar li{
     margin-bottom: 1.2rem;
 }
-.sidebar a{
+#sidebar a{
     color: #fff;
     font-size: 0.9rem;
 }
-.sidebar i{
+#sidebar i{
     color: #fff;
 }
-
-.sidebar a span:last-child{
+#sidebar a span:last-child{
 padding-left: 0.6rem;
-}
+} 
