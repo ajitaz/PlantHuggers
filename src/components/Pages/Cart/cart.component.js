@@ -122,71 +122,91 @@ const CartComponent = (props) => {
         ? ''
         : <>
             <h2 className="section-header">Your Cart</h2>
-            <div className="cart-row">
-                <span className="cart-item cart-header cart-column">Items</span>
-                <span className="cart-pname cart-header cart-column">Name</span>
-                <span className="cart-quantity cart-header cart-column">Quantity</span>
-                <span className="cart-price cart-header cart-column">Price</span>
-                <span className="cart-action cart-header cart-column">Action</span>
-            </div>
-            {
+            <div className="tlist">
+              <table>
+                                 <thead>
+                                    <tr>
+                                        <th>Items</th>
+                                        <th>Name</th>
+                                        <th>Quantity</th>
+                                        <th>price</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                        <tbody>
+                {
                 props.freshCart.map((result, index) => {
                     total += parseInt(result.price) * parseInt(result.orderQuantity)
                     return (
-                        <div key={index} className="cart-row">
-                            <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
-                            <span className="cart-pname">{result.pname}</span>
-                            <span className="cart-quantity">{result.orderQuantity}</span>
-                            <span className="cart-price">Rs.{parseInt(result.price) * parseInt(result.orderQuantity)}</span>
-                            <span className="cart-action"><button className="btn btn-danger" style={{ cursor: 'pointer' }} onClick={() => { props.removeCartItem(index) }}>Remove</button></span>
-                        </div>
+                        <tr>
+                            <td><img src={`../images/${result.iname}`} alt=""/></td>
+                            <td>{result.pname}</td>
+                            <td>{result.orderQuantity}</td>
+                            <td>Rs.{parseInt(result.price) * parseInt(result.orderQuantity)}</td>
+                            <td><button className="btn btn-danger" style={{ cursor: 'pointer' }} onClick={() => { props.removeCartItem(index) }}>Remove</button></td>
+                        </tr>
                     )
                 })
             }
+            </tbody>
+            </table>
             <div className="cart-total">
                 <strong className="cart-total-title">Total</strong>
                 <span className="cart-total-price">Rs.{total}</span>
             </div>
             <button className="btn btn-primary btn-purchase" type="button" style={{ cursor: 'pointer' }} onClick={handleCheckout}>Checkout</button>
+            
+            </div>
         </>
 
     let pendingCart = props.cart.length == 0
         ? <> <h2 className="section-header">NO Orders Pending</h2></>
         : <>
             <h2 className="section-header">Your Orders</h2>
-            <div className="cart-row">
-                <span className="cart-item cart-header cart-column">Items</span>
-                <span className="cart-pname cart-header cart-column">Name</span>
-                <span className="cart-quantity cart-header cart-column">Quantity</span>
-                <span className="cart-price cart-header cart-column">Price</span>
-                <span className="cart-action cart-header cart-column">Action</span>
-            </div>
+            <div className="tlist">
+            <table>
+                     <thead>
+                        <tr>
+                         <th>Items</th>
+                         <th>Name</th>
+                         <th>Quantity</th>
+                         <th>price</th>
+                         <th>Action</th>
+                         </tr>
+                     </thead>
+                   <tbody>
             {
                 props.cart.map((result, index) => {
                     total += parseInt(result.price) * parseInt(result.quantity)
                     let action = !cancelItems.some(item => result.oid == item.oid)
-                        ? <>
-                            <span className="cart-action"><button className="btn btn-warning" disabled>ORDERED</button></span>
-                            <span className="cart-action"><button className="btn btn-warning" onClick={(index) => { handleCancel(result) }} style={{ backgroundColor: '#f05c0d', cursor: 'pointer' }}>Cancel</button></span>
+                        ? <><tr>
+                          <td><button className="btn btn-warning" disabled>ORDERED</button></td>
+                          <td><button className="btn btn-warning" onClick={(index) => { handleCancel(result) }} style={{ backgroundColor: '#f05c0d', cursor: 'pointer' }}>Cancel</button></td>
+                          </tr>
                         </>
                         : <>
-                            <span className="cart-action"><button className="btn btn-warning" style={{ backgroundColor: '#bccc2e', color: 'black' }} disabled>Requested Cancel order</button></span>
+                        <tr>
+                            <td><button className="btn btn-warning" style={{ backgroundColor: '#bccc2e', color: 'black' }} disabled>Requested Cancel order</button></td>
+                        </tr> 
                         </>
                     return (
-                        <div key={index} className="cart-row">
-                            <span className="cart-item"><img src={`../images/${result.iname}`} alt="" /></span>
-                            <span className="cart-pname">{result.pname}</span>
-                            <span className="cart-quantity">{result.quantity}</span>
-                            <span className="cart-price">Rs.{parseInt(result.price) * parseInt(result.quantity)}</span>
+                        <tr>
+                            <td><img src={`../images/${result.iname}`} alt="" /></td>
+                            <td>{result.pname}</td>
+                            <td>{result.quantity}</td>
+                            <td>Rs.{parseInt(result.price) * parseInt(result.quantity)}</td>
                             {action}
-
-                        </div>
+                        </tr>
                     )
                 })
             }
+            </tbody>
+            </table>
             <div className="cart-total">
                 <strong className="cart-total-title">Total</strong>
                 <span className="cart-total-price">Rs.{total}</span>
+            </div>
+            
             </div>
         </>
 
