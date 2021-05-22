@@ -255,7 +255,7 @@ const CartComponent = (props) => {
                   ) : (
                     <>
 
-                      <td>
+                      <td colSpan='2'>
                         <button
                           className="btn btn-warning"
                           style={{ backgroundColor: "#bccc2e", color: "black" }}
