@@ -6,7 +6,7 @@
     border-radius: 7px;
     border: 1px solid transparent;
     box-shadow: 2px 2px 2px rgba(0, 0, 0,0.2);
-    max-width: 900px;
+    max-width: 1000px;
     margin: 2% auto;
     padding: 0 1.5em;
 }
@@ -76,6 +76,7 @@
 .tlist
 {   overflow-x: scroll;
     padding: 1rem;
+    max-width: 1000px;
 }
 .tlist table{
     width: 100%;
