@@ -17,8 +17,8 @@ export class CategoryPage extends Component {
     }
 
     getCategory() {
-        axios.get(`${BASE_URL}/viewContent.php?option=category`,{
-            cancelToken: source.token 
+        axios.get(`${BASE_URL}/viewContent.php?option=category`, {
+            cancelToken: source.token
         })
             .then(res => {
                 this.setState({

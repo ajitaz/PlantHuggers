@@ -70,7 +70,7 @@ export class User extends Component {
                     <main className="userMain">
                         <h2 className="dash-title">Users-List</h2>
                         <Link to="/dashboard/user/adduser"><button className="primary" style={{ cursor: 'pointer' }}>Add user</button></Link>
-                        <div className="list">
+                        <div className="ulist">
                             <table>
                                 <thead>
                                     <tr>
@@ -83,24 +83,24 @@ export class User extends Component {
                                 </thead>
                                 <tbody>
                                     {
-                                        this.state.data.map((result, index) => {
-                                            return (
-                                                <tr key={index}>
-                                                    <td>{result.username}</td>
-                                                    <td>{result.email}</td>
-                                                    <td>{result.phone}</td>
-                                                    <td>{result.flag}</td>
-                                                    <td>
-                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getUserlist() }}>
-                                                            {close => (
-                                                                <div className="modal">
-                                                                    <button className="close" onClick={close}>&times;</button>
-                                                                    <EditUser editData={result} close={close} />
-                                                                </div>
-                                                            )}
-                                                        </Popup>
+                        this.state.data.map((result, index) => {
+                            return (
+                             <tr key={index}>
+                             <td>{result.username}</td>
+                            <td>{result.email}</td>
+                            <td>{result.phone}</td>
+                          <td>{result.flag}</td>
+                         <td>
+                    <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getUserlist() }}>
+                              {close => (
+                             <div className="modal">
+                     <button className="close" onClick={close}>&times;</button>
+                      <EditUser editData={result} close={close} />
+                          </div>
+                         )}
+                      </Popup>
 
-                                                        <button className="delete" onClick={() => { this.handleClick(result.id, 'delete') }}> <i className="fas fa-trash-alt"> Delete</i></button>
+                     <button className="delete" onClick={() => { this.handleClick(result.id, 'delete') }}> <i className="fas fa-trash-alt"> Delete</i></button>
                                                     </td>
                                                 </tr>
                                             )
