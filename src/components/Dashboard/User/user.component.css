@@ -19,27 +19,25 @@
     border: none;
     
 }
-.list{
+.ulist
+{
     background:#fff;
     padding: 1rem;
     border-radius: 7px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0,0.2);
 }
-.list table{
+.ulist table{
     width: 100%;
-    border-collapse: collapse;
 }
-.list thead{
+.ulist thead{
     background:#efefef;
     text-align: left;
 }
-.list thead th{
+.ulist thead th{
     text-align: center;
 }
-
 table .fa-pencil-alt{
     color: #0275d8;
-   
 }
 table .edit{
     border: none;
@@ -103,3 +101,4 @@ tr td{
   margin: auto;
   text-align: center;
 }
+

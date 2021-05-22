@@ -27,35 +27,6 @@
 .btn-primary:hover {
     background-color: #2D9CDB;
 }
-.cart-header {
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.25em;
-}
-.cart-column {
-    display: flex;
-    border-bottom: 1px solid black;
-    margin-right: 1.5em;
-    padding-bottom: 10px;
-    margin-top: 10px;
-}
-.cart-row {
-    display: flex;
-}
-.cart-price {
-    align-self: center;
-    text-align: center;
-    margin-top: 2%;
-    width: 25%;
-    font-size: 1.2em;
-}
-.cart-pname {
-    align-self: center;
-    text-align: center;
-    margin-top: 2%;
-    width: 25%;
-    font-size: 1.2em;
-}
 .cart-item img{
     width: 180px;
     height: 150px;
@@ -102,3 +73,48 @@
     margin: 40px auto 80px auto;
     font-size: 1em;
 }
+.tlist
+{   overflow-x: scroll;
+    padding: 1rem;
+}
+.tlist table{
+    width: 100%;
+}
+.tlist thead{
+    background:#efefef;
+    text-align: left;
+}
+.tlist thead th{
+    text-align: center;
+}
+table .fa-pencil-alt{
+    color: #0275d8;
+}
+table .edit{
+    border: none;
+    padding: 10px;
+    background: none;
+    cursor: pointer;
+    color: #0275d8;
+    margin-right: 10px;
+}
+table  .delete{
+    border: none;
+    color: #e72f0f;
+    padding: 10px;
+    cursor: pointer;
+    background: none;
+}
+table .fa-trash-alt{
+    color: #e72f0f;
+  
+}
+th{
+    padding: 1rem 1rem;
+}
+tr td{
+    padding:0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
