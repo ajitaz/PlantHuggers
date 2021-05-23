@@ -235,7 +235,7 @@ const CartComponent = (props) => {
               {props.cart.map((result, index) => {
                 total += parseInt(result.price) * parseInt(result.quantity);
                 let action = !cancelItems.some((item) => result.oid == item.oid)
-                  ? Math.floor((new Date() - Date.parse(result.date)) / (1000 * 60 * 60 * 24)) < 2
+                  ? Math.floor((new Date() - Date.parse(result.date)) / (1000 * 60 * 60 * 24)) <= 2
                     ? (<>
                       <td>
                         <button className="btn btn-warning" disabled>
