@@ -80,6 +80,7 @@ const CartComponent = (props) => {
         nid: item.nid,
         uid: localStorage.getItem("uid"),
         quantity: item.orderQuantity,
+        date: new Date().toString(),
         value: "addOrder",
       };
       axios
@@ -144,6 +145,7 @@ const CartComponent = (props) => {
   function handleCancel(item) {
     addCancleOrder(item.oid, item.nur_email, item.name);
   }
+
   let total = 0;
   let currentCart =
     props.freshCart.length === 0
@@ -233,28 +235,37 @@ const CartComponent = (props) => {
               {props.cart.map((result, index) => {
                 total += parseInt(result.price) * parseInt(result.quantity);
                 let action = !cancelItems.some((item) => result.oid == item.oid)
-                  ? (<>
-                    <td>
-                      <button className="btn btn-warning" disabled>
-                        ORDERED
+                  ? Math.floor((new Date() - Date.parse(result.date)) / (1000 * 60 * 60 * 24)) < 2
+                    ? (<>
+                      <td>
+                        <button className="btn btn-warning" disabled>
+                          ORDERED
                       </button>
-                    </td>
-                    <td>
-                      <button
-                        className="btn btn-warning"
-                        onClick={() => {
-                          handleCancel(result);
-                        }}
-                        style={{
-                          backgroundColor: "#f05c0d",
-                          cursor: "pointer",
-                        }}
-                      >Cancel</button>
-                    </td>
-                  </>
-                  ) : (
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-warning"
+                          onClick={() => {
+                            handleCancel(result);
+                          }}
+                          style={{
+                            backgroundColor: "#f05c0d",
+                            cursor: "pointer",
+                          }}
+                        >Cancel</button>
+                      </td>
+                    </>
+                    )
+                    : (<>
+                      <td colSpan='2'>
+                        <button className="btn btn-warning" disabled>
+                          ORDERED
+                      </button>
+                      </td>
+                    </>
+                    )
+                  : (
                     <>
-
                       <td colSpan='2'>
                         <button
                           className="btn btn-warning"
@@ -264,8 +275,6 @@ const CartComponent = (props) => {
                           Requested Cancel order
                         </button>
                       </td>
-                      
-
                     </>
                   );
                 return (
