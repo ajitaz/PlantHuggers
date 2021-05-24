@@ -14,22 +14,19 @@ header{
 .brand{
     white-space: nowrap;
     font-size: 18px;
-    }
-.welcome{
     margin-left: 60px;
     margin-top: 20px;
-    display: flex;
-    gap: 20px;
-}
-.welcome i{
-    margin-top: 6.5%;
-}
+    }
 .social-icons{
     display: flex;
     position: fixed;
     right: 0;
     padding-right:20px ;
 
+}
+.social-icons p{
+    font-weight: bold;
+    margin-top: 1rem;
 }
 .social-icons  .sbtn{
     border-radius: 10px;
@@ -64,7 +61,7 @@ header{
     margin: 1rem;
 }
 @media screen and (max-width:667px) {
-    .welcome p{
+    .social-icons p{
         display: none;
     }
 }

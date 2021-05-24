@@ -10,11 +10,10 @@ export const DashNav = () => {
     }
     return (
         <header>
-            <div className="welcome">
-            <h3 className="brand"><span>Plant Huggers</span></h3>
-                <p>{`Welcome,${localStorage.getItem('uname')}`}</p>
-            </div>
+            <h3 className="brand"><span>Plant Huggers</span></h3>   
+
             <div className="social-icons">
+            <p>{`Welcome,${localStorage.getItem('uname')}`}</p>
                 <Link to={{
                     pathname: '/login',
                     search: '',
