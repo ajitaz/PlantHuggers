@@ -9,7 +9,7 @@ export const Setting = (props) => {
 
     return (
         <>
-            <div className="main-content">
+            <div id="main-content">
                 <main>
                     <h2 className="dash-title">Setting</h2>
                     <div className="setting-div">

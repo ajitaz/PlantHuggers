@@ -5,7 +5,7 @@ main{
     padding-right: 1rem;
     min-width: 82.2vw;
 }
-.main-content{
+#main-content{
     position: absolute;
     left: 240px;
     

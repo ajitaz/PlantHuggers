@@ -3,6 +3,21 @@ import { Link } from 'react-router-dom';
 import './sidebar.component.css';
 
 export const Sidebar = (props) => {
+
+   function toggle(){
+    var x = document.getElementById("sidebar");
+    var y = document.getElementById("main-content");
+    if(x.style.display === 'none'){
+        x.style.display = 'block';
+        y.style.left = '240px';
+       
+    }else{
+        x.style.display = "none"; 
+        y.style.left = "0";   
+    }
+   }
+
+
     let Admin = props.isNurseryAdmin
         ? <>
             <div className="sidebar-menu">
@@ -28,6 +43,7 @@ export const Sidebar = (props) => {
         </>
         : <>
             <div className="sidebar-menu">
+           
                 <ul>
                     <li>
                         <Link to="/dashboard"><i className="fas fa-home"></i><span>Dashboard</span>
@@ -63,12 +79,11 @@ export const Sidebar = (props) => {
 
 
     return (
-        <div className="sidebar">
-            <div className="sidebar-header">
-                <h3 className="brand"><span>Plant Huggers</span></h3>
-            </div>
+        <>
+        <button className="toggle-btn" onClick={toggle}><i className="fa fa-bars"></i></button>
+        <div id="sidebar">
             {Admin}
-
         </div>
+        </>
     )
 }

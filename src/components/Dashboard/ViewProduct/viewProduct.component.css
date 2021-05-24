@@ -1,4 +1,4 @@
-.main-content{
+#main-content{
     position: absolute;
     left: 240px;
     
@@ -20,6 +20,8 @@
     
 }
 .list{
+    width: 100%;
+    overflow-x: scroll;
     background:#fff;
     padding: 1rem;
     border-radius: 7px;
@@ -27,7 +29,6 @@
 }
 .list table{
     width: 100%;
-    border-collapse: collapse;
 }
 .list thead{
     background:#efefef;
@@ -61,9 +62,16 @@ th{
 tr td{
     padding:0;
     font-size: 0.9rem;
+    word-wrap: unset;
 }
 table img{
      width: 100px;
      height: 100px;
      border-radius: 20px;
     }
+
+@media screen and (max-width:1000px) {
+    .list{
+        width: 1200px;
+    }
+}
