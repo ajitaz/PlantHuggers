@@ -6,13 +6,17 @@ export const Sidebar = (props) => {
 
    function toggle(){
     var x = document.getElementById("sidebar");
+    var y = document.getElementById("main-content");
     if(x.style.display === 'none'){
         x.style.display = 'block';
+        y.style.left = '240px';
        
     }else{
-        x.style.display = "none";  
+        x.style.display = "none"; 
+        y.style.left = "0";   
     }
    }
+
 
     let Admin = props.isNurseryAdmin
         ? <>
