@@ -5,7 +5,7 @@ import AddArticle from './../../AddArticle/addArticle.component';
 export const NurseryArticle = () => {
     return (
         <>
-            <div className="main-content">
+            <div id="main-content">
                 <main>
                     <div className="form ">
                         <AddArticle />

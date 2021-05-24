@@ -1,4 +1,4 @@
-/* .main-content{
+#main-content{
     position: absolute;
     left: 240px;
     
@@ -24,4 +24,4 @@ main{
     color: black;
     padding: 1rem;
     text-align: center;
-  } */
+  }

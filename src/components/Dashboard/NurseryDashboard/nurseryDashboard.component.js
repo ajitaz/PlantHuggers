@@ -6,7 +6,7 @@ import './nurseryDashboard.component.css';
 export const NurseryDashboard = () => {
     return (
         <>
-            <div className="main-content">
+            <div id="main-content">
                 <Overview isNurseryDashboard={true} />
             </div>
         </>

@@ -59,7 +59,7 @@ export class AddNursery extends Component {
   render() {
     return (
       <>
-        <div className="main-content">
+        <div id="main-content">
           <DashNav />
           <main>
             <h2 className="dash-title">Add Nursery</h2>

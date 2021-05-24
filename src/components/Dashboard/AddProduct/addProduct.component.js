@@ -97,7 +97,7 @@ export class AddProduct extends Component {
   render() {
     return (
       <>
-        <div className="main-content">
+        <div id="main-content">
           <main>
             <h2 className="dash-title">Add Product</h2>
             <div className="form">
