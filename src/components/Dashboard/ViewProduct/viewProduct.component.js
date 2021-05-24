@@ -65,14 +65,13 @@ componentWillUnmount(){
 
     }
 
-
     render() {
         let addProPath = (localStorage.getItem('flag') === 'NA')
             ? '/nurseryDashboard/addProduct'
             : '/dashboard/addProduct'
         return (
             <>
-                <div className="main-content">
+                <div id="main-content">
                     <main>
                         <h2 className="dash-title">Product-List</h2>
                         <Link to={addProPath}><button className="primary" style={{ cursor: 'pointer' }}>Add Product</button></Link>
@@ -82,7 +81,6 @@ componentWillUnmount(){
                                     <tr>
                                         <th>Product Name</th>
                                         <th>Product Image</th>
-                                        <th>Description</th>
                                         <th>Category</th>
                                         <th>Price</th>
                                         <th>Quantity</th>
@@ -96,7 +94,6 @@ componentWillUnmount(){
                                                 <tr key={index}>
                                                     <td>{result.pname}</td>
                                                     <td><img src={`../images/${result.iname}`} alt="cactus" /></td>
-                                                    <td>{result.p_description}</td>
                                                     <td>{result.cname}</td>
                                                     <td>{result.price}</td>
                                                     <td>{result.quantity}</td>

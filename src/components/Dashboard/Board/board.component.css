@@ -2,7 +2,7 @@ body{
     background: #f1f5f9;
 }
 
-.main-content{
+#main-content{
     position: absolute;
     left: 240px;
     

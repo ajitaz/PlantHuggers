@@ -1,3 +1,4 @@
+#main
 main{
     margin-top: 60px;
     min-height: 100vh;
@@ -40,4 +41,13 @@ main{
 }
 .Dcard-footer a{
     color:#027581;
+}
+@media screen and (max-width:960px) {
+    .dash-cards{
+        display:grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-column-gap: 3rem;
+        gap: 25px;
+    }
+    
 }

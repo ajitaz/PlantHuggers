@@ -110,8 +110,7 @@ export class AddUser extends Component {
     render() {
         return (
             <>
-                <div className="main-content">
-                   <DashNav />
+                <div id="main-content">
                     <main>
                         <h2 className="dash-title">Add User</h2>
 

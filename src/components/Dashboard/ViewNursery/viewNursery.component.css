@@ -1,4 +1,4 @@
-.main-content{
+#main-content{
     position: absolute;
     left: 240px;
     
@@ -19,18 +19,18 @@
     border: none;
     
 }
-.list{
+.nlist{
+    width: 100%;
     background:#fff;
     padding: 1rem;
     border-radius: 7px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0,0.2);
 }
-.list table{
+.nlist table{
     width: 100%;
-    border-collapse: collapse;
     table-layout:fixed;
 }
-.list thead{
+.nlist thead{
     background:#efefef;
     text-align: left;
 }
@@ -56,16 +56,23 @@ table .fa-trash-alt{
     color: #e72f0f;
   
 }
+table tr #para-desc{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 th{
     padding: 1rem 1rem;
 }
 tr td{
     padding:0;
     font-size: 0.9rem;
-    overflow:hidden;
-    text-overflow: ellipsis;
     white-space: nowrap;
-    
-    
 }
+@media screen and (max-width:1000px) {
+    .nlist{
+        width: 1200px;
+        }
+            
+    }
 

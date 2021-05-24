@@ -31,13 +31,6 @@
     width: 180px;
     height: 150px;
 }
-
-.cart-item,.cart-quantity,.cart-action {
-    align-self: center;
-    text-align: center;
-    margin-top: 2%;
-    width: 25%;
-}
 .btn-danger {
     color: white;
     background-color: #f05c0d;
@@ -87,28 +80,6 @@
 }
 .tlist thead th{
     text-align: center;
-}
-table .fa-pencil-alt{
-    color: #0275d8;
-}
-table .edit{
-    border: none;
-    padding: 10px;
-    background: none;
-    cursor: pointer;
-    color: #0275d8;
-    margin-right: 10px;
-}
-table  .delete{
-    border: none;
-    color: #e72f0f;
-    padding: 10px;
-    cursor: pointer;
-    background: none;
-}
-table .fa-trash-alt{
-    color: #e72f0f;
-  
 }
 th{
     padding: 1rem 1rem;

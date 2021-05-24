@@ -11,6 +11,7 @@ export const DashNav = () => {
     return (
         <header>
             <div className="welcome">
+            <h3 className="brand"><span>Plant Huggers</span></h3>
                 <p>{`Welcome,${localStorage.getItem('uname')}`}</p>
             </div>
             <div className="social-icons">

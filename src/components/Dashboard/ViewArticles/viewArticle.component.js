@@ -67,10 +67,10 @@ export class ViewArticle extends Component {
     render() {
         return (
             <>
-                <div className="main-content">
+                <div id="main-content">
                     <main>
                         <h2 className="dash-title">Article-List</h2>
-                        <div className="list">
+                        <div className="alist">
                             <table>
                                 <thead>
                                     <tr>

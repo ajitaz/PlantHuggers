@@ -66,7 +66,7 @@ export class User extends Component {
 
         return (
             <>
-                <div className="main-content">
+                <div id="main-content">
                     <main className="userMain">
                         <h2 className="dash-title">Users-List</h2>
                         <Link to="/dashboard/user/adduser"><button className="primary" style={{ cursor: 'pointer' }}>Add user</button></Link>

@@ -6,7 +6,7 @@ export const Dashboard = () => {
 
     return (
         <>
-            <div className="main-content">
+            <div id="main-content">
                 <Overview />
             </div>
         </>

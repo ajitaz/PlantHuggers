@@ -65,11 +65,11 @@ export class ViewNursery extends Component {
     render() {
         return (
             <>
-                <div className="main-content">
+                <div id="main-content">
                     <main>
                         <h2 className="dash-title">Nursery-List</h2>
                         <Link to="/dashboard/AddNursery"><button className="primary" style={{ cursor: 'pointer' }}>Add Nursery</button></Link>
-                        <div className="list">
+                        <div className="nlist">
                             <table>
                                 <thead>
                                     <tr>
@@ -92,7 +92,7 @@ export class ViewNursery extends Component {
                                                     <td>{result.phone}</td>
                                                     <td>{result.nur_email}</td>
                                                     <td>{result.address}</td>
-                                                    <td>{result.description}</td>
+                                                    <td id="para-desc">{result.description}</td>
                                                     <td>
                                                         <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getNursery() }}>
                                                             {close => (
