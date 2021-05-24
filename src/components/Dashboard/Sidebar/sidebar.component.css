@@ -1,7 +1,7 @@
 #sidebar{
     height:100%;
     width:240px;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 60px;
     display: block;
