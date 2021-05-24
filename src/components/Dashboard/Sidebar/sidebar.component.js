@@ -12,7 +12,6 @@ export const Sidebar = (props) => {
         y.style.left = '240px';
        
     }else{
-        x.style.display = "none"; 
         y.style.left = "0";   
     }
    }
