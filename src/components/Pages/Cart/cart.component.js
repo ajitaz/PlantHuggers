@@ -253,7 +253,7 @@ const CartComponent = (props) => {
                             cursor: "pointer",
                           }}
                         >
-                          <span id="tooltiptext">Cancle Your Order within 2 days</span>
+                          <span id="tooltiptext">Cancel Your Order within 2 days</span>
                           Cancel</button>
                       </td>
                     </>
