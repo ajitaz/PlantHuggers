@@ -8,7 +8,7 @@ export const Sidebar = (props) => {
     let size = ScreenSize()
 
     useEffect(() => {
-        if (size < 960) {
+        if (size < 600) {
             reSize('off')
         } else {
             reSize('on')

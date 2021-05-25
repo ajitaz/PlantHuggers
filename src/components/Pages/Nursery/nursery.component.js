@@ -26,7 +26,7 @@ export const Nursery = () => {
     }, [])
 
     useEffect(() => {
-        if (size < 960) {
+        if (size < 600) {
             setResponsiveStyle('linear-gradient(#ffffffe6 100%, transparent 50%)');
         } else {
             setResponsiveStyle('linear-gradient(140deg, #ffffffe6 50%, transparent 50%)');
