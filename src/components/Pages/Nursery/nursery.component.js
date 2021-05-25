@@ -38,6 +38,11 @@ export class Nursery extends Component {
     }
 
     render() {
+        if (window.innerWidth < '960'){
+            var responsiveStyle = 'linear-gradient(#ffffffe6 100%, transparent 50%)';
+        }else{
+            var responsiveStyle = 'linear-gradient(140deg, #ffffffe6 50%, transparent 50%)'; 
+        }
         return (
             <>
                 <h2 className="title">Partner Nursery</h2>
@@ -45,7 +50,7 @@ export class Nursery extends Component {
                     this.state.data.map((result, index) => {
                         return (
                             <div key={index} className="nurseryimage" style={{
-                                backgroundImage: `linear-gradient(140deg, #ffffffe6 50%, transparent 50%),url(../images/${result.iname})`
+                                backgroundImage: `${responsiveStyle},url(../images/${result.iname})`
                             }}>
                                 <div className="nurserycard">
                                     <h1>{result.name}</h1>

@@ -44,6 +44,46 @@
 .btn-danger:hover {
     background-color: #CC4C4C;
 }
+
+
+.tooltip {
+    position: relative;
+  }
+  
+ #tooltiptext {
+    display: none;
+    width: 300px;
+    height: auto;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 0.625em;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1000;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -150px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+   #tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover #tooltiptext {
+    display: block;
+    opacity: 1;
+  }
 .cart-total {
     text-align: end;
     margin-top: 10px;
@@ -88,5 +128,10 @@ tr td{
     padding:0;
     font-size: 0.9rem;
     text-align: center;
+}
+@media  screen and (max-width:760px) {
+    #tooltiptext{
+        font-size: 0.5em;
+    }
 }
 
