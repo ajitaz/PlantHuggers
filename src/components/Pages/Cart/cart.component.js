@@ -244,7 +244,7 @@ const CartComponent = (props) => {
                       </td>
                       <td>
                         <button
-                          className="btn btn-warning"
+                          className="btn btn-warning tooltip"
                           onClick={() => {
                             handleCancel(result);
                           }}
@@ -252,7 +252,9 @@ const CartComponent = (props) => {
                             backgroundColor: "#f05c0d",
                             cursor: "pointer",
                           }}
-                        >Cancel</button>
+                        >
+                          <span id="tooltiptext">Cancle Your Order within 2 days</span>
+                          Cancel</button>
                       </td>
                     </>
                     )
