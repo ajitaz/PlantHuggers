@@ -13,7 +13,8 @@ export const Overview = (props) => {
         nurseryCount: '',
         orderCount: '',
         nurseryProductCount: '',
-        nurseryArticleCount: ''
+        nurseryArticleCount: '',
+        nurseryName: ''
     })
 
     useEffect(() => {
@@ -51,7 +52,10 @@ export const Overview = (props) => {
             .then(res => {
                 setState((prevState) => ({
                     ...prevState,
-                    orderCount: res.data.length
+                    orderCount: res.data.length,
+                    nurseryName: res.data.reduce((acc, current) => {
+                        return current.name
+                    })
                 }))
             })
             .catch((e) => {
@@ -116,7 +120,7 @@ export const Overview = (props) => {
 
     let content = props.isNurseryDashboard
         ? <>
-            <h2 className="dash-title"> Nursery Dashboard Overview</h2>
+            <h2 className="dash-title">{state.nurseryName}</h2>
             <div className="dash-cards">
                 <div className="Dcard-single">
                     <div className="Dcard-body">

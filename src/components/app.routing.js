@@ -26,7 +26,7 @@ import { ViewOrder } from './Dashboard/ViewOrder/viewOrder.component';
 import { Cart } from './Pages/Cart/cart.component';
 import { DashNav } from './Dashboard/DashNav/dashNav.component';
 import { NurseryArticle } from './Dashboard/NurseryDashboard/NurseryArticle/nurseryArticle.component';
-import Reset  from './Pages/ResetPassword/reset.component';
+import Reset from './Pages/ResetPassword/reset.component';
 import { ViewArticle } from './Dashboard/ViewArticles/viewArticle.component';
 
 
@@ -118,6 +118,7 @@ export const AppRouting = () => {
                 <PublicRoute exact path="/cart" component={Cart}></PublicRoute>
                 <AdminRoute exact path="/dashboard/order" component={ViewOrder}></AdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/article" component={NurseryArticle}></NurseryAdminRoute>
+                <NurseryAdminRoute exact path="/nurseryDashboard/setting" component={Setting}></NurseryAdminRoute>
                 <NurseryAdminRoute exact path="/nurseryDashboard/viewArticle" component={ViewArticle}></NurseryAdminRoute>
                 <Route exact path="/resetPassword/:uname" component={Reset}></Route>
                 <PublicRoute component={NotFound}></PublicRoute>
