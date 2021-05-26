@@ -76,10 +76,9 @@ export class ViewOrder extends Component {
                                         <th>Order ID</th>
                                         <th>Product Image</th>
                                         <th>Product Name</th>
-                                        <th>Price</th>
+                                        <th>Price (per pcs)</th>
                                         <th>Quantity</th>
                                         <th>User Name</th>
-                                        <th>Phone</th>
                                         <th>Nursery</th>
                                         <th>Action</th>
                                     </tr>
@@ -95,13 +94,34 @@ export class ViewOrder extends Component {
                                                     <td>{result.price}</td>
                                                     <td>{result.quantity}</td>
                                                     <td>{result.username}</td>
-                                                    <td>{result.phone_no}</td>
                                                     <td>{result.name}</td>
                                                     <td>
-                                                        <Popup trigger={<button className="edit" ><i>...more</i></button>} position="right center" modal>
+                                                        <Popup trigger={<button className="edit" ><i>...more</i></button>} contentStyle={{ width: "600px", height: '300px' }} position="right center"  modal>
                                                             {close => (
-                                                                <div className="modal">
-                                                                    <button className="close" onClick={close}>&times;</button>
+                                                            <div className="modal">
+                                                                <button className="close" onClick={close}>&times;</button>
+                                                            <h2>Name : {result.full_name}</h2>
+                                                            <h2>Delivery Address : {result.delivery_address}</h2>
+                                                         <h2>Phone No : {result.phone_no}</h2>
+                                                              <table>
+                                                                <thead>
+                                                                    <tr>
+                                                                     <th>Order ID</th>
+                                                                      <th>Product Name</th>
+                                                                      <th>Quantity</th>
+                                                                      <th>Total Price</th>
+                                                                
+                                                                         </tr>
+                                                                    </thead>
+                                                                      <tbody>
+                                                                          <tr>
+                                                                    <td>{result.oid}</td>
+                                                                    <td>{result.pname}</td>
+                                                                    <td>{result.quantity}</td>
+                                                                    <td> {parseInt(result.price) * parseInt(result.quantity)}</td>
+                                                                          </tr>
+                                                                          </tbody>
+                                                                          </table>
                                                                 </div>
                                                             )}
                                                         </Popup>
