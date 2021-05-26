@@ -5,6 +5,9 @@
     width: 80%;
     height: 100%;  
 }
+.details h2{
+    text-transform: uppercase;
+}
 .details p{
     margin-bottom: 20px;
     text-align: justify;

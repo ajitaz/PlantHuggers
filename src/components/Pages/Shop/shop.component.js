@@ -63,14 +63,14 @@ export class Shop extends Component {
                     {
                         this.state.categories.map((result, index) => {
                             return (
-                                <div key={index} className="product-list">
-                                    <h2>{result.cname}</h2>
+                                <div key={index} className="shop-product-list">
+                                    <h2 id="ctitle">{result.cname}</h2>
                                     <div className="grid">
                                         {
                                             this.state.products.map((product, indx) => {
                                                 if (product.cid == result.cid) {
                                                     return (
-                                                        <div key={indx} className="col-4 hide-4">
+                                                        <div key={indx} className="col-4 hide">
                                                             <Link to={`/product?pid=${product.pid}&cid=${product.cid}`}><img src={`../images/${product.iname}`} className="pimage" alt="" /></Link>
                                                             <h4>{product.pname}</h4>
                                                             <p>RS.{product.price}</p>
@@ -82,7 +82,9 @@ export class Shop extends Component {
                                         }
 
                                     </div>
-                                    <button><Link to={`/category/${result.cid}`}>view more</Link></button>
+                                    <div className="btn-container">
+                                    <button className="view-btn"><Link to={`/category/${result.cid}`}>view more</Link></button>
+                                    </div>
                                     <div className="clear"></div>
                                 </div>
                             )
