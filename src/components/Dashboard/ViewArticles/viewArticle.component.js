@@ -88,7 +88,7 @@ export class ViewArticle extends Component {
                                             return (
                                                 <tr key={index}>
                                                     <td>{result.title}</td>
-                                                    <td><img src={`../images/${result.iname}`} alt="cactus" /></td>
+                                                    <td><img src={`../images/${result.iname}`} alt="No Image" /></td>
                                                     <td>{result.a_description}</td>
                                                     <td>{result.author_id}</td>
                                                     <td>{result.cname}</td>
