@@ -16,6 +16,11 @@ let source;
 
 const CartComponent = (props) => {
   const [cancelItems, setCancelItems] = useState([]);
+  const[deliveryData, setDeliveryData] = useState({
+    fullName:'',
+    address:'',
+    phone:''
+  })
 
   useEffect(() => {
     source = axios.CancelToken.source();
@@ -28,6 +33,10 @@ const CartComponent = (props) => {
     };
   }, []);
 
+  useEffect(()=>{
+    console.log(deliveryData)
+  },[deliveryData])
+
   function fetchCancelOrder() {
     axios
       .get(`${BASE_URL}/viewContent.php?option=getCancleOrder`, {
@@ -39,6 +48,14 @@ const CartComponent = (props) => {
       .catch((e) => {
         console.log(e.message);
       });
+  }
+
+  function handleChange(e) {
+    const {name, value} = e.target;
+    setDeliveryData((pre)=>({
+      ...pre,
+      [name]: value
+    }))
   }
 
   function handleCheckout() {
@@ -82,7 +99,10 @@ const CartComponent = (props) => {
         uid: localStorage.getItem("uid"),
         quantity: item.orderQuantity,
         date: new Date().toString(),
-        value: "addOrder",
+        fullName: deliveryData.fullName,
+        address: deliveryData.address,
+        phone: deliveryData.phone,
+        value: "addOrder"
       };
       axios
         .post(`${BASE_URL}/action.php`, data, {
@@ -204,27 +224,30 @@ const CartComponent = (props) => {
               className="btn btn-primary btn-purchase"
               type="button"
               style={{ cursor: "pointer" }}
-              >
+            >
               Checkout
           </button>} contentStyle={{ width: "500px", height: '380px' }} position='top center' modal>
-          {close => (
-                                            <div className="modal">
-                                                <div style={{ marginTop: "25px" }}>
-                                                    <h2 align="center">Fill Your Details.</h2><br />
-                                                    <button className="close" style={{ color: 'white' }} onClick={close}>&times;</button>
-                                                    <label >Your FullName</label>
-                                                    <input type="text" name="fullname" placeholder="Enter your FullName"></input>
-                                                    <label>Your Phone No</label>
-                                                    <input type="number" name="phnumber" placeholder="Enter your phone Number"></input> <label>Delivery Address</label>
-                                                    <input type="text" name="deliveryaddress" placeholder="Enter Delivery address"></input>
-                                                    <div className="final-checkout-hold">
-                                                    <button id="final-checkout" onClick={handleCheckout}>Done</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        )}
-          </Popup>
-            
+              {close => (
+                <div className="modal">
+                  <div style={{ marginTop: "25px" }}>
+                    <h2 align="center">Fill Your Delivery Details.</h2><br />
+                    <button className="close" style={{ color: 'white' }} onClick={close}>&times;</button>
+                    <label >Your FullName</label>
+                    <input type="text" name="fullName" placeholder="Enter your FullName" onChange={handleChange}></input>
+                    <label>Your Phone No</label>
+                    <input type="text" name="phone" placeholder="Enter your phone Number" onChange={handleChange}></input> <label>Delivery Address</label>
+                    <input type="text" name="address" placeholder="Enter Delivery address"onChange={handleChange}></input>
+                    <div className="final-checkout-hold">
+                      <button id="final-checkout" style={{ cursor: 'pointer' }} onClick={() => {
+                        handleCheckout();
+                        close();
+                      }}>Done</button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </Popup>
+
           </div>
         </>
       );
@@ -253,7 +276,7 @@ const CartComponent = (props) => {
               {props.cart.map((result, index) => {
                 total += parseInt(result.price) * parseInt(result.quantity);
                 let action = !cancelItems.some((item) => result.oid == item.oid)
-                  ? Math.floor((new Date() - Date.parse(result.date)) / (1000 * 60 * 60 * 24)) <= 2
+                  ? Math.floor((new Date() - Date.parse(result.date)) / (1000 * 60 * 60 * 24)) < 2
                     ? (<>
                       <td>
                         <button className="btn btn-warning" disabled>

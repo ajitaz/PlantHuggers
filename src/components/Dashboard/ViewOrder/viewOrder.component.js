@@ -95,7 +95,7 @@ export class ViewOrder extends Component {
                                                     <td>{result.price}</td>
                                                     <td>{result.quantity}</td>
                                                     <td>{result.username}</td>
-                                                    <td>{result.phone}</td>
+                                                    <td>{result.phone_no}</td>
                                                     <td>{result.name}</td>
                                                     <td>
                                                         <Popup trigger={<button className="edit" ><i>...more</i></button>} position="right center" modal>
