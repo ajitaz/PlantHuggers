@@ -148,9 +148,11 @@ export class Login extends Component {
                                                     <input type="text" name="forgotUname" placeholder="Enter your username" onChange={this.handelForgotPassword}></input>
                                                     <label>Your Email</label>
                                                     <input type="email" name="email" placeholder="Enter your Email address" onChange={this.handelForgotPassword}></input>
+                                                    <div className="forget-containar">
                                                     <button className="forget-btn" onClick={() => {
                                                         this.sendForgotPassword(close)
                                                     }}>Done</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         )}

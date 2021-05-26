@@ -7,6 +7,7 @@ import {
   remove_from_cart_ac,
 } from "../../../Actions/Order/order.action";
 import "./cart.component.css";
+import Popup from 'reactjs-popup';
 import emailjs from "emailjs-com";
 import notify from "../../Util/notify";
 
@@ -199,14 +200,31 @@ const CartComponent = (props) => {
               <strong className="cart-total-title">Total</strong>
               <span className="cart-total-price">Rs.{total}</span>
             </div>
-            <button
+            <Popup trigger={<button
               className="btn btn-primary btn-purchase"
               type="button"
               style={{ cursor: "pointer" }}
-              onClick={handleCheckout}
-            >
+              >
               Checkout
-          </button>
+          </button>} contentStyle={{ width: "500px", height: '380px' }} position='top center' modal>
+          {close => (
+                                            <div className="modal">
+                                                <div style={{ marginTop: "25px" }}>
+                                                    <h2 align="center">Fill Your Details.</h2><br />
+                                                    <button className="close" style={{ color: 'white' }} onClick={close}>&times;</button>
+                                                    <label >Your FullName</label>
+                                                    <input type="text" name="fullname" placeholder="Enter your FullName"></input>
+                                                    <label>Your Phone No</label>
+                                                    <input type="number" name="phnumber" placeholder="Enter your phone Number"></input> <label>Delivery Address</label>
+                                                    <input type="text" name="deliveryaddress" placeholder="Enter Delivery address"></input>
+                                                    <div className="final-checkout-hold">
+                                                    <button id="final-checkout" onClick={handleCheckout}>Done</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+          </Popup>
+            
           </div>
         </>
       );
