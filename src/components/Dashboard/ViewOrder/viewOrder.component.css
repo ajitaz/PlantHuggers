@@ -50,7 +50,22 @@ table img{
      width: 100px;
      height: 100px;
      border-radius: 20px;
-    }
+}
+.modal table{
+    padding: 2%;
+    width: 100%;
+}
+.modal h2{
+    padding-left: 2%;
+    padding-top: 2%;
+}
+.modal tr td{
+    padding:0;
+    font-size: 1rem;
+}
+.modal thead{
+    background:#efefef;
+}
 @media screen and (max-width:1000px) {
 .olist{
     width: 1200px;
