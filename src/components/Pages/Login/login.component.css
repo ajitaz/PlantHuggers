@@ -133,10 +133,14 @@
 	bottom: 0;
 	transform: translate(-50%,-50%);
 }
+.forget-containar{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
 .forget-btn{
 	border: none;
 	border-radius: 30px;
-	transform: translateX(290%);
 	width: 100px;
 	color: #fff;
 	background: #2482ab;

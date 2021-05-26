@@ -23,6 +23,18 @@
     border-radius: .3em;
     font-weight: bold;
 }
+.final-checkout-hold{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+#final-checkout{
+    border-radius: 10px;
+    border:none;
+    background: #2D9CDB;
+    color: #fff;
+    width: 100px;
+}
 
 .btn-primary:hover {
     background-color: #2D9CDB;

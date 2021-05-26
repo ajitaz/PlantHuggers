@@ -33,22 +33,38 @@
     padding-left: 25px;
     padding-right: 25px;
 }
-.small-container h2{
+.small-container #ctitle{
     text-transform: uppercase;
+    text-align: center;
 }
-.product-list button a{
+.shop-product-list{
+  box-shadow: 0px -1px 17px -6px rgba(0,0,0,0.51);
+  margin-bottom: 2%;
+}
+.shop-product-list button a{
   color: #fff;
 }
-.product-list button{
-  float: right;
+.btn-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.hide:nth-child(n+5){
+  display: none;
+}
+.view-btn{
   background:  #4CAF50;
   color: #fff;
+  width: 100px;
+  height: 30px;
+  text-align: center;
   border: none;
-  padding: 0 30px;
+  padding: 5px 5px;
   border-radius: 5px;
   margin-bottom: 20px;
 }
-.product-list .clear{
+
+.shop-product-list .clear{
   clear: both;
 }
 .shop_page .small-container .row {
@@ -63,9 +79,7 @@
   select:focus {
     outline: none;
   }
-.hide-4:nth-child(n+5){
- display: none;
-  }
+
 .col-4{
     flex-basis: 25%;
     padding: 10px;
@@ -80,4 +94,10 @@
 .col-4 p{
     font-size: 14px;
     line-height: 50px;
+}
+@media screen and (max-width:900px){
+  .hide:nth-child(n+4){
+    display: none;
+  }
+  
 }
