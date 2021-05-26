@@ -62,7 +62,11 @@ export const Sidebar = (props) => {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/nurseryDashboard/article"><i className="fas fa-newspaper"></i><span>Article</span>
+                        <Link to="/nurseryDashboard/viewArticle"><i className="fas fa-newspaper"></i><span>Article</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/nurseryDashboard/setting"><i className="fas fa-cog"></i><span>Setting</span>
                         </Link>
                     </li>
                 </ul>

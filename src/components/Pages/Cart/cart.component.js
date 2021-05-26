@@ -33,10 +33,6 @@ const CartComponent = (props) => {
     };
   }, []);
 
-  useEffect(()=>{
-    console.log(deliveryData)
-  },[deliveryData])
-
   function fetchCancelOrder() {
     axios
       .get(`${BASE_URL}/viewContent.php?option=getCancleOrder`, {
