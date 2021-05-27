@@ -1,5 +1,3 @@
-import { Height } from '@material-ui/icons';
-import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import AddArticle from '../AddArticle/addArticle.component';
 import AddCategory from '../AddCategory/addCategory.component';
