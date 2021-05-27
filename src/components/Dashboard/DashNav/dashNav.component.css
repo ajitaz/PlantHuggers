@@ -64,4 +64,8 @@ header{
     .social-icons p{
         display: none;
     }
+    .brand{
+        white-space: nowrap;
+        font-size: 12px;
+        }
 }

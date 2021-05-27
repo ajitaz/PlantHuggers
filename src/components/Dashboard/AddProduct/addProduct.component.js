@@ -100,7 +100,7 @@ export class AddProduct extends Component {
         <div id="main-content">
           <main>
             <h2 className="dash-title">Add Product</h2>
-            <div className="form">
+            <div className="add-form">
               <form onSubmit={this.handleSubmit}>
                 <label htmlFor="name">ProductName</label>
                 <input type="text" name="name" placeholder="product.." onChange={this.handleChange} />

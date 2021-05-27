@@ -96,7 +96,7 @@ export class ViewOrder extends Component {
                                                     <td>{result.username}</td>
                                                     <td>{result.name}</td>
                                                     <td>
-                                                        <Popup trigger={<button className="edit" ><i>...more</i></button>} contentStyle={{ width: "600px", height: '300px' }} position="right center"  modal>
+                                                        <Popup trigger={<button className="edit" ><i>...more</i></button>} contentStyle={{ width: "600px", height: 'auto' }} position="right center"  modal>
                                                             {close => (
                                                             <div className="modal">
                                                                 <button className="close" onClick={close}>&times;</button>

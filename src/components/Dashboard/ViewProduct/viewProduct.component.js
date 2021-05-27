@@ -98,7 +98,7 @@ componentWillUnmount(){
                                                     <td>{result.price}</td>
                                                     <td>{result.quantity}</td>
                                                     <td>
-                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getProducts() }}>
+                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" contentStyle={{ height:'auto'}} modal onClose={() => { this.getProducts() }}>
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>
