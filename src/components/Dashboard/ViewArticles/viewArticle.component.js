@@ -93,7 +93,7 @@ export class ViewArticle extends Component {
                                                     <td>{result.author_id}</td>
                                                     <td>{result.cname}</td>
                                                     <td>
-                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" modal onClose={() => { this.getArticle() }}>
+                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} position="right center" contentStyle={{ height:'auto'}}  modal onClose={() => { this.getArticle() }}>
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>
