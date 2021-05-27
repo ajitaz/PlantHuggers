@@ -60,10 +60,9 @@ export class AddNursery extends Component {
     return (
       <>
         <div id="main-content">
-          <DashNav />
           <main>
             <h2 className="dash-title">Add Nursery</h2>
-            <div className="form">
+            <div className="add-form">
               <form onSubmit={this.handleSubmit}>
                 <label htmlFor="Nname">Nursery Name</label>
                 <input type="text" name="name" placeholder="Nursery.." onChange={this.handleChange} />

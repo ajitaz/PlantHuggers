@@ -114,7 +114,7 @@ export class AddUser extends Component {
                     <main>
                         <h2 className="dash-title">Add User</h2>
 
-                        <div className="form">
+                        <div className="add-form">
                             <form onSubmit={this.handleSubmit} method="POST" noValidate>
                                 <label htmlFor="uname">UserName</label>
                                 <input type="text" id="uname" name="username" placeholder="Username.." onChange={this.handleChange} />

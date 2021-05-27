@@ -43,7 +43,7 @@ input, select {
     background-color: #45a049;
   }
   
- .form {
+  .add-form {
     position: absolute;
     left: 25%;
     border-radius: 5px;
@@ -51,7 +51,14 @@ input, select {
     padding: 20px;
     width: 50%;
   }
-  
   .error{
     color: red;
+  }
+  @media screen and (max-width:600px) {
+    .add-form{
+      left: 5%;
+      width:95%;
+      right: 0;
+    }
+    
   }

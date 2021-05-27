@@ -1,3 +1,4 @@
+import { Height } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import AddArticle from '../AddArticle/addArticle.component';
@@ -10,7 +11,7 @@ export const Setting = (props) => {
         ? (
             <div className="setting-div">
 
-                <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add Article</button>} position="right center" modal >
+                <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add Article</button>} position="right center" contentStyle={{ width: "500px", height: '600px' }} modal >
                     {close => (
                         <div className="modal">
                             <button className="close" onClick={close}>&times;</button>
@@ -22,7 +23,7 @@ export const Setting = (props) => {
         : (
             <div className="setting-div">
 
-                <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add Article</button>} position="right center" modal >
+                <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add Article</button>} position="right center" contentStyle={{ width: "500px", height: '600px' }} modal >
                     {close => (
                         <div className="modal">
                             <button className="close" onClick={close}>&times;</button>
@@ -30,7 +31,7 @@ export const Setting = (props) => {
                         </div>
                     )}
                 </Popup>
-                <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add category</button>} position="right center" modal>
+                <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add category</button>} position="right center" contentStyle={{ width: "500px", height: '600px' }} modal>
                     {close => (
                         <div className="modal">
                             <button className="close" onClick={close}>&times;</button>
@@ -38,7 +39,7 @@ export const Setting = (props) => {
                         </div>
                     )}
                 </Popup>
-                <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add NewArrival</button>} position="right center" modal>
+                <Popup trigger={<button className="primary" style={{ cursor: 'pointer' }}><i className="fa fa-plus-circle"></i> Add NewArrival</button>} position="right center" contentStyle={{ width: "500px", height: '600px' }} modal>
                     {close => (
                         <div className="modal">
                             <button className="close" onClick={close}>&times;</button>
