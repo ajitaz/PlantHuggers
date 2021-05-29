@@ -124,11 +124,11 @@ export class Login extends Component {
         return (
             <>
                 <div className="main" style={{ backgroundImage: 'url(../images/background.jpg)', backgroundSize: "cover" }}>
-                    <div className="card">
+                   <div className="card">
+                        <div className="card-body">
                         <div className="card-title">
                             <h3><i className="fa fa-user-circle-o" aria-hidden="true"></i> User <span id="action_title">Login</span></h3>
                         </div>
-                        <div className="card-body">
                             <div className="card-body-top">
                                 <button id="login" className="btn" name="login" onClick={login}>login</button>
                                 <button id="register" className="btn" name="register" onClick={register}>register</button>
