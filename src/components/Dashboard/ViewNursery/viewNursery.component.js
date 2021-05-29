@@ -94,7 +94,9 @@ export class ViewNursery extends Component {
                                                     <td>{result.address}</td>
                                                     <td id="para-desc">{result.description}</td>
                                                     <td>
-                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} contentStyle={{ height:'auto'}}  position="right center" modal onClose={() => { this.getNursery() }}>
+                                                        <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>} contentStyle={{ height:'auto'}}  position="right center" modal
+                                                         contentStyle={{ height:'auto',width:'700px'}}
+                                                        onClose={() => { this.getNursery() }}>
                                                             {close => (
                                                                 <div className="modal">
                                                                     <button className="close" onClick={close}>&times;</button>
