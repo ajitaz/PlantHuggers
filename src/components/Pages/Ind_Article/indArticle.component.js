@@ -30,11 +30,15 @@ export class IndArticle extends Component {
     render() {
         return (
             <>
-                <div className="bgimg-1" style={{ backgroundImage: `url("../images/${this.state.article.iname}")` }}>
+                {/* <div className="bgimg-1" style={{ backgroundImage: `url("../images/${this.state.article.iname}")` }}>
+                </div> */}
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'center',flexDirection:'column' }}>
+                    <h3 style={{ marginTop: '20px' }} >{this.state.article.title}</h3>
+                    <img style={{ height: "600px", margin: '20px 150px' }} src={`../images/${this.state.article.iname}`} alt='Not found'></img>
                 </div>
                 <div className="cont">
-                    <h3>{this.state.article.title}</h3>
-                    <p>{this.state.article.a_description}</p>
+
+                    <p style={{fontFamily:'Patrick Hand',fontSize:30,fontWeight:'lighter'}}>{this.state.article.a_description}</p>
                 </div>
             </>
         )

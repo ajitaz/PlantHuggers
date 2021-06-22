@@ -12,8 +12,8 @@ export const Home = () => {
             <Header />
             <NewArrival />
             <Category />
-            <Article />
             <Nursery />
+            <Article />
         </div>
     )
 }
