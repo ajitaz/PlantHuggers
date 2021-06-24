@@ -34,7 +34,7 @@ export class IndArticle extends Component {
                 </div> */}
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'center',flexDirection:'column' }}>
                     <h3 style={{ marginTop: '20px' }} >{this.state.article.title}</h3>
-                    <img style={{ height: "600px", margin: '20px 150px' }} src={`../images/${this.state.article.iname}`} alt='Not found'></img>
+                    <img style={{ height: "800px", margin: '20px 150px' }} src={`../images/${this.state.article.iname}`} alt='Not found'></img>
                 </div>
                 <div className="cont">
 
