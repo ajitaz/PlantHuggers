@@ -38,7 +38,7 @@ export class IndArticle extends Component {
                 </div>
                 <div className="cont">
 
-                    <p style={{fontFamily:'Patrick Hand',fontSize:30,fontWeight:'lighter'}}>{this.state.article.a_description}</p>
+                    <p style={{fontSize:18}}>{this.state.article.a_description}</p>
                 </div>
             </>
         )
