@@ -27,11 +27,11 @@ const StyledBadge = withStyles((theme) => ({
 let menu = document.querySelector('#menu-bar');
 let navbar = document.querySelector('.navbar');
 
-function togglenav(){
-  menu.classList.toggle('fa-times');
-  navbar.classList.toggle('active');
+// function togglenav(){
+//   menu.classList.toggle('fa-times');
+//   navbar.classList.toggle('active');
 
-}
+// }
 
 
 
@@ -95,7 +95,7 @@ const NavBarComponent = (props) => {
             <div className="nav-details">
                 {userLogged}
             </div>
-            <div id="menu-bar" class="fas fa-bars" onClick={togglenav()}></div>
+            <div id="menu-bar" class="fas fa-bars"></div>
         </header>
     )
 }
