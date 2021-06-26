@@ -57,7 +57,7 @@ textarea {
 }
 #social-links li i {
   color: black;
-  border: 1px solid green;
+  font-size: 30px;
 }
 
 @media screen and (max-width: 960px) {

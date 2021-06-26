@@ -75,9 +75,11 @@ export const Footer = () => {
                 <div className="footer-contact box">
                 <h2>Social Links</h2>
                     <ul id="social-links">
-                        <li><i className="fa fa-facebook-square"></i></li>
-                        <li><i className="fa fa-instagram"></i></li>
-                        <li><i className="fa fa-twitter-square"></i></li>
+                        <li><i className="fab fa-facebook"></i></li>
+                        <li><i className="fab fa-instagram"></i></li>
+                        <li><i className="fab fa-twitter"></i></li>
+                        <li><i className="fab fa-google-plus-g"></i></li>
+                        
                     </ul>
                     <h2>Contact us</h2>
                     <div className="content">

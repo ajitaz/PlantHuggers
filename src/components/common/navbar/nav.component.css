@@ -17,6 +17,8 @@ header .navbar a {
   font-size: 18px;
   margin-left: 2rem;
   padding: 1%;
+  font-weight: bolder;
+  color: #068c21;
 }
 
 header .navbar a:hover {
