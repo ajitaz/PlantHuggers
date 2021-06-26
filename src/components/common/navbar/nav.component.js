@@ -24,12 +24,13 @@ const StyledBadge = withStyles((theme) => ({
     },
 }))(Badge);
 
-let menu = document.querySelector('#menu-bar');
-let navbar = document.querySelector('.navbar');
 
-function togglenav(){
-  menu.classList.toggle('fa-times');
-  navbar.classList.toggle('active');
+function togglenav() {
+    let menu = document.querySelector('#menu-bar');
+    let navbar = document.querySelector('.navbar');
+
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
 
 }
 
@@ -48,7 +49,7 @@ const NavBarComponent = (props) => {
 
     let userLogged = props.isLoggedIn
         ? <>
-           <Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
+            <Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
                 {close => (
                     <div className="modal">
                         <Search close={close} />
@@ -84,13 +85,13 @@ const NavBarComponent = (props) => {
 
     return (
         <header>
-                <img src={imgScr} alt="Logo" width="80"></img>
+            <img src={imgScr} alt="Logo" width="80"></img>
             <nav className="navbar">
-                    <Link to="/">Home</Link>
-                    <Link to="/shop">Shop</Link>
-                    <Link to="/nursery">Nursery</Link>
-                    <Link to="/category">Category</Link>
-                    <Link to="/articles">Articles</Link>
+                <Link to="/">Home</Link>
+                <Link to="/shop">Shop</Link>
+                <Link to="/nursery">Nursery</Link>
+                <Link to="/category">Category</Link>
+                <Link to="/articles">Articles</Link>
             </nav>
             <div className="nav-details">
                 {userLogged}
