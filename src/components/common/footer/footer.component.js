@@ -73,6 +73,12 @@ export const Footer = () => {
                     </ul>
                 </div>
                 <div className="footer-contact box">
+                <h2>Social Links</h2>
+                    <ul id="social-links">
+                        <li><i className="fa fa-facebook-square"></i></li>
+                        <li><i className="fa fa-instagram"></i></li>
+                        <li><i className="fa fa-twitter-square"></i></li>
+                    </ul>
                     <h2>Contact us</h2>
                     <div className="content">
                         <form onSubmit={sendFeedback}>
