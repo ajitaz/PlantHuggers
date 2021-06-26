@@ -95,7 +95,7 @@ const NavBarComponent = (props) => {
             <div className="nav-details">
                 {userLogged}
             </div>
-            <div id="menu-bar" class="fas fa-bars" onClick={togglenav()}></div>
+            <div id="menu-bar" class="fas fa-bars" onClick={togglenav}></div>
         </header>
     )
 }
