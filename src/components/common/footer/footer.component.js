@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import emailjs from 'emailjs-com';
 import notify from '../../Util/notify';
 import { Button } from '../Button/button.component';
+import Popup from 'reactjs-popup';
 
 export const Footer = () => {
 
@@ -65,10 +66,10 @@ export const Footer = () => {
                 <div className="footer-links box">
                     <h2>Quick links</h2>
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/shop">Shop</Link></li>
-                        <li><Link to="/nursery">Nursery</Link></li>
-                        <li><Link to="/category">Category</Link></li>
+                        <li><Link to="/">Home</Link></li><br/>
+                        <li><Link to="/shop">Shop</Link></li><br/>
+                        <li><Link to="/nursery">Nursery</Link></li><br/>
+                        <li><Link to="/category">Category</Link></li><br/>
                         <li><Link to="/articles">Articles</Link></li>
                     </ul>
                 </div>
@@ -81,8 +82,10 @@ export const Footer = () => {
                         <li><i className="fab fa-google-plus-g"></i></li>
                         
                     </ul>
-                    <h2>Contact us</h2>
-                    <div className="content">
+                <Popup trigger={<h2 className="btn" style={{ cursor: 'pointer' }}> FeedBack</h2>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
+                    {(
+                    <div className="modal">
+                       <div className="content">
                         <form onSubmit={sendFeedback}>
                             <div className="email">
                                 <div className="text">Email *</div>
@@ -102,8 +105,6 @@ export const Footer = () => {
                                     }
                                     ))
                                 }} required></textarea>
-
-
                             </div>
                             <Button
                                 enabledLable='Send'
@@ -111,9 +112,12 @@ export const Footer = () => {
                                 isSubmitting={false}
                             ></Button>
                         </form>
+                    </div>  
                     </div>
-                </div>
-            </div>
-        </footer>
+                  )}
+            </Popup>
+          </div>
+        </div>
+    </footer>
     )
 }

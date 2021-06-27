@@ -17,9 +17,10 @@ footer {
   height: 80px;
 }
 
-.box h2 {
+footer h2 {
   font-size: 1.5rem;
   font-weight: 600;
+  margin-bottom: 5%;
   text-transform: uppercase;
 }
 .box .content {
@@ -49,6 +50,17 @@ textarea {
 }
 textarea {
   height: 10vh;
+}
+.footer-links a {
+  border-radius: 10px;
+  margin-bottom: 3%;
+  border: 1px solid black;
+}
+.footer-links a:hover {
+  border-radius: 10px;
+  border: none;
+  color: #fff;
+  background: #66bd66;
 }
 #social-links {
   margin-top: 1rem;
