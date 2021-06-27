@@ -51,9 +51,7 @@ export const Nursery = () => {
             {
                 state.map((result, index) => {
                     return (
-                        <div key={index} className="nurseryimage" style={{
-                            backgroundImage: `${responsiveStyle},url(../images/${result.iname})`
-                        }}>
+                        <div key={index} className="nursery">
                             <div className="nurserycard">
                                 <h1>{result.name}</h1>
                                 <p>
@@ -65,6 +63,7 @@ export const Nursery = () => {
                                         <button style={{ cursor: 'pointer' }}>view Details</button></Link>
                                 </p>
                             </div>
+                            <div className="nurseryimage"> <img src={`../images/${result.iname}`}/></div>
                         </div>
                     )
                 })

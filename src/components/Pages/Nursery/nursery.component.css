@@ -1,68 +1,72 @@
-.title{
-    text-align: center;
-    margin:0 auto 80px;
-    position: relative;
-    line-height: 60px;
+.title {
+  text-align: center;
+  margin: 0 auto 80px;
+  position: relative;
+  line-height: 60px;
 }
-.title::after{
-    content: '';
-    background:#239c27;
-    width: 80px;
-    height: 5px;
-    border-radius: 5px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+.title::after {
+  content: "";
+  background: #239c27;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
-
+.nurseryimage img {
+  object-fit: cover;
+  height: 100%;
+  border: 3px solid black;
+}
 .nurserycard {
-   margin-left: 5%;
-   padding-top: 2%;
-  }
-  .nurserycard p{
-    text-align: justify;
-    width: 44%; 
-    height: 150px; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-  }
-  .nurseryimage h1{
-      margin-bottom: 3%;
-  }
-  .nurseryimage p {
-    margin-bottom: 1%;
-  }
-  .nurseryimage p i{
+  margin-left: 5%;
+  padding-top: 2%;
+}
+.nurserycard p {
+  text-align: justify;
+  width: 90%;
+  height: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nursery h1 {
+  margin-bottom: 3%;
+}
+.nursery p {
+  margin-bottom: 1%;
+}
+.nursery p i {
   padding: 0;
   color: #000;
+}
+.nurserycard {
+  line-height: 30px;
+  text-align: left;
+}
+.nursery {
+  display: flex;
+  height: 450px;
+  width: 80%;
+  margin: 4% 10%;
+  background-size: 100% 100%;
+  border-radius: 20px;
+}
+.nursery:hover {
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.nurserycard button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 5px 20px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+@media screen and (max-width: 960px) {
+  .nursery {
+    display: flex;
+    flex-direction: column;
   }
-  .nurserycard {
-    line-height: 30px;
-    text-align: left;
-  }
-  .nurseryimage {
-    overflow: hidden;
-    margin-bottom: 4%; 
-    height: 450px;
-    width: 80%;
-    margin:4% 10% 4% 10%;
-    background-size: 100% 100%;
-    border-radius: 20px;
-  }
-  .nurseryimage:hover{
-    box-shadow: 0 20px 20px 0 rgba(0,0,0,0.2);
-  }
-  .nurserycard button {
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    padding:5px 20px;
-    border-radius: 10px;
-    margin-bottom: 50px;
-  }
-  @media screen and (max-width:960px){
-    .nurserycard p{
-      width: 90%;
-    }
-  }
+}

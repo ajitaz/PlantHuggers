@@ -9,7 +9,7 @@ export const DashNav = () => {
         localStorage.clear();
     }
     return (
-        <header>
+        <header className="dashnav-header">
             <h3 className="brand"><span>Plant Huggers</span></h3>   
             <div className="social-icons">
             <p>{`Welcome,${localStorage.getItem('uname')}`}</p>
