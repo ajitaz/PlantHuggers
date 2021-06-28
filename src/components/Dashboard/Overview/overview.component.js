@@ -118,6 +118,19 @@ export const Overview = (props) => {
             });
     }
 
+    function toggle() {
+        var x = document.getElementById("sidebar");
+        var y = document.getElementById("main-content");
+        if (x.style.display === 'none') {
+            x.style.display = 'block';
+            y.style.left = '240px';
+
+        } else {
+            x.style.display = "none";
+            y.style.left = "0";
+        }
+    }
+
     let content = props.isNurseryDashboard
         ? <>
             <h2 className="dash-title">{state.nurseryName}</h2>
@@ -131,7 +144,7 @@ export const Overview = (props) => {
                         </div>
                     </div>
                     <div className="Dcard-footer">
-                        <Link to="/nurseryDashboard/product">View All</Link>
+                        <Link onClick={toggle} to="/nurseryDashboard/product">View All</Link>
                     </div>
                 </div>
                 <div className="Dcard-single">
