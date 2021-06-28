@@ -50,22 +50,49 @@ export const Nursery = () => {
             <h2 className="title">Partner Nursery</h2>
             {
                 state.map((result, index) => {
+                    let nurseryContent =
+                    <> 
+                    <div className="nurserycard">
+                    <h1>{result.name}</h1>
+                    <p>
+                        {result.description}
+                    </p>
+                    <p>
+                        <i className="fas fa-map-marker-alt"></i> {result.address}<br /><i className="fas fa-at"></i> {result.nur_email}<br /><i className="fas fa-mobile-alt"></i> {result.phone}
+                        <Link to={`/nursery/${result.nid}`}><br /><br />
+                            <button style={{ cursor: 'pointer' }}>view Details</button></Link>
+                    </p>
+                </div>
+                
+                </>
+                let nurseryImage = 
+                <>
+                <div className="nurseryimage"> <img src={`../images/${result.iname}`}/></div>
+                </>
+                if(index % 2==0){
                     return (
                         <div key={index} className="nursery">
-                            <div className="nurserycard">
-                                <h1>{result.name}</h1>
-                                <p>
-                                    {result.description}
-                                </p>
-                                <p>
-                                    <i className="fas fa-map-marker-alt"></i> {result.address}<br /><i className="fas fa-at"></i> {result.nur_email}<br /><i className="fas fa-mobile-alt"></i> {result.phone}
-                                    <Link to={`/nursery/${result.nid}`}><br /><br />
-                                        <button style={{ cursor: 'pointer' }}>view Details</button></Link>
-                                </p>
-                            </div>
-                            <div className="nurseryimage"> <img src={`../images/${result.iname}`}/></div>
+                            {
+                           nurseryContent
+
+                            }
+                            {
+                                nurseryImage
+                            }
                         </div>
                     )
+                  }else{
+                    return(
+                        <div key={index} className="nursery">
+                    {
+                         nurseryImage
+                    }{
+                        nurseryContent 
+                    }
+                </div>
+                    )
+                  }
+                    
                 })
 
             }
