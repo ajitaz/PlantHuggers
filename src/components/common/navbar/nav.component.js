@@ -86,11 +86,11 @@ const NavBarComponent = (props) => {
         <header>
             <img src={imgScr} alt="Logo" width="80"></img>
             <nav className="navbar">
-                <Link to="/">Home</Link>
-                <Link to="/shop">Shop</Link>
-                <Link to="/nursery">Nursery</Link>
-                <Link to="/category">Category</Link>
-                <Link to="/articles">Articles</Link>
+                <Link to="/" onClick={togglenav}>Home</Link>
+                <Link to="/shop" onClick={togglenav}>Shop</Link>
+                <Link to="/nursery" onClick={togglenav}>Nursery</Link>
+                <Link to="/category" onClick={togglenav}>Category</Link>
+                <Link to="/articles" onClick={togglenav}>Articles</Link>
             </nav>
             <div className="nav-details">
                 {userLogged}
