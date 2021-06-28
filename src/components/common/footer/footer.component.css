@@ -16,7 +16,9 @@ footer {
 #txarea {
   height: 80px;
 }
-
+.text {
+  font-size: 18px;
+}
 footer h2 {
   font-size: 1.5rem;
   font-weight: 600;
@@ -51,7 +53,16 @@ textarea {
 textarea {
   height: 10vh;
 }
+.footer-links ul {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-links ul li a {
+  padding: 5px;
+}
 .footer-links a {
+  font-weight: bolder;
   border-radius: 10px;
   margin-bottom: 3%;
   border: 1px solid black;

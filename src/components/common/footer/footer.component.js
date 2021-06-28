@@ -73,7 +73,7 @@ export const Footer = () => {
                         <li><Link to="/articles">Articles</Link></li>
                     </ul>
                 </div>
-                <div className="footer-contact box">
+                <div className="footer-contact box"  style={{}}>
                 <h2>Social Links</h2>
                     <ul id="social-links">
                         <li><i className="fab fa-facebook"></i></li>
@@ -85,10 +85,11 @@ export const Footer = () => {
                 <Popup trigger={<h2 className="btn" style={{ cursor: 'pointer' }}> FeedBack</h2>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
                     {(
                     <div className="modal">
+                        <h2 style={{textAlign:'center',fontWeight:'bolder',fontSize:'24px',color:'green',textDecoration:'underline'}}>Your Feedback</h2>
                        <div className="content">
                         <form onSubmit={sendFeedback}>
                             <div className="email">
-                                <div className="text">Email *</div>
+                                <div className="text" >Email *</div>
                                 <input type="email" name="email" value={state.email} onChange={(e) => {
                                     setState((prevState) => ({
                                         ...prevState,

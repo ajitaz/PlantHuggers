@@ -15,9 +15,14 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.nurseryimage {
+  flex: 1;
+}
 .nurseryimage img {
   object-fit: cover;
+  width: 100%;
   height: 100%;
+  padding: 1%;
   border: 3px solid black;
 }
 .nurserycard {
@@ -42,11 +47,14 @@
   color: #000;
 }
 .nurserycard {
+  flex: 1;
   line-height: 30px;
   text-align: left;
 }
 .nursery {
   display: flex;
+  /* align-items: flex-start; */
+  justify-content: space-between;
   height: 450px;
   width: 80%;
   margin: 4% 10%;
