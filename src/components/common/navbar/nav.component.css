@@ -59,76 +59,8 @@ header a {
   color: #fff;
 }
 
-/* .navbar {
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2px;
-  background: #ecebeb;
-  position: sticky;
-  width: 100%;
-  left: 0;
-  top: 0;
-  border-top: 0;
-  z-index: 100;
-}
-
-nav {
-  text-align: right;
-}
-nav ul {
-  display: inline-block;
-}
-nav ul li {
-  display: inline-block;
-  margin-right: 20px;
-}
-nav ul li:last-child {
-  margin-right: 80px;
-}
-nav ul a:hover {
-  background: #4caf50;
-  color: #fff;
-  padding: 5%;
-  border-radius: 5px;
-}
-
-.nav-details ul li {
-  display: inline-block;
-  margin-right: 20px;
-}
-
-nav ul a {
-  padding: 5%;
-  color: #000;
-}
-ul li i {
-  color: #000;
-}
-
-.login-btn {
-  padding: 1.5px 15px;
-  border: 1px solid black;
-  border-radius: 5px;
-  color: #000;
-}
-.login-btn:hover {
-  background: #4caf50;
-  color: #fff;
-}
-
-@media screen and (max-width: 960px) {
-  .navbar {
-    align-self: center;
-    flex-direction: column;
-  }
-  nav ul li:last-child {
-    margin-right: 0px;
-  }
-} */
-
-@media (max-width: 768px) {
+@media (max-width: 838px) {
   #menu-bar {
     display: initial;
     font-size: 2rem;
