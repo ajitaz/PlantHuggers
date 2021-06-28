@@ -64,8 +64,8 @@ const NavBarComponent = (props) => {
                 </IconButton>
             </Link>
 
-            <Link to=""><i className="fas fa-user"> {`${localStorage.getItem('uname')}`}</i></Link>
-            <Link to=""><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link>
+            <Link to="" style={{fontSize: '18px'}}><i className="fas fa-user"> {`${localStorage.getItem('uname')}`}</i></Link>
+            <Link to=""  style={{fontSize: '18px'}}><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link>
         </>
         : <>
             <Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>

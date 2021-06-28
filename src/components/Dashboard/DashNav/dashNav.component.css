@@ -1,71 +1,72 @@
-header{
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    width: 100%;
-    background: #fff;
-    height: 60px;
-    padding: 0rem 1rem;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom:1px solid #ccc;
+.dashnav-header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: #fff;
+  height: 4rem;
+  padding: 0rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
 }
-.brand{
-    white-space: nowrap;
-    font-size: 18px;
-    margin-left: 60px;
-    margin-top: 20px;
-    }
-.social-icons{
-    display: flex;
-    position: fixed;
-    right: 0;
-    padding-right:20px ;
 
+.brand {
+  white-space: nowrap;
+  font-size: 18px;
+  margin-left: 60px;
+  margin-top: 1.5rem;
 }
-.social-icons p{
-    font-weight: bold;
-    margin-top: 1rem;
+.social-icons {
+  display: flex;
+  position: fixed;
+  right: 0;
+  padding-right: 20px;
 }
-.social-icons  .sbtn{
-    border-radius: 10px;
-    padding: 0 10px 0 10px;
-    margin: 1rem;
-    color: #fff;
-    background: #35a735;
-    border: 1.5px solid #000;
+.social-icons p {
+  font-weight: bold;
+  margin-top: 1.3rem;
 }
-.social-icons  .lbtn{
-    border-radius: 10px;
-    padding: 0 10px 0 10px;
-    margin-left: 20px;
-   background: none;
-   cursor: pointer;
-   white-space: nowrap;
-   margin: 1rem;
-   border: 1.5px solid #000;
-   color: #000;
+.social-icons .sbtn {
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin: 1rem;
+  color: #fff;
+  background: #35a735;
+  border: 1.5px solid #000;
 }
-.social-icons  .lbtn:hover{
-    background: #ec3939;
-    color:#fff;
-    border: 1.5px solid #ec3939;
+.social-icons .lbtn {
+  border-radius: 10px;
+  padding: 5px 15px;
+  margin-left: 20px;
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+  margin: 1rem;
+  border: 1.5px solid #000;
+  color: #000;
 }
-.social-icons  .sbtn:hover{
-    background: #69da69;
-    color:#fff;
-    border: 1.5px solid #69da69;
+.social-icons .lbtn:hover {
+  background: #ec3939;
+  color: #fff;
+  border: 1.5px solid #ec3939;
 }
-.social-icons span{
-    margin: 1rem;
+.social-icons .sbtn:hover {
+  background: #69da69;
+  color: #fff;
+  border: 1.5px solid #69da69;
 }
-@media screen and (max-width:667px) {
-    .social-icons p{
-        display: none;
-    }
-    .brand{
-        white-space: nowrap;
-        font-size: 12px;
-        }
+.social-icons span {
+  margin: 1rem;
+}
+@media screen and (max-width: 667px) {
+  .social-icons p {
+    display: none;
+  }
+  .brand {
+    white-space: nowrap;
+    font-size: 12px;
+  }
 }
