@@ -73,7 +73,7 @@ export const Footer = () => {
                         <li><Link to="/articles">Articles</Link></li>
                     </ul>
                 </div>
-                <div className="footer-contact box"  style={{}}>
+                <div className="footer-contact box social"  style={{}}>
                 <h2>Social Links</h2>
                     <ul id="social-links">
                         <li><i className="fab fa-facebook"></i></li>

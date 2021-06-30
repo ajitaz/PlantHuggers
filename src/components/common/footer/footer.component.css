@@ -83,6 +83,11 @@ textarea {
   font-size: 30px;
 }
 
+.social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media screen and (max-width: 960px) {
   .footer-content {
     display: flex;
