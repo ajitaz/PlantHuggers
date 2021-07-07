@@ -43,23 +43,23 @@ export class Login extends Component {
             responseType: 'json'
         })
             .then(res => {
-                switch (res.data['flag']) {
+                switch (res.data['role']) {
                     case 'Admin':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid', res.data['id']);
-                        localStorage.setItem('flag', res.data['flag']);
+                        localStorage.setItem('role', res.data['role']);
                         this.props.history.push('/dashboard');
                         break;
                     case 'User':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid', res.data['id']);
-                        localStorage.setItem('flag', res.data['flag']);
+                        localStorage.setItem('role', res.data['role']);
                         this.props.history.push('/');
                         break;
                     case 'NA':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid', res.data['id']);
-                        localStorage.setItem('flag', res.data['flag']);
+                        localStorage.setItem('role', res.data['role']);
                         this.props.history.push('/nurseryDashboard');
 
                         break;

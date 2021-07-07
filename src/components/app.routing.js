@@ -43,7 +43,7 @@ const NotFound = () => {
 
 const AdminRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={routeProps => (
-        (localStorage.getItem('flag') === 'Admin')
+        (localStorage.getItem('role') === 'Admin')
             ? <>
                 <Sidebar isNurseryAdmin={false}></Sidebar>
                 <DashNav />
@@ -64,7 +64,7 @@ const PublicRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={routeProps => (
 
         <>
-            <NavBar isLoggedIn={localStorage.getItem('flag') ? true : false} />
+            <NavBar isLoggedIn={localStorage.getItem('role') ? true : false} />
             <Component {...routeProps}></Component>
             <Footer />
         </>
@@ -74,7 +74,7 @@ const PublicRoute = ({ component: Component, ...rest }) => {
 
 const NurseryAdminRoute = ({ component: Component, ...rest }) => {
     return <Route {...rest} render={routeProps => (
-        (localStorage.getItem('flag') === 'NA' || localStorage.getItem('flag') === 'Admin')
+        (localStorage.getItem('role') === 'NA' || localStorage.getItem('role') === 'Admin')
             ? <>
                 <Sidebar isNurseryAdmin={true}></Sidebar>
                 <DashNav />

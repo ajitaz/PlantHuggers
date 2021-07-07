@@ -66,7 +66,7 @@ componentWillUnmount(){
     }
 
     render() {
-        let addProPath = (localStorage.getItem('flag') === 'NA')
+        let addProPath = (localStorage.getItem('role') === 'NA')
             ? '/nurseryDashboard/addProduct'
             : '/dashboard/addProduct'
         return (
