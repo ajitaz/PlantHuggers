@@ -123,7 +123,7 @@ export class Login extends Component {
         }
         return (
             <>
-                <div className="main" style={{ backgroundImage: 'url(../images/background.jpg)', backgroundSize: "cover" }}>
+                <div className="loginMain" style={{ backgroundImage: 'url(../images/background.jpg)',}}>
                    <div className="card">
                         <div className="card-body">
                         <div className="card-title">
