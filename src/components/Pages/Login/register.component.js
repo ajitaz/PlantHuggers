@@ -13,7 +13,7 @@ const defaultForm = {
     confirmPassword: '',
     email: '',
     phone: '',
-    flag: 'User'
+    role: 'User'
 }
 
 class Register extends Component {

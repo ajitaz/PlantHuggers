@@ -11,8 +11,6 @@ let source;
 export const Nursery = () => {
 
     const [state, setState] = useState([])
-    const [responsiveStyle, setResponsiveStyle] = useState('')
-    let size = ScreenSize()
 
     useEffect(() => {
         source = axios.CancelToken.source();
@@ -24,14 +22,6 @@ export const Nursery = () => {
             }
         })
     }, [])
-
-    useEffect(() => {
-        if (size < 960) {
-            setResponsiveStyle('linear-gradient(#ffffffe6 100%, transparent 50%)');
-        } else {
-            setResponsiveStyle('linear-gradient(140deg, #ffffffe6 50%, transparent 50%)');
-        }
-    }, [size])
 
 
     function getNursery() {
@@ -50,10 +40,8 @@ export const Nursery = () => {
             <h2 className="title">Partner Nursery</h2>
             {
                 state.map((result, index) => {
-                    return (
-                        <div key={index} className="nurseryimage" style={{
-                            backgroundImage: `${responsiveStyle},url(../images/${result.iname})`
-                        }}>
+                    let nurseryContent =
+                        <>
                             <div className="nurserycard">
                                 <h1>{result.name}</h1>
                                 <p>
@@ -65,9 +53,37 @@ export const Nursery = () => {
                                         <button style={{ cursor: 'pointer' }}>view Details</button></Link>
                                 </p>
                             </div>
+
+                        </>
+                    let nurseryImage =
+                        <>
+                            <div className="nurseryimage"> <img src={`../images/${result.iname}`} /></div>
+                        </>
+
+                    return (index % 2 == 0) ? (
+                        <div key={index} className="nursery">
+                            {
+                                nurseryContent
+                            }
+                            {
+                                nurseryImage
+                            }
                         </div>
                     )
-                })
+                        :
+
+                        (<div key={index} className="nursery">
+                            {
+                                nurseryImage
+                            }
+                            {
+                                nurseryContent
+                            }
+                        </div>)
+
+                }
+
+                )
 
             }
 

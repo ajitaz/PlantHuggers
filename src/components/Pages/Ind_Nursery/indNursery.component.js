@@ -48,7 +48,6 @@ export class IndNursery extends Component {
                 </div>
 
                 <div className="cont">
-                    <h3>{this.state.nursery.name}</h3>
                     <p>{this.state.nursery.description}</p>
                 </div>
 

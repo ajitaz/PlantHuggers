@@ -28,7 +28,7 @@ export const NewArrival = () => {
         getNewArrival()
         return(()=>{
             if (source) {
-                source.cancel("NewArrival got Unmounted")
+                source.cancel("Popular products got Unmounted")
             }
         })
     }, [])
@@ -37,7 +37,7 @@ export const NewArrival = () => {
     return (
         <>
             <div className="featured">
-                <h2 className="title">New Arrivals</h2>
+                <h2 className="title">Popular Products</h2>
                 <div className="small-container">
                     <div className="row">
                         {

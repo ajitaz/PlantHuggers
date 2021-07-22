@@ -1,6 +1,6 @@
 .cont{
     text-align:center;
-    padding:50px 80px;
+    padding:50px 150px;
     text-align: justify;
 }
 
@@ -21,7 +21,7 @@ h3 {
   letter-spacing: 5px;
   text-transform: uppercase;
   font: 25px "Lato", sans-serif;
-  color: #000;
+  color: #558000;
   text-align:center
 }
 .small-container{

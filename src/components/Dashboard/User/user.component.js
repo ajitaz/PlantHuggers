@@ -89,7 +89,7 @@ export class User extends Component {
                              <td>{result.username}</td>
                             <td>{result.email}</td>
                             <td>{result.phone}</td>
-                          <td>{result.flag}</td>
+                          <td>{result.role}</td>
                          <td>
                     <Popup trigger={<button className="edit" ><i className="fas fa-pencil-alt"> Edit</i></button>}  contentStyle={{ height:'auto',width:'700px'}} position="right center" modal onClose={() => { this.getUserlist() }}>
                               {close => (

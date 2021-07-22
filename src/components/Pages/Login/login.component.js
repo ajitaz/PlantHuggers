@@ -43,23 +43,23 @@ export class Login extends Component {
             responseType: 'json'
         })
             .then(res => {
-                switch (res.data['flag']) {
+                switch (res.data['role']) {
                     case 'Admin':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid', res.data['id']);
-                        localStorage.setItem('flag', res.data['flag']);
+                        localStorage.setItem('role', res.data['role']);
                         this.props.history.push('/dashboard');
                         break;
                     case 'User':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid', res.data['id']);
-                        localStorage.setItem('flag', res.data['flag']);
+                        localStorage.setItem('role', res.data['role']);
                         this.props.history.push('/');
                         break;
                     case 'NA':
                         localStorage.setItem('uname', res.data['uname']);
                         localStorage.setItem('uid', res.data['id']);
-                        localStorage.setItem('flag', res.data['flag']);
+                        localStorage.setItem('role', res.data['role']);
                         this.props.history.push('/nurseryDashboard');
 
                         break;
@@ -123,7 +123,7 @@ export class Login extends Component {
         }
         return (
             <>
-                <div className="main" style={{ backgroundImage: 'url(../images/background.jpg)', backgroundSize: "cover" }}>
+                <div className="loginMain" style={{ backgroundImage: 'url(../images/background.jpg)',}}>
                    <div className="card">
                         <div className="card-body">
                         <div className="card-title">

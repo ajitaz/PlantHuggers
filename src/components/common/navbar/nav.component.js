@@ -25,6 +25,16 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 
+function togglenav() {
+    let menu = document.querySelector('#menu-bar');
+    let navbar = document.querySelector('.navbar');
+
+    menu.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+}
+
+
+
 const NavBarComponent = (props) => {
 
     function clearLocalStorage() {
@@ -37,59 +47,57 @@ const NavBarComponent = (props) => {
     }
 
     let userLogged = props.isLoggedIn
-        ? <ul>
-            <li><Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
+        ? <>
+            <Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
                 {close => (
                     <div className="modal">
                         <Search close={close} />
                     </div>
                 )}
-            </Popup></li>
-            <li><Link to="/cart">
+            </Popup>
+            <Link to="/cart">
                 <IconButton aria-label="cart">
                     <StyledBadge badgeContent={(props.count + props.freshCartCount)} color="secondary">
                         <ShoppingCartSharpIcon style={{ color: 'black' }} />
                     </StyledBadge>
                 </IconButton>
-            </Link></li>
+            </Link>
 
-            <li><Link to=""><i className="fas fa-user"> {`${localStorage.getItem('uname')}`}</i></Link></li>
-            <li><Link to=""><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link></li>
-        </ul>
-        : <ul>
-            <li><Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
+            <Link to="" style={{ fontSize: '18px' }}><i className="fas fa-user"> {`${localStorage.getItem('uname')}`}</i></Link>
+            <Link to="" style={{ fontSize: '18px' }}><i className="fas fa-sign-out-alt" onClick={() => { clearLocalStorage() }}></i></Link>
+        </>
+        : <>
+            <Popup trigger={<i className="fas fa-search" style={{ cursor: 'pointer' }}> </i>} contentStyle={{ width: "700px", height: 'auto', overflow: 'hidden' }} modal>
                 {close => (
                     <div className="modal">
                         <Search close={close} />
                     </div>
                 )}
-            </Popup></li>
-            <li><Link to={{
+            </Popup>
+            <Link to={{
                 pathname: '/login',
                 search: '',
                 state: { fromRegister: false }
-            }} className="login-btn">Login</Link></li>
-        </ul>
+            }} className="login-btn">Login</Link>
+        </>
 
 
     return (
-        <div className="navbar">
-            <div className="logo">
-                <img src={imgScr} alt="Logo" width="80"></img>
-            </div>
-            <nav>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/shop">Shop</Link></li>
-                    <li><Link to="/nursery">Nursery</Link></li>
-                    <li><Link to="/category">Category</Link></li>
-                    <li><Link to="/articles">Articles</Link></li>
-                </ul>
+        <header>
+            <img src={imgScr} alt="Logo" width="80"></img>
+            <nav className="navbar">
+                <Link to="/" onClick={togglenav}>Home</Link>
+                <Link to="/shop" onClick={togglenav}>Shop</Link>
+                <Link to="/nursery" onClick={togglenav}>Nursery</Link>
+                <Link to="/category" onClick={togglenav}>Category</Link>
+                <Link to="/articles" onClick={togglenav}>Articles</Link>
             </nav>
             <div className="nav-details">
                 {userLogged}
             </div>
-        </div>
+            <div id="menu-bar" className="fas fa-bars" onClick={togglenav}></div>
+
+        </header>
     )
 }
 

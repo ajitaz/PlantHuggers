@@ -1,71 +1,90 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px;
+  background: #ecebeb;
+  position: sticky;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-top: 0;
+  z-index: 100;
+  height: 5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+header .navbar a {
+  font-size: 18px;
+  margin-left: 2rem;
+  padding: 1%;
+  font-weight: bolder;
+  color: #068c21;
+}
 
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2px;
-    background: #ecebeb;
-    position: sticky;
-    width: 100%;
+header .navbar a:hover {
+  background: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+}
+
+#menu-bar {
+  font-size: 3rem;
+  cursor: pointer;
+  color: #000;
+  border: 0.1rem solid #000;
+  border-radius: 0.3rem;
+  padding: 0rem 0.8rem;
+  display: none;
+}
+header a {
+  font-size: 1.5rem;
+  color: #666;
+  padding-right: 0.5rem;
+}
+.login-btn {
+  font-size: 18px;
+  padding: 1.5px 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: 20px;
+  color: #000;
+}
+
+.nav-details a {
+  display: inline-block;
+  margin-right: 20px;
+}
+.login-btn:hover {
+  background: #4caf50;
+  color: #fff;
+}
+
+
+@media (max-width: 838px) {
+  #menu-bar {
+    display: initial;
+    font-size: 2rem;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
     left: 0;
-    top: 0;
-    border-top: 0;
-    z-index: 100;
-    /* overflow:hidden; */
-    
-}
+    right: 0;
+    background: #f7f7f7;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
 
-nav{
-    text-align: right; 
-}
-nav ul{
-    display: inline-block;
-}
-nav ul li{
-    display: inline-block;
-    margin-right: 20px;
-}
-nav ul li:last-child{
-    margin-right: 80px;
-}
-nav ul a:hover{
-    background: #4CAF50;
-    color: #fff;
-    padding: 5%;
-    border-radius: 5px;
-}
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 
-.nav-details ul li{
-    display: inline-block;
-    margin-right: 20px;
-}
-
-nav ul a{
-    padding: 5%;
-    color: #000;
-}
-ul li i{
-    color: #000;  
-}
-
-.login-btn{
-    padding: 1.5px 15px;
-    border: 1px solid black;
-    border-radius: 5px;
-    color:#000;
-}
-.login-btn:hover{
-    background: #4CAF50;
-    color: #fff;
-}
-
-@media screen and (max-width:960px) {
-    .navbar{
-        align-self: center;
-        flex-direction: column;
-        
-    }
-    nav ul li:last-child{
-        margin-right: 0px;
-    }
+  header .navbar a {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: block;
+    border: 0.2rem solid rgba(0, 0, 0, 0.1);
+    border-left: 0.5rem solid #4caf50;
+    background: #fff;
+  }
 }

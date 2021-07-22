@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
-
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    list-style-type: none;
-    box-sizing: border-box;    
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: "Mulish";
 }
-
-.error{
-    color: red;
+.error {
+  color: red;
 }

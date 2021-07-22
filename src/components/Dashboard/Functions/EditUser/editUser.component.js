@@ -11,7 +11,7 @@ const defaultForm = {
     username: '',
     email: '',
     phone: '',
-    flag: ''
+    role: ''
 }
 
 class EditUser extends Component {
@@ -31,7 +31,7 @@ class EditUser extends Component {
                 username: this.props.editData.username,
                 email: this.props.editData.email,
                 phone: this.props.editData.phone,
-                flag: this.props.editData.flag
+                role: this.props.editData.role
             }
         })
     }
@@ -83,7 +83,7 @@ class EditUser extends Component {
                     <label htmlFor="phone">Phone</label>
                     <input type="Number" id="phone" name="phone" placeholder="Phone Number" onChange={this.handleChange} value={this.state.data.phone} />
                     <label htmlFor="designation">Designation</label>
-                    <select id="designation" name="flag" onChange={this.handleChange} value={this.state.data.flag} >
+                    <select id="designation" name="role" onChange={this.handleChange} value={this.state.data.role} >
                         <option value="">None</option>
                         <option value="Admin">Admin</option>
                         <option value="User">User</option>

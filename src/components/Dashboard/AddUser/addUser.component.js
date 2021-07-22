@@ -11,7 +11,7 @@ const defaultForm = {
     username: '',
     password: '',
     email: '',
-    flag: ''
+    role: ''
 }
 
 export class AddUser extends Component {
@@ -130,7 +130,7 @@ export class AddUser extends Component {
                                 <p className="error">{this.state.error.phone}</p>
 
                                 <label htmlFor="designation">Designation</label>
-                                <select id="designation" name="flag" onChange={this.handleChange} >
+                                <select id="designation" name="role" onChange={this.handleChange} >
                                     <option value="">None</option>
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>
