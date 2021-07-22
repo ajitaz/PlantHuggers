@@ -11,8 +11,8 @@ export const NewArrival = () => {
     const [state, setState] = useState([])
 
 
-    const getNewArrival = () => {
-        axios.get(`${BASE_URL}/viewContent.php?option=viewNewArrival`, {
+    const getPopularProducts = () => {
+        axios.get(`${BASE_URL}/viewContent.php?option=viewPopularProducts`, {
             cancelToken: source.token
         })
             .then(res => {
@@ -25,7 +25,7 @@ export const NewArrival = () => {
 
     useEffect(() => {
         source = axios.CancelToken.source()
-        getNewArrival()
+        getPopularProducts()
         return(()=>{
             if (source) {
                 source.cancel("Popular products got Unmounted")
